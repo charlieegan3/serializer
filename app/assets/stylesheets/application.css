@@ -20,13 +20,19 @@ body {
 }
 
 td {
-  padding: 5px;
+  padding-bottom: 8px;
 }
 
-td:first-child {
-  text-align: right;
+.muted {
+  color: Gray;
+  font-size: 0.85em;
 }
 
-.domain {
-  color: DarkGrey;
+.muted span {
+  color: DarkGray;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid black;
 }

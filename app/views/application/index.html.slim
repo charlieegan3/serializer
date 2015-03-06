@@ -1,8 +1,10 @@
 table
   -@items.each do |item|
     tr
-      td =distance_of_time_in_words(item.created_at, Time.new) + ' ago'
       td
         =link_to item.title, item.url
-        |&nbsp;
-        span.domain =item.url.split('/')[2]
+        br
+        span.muted
+          =distance_of_time_in_words(item.created_at, Time.new) + ' ago'
+          |&nbsp;&nbsp;
+          span =item.url.split('/')[2]

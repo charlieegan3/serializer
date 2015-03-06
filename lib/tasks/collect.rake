@@ -2,7 +2,7 @@ require 'open-uri'
 require_relative '../../config/environment'
 
 task :collect do
-  page = Nokogiri::HTML(open('https://news.ycombinator.com'))
+  page = Nokogiri::HTML(open('https://news.ycombinator.com'), nil, 'UTF-8')
 
   item_count = Item.count
   page.css('td.title > a').map do |item|

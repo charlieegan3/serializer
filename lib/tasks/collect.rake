@@ -2,7 +2,6 @@ require 'open-uri'
 require_relative '../../config/environment'
 
 task :collect do
-  Item.delete_all
 
   item_count = Item.count
 

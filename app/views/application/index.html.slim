@@ -3,7 +3,7 @@
 table.item-list
   -@items.each do |item|
     tr
-      td =image_tag("/#{item.source}.jpg", height: '15', width: '15')
+      td =image_tag("/#{item.source}.jpg", height: '20', width: '20', class: 'icon')
       td
         =link_to item.title, item.url
         br

@@ -30,6 +30,12 @@ td:first-child {
   padding-right: 7px;
 }
 
+.icon {
+  margin-top: 5px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
 .muted {
   color: Gray;
   font-size: 0.85em;
@@ -47,6 +53,11 @@ a {
 
 a:visited {
   color: DarkGray;
+}
+
+a:hover {
+  color: black;
+  border-bottom: 2px solid black;
 }
 
 .menu {

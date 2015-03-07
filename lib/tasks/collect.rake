@@ -25,6 +25,7 @@ task :collect do
     )
   end
 
+  # Beta List
   feed = Feedjira::Feed.fetch_and_parse('http://feeds.feedburner.com/betalist?format=xml')
   feed.entries.each do |entry|
     Item.create(
@@ -32,6 +33,12 @@ task :collect do
       url: httpc.get(entry.id + '/visit').header['Location'].first.to_s,
       source: 'beta_list'
     )
+  end
+
+  # Reddit
+  page = Nokogiri::HTML(open('http://www.reddit.com/r/programming/'), nil, 'UTF-8')
+  page.css('a.title').reverse.map do |link|
+    Item.create( title: link.text, url: link['href'], source: 'reddit')
   end
 
   puts "Created #{Item.count - item_count} items"

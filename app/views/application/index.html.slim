@@ -1,6 +1,7 @@
 table
   -@items.each do |item|
     tr
+      td =image_tag("/#{item.source}.jpg", height: '15', width: '15')
       td
         =link_to item.title, item.url
         br

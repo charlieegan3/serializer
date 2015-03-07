@@ -45,17 +45,17 @@ td:first-child {
   color: DarkGray;
 }
 
-a {
+.title-link {
   color: #454545;
   text-decoration: none;
   border-bottom: 1px solid black;
 }
 
-a:visited {
+.title-link:visited {
   color: DarkGray;
 }
 
-a:hover {
+.title-link:hover {
   color: black;
   border-bottom: 2px solid black;
 }
@@ -78,6 +78,7 @@ a:hover {
 
 .menu a {
   border: none;
+  text-decoration: none;
 }
 
 .menu a:visited {

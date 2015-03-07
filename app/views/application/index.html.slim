@@ -3,9 +3,11 @@
 table.item-list
   -@items.each do |item|
     tr
-      td =image_tag("/#{item.source}.jpg", height: '20', width: '20', class: 'icon')
       td
-        =link_to item.title, item.url
+        =link_to(item.url) do
+          =image_tag("/#{item.source}.jpg", height: '20', width: '20', class: 'icon')
+      td
+        =link_to item.title, item.url, class: 'title-link'
         br
         span.muted
           =distance_of_time_in_words(item.created_at, Time.new) + ' ago'

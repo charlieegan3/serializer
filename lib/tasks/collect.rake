@@ -17,6 +17,8 @@ task :collect do
   items += Scraper.betalist_items
   puts 'MacRumors'
   items += Scraper.macrumors_items
+  puts 'Qudos'
+  items += Scraper.qudos_items
 
   items.each { |item| Item.create(item) }
 

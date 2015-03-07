@@ -57,4 +57,18 @@ module Scraper
       end
     end
   end
+
+  def qudos_items
+    httpc = HTTPClient.new
+    page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('.grid-90').map do |item|
+        items << {
+          title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
+          url: httpc.get('https://www.qudos.io' + item.at_css('.title')['href']).header['Location'].first.to_s,
+          source: 'qudos'
+        }
+      end
+    end
+  end
 end

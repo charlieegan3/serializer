@@ -2,9 +2,7 @@ require 'open-uri'
 require_relative '../../config/environment'
 
 task :collect do
-
   item_count = Item.count
-
   httpc = HTTPClient.new
 
   # Hacker News
@@ -24,6 +22,15 @@ task :collect do
       title: post.at_css('.title').text + ' - ' + post.at_css('.post-tagline').text,
       url: httpc.get('http://www.producthunt.com' + post.at_css('.title')['href']).header['Location'].first.to_s,
       source: 'product_hunt'
+    )
+  end
+
+  feed = Feedjira::Feed.fetch_and_parse('http://feeds.feedburner.com/betalist?format=xml')
+  feed.entries.each do |entry|
+    Item.create(
+      title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split(/,|\./).first,
+      url: httpc.get(entry.id + '/visit').header['Location'].first.to_s,
+      source: 'beta_list'
     )
   end
 

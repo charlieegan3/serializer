@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    @items = Item.default
+  end
+
+  def all
     @items = Item.all.order(created_at: 'DESC')
+    render :index
   end
 end

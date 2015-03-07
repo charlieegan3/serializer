@@ -7,6 +7,8 @@ class Item < ActiveRecord::Base
   end
 
   def self.default
-    where(source: ['hacker_news', 'reddit', 'product_hunt']).order(created_at: 'DESC')
+    where(source: ['hacker_news', 'reddit', 'product_hunt']).
+      limit(200).
+      order(created_at: 'DESC')
   end
 end

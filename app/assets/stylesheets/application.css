@@ -26,6 +26,10 @@ td {
   padding-bottom: 8px;
 }
 
+td:first-child {
+  padding-right: 7px;
+}
+
 .muted {
   color: Gray;
   font-size: 0.85em;

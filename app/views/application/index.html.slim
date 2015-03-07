@@ -1,4 +1,6 @@
-table
+.menu =link_to 'serializer.io', root_path
+
+table.item-list
   -@items.each do |item|
     tr
       td =image_tag("/#{item.source}.jpg", height: '15', width: '15')

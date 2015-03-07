@@ -14,9 +14,12 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=VT323);
+
 body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  font-size: 13px;
+  font-size: 14px;
+  background-color: #FCFCFC;
 }
 
 td {
@@ -33,11 +36,48 @@ td {
 }
 
 a {
-  color: black;
+  color: #454545;
   text-decoration: none;
   border-bottom: 1px solid black;
 }
 
 a:visited {
   color: DarkOrange;
+}
+
+.menu {
+  color: #F8F8F8;
+  background-color: #454545;
+  float: right;
+  right: 0px;
+  top: 0px;
+  margin: 0px;
+  padding: 5px 10px 5px 10px;
+  position: fixed;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  color: white;
+  border: none;
+  border-bottom-left-radius: 3px;
+}
+
+.menu a {
+  border: none;
+}
+
+.menu a:visited {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    line-height: 1.4em;
+  }
+
+  .menu {
+    float: none;
+    position: relative;
+    border-radius: 3px;
+  }
 }

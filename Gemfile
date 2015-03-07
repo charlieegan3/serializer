@@ -21,3 +21,4 @@ end
 gem 'nokogiri'
 gem 'pg', group: :production
 gem 'slim'
+gem 'httpclient'

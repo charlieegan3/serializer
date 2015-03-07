@@ -2,7 +2,10 @@ require 'open-uri'
 require_relative '../../config/environment'
 
 task :collect do
+  Item.delete_all
+
   item_count = Item.count
+
   httpc = HTTPClient.new
 
   # Hacker News
@@ -12,7 +15,7 @@ task :collect do
     unless item['href'].include?('http')
       item['href'] = 'https://news.ycombinator.com/' + item['href']
     end
-    Item.create(url: item['href'], title: item.text.strip)
+    Item.create(url: item['href'], title: item.text.strip, source: 'hacker_news')
   end
 
   # Product Hunt
@@ -20,7 +23,8 @@ task :collect do
   page.at_css('.posts-group').css('.url').map do |post|
     Item.create(
       title: post.at_css('.title').text + ' - ' + post.at_css('.post-tagline').text,
-      url: httpc.get('http://www.producthunt.com' + post.at_css('.title')['href']).header['Location'].first.to_s
+      url: httpc.get('http://www.producthunt.com' + post.at_css('.title')['href']).header['Location'].first.to_s,
+      source: 'product_hunt'
     )
   end
 

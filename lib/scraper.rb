@@ -48,4 +48,13 @@ module Scraper
       end
     end
   end
+
+  def macrumors_items
+    feed = Feedjira::Feed.fetch_and_parse('http://feeds.macrumors.com/MacRumors-Front')
+    [].tap do |items|
+      feed.entries.each do |entry|
+        items << {title: entry.title, url: entry.url, source: 'macrumors'}
+      end
+    end
+  end
 end

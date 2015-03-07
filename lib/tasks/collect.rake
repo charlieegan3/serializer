@@ -15,6 +15,8 @@ task :collect do
   items += Scraper.reddit_items
   puts 'Beta List'
   items += Scraper.betalist_items
+  puts 'MacRumors'
+  items += Scraper.macrumors_items
 
   items.each { |item| Item.create(item) }
 

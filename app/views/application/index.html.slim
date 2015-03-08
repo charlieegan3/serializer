@@ -5,13 +5,13 @@
 -if params[:action] == 'custom'
   =render 'source_selection'
 
--if @items.first.created_at > Time.parse(cookies.permanent[:bookmark])
+-if cookies.permanent[:bookmark].nil? || @items.first.created_at > Time.parse(cookies.permanent[:bookmark])
   =link_to '&#10003;'.html_safe, set_bookmark_path, class: 'bookmark-button'
 
 table.item-list
   -displayed_bookmark = false
   -@items.each do |item|
-    -if displayed_bookmark == false && cookies.permanent[:bookmark] && item.created_at < Time.parse(cookies.permanent[:bookmark])
+    -if displayed_bookmark == false && cookies.permanent[:bookmark].present? && item.created_at < Time.parse(cookies.permanent[:bookmark])
       -displayed_bookmark = true
       tr
         td.bookmark colspan=(2)

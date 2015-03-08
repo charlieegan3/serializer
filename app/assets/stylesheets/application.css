@@ -61,6 +61,11 @@ td:first-child {
   border-bottom: 2px solid black;
 }
 
+.title-link:visited:hover {
+  color: DarkGray;
+  border-bottom: 2px solid DarkGray;
+}
+
 .menu {
   color: #F8F8F8;
   background-color: #454545;

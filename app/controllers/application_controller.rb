@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
     render :index
   end
 
+  def set_bookmark
+    cookies.permanent[:bookmark] = Time.new
+    return redirect_to :back
+  end
+
   def add_source
     cookies.permanent[:sources] = '' if cookies.permanent[:sources].nil?
     cookie_list = cookies.permanent[:sources].split(',')

@@ -30,6 +30,27 @@ td:first-child {
   padding-right: 7px;
 }
 
+.bookmark-button {
+  display: block;
+  position: fixed;
+  top: 0px;
+  right: 125px;
+  background-color: green;
+  padding: 7px 10px 6px 10px;
+  border-bottom-left-radius: 3px;
+  color: white;
+  text-decoration: none;
+}
+
+.bookmark {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  padding: 2px;
+  border-radius: 3px;
+  background-color: YellowGreen;
+}
+
 .icon {
   margin-top: 5px;
   border-radius: 3px;
@@ -141,6 +162,15 @@ td:first-child {
     float: none;
     position: relative;
     border-radius: 3px;
+  }
+
+  .bookmark-button {
+    float: none;
+    position: relative;
+    border-radius: 3px;
+    right: inherit;
+    margin-top: 5px;
+    text-align: center;
   }
 
   .source-selector {

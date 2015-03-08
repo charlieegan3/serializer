@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'all' => 'application#all', as: :all
   get 'custom' => 'application#custom', as: :custom
   get 'add_source' => 'application#add_source', as: :add_source
+  get 'set_bookmark' => 'application#set_bookmark', as: :set_bookmark
 
 
   # Example of regular route:

@@ -5,8 +5,18 @@
 -if params[:action] == 'custom'
   =render 'source_selection'
 
+-if @items.first.created_at > Time.parse(cookies.permanent[:bookmark])
+  =link_to '&#10003;'.html_safe, set_bookmark_path, class: 'bookmark-button'
+
 table.item-list
+  -displayed_bookmark = false
   -@items.each do |item|
+    -if displayed_bookmark == false && cookies.permanent[:bookmark] && item.created_at < Time.parse(cookies.permanent[:bookmark])
+      -displayed_bookmark = true
+      tr
+        td.bookmark colspan=(2)
+          |&#10003;&nbsp;
+          =distance_of_time_in_words(Time.new, Time.parse(cookies.permanent[:bookmark]).to_s) + ' ago'
     tr
       td
         =link_to(item.url) do

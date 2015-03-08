@@ -98,6 +98,7 @@ td:first-child {
   top: 0px;
   margin: 0px;
   padding: 5px 10px 5px 10px;
+  max-height: 20px;
   position: fixed;
   font-family: "VT323", monospace;
   font-size: 20px;
@@ -117,7 +118,7 @@ td:first-child {
 
 .menu-list {
   right: 0px;
-  top: 30px;
+  top: 35px;
   position: fixed;
   font-size: 12px;
   font-family: monospace;
@@ -141,7 +142,7 @@ td:first-child {
 .source-selector {
   width: 50px;
   position: fixed;
-  top: 45px;
+  top: 50px;
   right: 0px;
   text-align: center;
 }

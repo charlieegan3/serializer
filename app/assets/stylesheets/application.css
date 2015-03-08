@@ -36,6 +36,10 @@ td:first-child {
   border: 1px solid black;
 }
 
+.unselected {
+  opacity: 0.3;
+}
+
 .muted {
   color: Gray;
   font-size: 0.85em;
@@ -91,6 +95,20 @@ td:first-child {
   color: white;
 }
 
+.source-selector {
+  width: 50px;
+  position: fixed;
+  top: 35px;
+  right: 0px;
+  text-align: center;
+}
+
+.source-selector img {
+  border-radius: 20px;
+  border: 2px solid #454545;
+  box-shadow: 0px 0px 10px DarkGray;
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 16px;
@@ -101,5 +119,16 @@ td:first-child {
     float: none;
     position: relative;
     border-radius: 3px;
+  }
+
+  .source-selector {
+    width: 100%;
+    position: relative;
+    top: 0px;
+  }
+
+  .source-selector a {
+    margin-right: 5px;
+    margin-left: 5px;
   }
 }

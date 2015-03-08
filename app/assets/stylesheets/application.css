@@ -165,6 +165,10 @@ td:first-child {
     border-radius: 3px;
   }
 
+  .menu a.menu-text {
+    color: white;
+  }
+
   .bookmark-button {
     float: none;
     position: relative;

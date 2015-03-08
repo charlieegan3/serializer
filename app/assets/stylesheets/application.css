@@ -94,7 +94,7 @@ td:first-child {
   color: white;
 }
 
-.location {
+.menu-list {
   right: 0px;
   top: 30px;
   position: fixed;
@@ -102,18 +102,18 @@ td:first-child {
   font-family: monospace;
 }
 
-.location span {
+.menu-list span {
   margin-right: 5px;
   margin-left: 5px;
 }
 
-.location a {
+.menu-list a {
   color: black;
   text-decoration: none;
   border-bottom: 1px solid LightGrey;
 }
 
-.location a:visited {
+.menu-list a:visited {
   color: black;
 }
 
@@ -155,7 +155,7 @@ td:first-child {
     margin-left: 5px;
   }
 
-  .location {
+  .menu-list {
     font-size: 15px;
     text-align: center;
     width: 100%;
@@ -167,7 +167,7 @@ td:first-child {
     margin-bottom: 10px;
   }
 
-  .location span {
+  .menu-list span {
     margin-right: 20px;
     margin-left: 20px;
   }

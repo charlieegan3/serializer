@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1">
     <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <% cookies.permanent[:sources] = '' if cookies.permanent[:sources].nil? %>
   </head>
   <body>
     <%= yield %>

@@ -73,7 +73,6 @@ td:first-child {
 .menu {
   color: #F8F8F8;
   background-color: #454545;
-  float: right;
   right: 0px;
   top: 0px;
   margin: 0px;
@@ -96,12 +95,26 @@ td:first-child {
 }
 
 .location {
-  float: right;
-  right: 5px;
+  right: 0px;
   top: 30px;
   position: fixed;
   font-size: 12px;
   font-family: monospace;
+}
+
+.location span {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.location a {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid LightGrey;
+}
+
+.location a:visited {
+  color: black;
 }
 
 .source-selector {
@@ -133,7 +146,8 @@ td:first-child {
   .source-selector {
     width: 100%;
     position: relative;
-    top: 5px;
+    margin-top: 5px;
+    top: 0px;
   }
 
   .source-selector a {
@@ -142,6 +156,19 @@ td:first-child {
   }
 
   .location {
-    display: none;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    float: none;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .location span {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }

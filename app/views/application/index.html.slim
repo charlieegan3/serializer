@@ -1,13 +1,13 @@
 .menu
   =link_to 'serializer.io', root_path
--if params[:action] == 'index'
-  .location home
--if params[:action] == 'all'
-  .location all
--if params[:action] == 'custom'
-  .location custom
+.location
+  span =link_to 'home', root_path
+  span =link_to 'custom', custom_path
+  span =link_to 'all', all_path
 
-=render 'source_selection'
+
+-if params[:action] == 'custom'
+  =render 'source_selection'
 
 table.item-list
   -@items.each do |item|

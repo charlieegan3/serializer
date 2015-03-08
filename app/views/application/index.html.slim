@@ -1,4 +1,11 @@
-.menu =link_to 'serializer.io', root_path
+.menu
+  =link_to 'serializer.io', root_path
+-if params[:action] == 'index'
+  .location home
+-if params[:action] == 'all'
+  .location all
+-if params[:action] == 'custom'
+  .location custom
 
 =render 'source_selection'
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'application#index'
-  get 'all' => 'application#all'
+  get 'all' => 'application#all', as: :all
   get 'custom' => 'application#custom', as: :custom
   get 'add_source' => 'application#add_source', as: :add_source
 

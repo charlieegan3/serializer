@@ -95,10 +95,19 @@ td:first-child {
   color: white;
 }
 
+.location {
+  float: right;
+  right: 5px;
+  top: 30px;
+  position: fixed;
+  font-size: 12px;
+  font-family: monospace;
+}
+
 .source-selector {
   width: 50px;
   position: fixed;
-  top: 35px;
+  top: 45px;
   right: 0px;
   text-align: center;
 }
@@ -124,11 +133,15 @@ td:first-child {
   .source-selector {
     width: 100%;
     position: relative;
-    top: 0px;
+    top: 5px;
   }
 
   .source-selector a {
     margin-right: 5px;
     margin-left: 5px;
+  }
+
+  .location {
+    display: none;
   }
 }

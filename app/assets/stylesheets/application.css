@@ -20,14 +20,24 @@ body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 14px;
   background-color: #FCFCFC;
+  margin: 10px 0px 0px 0px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 td {
-  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 td:first-child {
+  padding-left: 8px;
   padding-right: 7px;
+  text-align: right;
+  width: 1px;
 }
 
 .log-button {
@@ -42,13 +52,18 @@ td:first-child {
   text-decoration: none;
 }
 
-.log {
+td.log {
   text-align: center;
   color: white;
   font-size: 12px;
-  padding: 2px;
-  border-radius: 3px;
   background-color: YellowGreen;
+  z-index: 100;
+  padding: 10px;
+}
+
+.read {
+  opacity: 0.8;
+  background-color: rgba(154, 205, 50, 0.25);
 }
 
 .icon {
@@ -105,6 +120,7 @@ td:first-child {
   color: white;
   border: none;
   border-bottom-left-radius: 3px;
+  z-index: 100;
 }
 
 .menu a {
@@ -117,7 +133,10 @@ td:first-child {
 }
 
 .menu-list {
-  right: 0px;
+  background-color: #FCFCFC;
+  border-radius: 3px;
+  padding: 5px;
+  right: 5px;
   top: 35px;
   position: fixed;
   font-size: 12px;
@@ -181,7 +200,7 @@ td:first-child {
   .log-button {
     float: none;
     position: relative;
-    border-radius: 3px;
+    border-radius: 0px;
     right: inherit;
     margin-top: 5px;
     text-align: center;

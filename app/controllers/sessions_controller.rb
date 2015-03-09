@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
 
   def share
     session = Session.find_by_identifier(cookies.permanent[:session])
-    redirect_to root_path(session: session.identifier)
+    redirect_to root_path + session.identifier
   end
 end

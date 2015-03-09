@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'share_path' => 'sessions#share', as: :share
   get 'clear_path' => 'sessions#clear', as: :clear
 
+  get '/:session' => 'application#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

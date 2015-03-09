@@ -1,7 +1,11 @@
 .menu-list
-  -[['index', 'home', root_path], ['custom', 'custom', custom_path], ['all', 'all', all_path]].each do |item|
-    -if params[:action] == item[0]
-      span
-        strong =link_to item[1], item[2]
-    -else
-      span =link_to item[1], item[2]
+  p
+    -[['index', 'home', root_path], ['custom', 'custom', custom_path], ['all', 'all', all_path]].each do |item|
+      -if params[:action] == item[0]
+        span
+          strong =link_to item[1], item[2]
+      -else
+        span =link_to item[1], item[2]
+  p
+    span =link_to 'session', share_path, title: 'Link to copy and access your session on other devices'
+    span =link_to 'clear', delete_session_path, title: 'Click for a fresh session'

@@ -1,22 +1,24 @@
+-session = Session.find_by_identifier(cookies.permanent[:session])
+
 .menu
   =link_to 'serializer.io', root_path, class: 'menu-text'
 =render 'menu'
 
 -if params[:action] == 'custom'
-  =render 'source_selection'
+  =render 'source_selection', sources: session.sources
 
--if cookies.permanent[:bookmark].nil? || @items.empty? || @items.first.created_at > Time.parse(cookies.permanent[:bookmark])
-  =link_to '&#10003;'.html_safe, set_bookmark_path, class: 'bookmark-button'
+-if !@items.empty? && session && (!session.completed_to || @items.first.created_at > session.completed_to)
+  =link_to '&#10003;'.html_safe, log_path(time: @items.first.created_at + 1), class: 'log-button'
 
 table.item-list
-  -displayed_bookmark = false
+  -displayed_log = false
   -@items.each do |item|
-    -if displayed_bookmark == false && cookies.permanent[:bookmark].present? && item.created_at < Time.parse(cookies.permanent[:bookmark])
-      -displayed_bookmark = true
+    -if session && session.completed_to && displayed_log == false && item.created_at <= session.completed_to
+      -displayed_log = true
       tr
-        td.bookmark colspan=(2)
+        td.log colspan=(2)
           |&#10003;&nbsp;
-          =distance_of_time_in_words(Time.new, Time.parse(cookies.permanent[:bookmark]).to_s) + ' ago'
+          =distance_of_time_in_words(Time.new, session.completed_to) + ' ago'
     tr
       td
         =link_to(item.url) do

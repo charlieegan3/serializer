@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   root 'application#index'
   get 'all' => 'application#all', as: :all
   get 'custom' => 'application#custom', as: :custom
-  get 'add_source' => 'application#add_source', as: :add_source
-  get 'set_bookmark' => 'application#set_bookmark', as: :set_bookmark
+
+  get 'new_session' => 'sessions#new_session', as: :new_session
+  get 'delete_session' => 'sessions#delete_session', as: :delete_session
+  get 'add_source' => 'sessions#add_source', as: :add_source
+  get 'log' => 'sessions#log', as: :log
+  get 'share_path' => 'sessions#share', as: :share
+  get 'clear_path' => 'sessions#clear', as: :clear
 
 
   # Example of regular route:

@@ -1,5 +1,4 @@
 .source-selector
-  -sources = cookies.permanent[:sources].split(',') rescue []
   -SOURCES.each do |source|
     =link_to(add_source_path(source: source)) do
       -if sources.include?(source)

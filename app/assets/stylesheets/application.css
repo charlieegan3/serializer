@@ -30,7 +30,7 @@ td:first-child {
   padding-right: 7px;
 }
 
-.bookmark-button {
+.log-button {
   display: block;
   position: fixed;
   top: 0px;
@@ -42,7 +42,7 @@ td:first-child {
   text-decoration: none;
 }
 
-.bookmark {
+.log {
   text-align: center;
   color: white;
   font-size: 12px;
@@ -124,6 +124,15 @@ td:first-child {
   font-family: monospace;
 }
 
+.menu-list p {
+  text-align: right;
+  margin: 0px 0px 4px 0px;
+}
+
+.menu-list p:last-child a {
+  color: DarkGray;
+}
+
 .menu-list span {
   margin-right: 5px;
   margin-left: 5px;
@@ -142,7 +151,7 @@ td:first-child {
 .source-selector {
   width: 50px;
   position: fixed;
-  top: 50px;
+  top: 80px;
   right: 0px;
   text-align: center;
 }
@@ -169,7 +178,7 @@ td:first-child {
     color: white;
   }
 
-  .bookmark-button {
+  .log-button {
     float: none;
     position: relative;
     border-radius: 3px;
@@ -202,8 +211,13 @@ td:first-child {
     margin-bottom: 10px;
   }
 
+  .menu-list p {
+    text-align: center;
+  }
+
   .menu-list span {
     margin-right: 20px;
     margin-left: 20px;
   }
+
 }

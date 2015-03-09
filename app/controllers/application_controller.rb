@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def all
-    @items = Item.all.order(created_at: 'DESC')
+    @items = Item.all.order(created_at: 'DESC').limit(300)
     render :index
   end
 

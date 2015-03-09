@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
 
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
     where(source: sources).
-      limit(200).
+      limit(150).
       order(created_at: 'DESC')
   end
 end

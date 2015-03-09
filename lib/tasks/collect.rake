@@ -6,8 +6,9 @@ include Scraper
 task :collect do
   item_count = Item.count
 
+  items = []
   errors = []
-  items = Scraper.instance_methods.inject([]) do |items, method|
+  Scraper.instance_methods.each do |method|
     print method.to_s[0..-7].humanize.titlecase
     begin
       items += Scraper.instance_method(method).bind(self).call

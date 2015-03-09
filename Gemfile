@@ -16,3 +16,4 @@ gem 'feedjira'
 gem 'pg', group: :production
 gem 'slim'
 gem 'httpclient'
+gem 'gmail'

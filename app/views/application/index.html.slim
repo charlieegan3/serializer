@@ -5,7 +5,7 @@
 -if params[:action] == 'custom'
   =render 'source_selection'
 
--if cookies.permanent[:bookmark].nil? || @items.first.created_at > Time.parse(cookies.permanent[:bookmark])
+-if cookies.permanent[:bookmark].nil? || @items.empty? || @items.first.created_at > Time.parse(cookies.permanent[:bookmark])
   =link_to '&#10003;'.html_safe, set_bookmark_path, class: 'bookmark-button'
 
 table.item-list

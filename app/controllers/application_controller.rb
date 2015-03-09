@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   def custom
+    sources = cookies.permanent[:sources] || ''
     sources = cookies.permanent[:sources].split(',')
     if (SOURCES - sources) == SOURCES
       cookies.permanent[:sources] = ''
-      return redirect_to :root
     end
     @items = Item.matching(sources)
     render :index
@@ -29,13 +29,13 @@ class ApplicationController < ActionController::Base
 
   def add_source
     cookies.permanent[:sources] = '' if cookies.permanent[:sources].nil?
-    cookie_list = cookies.permanent[:sources].split(',')
-    if cookie_list.include?(params[:source])
-      cookie_list.reject! { |s| s == params[:source] }
+    sources = cookies.permanent[:sources].split(',')
+    if sources.include?(params[:source])
+      sources.reject! { |s| s == params[:source] }
     else
-      cookie_list << params[:source] if params[:source]
+      sources << params[:source] if params[:source]
     end
-    cookies.permanent[:sources] = cookie_list.join(',')
+    cookies.permanent[:sources] = sources.join(',')
     return redirect_to custom_path
   end
 end

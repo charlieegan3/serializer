@@ -71,4 +71,32 @@ module Scraper
       end
     end
   end
+
+  def designer_news_items
+    httpc = HTTPClient.new
+    page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('.Story > a').each do |story|
+        story.at_css('.Domain').remove if story.at_css('.Domain')
+        items << {
+          title: story.text.strip,
+          url: httpc.get(story['href']).header['Location'].first.to_s,
+          source: 'designer_news'
+        }
+      end
+    end
+  end
+
+  def github_items
+    feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_all_daily.rss')
+    [].tap do |items|
+      feed.entries.each do |entry|
+        items << {
+          title: entry.title.gsub(/\s+\(.*\)/, '') + ' - ' + entry.summary.gsub(/\s+/, ' ').gsub('()', '').strip,
+          url: entry.url,
+          source: 'github'
+        }
+      end
+    end
+  end
 end

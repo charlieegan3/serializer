@@ -6,13 +6,10 @@ include Scraper
 task :collect do
   item_count = Item.count
 
-  items = []
-  items += Scraper.hacker_news_items rescue []
-  items += Scraper.product_hunt_items rescue []
-  items += Scraper.reddit_items rescue []
-  items += Scraper.betalist_items rescue []
-  items += Scraper.macrumors_items rescue []
-  items += Scraper.qudos_items rescue []
+  items = Scraper.instance_methods.inject([]) do |items, method|
+    puts method.to_s[0..-7].humanize.titlecase
+    items += Scraper.instance_method(method).bind(self).call rescue []
+  end
 
   items.each { |item| Item.create(item) }
 

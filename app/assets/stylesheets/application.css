@@ -228,6 +228,8 @@ span span.topped {
     right: inherit;
     margin-top: 5px;
     text-align: center;
+    padding: 15px;
+    font-size: 25px;
   }
 
   .source-selector {

@@ -35,8 +35,13 @@ module Scraper
   def reddit_items
     page = Nokogiri::HTML(open('http://www.reddit.com/r/programming/'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('a.title').map do |link|
-        items << {title: link.text, url: link['href'], source: 'reddit'}
+      page.css('.entry').each do |item|
+        items << {
+          title: item.at_css('a.title').text,
+          url: item.at_css('a.title')['href'],
+          comment_url: item.at_css('a.comments')['href'],
+          source: 'reddit'
+        }
       end
       items.first.merge!({topped: true})
     end

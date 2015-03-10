@@ -73,6 +73,14 @@ td.log {
   border: 1px solid black;
 }
 
+span.muted span {
+  margin-left: 7px;
+}
+
+span.muted a {
+  color: DarkGray;
+}
+
 span span.topped {
   background-color: black;
   padding-left: 2px;

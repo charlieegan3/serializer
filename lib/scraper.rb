@@ -1,13 +1,15 @@
 module Scraper
   def hacker_news_items
-    page = Nokogiri::HTML(open('https://news.ycombinator.com'), nil, 'UTF-8')
+    page = Nokogiri::HTML(open('https://news.ycombinator.com/news'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('td.title > a').map do |item|
-        next if item.text == 'More'
-        unless item['href'].include?('http')
-          item['href'] = 'https://news.ycombinator.com/' + item['href']
+      page.css('table')[2].css('tr').reject { |x| x.text.blank? || x.text == 'More' }.in_groups_of(2) do |link, details|
+        title = link.css('td:last-child a').first.text
+        url = link.css('td:last-child a').first['href']
+        unless url.include?('http')
+          url = 'https://news.ycombinator.com/' + url
         end
-        items << {title: item.text.strip, url: item['href'], source: 'hacker_news'}
+        comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
+        items << {title: title, url: url, comment_url: comment_url ,source: 'hacker_news'}
       end
       items.first.merge!({topped: true})
     end

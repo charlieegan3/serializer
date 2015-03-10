@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
   def new_session
     cookies.permanent[:session] = Session.create.identifier
-    redirect_to :back
+    return redirect_to :back if request.env['HTTP_REFERER']
+    return redirect_to root_path
   end
 
   def delete_session

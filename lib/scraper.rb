@@ -47,6 +47,37 @@ module Scraper
     end
   end
 
+  def designer_news_items
+    httpc = HTTPClient.new
+    page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('.Story > a').each do |story|
+        story.at_css('.Domain').remove if story.at_css('.Domain')
+        items << {
+          title: story.text.strip,
+          url: httpc.get(story['href']).header['Location'].first.to_s,
+          source: 'designer_news'
+        }
+      end
+      items.first.merge!({topped: true})
+    end
+  end
+
+  def qudos_items
+    httpc = HTTPClient.new
+    page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('.grid-90').map do |item|
+        items << {
+          title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
+          url: httpc.get('https://www.qudos.io' + item.at_css('.title')['href']).header['Location'].first.to_s,
+          source: 'qudos'
+        }
+      end
+      items.first.merge!({topped: true})
+    end
+  end
+
   def betalist_items
     httpc = HTTPClient.new
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.feedburner.com/betalist?format=xml')
@@ -67,37 +98,6 @@ module Scraper
       feed.entries.each do |entry|
         items << {title: entry.title, url: entry.url, source: 'macrumors'}
       end
-    end
-  end
-
-  def qudos_items
-    httpc = HTTPClient.new
-    page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
-    [].tap do |items|
-      page.css('.grid-90').map do |item|
-        items << {
-          title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
-          url: httpc.get('https://www.qudos.io' + item.at_css('.title')['href']).header['Location'].first.to_s,
-          source: 'qudos'
-        }
-      end
-      items.first.merge!({topped: true})
-    end
-  end
-
-  def designer_news_items
-    httpc = HTTPClient.new
-    page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
-    [].tap do |items|
-      page.css('.Story > a').each do |story|
-        story.at_css('.Domain').remove if story.at_css('.Domain')
-        items << {
-          title: story.text.strip,
-          url: httpc.get(story['href']).header['Location'].first.to_s,
-          source: 'designer_news'
-        }
-      end
-      items.first.merge!({topped: true})
     end
   end
 

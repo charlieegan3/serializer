@@ -26,8 +26,8 @@ table.item-list
         span.muted
           =distance_of_time_in_words(item.created_at, Time.new) + ' ago'
           span =item.url.split('/')[2]
-          span =link_to 'comments', item.comment_url unless item.comment_url.blank?
+          -unless item.comment_url.blank?
+            span =link_to 'comments', item.comment_url
           -if item.topped
-            span &nbsp;
             span.topped title=('Reached the top spot!')
               |&#9733;

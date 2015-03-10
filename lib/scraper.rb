@@ -51,11 +51,13 @@ module Scraper
     httpc = HTTPClient.new
     page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('.Story > a').each do |story|
-        story.at_css('.Domain').remove if story.at_css('.Domain')
+      page.css('.Story').each do |story|
+        link = story.at_css('a')
+        link.at_css('.Domain').remove if link.at_css('.Domain')
         items << {
-          title: story.text.strip,
-          url: httpc.get(story['href']).header['Location'].first.to_s,
+          title: link.text.strip,
+          url: httpc.get(link['href']).header['Location'].first.to_s,
+          comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
           source: 'designer_news'
         }
       end

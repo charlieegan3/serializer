@@ -190,7 +190,7 @@ td.log {
   .menu {
     float: none;
     position: relative;
-    border-radius: 3px;
+    border-radius: 0px;
   }
 
   .menu a.menu-text {
@@ -238,5 +238,4 @@ td.log {
     margin-right: 20px;
     margin-left: 20px;
   }
-
 }

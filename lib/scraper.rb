@@ -33,17 +33,26 @@ module Scraper
   end
 
   def reddit_items
-    page = Nokogiri::HTML(open('http://www.reddit.com/r/programming/'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('.entry').each do |item|
-        items << {
-          title: item.at_css('a.title').text,
-          url: item.at_css('a.title')['href'],
-          comment_url: item.at_css('a.comments')['href'],
-          source: 'reddit'
-        }
+      [
+        'http://www.reddit.com/r/programming/',
+        'http://www.reddit.com/r/Coding',
+        'http://www.reddit.com/r/Technology',
+        'http://www.reddit.com/r/cscareerquestions',
+        'http://www.reddit.com/r/dataisbeautiful/'
+      ].each do |page|
+        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').each_with_index do |item, index|
+          url = item.at_css('a.title')['href']
+          url = "http://www.reddit.com#{url}" unless url.include?('http://')
+          items << {
+            title: item.at_css('a.title').text,
+            url: url,
+            comment_url: item.at_css('a.comments')['href'],
+            source: 'reddit',
+            topped: (index == 0)? true : false
+          }
+        end
       end
-      items.first.merge!({topped: true})
     end
   end
 

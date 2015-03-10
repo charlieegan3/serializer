@@ -72,6 +72,15 @@ td.log {
   border: 1px solid black;
 }
 
+span span.topped {
+  background-color: black;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-bottom: 1px;
+  border-radius: 2px;
+  color: #FFD700;
+}
+
 .unselected {
   opacity: 0.3;
 }

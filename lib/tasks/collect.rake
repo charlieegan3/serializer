@@ -18,7 +18,15 @@ def collect_and_save(sources)
     print "\n"
   end
   Notifier.send(errors) unless errors.empty?
-  items.each { |item| Item.create(item) } if items
+
+  items.shuffle.each do |item|
+    existing = Item.find_by_url(item[:url])
+    if existing
+      existing.update_attributes(item) if item[:topped] == true
+    else
+      Item.create(item)
+    end
+  end
 end
 
 task :collect_active do

@@ -30,3 +30,7 @@ table.item-list
           =distance_of_time_in_words(item.created_at, Time.new) + ' ago'
           |&nbsp;&nbsp;
           span =item.url.split('/')[2]
+          -if item.topped
+            span &nbsp;
+            span.topped title=('Reached the top spot!')
+              |&#9733;

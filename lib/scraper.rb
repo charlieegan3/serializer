@@ -9,6 +9,7 @@ module Scraper
         end
         items << {title: item.text.strip, url: item['href'], source: 'hacker_news'}
       end
+      items.first.merge!({topped: true})
     end
   end
 
@@ -23,6 +24,7 @@ module Scraper
           source: 'product_hunt'
         }
       end
+      items.first.merge!({topped: true})
     end
   end
 
@@ -32,6 +34,7 @@ module Scraper
       page.css('a.title').reverse.map do |link|
         items << {title: link.text, url: link['href'], source: 'reddit'}
       end
+      items.first.merge!({topped: true})
     end
   end
 
@@ -69,6 +72,7 @@ module Scraper
           source: 'qudos'
         }
       end
+      items.first.merge!({topped: true})
     end
   end
 
@@ -84,6 +88,7 @@ module Scraper
           source: 'designer_news'
         }
       end
+      items.first.merge!({topped: true})
     end
   end
 

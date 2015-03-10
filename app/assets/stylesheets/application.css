@@ -20,7 +20,7 @@ body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 14px;
   background-color: #FCFCFC;
-  margin: 10px 0px 0px 0px;
+  margin: 0px;
 }
 
 table {
@@ -44,9 +44,10 @@ td:first-child {
   display: block;
   position: fixed;
   top: 0px;
-  right: 125px;
-  background-color: green;
+  right: 133px;
+  max-height: 20px;
   padding: 7px 10px 6px 10px;
+  background-color: YellowGreen;
   border-bottom-left-radius: 3px;
   color: white;
   text-decoration: none;
@@ -57,8 +58,7 @@ td.log {
   color: white;
   font-size: 12px;
   background-color: YellowGreen;
-  z-index: 100;
-  padding: 10px;
+  padding: 7px 0px 8px 0px;
 }
 
 .read {
@@ -116,63 +116,62 @@ span span.topped {
 }
 
 .menu {
-  color: #F8F8F8;
-  background-color: #454545;
   right: 0px;
   top: 0px;
+  position: fixed;
   margin: 0px;
+  z-index: 1;
+}
+
+.logo {
+  color: #F8F8F8;
+  background-color: #454545;
   padding: 5px 10px 5px 10px;
   max-height: 20px;
-  position: fixed;
   font-family: "VT323", monospace;
   font-size: 20px;
   color: white;
   border: none;
-  border-bottom-left-radius: 3px;
-  z-index: 100;
 }
 
-.menu a {
+.logo a {
   border: none;
   text-decoration: none;
 }
 
-.menu a:visited {
+.logo a:visited {
   color: white;
 }
 
-.menu-list {
+.options {
   background-color: #FCFCFC;
-  border-radius: 3px;
+  border-bottom-left-radius: 3px;
   padding: 5px;
-  right: 5px;
-  top: 35px;
-  position: fixed;
   font-size: 12px;
   font-family: monospace;
 }
 
-.menu-list p {
+.options p {
   text-align: right;
   margin: 0px 0px 4px 0px;
 }
 
-.menu-list p:last-child a {
+.options p:last-child a {
   color: DarkGray;
 }
 
-.menu-list span {
+.options span {
   margin-right: 5px;
   margin-left: 5px;
 }
 
-.menu-list a {
+.options a {
   color: black;
   text-decoration: none;
   border-bottom: 1px solid LightGrey;
 }
 
-.menu-list a:visited {
+.options a:visited {
   color: black;
 }
 
@@ -197,12 +196,19 @@ span span.topped {
   }
 
   .menu {
+    right: 0px;
+    top: 0px;
+    position: relative;
+    margin: 0px;
+  }
+
+  .logo {
     float: none;
     position: relative;
     border-radius: 0px;
   }
 
-  .menu a.menu-text {
+  .logo a.menu-text {
     color: white;
   }
 
@@ -227,7 +233,7 @@ span span.topped {
     margin-left: 5px;
   }
 
-  .menu-list {
+  .options {
     font-size: 15px;
     text-align: center;
     float: none;
@@ -238,11 +244,11 @@ span span.topped {
     margin-bottom: 10px;
   }
 
-  .menu-list p {
+  .options p {
     text-align: center;
   }
 
-  .menu-list span {
+  .options span {
     margin-right: 20px;
     margin-left: 20px;
   }

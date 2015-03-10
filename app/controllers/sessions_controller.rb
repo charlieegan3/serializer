@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
   def new_session
     cookies.permanent[:session] = Session.create.identifier
-    redirect_to root_path
+    redirect_to :back
   end
 
   def delete_session
-    # Session.find_by_identifier(cookies.permanent[:session]).delete rescue nil
+    Session.find_by_identifier(cookies.permanent[:session]).delete rescue nil
     cookies.permanent[:session] = nil
-    redirect_to root_path
+    redirect_to new_session_path
   end
 
   def log

@@ -19,10 +19,12 @@ module Scraper
     httpc = HTTPClient.new
     page = Nokogiri::HTML(open('http://www.producthunt.com'), nil, 'UTF-8')
     [].tap do |items|
-      page.at_css('.posts-group').css('.url').map do |post|
+      page.at_css('.posts-group').css('.post--content').each do |item|
+        link = item.at_css('.url')
         items << {
-          title: post.at_css('.title').text + ' - ' + post.at_css('.post-tagline').text,
-          url: httpc.get('http://www.producthunt.com' + post.at_css('.title')['href']).header['Location'].first.to_s,
+          title: link.at_css('.title').text + ' - ' + link.at_css('.post-tagline').text,
+          url: httpc.get('http://www.producthunt.com' + link.at_css('.title')['href']).header['Location'].first.to_s,
+          comment_url: 'http://www.producthunt.com' + item['data-href'],
           source: 'product_hunt'
         }
       end

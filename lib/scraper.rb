@@ -41,8 +41,8 @@ module Scraper
         'http://www.reddit.com/r/cscareerquestions',
         'http://www.reddit.com/r/dataisbeautiful/'
       ].each do |page|
-        puts "\npage"
-        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').each_with_index do |item, index|
+        page.include?('cscareerquestions')? limit = 5 : limit = 30
+        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').take(limit).each_with_index do |item, index|
           next if item.at_css('a.title').text.include?('PLEASE READ')
           url = item.at_css('a.title')['href']
           url = "http://www.reddit.com#{url}" unless url.include?('http://') || url.include?('https://')

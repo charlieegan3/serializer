@@ -43,6 +43,7 @@ module Scraper
       ].each do |page|
         puts "\npage"
         Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').each_with_index do |item, index|
+          next if item.at_css('a.title').text.include?('PLEASE READ')
           url = item.at_css('a.title')['href']
           url = "http://www.reddit.com#{url}" unless url.include?('http://') || url.include?('https://')
           items << {
@@ -114,7 +115,7 @@ module Scraper
   end
 
   def github_items
-    feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_all_daily.rss')
+    feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_ruby_daily.rss')
     [].tap do |items|
       feed.entries.each do |entry|
         items << {

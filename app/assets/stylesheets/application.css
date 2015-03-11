@@ -199,9 +199,12 @@ span span.topped {
 }
 
 @media (max-width: 600px) {
+  html { overflow-x: hidden; }
+
   body {
     font-size: 16px;
     line-height: 1.4em;
+    overflow-x: hidden;
   }
 
   .menu {

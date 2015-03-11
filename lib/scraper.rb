@@ -114,6 +114,15 @@ module Scraper
     end
   end
 
+  def arstechnica_items
+    feed = Feedjira::Feed.fetch_and_parse('http://feeds.arstechnica.com/arstechnica/index ')
+    [].tap do |items|
+      feed.entries.each do |entry|
+        items << {title: entry.title, url: entry.entry_id, source: 'arstechnica'}
+      end
+    end
+  end
+
   def github_items
     feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_all_daily.rss')
     [].tap do |items|

@@ -37,6 +37,6 @@ end
 
 task :collect_feeds do
   item_count = Item.count
-  collect_and_save(['betalist', 'macrumors', 'qudos', 'github'])
+  collect_and_save(['betalist', 'macrumors', 'qudos', 'github', 'arstechnica'])
   puts "Created #{Item.count - item_count} items"
 end

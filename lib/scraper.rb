@@ -115,7 +115,7 @@ module Scraper
   end
 
   def github_items
-    feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_ruby_daily.rss')
+    feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_all_daily.rss')
     [].tap do |items|
       feed.entries.each do |entry|
         items << {

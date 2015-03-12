@@ -19,7 +19,7 @@ table.item-list
         td.log colspan=(2)
           |&#10003;&nbsp;
           =distance_of_time_in_words(Time.new, session.completed_to) + ' ago'
-    tr class=('read' if displayed_log)
+    tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 30)}")
       td
         =link_to(item.url) do
           =image_tag("/#{item.source}.jpg", height: '20', width: '20', class: 'icon')

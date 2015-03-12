@@ -70,8 +70,17 @@ td.log span {
 }
 
 .read {
-  opacity: 0.8;
   background-color: rgba(154, 205, 50, 0.25);
+}
+
+.read .title-link:visited {
+  color: #454545;
+  border-bottom: 1px solid black;
+}
+
+.read .title-link:visited:hover {
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 .icon {

@@ -157,6 +157,7 @@ span span.topped {
   padding: 5px;
   font-size: 12px;
   font-family: monospace;
+  border-left: 1px solid LightGrey;
 }
 
 .options p {
@@ -265,6 +266,7 @@ span span.topped {
     right: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-left: none;
   }
 
   .options p {

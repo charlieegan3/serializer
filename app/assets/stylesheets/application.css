@@ -40,6 +40,10 @@ td:first-child {
   width: 1px;
 }
 
+td:last-child {
+  padding-right: 7px;
+}
+
 .log-button {
   display: block;
   text-align: center;

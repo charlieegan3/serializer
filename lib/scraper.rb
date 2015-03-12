@@ -42,7 +42,7 @@ module Scraper
         'http://www.reddit.com/r/Technology',
         'http://www.reddit.com/r/dataisbeautiful/'
       ].each do |page|
-        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').each_with_index do |item, index|
+        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').take(10).each_with_index do |item, index|
           next if item.at_css('a.title').text.include?('PLEASE READ')
           url = item.at_css('a.title')['href']
           url = "http://www.reddit.com#{url}" unless url.include?('http://') || url.include?('https://')

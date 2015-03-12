@@ -12,3 +12,10 @@
     p
       span =link_to 'session', share_path, title: 'Link to copy and access your session on other devices'
       span =link_to 'clear', delete_session_path, title: 'Click for a fresh session'
+  p.stats
+    strong day:&nbsp;
+    =Item.day_count
+    strong &nbsp;8hr:&nbsp;
+    =Item.eight_hour_count
+    strong &nbsp;1hr:&nbsp;
+    =Item.hour_count

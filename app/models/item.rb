@@ -11,4 +11,16 @@ class Item < ActiveRecord::Base
       limit(150).
       order(created_at: 'DESC')
   end
+
+  def self.day_count
+    where('created_at >= ?', Time.zone.now - 1.days).size
+  end
+
+  def self.eight_hour_count
+    where('created_at >= ?', Time.zone.now - 8.hours).size
+  end
+
+  def self.hour_count
+    where('created_at >= ?', Time.zone.now - 1.hours).size
+  end
 end

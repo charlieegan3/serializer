@@ -184,6 +184,12 @@ span span.topped {
   color: black;
 }
 
+.stats {
+  font-size: 0.7em;
+  text-align: right;
+  margin: 3px;
+}
+
 .source-selector {
   width: 50px;
   position: fixed;
@@ -265,5 +271,14 @@ span span.topped {
   .options span {
     margin-right: 20px;
     margin-left: 20px;
+  }
+
+  .stats {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+    margin: 0px;
+    padding: 5px;
   }
 }

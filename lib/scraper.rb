@@ -16,7 +16,6 @@ module Scraper
   end
 
   def product_hunt_items
-    httpc = HTTPClient.new
     page = Nokogiri::HTML(open('http://www.producthunt.com'), nil, 'UTF-8')
     [].tap do |items|
       page.at_css('.posts-group').css('.post--content').each do |item|
@@ -25,7 +24,7 @@ module Scraper
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: link.at_css('.title').text + ' - ' + link.at_css('.post-tagline').text,
-          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          url: final_url(redirect_url),
           comment_url: 'http://www.producthunt.com' + item['data-href'],
           redirect_url: redirect_url,
           source: 'product_hunt'
@@ -59,7 +58,6 @@ module Scraper
   end
 
   def designer_news_items
-    httpc = HTTPClient.new
     page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
     [].tap do |items|
       page.css('.Story').each do |story|
@@ -69,7 +67,7 @@ module Scraper
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: link.text.strip,
-          url: httpc.get(redirect_url).header['Location'].first.to_s.split('#').first,
+          url: final_url(redirect_url).split('#').first,
           comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
           redirect_url: redirect_url,
           source: 'designer_news'
@@ -80,7 +78,6 @@ module Scraper
   end
 
   def qudos_items
-    httpc = HTTPClient.new
     page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
     [].tap do |items|
       page.css('.grid-90').map do |item|
@@ -88,7 +85,7 @@ module Scraper
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
-          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          url: final_url(redirect_url),
           redirect_url: redirect_url,
           source: 'qudos'
         }
@@ -98,7 +95,6 @@ module Scraper
   end
 
   def betalist_items
-    httpc = HTTPClient.new
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.feedburner.com/betalist?format=xml')
     [].tap do |items|
       feed.entries.each do |entry|
@@ -106,7 +102,7 @@ module Scraper
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split(/,|\./).first,
-          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          url: final_url(redirect_url),
           redirect_url: redirect_url,
           source: 'beta_list'
         }
@@ -124,7 +120,6 @@ module Scraper
   end
 
   def arstechnica_items
-    httpc = HTTPClient.new
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.arstechnica.com/arstechnica/index ')
     [].tap do |items|
       feed.entries.each do |entry|
@@ -132,7 +127,7 @@ module Scraper
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: entry.title,
-          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          url: final_url(redirect_url),
           redirect_url: redirect_url,
           source: 'arstechnica'
         }
@@ -152,4 +147,9 @@ module Scraper
       end
     end
   end
+
+  private
+    def final_url(redirect_url)
+      HTTPClient.new.get(redirect_url).header['Location'].first.to_s
+    end
 end

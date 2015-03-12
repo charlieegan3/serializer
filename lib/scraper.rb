@@ -11,7 +11,7 @@ module Scraper
         comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
         items << {title: title, url: url, comment_url: comment_url ,source: 'hacker_news'}
       end
-      items.first.merge!({topped: true})
+      items.first.merge!({topped: true}) unless items.empty?
     end
   end
 
@@ -21,14 +21,17 @@ module Scraper
     [].tap do |items|
       page.at_css('.posts-group').css('.post--content').each do |item|
         link = item.at_css('.url')
+        redirect_url = 'http://www.producthunt.com' + link.at_css('.title')['href']
+        next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: link.at_css('.title').text + ' - ' + link.at_css('.post-tagline').text,
-          url: httpc.get('http://www.producthunt.com' + link.at_css('.title')['href']).header['Location'].first.to_s,
+          url: httpc.get(redirect_url).header['Location'].first.to_s,
           comment_url: 'http://www.producthunt.com' + item['data-href'],
+          redirect_url: redirect_url,
           source: 'product_hunt'
         }
       end
-      items.first.merge!({topped: true})
+      items.first.merge!({topped: true}) unless items.empty?
     end
   end
 
@@ -62,14 +65,17 @@ module Scraper
       page.css('.Story').each do |story|
         link = story.at_css('a')
         link.at_css('.Domain').remove if link.at_css('.Domain')
+        redirect_url = link['href']
+        next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: link.text.strip,
-          url: httpc.get(link['href']).header['Location'].first.to_s.split('#').first,
+          url: httpc.get(redirect_url).header['Location'].first.to_s.split('#').first,
           comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
+          redirect_url: redirect_url,
           source: 'designer_news'
         }
       end
-      items.first.merge!({topped: true})
+      items.first.merge!({topped: true}) unless items.empty?
     end
   end
 
@@ -78,13 +84,16 @@ module Scraper
     page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
     [].tap do |items|
       page.css('.grid-90').map do |item|
+        redirect_url = 'https://www.qudos.io' + item.at_css('.title')['href']
+        next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
-          url: httpc.get('https://www.qudos.io' + item.at_css('.title')['href']).header['Location'].first.to_s,
+          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          redirect_url: redirect_url,
           source: 'qudos'
         }
       end
-      items.first.merge!({topped: true})
+      items.first.merge!({topped: true}) unless items.empty?
     end
   end
 
@@ -93,9 +102,12 @@ module Scraper
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.feedburner.com/betalist?format=xml')
     [].tap do |items|
       feed.entries.each do |entry|
+        redirect_url = entry.id + '/visit'
+        next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split(/,|\./).first,
-          url: httpc.get(entry.id + '/visit').header['Location'].first.to_s,
+          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          redirect_url: redirect_url,
           source: 'beta_list'
         }
       end

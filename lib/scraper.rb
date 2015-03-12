@@ -124,10 +124,18 @@ module Scraper
   end
 
   def arstechnica_items
+    httpc = HTTPClient.new
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.arstechnica.com/arstechnica/index ')
     [].tap do |items|
       feed.entries.each do |entry|
-        items << {title: entry.title, url: entry.entry_id, source: 'arstechnica'}
+        redirect_url = entry.entry_id
+        next if Item.find_by_redirect_url(redirect_url)
+        items << {
+          title: entry.title,
+          url: httpc.get(redirect_url).header['Location'].first.to_s,
+          redirect_url: redirect_url,
+          source: 'arstechnica'
+        }
       end
     end
   end

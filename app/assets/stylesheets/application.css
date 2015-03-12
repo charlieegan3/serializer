@@ -193,9 +193,10 @@ span span.topped {
 .source-selector {
   width: 50px;
   position: fixed;
-  top: 80px;
+  top: 90px;
   right: 0px;
   text-align: center;
+  z-index: 10;
 }
 
 .source-selector img {

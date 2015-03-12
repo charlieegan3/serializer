@@ -64,7 +64,7 @@ module Scraper
         link.at_css('.Domain').remove if link.at_css('.Domain')
         items << {
           title: link.text.strip,
-          url: httpc.get(link['href']).header['Location'].first.to_s,
+          url: httpc.get(link['href']).header['Location'].first.to_s.split('#').first,
           comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
           source: 'designer_news'
         }

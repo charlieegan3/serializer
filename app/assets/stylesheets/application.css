@@ -154,7 +154,6 @@ span span.topped {
 
 .options {
   background-color: #FCFCFC;
-  border-bottom-left-radius: 3px;
   padding: 5px;
   font-size: 12px;
   font-family: monospace;
@@ -187,7 +186,10 @@ span span.topped {
 .stats {
   font-size: 0.7em;
   text-align: right;
-  margin: 3px;
+  margin: 0px;
+  padding: 3px;
+  background-color: LightGrey;
+  border-bottom-left-radius: 3px;
 }
 
 .source-selector {
@@ -281,5 +283,6 @@ span span.topped {
     color: white;
     margin: 0px;
     padding: 5px;
+    background-color: transparent;
   }
 }

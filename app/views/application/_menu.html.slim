@@ -1,3 +1,7 @@
+-if params[:action] == 'all'
+  -sources = SOURCES
+-if params[:action] == 'index'
+  -sources = ['hacker_news', 'reddit', 'product_hunt']
 .menu
   .logo
     =link_to 'serializer.io', root_path, class: 'menu-text'
@@ -14,8 +18,8 @@
       span =link_to 'clear', delete_session_path, title: 'Click for a fresh session'
   p.stats
     strong day:&nbsp;
-    =Item.day_count
+    =Item.day_count(sources)
     strong &nbsp;8hr:&nbsp;
-    =Item.eight_hour_count
+    =Item.eight_hour_count(sources)
     strong &nbsp;1hr:&nbsp;
-    =Item.hour_count
+    =Item.hour_count(sources)

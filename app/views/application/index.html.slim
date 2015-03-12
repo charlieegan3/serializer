@@ -1,5 +1,5 @@
 -session = Session.find_by_identifier(cookies.permanent[:session])
-=render 'menu'
+=render 'menu', sources: session.sources
 
 -if params[:action] == 'custom'
   =render 'source_selection', sources: session.sources

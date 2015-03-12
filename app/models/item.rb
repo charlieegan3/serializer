@@ -12,15 +12,15 @@ class Item < ActiveRecord::Base
       order(created_at: 'DESC')
   end
 
-  def self.day_count
-    where('created_at >= ?', Time.zone.now - 1.days).size
+  def self.day_count(sources)
+    where(source: sources).where('created_at >= ?', Time.zone.now - 1.days).size
   end
 
-  def self.eight_hour_count
-    where('created_at >= ?', Time.zone.now - 8.hours).size
+  def self.eight_hour_count(sources)
+    where(source: sources).where('created_at >= ?', Time.zone.now - 8.hours).size
   end
 
-  def self.hour_count
-    where('created_at >= ?', Time.zone.now - 1.hours).size
+  def self.hour_count(sources)
+    where(source: sources).where('created_at >= ?', Time.zone.now - 1.hours).size
   end
 end

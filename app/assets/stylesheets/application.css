@@ -45,7 +45,7 @@ td:first-child {
   text-align: center;
   top: 0px;
   width: 100%;
-  padding: 6px 10px 4px 10px;
+  padding: 6px 0px 4px 0px;
   height: 20px;
   background-color: Orange;
   color: white;
@@ -57,8 +57,12 @@ td.log {
   color: white;
   font-size: 12px;
   background-color: YellowGreen;
-  padding: 6px 0px 4px 0px;
+  padding: 5px 0px 5px 0px;
   height: 20px;
+}
+
+td.log span {
+  font-size: 1.2em;
 }
 
 .read {

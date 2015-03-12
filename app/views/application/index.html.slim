@@ -20,7 +20,8 @@ table.item-list
           -if index == 0
             |&#10003; All up-to-date
           -else
-            |&#10003; read to here -&nbsp;
+            span &#10003;&nbsp;
+            |Read to here -&nbsp;
             =distance_of_time_in_words(Time.new, session.completed_to) + ' ago'
     tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td

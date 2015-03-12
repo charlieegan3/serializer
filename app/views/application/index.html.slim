@@ -9,17 +9,20 @@
 
 table.item-list
   -displayed_log = false
-  -overflow = 30
-  -@items.each do |item|
+  -overflow = 20
+  -@items.each_with_index do |item, index|
     -overflow -= 1 if displayed_log == true
     -break if overflow == 0
     -if session && session.completed_to && displayed_log == false && item.created_at <= session.completed_to
       -displayed_log = true
       tr
         td.log colspan=(2)
-          |&#10003;&nbsp;
-          =distance_of_time_in_words(Time.new, session.completed_to) + ' ago'
-    tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 30)}")
+          -if index == 0
+            |&#10003; All up-to-date
+          -else
+            |&#10003; read to here -&nbsp;
+            =distance_of_time_in_words(Time.new, session.completed_to) + ' ago'
+    tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td
         =link_to(item.url) do
           =image_tag("/#{item.source}.jpg", height: '20', width: '20', class: 'icon')

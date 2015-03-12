@@ -42,13 +42,12 @@ td:first-child {
 
 .log-button {
   display: block;
-  position: fixed;
+  text-align: center;
   top: 0px;
-  right: 133px;
+  width: 100%;
   padding: 6px 10px 4px 10px;
   height: 20px;
-  background-color: YellowGreen;
-  border-bottom-left-radius: 3px;
+  background-color: Orange;
   color: white;
   text-decoration: none;
 }
@@ -217,6 +216,10 @@ span span.topped {
     overflow-x: hidden;
   }
 
+  table {
+    margin-top: 0px;
+  }
+
   .menu {
     right: 0px;
     top: 0px;
@@ -235,14 +238,16 @@ span span.topped {
   }
 
   .log-button {
-    float: none;
-    position: relative;
     border-radius: 0px;
     right: inherit;
     margin-top: 5px;
     text-align: center;
-    padding: 15px;
+    padding: 15px 0px 15px 0px;
     font-size: 25px;
+  }
+
+  td.log {
+    padding: 16px 0px 14px 0px;
   }
 
   .source-selector {

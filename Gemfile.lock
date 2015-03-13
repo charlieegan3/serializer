@@ -65,6 +65,8 @@ GEM
       mail (>= 2.2.1)
     gmail_xoauth (0.4.1)
       oauth (>= 0.3.6)
+    gruff (0.5.1)
+      rmagick
     hike (1.2.3)
     httpclient (2.6.0.1)
     i18n (0.7.0)
@@ -115,6 +117,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     random_username (1.0.2)
+    rmagick (2.13.4)
     sax-machine (1.1.1)
     slim (3.0.2)
       temple (~> 0.7.3)
@@ -151,6 +154,7 @@ DEPENDENCIES
   byebug
   feedjira
   gmail
+  gruff
   httpclient
   nokogiri
   pg

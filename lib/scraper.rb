@@ -20,7 +20,7 @@ module Scraper
     [].tap do |items|
       page.at_css('.posts-group').css('.post--content').each do |item|
         link = item.at_css('.url')
-        redirect_url = 'http://www.producthunt.com' + link.at_css('.title')['href']
+        redirect_url = 'http://www.producthunt.com' + link.at_css('.title')['href'].gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: link.at_css('.title').text + ' - ' + link.at_css('.post-tagline').text,
@@ -63,7 +63,7 @@ module Scraper
       page.css('.Story').each do |story|
         link = story.at_css('a')
         link.at_css('.Domain').remove if link.at_css('.Domain')
-        redirect_url = link['href']
+        redirect_url = link['href'].gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: link.text.strip,
@@ -81,7 +81,7 @@ module Scraper
     page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
     [].tap do |items|
       page.css('.grid-90').map do |item|
-        redirect_url = 'https://www.qudos.io' + item.at_css('.title')['href']
+        redirect_url = 'https://www.qudos.io' + item.at_css('.title')['href'].gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
@@ -98,7 +98,7 @@ module Scraper
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.feedburner.com/betalist?format=xml')
     [].tap do |items|
       feed.entries.each do |entry|
-        redirect_url = entry.id + '/visit'
+        redirect_url = (entry.id + '/visit').gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split(/,|\./).first,
@@ -123,7 +123,7 @@ module Scraper
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.arstechnica.com/arstechnica/index ')
     [].tap do |items|
       feed.entries.each do |entry|
-        redirect_url = entry.entry_id
+        redirect_url = entry.entry_id.gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
         items << {
           title: entry.title,

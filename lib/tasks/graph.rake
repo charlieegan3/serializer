@@ -15,5 +15,5 @@ task :save_graph do
   g.data :line, counts(times)
   RAILS_ROOT = Rails.root unless defined? RAILS_ROOT
   g.write(Rails.root.join("#{RAILS_ROOT}/tmp/graph.png"))
-  puts Cloudinary::Uploader.upload("#{RAILS_ROOT}/tmp/graph.png", public_id: 'graph')['url']
+  puts Cloudinary::Uploader.upload("#{RAILS_ROOT}/tmp/graph.png", public_id: 'graph')
 end

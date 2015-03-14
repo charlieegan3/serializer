@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: charlieegan3
+  api_key: '925425369755441'
+  api_secret: _ZkqkBcFVkb4JJY7gJmQHrAPugU
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: charlieegan3
+  api_key: '925425369755441'
+  api_secret: _ZkqkBcFVkb4JJY7gJmQHrAPugU
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: charlieegan3
+  api_key: '925425369755441'
+  api_secret: _ZkqkBcFVkb4JJY7gJmQHrAPugU
+  enhance_image_tag: true
+  static_image_support: false

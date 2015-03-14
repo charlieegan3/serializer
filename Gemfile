@@ -10,11 +10,9 @@ group :development, :test do
   gem 'better_errors'
 end
 
-gem 'pg'
-
 gem 'nokogiri'
 gem 'feedjira'
-gem 'pg', group: :production
+gem 'pg'
 gem 'slim'
 gem 'httpclient'
 gem 'gmail'

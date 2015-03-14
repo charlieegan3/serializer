@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def all
+    cookies.permanent[:session] = Session.find_by_identifier(params[:session]).identifier if params[:session]
+    return redirect_to new_session_path if cookies.permanent[:session].blank?
     @items = Item.all.order(created_at: 'DESC').limit(300)
     render :index
   end

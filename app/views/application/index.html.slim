@@ -1,4 +1,5 @@
 -session = Session.find_by_identifier(cookies.permanent[:session])
+
 =render 'menu', sources: session.sources
 
 -if params[:action] == 'custom'
@@ -38,5 +39,5 @@ table.item-list
           -if item.topped
             span.topped title=('Reached the top spot!')
               |&#9733;
-
-=cl_image_tag('graph.png')
+.graph
+  =image_tag(CloudinaryImage.find_by_identifier('graph').url)

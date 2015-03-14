@@ -148,6 +148,17 @@ span span.topped {
   z-index: 1;
 }
 
+.graph {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+
+.graph img {
+  height: 70px;
+  width: 150px;
+}
+
 .logo {
   color: #F8F8F8;
   background-color: #454545;
@@ -242,6 +253,16 @@ span span.topped {
     top: 0px;
     position: relative;
     margin: 0px;
+  }
+
+  .graph {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+
+  .graph img {
+    height: 70px;
   }
 
   .logo {

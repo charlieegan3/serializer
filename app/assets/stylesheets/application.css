@@ -54,6 +54,11 @@ td:last-child {
   background-color: Orange;
   color: white;
   text-decoration: none;
+  font-size: 12px;
+}
+
+.log-button span.tick {
+  font-size: 1.1em;
 }
 
 td.log {
@@ -281,6 +286,13 @@ span span.topped {
     margin-top: 5px;
     text-align: center;
     padding: 15px 0px 15px 0px;
+  }
+
+  .log-button span.message {
+    display: none;
+  }
+
+  .log-button span.tick {
     font-size: 25px;
   }
 

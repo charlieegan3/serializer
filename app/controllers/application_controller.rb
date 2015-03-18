@@ -5,7 +5,14 @@ class ApplicationController < ActionController::Base
 
   def index
     return not_found if request.env['HTTP_REFERER'] && request.env['HTTP_REFERER'].include?('simple-share-buttons.com')
-    @session = get_session(params[:session] || cookies.permanent[:session])
+
+    if params[:session]
+      flash[:message] = 'Session synced!</a>' unless flash[:message]
+      @session = get_session(params[:session])
+    else
+      @session = get_session
+    end
+
     @items = Item.matching
     return render json: @items if params[:format] == 'json'
     render :index

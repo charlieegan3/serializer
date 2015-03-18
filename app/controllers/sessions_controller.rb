@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def clear_session
     cookies.permanent[:session] = nil
+    session = get_session
+    flash[:message] = "Sync your new session with <a href=\"#{root_path + session.identifier}\">this link</a>"
     redirect_to root_path
   end
 

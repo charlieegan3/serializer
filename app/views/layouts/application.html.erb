@@ -6,7 +6,6 @@
     <meta name="description" content="Combines various non-linear news sources such as Hacker News and Reddit into a single sequential feed.">
     <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <% cookies.permanent[:sources] = '' if cookies.permanent[:sources].nil? %>
   </head>
   <body>
     <%= yield %>

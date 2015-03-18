@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    return not_found if request.env['HTTP_REFERER'] && request.env['HTTP_REFERER'].include?('simple-share-buttons.com')
     @session = get_session(params[:session] || cookies.permanent[:session])
     @items = Item.matching
     return render json: @items if params[:format] == 'json'
@@ -27,5 +28,9 @@ class ApplicationController < ActionController::Base
     Session.find_or_create(param).tap do |session|
       cookies.permanent[:session] = session.identifier
     end
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
   end
 end

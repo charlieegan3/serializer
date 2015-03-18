@@ -304,6 +304,10 @@ span span.topped {
     color: white;
   }
 
+  .flash {
+    padding: 15px 0px 15px 0px;
+  }
+
   .log-button {
     border-radius: 0px;
     right: inherit;

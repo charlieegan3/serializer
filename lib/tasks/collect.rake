@@ -40,3 +40,11 @@ task :collect_feeds do
   collect_and_save(['betalist', 'macrumors', 'qudos', 'github', 'arstechnica'])
   puts "Created #{Item.count - item_count} items"
 end
+
+task :set_tweet_counts do
+  Item.where("created_at > ?", 20.minutes.ago).each do |item|
+    count = JSON.parse(open("http://urls.api.twitter.com/1/urls/count.json?url=#{item.url}").read)['count'] rescue next
+    item.update_attribute(:tweet_count, count.to_i)
+    puts "#{item.title[0..19].ljust(20)} - #{item.tweet_count}"
+  end
+end

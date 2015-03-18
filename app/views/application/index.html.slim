@@ -34,8 +34,11 @@ table.item-list
         span.muted
           =distance_of_time_in_words(item.created_at, Time.new) + ' ago'
           span =item.url.split('/')[2]
-          -unless item.comment_url.blank?
+          -if item.comment_url.present?
             span =link_to 'comments', item.comment_url
+          -if item.tweet_count.to_i > 0
+            span =image_tag('/twitter.png', height: '15', width: '15', class: 'twitter-icon')
+            span =item.tweet_count
           -if item.topped
             span.topped title=('Reached the top spot!')
               |&#9733;

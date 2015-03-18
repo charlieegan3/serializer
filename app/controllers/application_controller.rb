@@ -4,27 +4,28 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    cookies.permanent[:session] = Session.find_by_identifier(params[:session]).identifier if params[:session]
-    return redirect_to new_session_path if cookies.permanent[:session].blank?
+    @session = get_session(params[:session] || cookies.permanent[:session])
     @items = Item.matching
     return render json: @items if params[:format] == 'json'
-    return render :index
+    render :index
   end
 
   def all
-    cookies.permanent[:session] = Session.find_by_identifier(params[:session]).identifier if params[:session]
-    return redirect_to new_session_path if cookies.permanent[:session].blank?
     @items = Item.all.order(created_at: 'DESC').limit(300)
     return render json: @items if params[:format] == 'json'
-    return render :index
+    @session = get_session
+    render :index
   end
 
   def custom
-    sources = Session.find_by_identifier(cookies.permanent[:session]).sources
-    if (SOURCES - sources) == SOURCES
-      cookies.permanent[:sources] = ''
-    end
-    @items = Item.matching(sources)
+    @session = get_session
+    @items = Item.matching(@session.sources)
     render :index
+  end
+
+  def get_session(param = cookies.permanent[:session] || params[:session])
+    Session.find_or_create(param).tap do |session|
+      cookies.permanent[:session] = session.identifier
+    end
   end
 end

@@ -18,6 +18,8 @@ class SessionsController < ApplicationController
 
   def share
     session = get_session
-    redirect_to root_path + session.identifier
+    path = root_path + session.identifier
+    flash[:message] = "Visit <a href=\"#{path}\">this link</a> on your other devices to sync your read status and settings"
+    redirect_to path
   end
 end

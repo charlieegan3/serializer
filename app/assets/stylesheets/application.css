@@ -44,6 +44,30 @@ td:last-child {
   padding-right: 7px;
 }
 
+.flash {
+  padding: 8px 0px 2px 0px;
+  height: 20px;
+  margin: 0px;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  border-bottom: 1px solid white;
+  background-color: CornflowerBlue ;
+}
+
+.flash a {
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.1);
+  padding: 2px 4px 2px 4px;
+  border-radius: 2px;
+  color: white;
+  text-decoration: none;
+}
+
+.flash a:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
 .log-button {
   display: block;
   text-align: center;

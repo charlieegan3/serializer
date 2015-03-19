@@ -31,14 +31,20 @@ div.container
     h1 Syncing & Cookies
     p You can sync read status across devices by visiting your session's path on other devices. Your session path is:
     p.share-path =link_to root_path + @session.identifier, root_path + @session.identifier
-    p Visiting that link will set a cookie linking that device to the same shared session. No passwords here.
+    p Visiting that link will set a cookie linking that device to the same shared session. No passwords needed.
 
     h1 About
     p
       em serializer
       |&nbsp;is just a side project, I wanted a feed for social news sites and I enjoy marking things as read.
+    p
+      |I was inspired by&nbsp;
+      =link_to 'a blog post', 'http://www.slashie.org/articles/shipping-side-projects/'
+      |&nbsp;(I assume shared on HN) to make this more than just a quick 'tool' for my personal use.
     p I follow the 'all' list but I made 'home' and 'custom' to let others choose different sources.
     br
     p.muted
-      |Created by&nbsp;
-      =link_to 'charlieegan3', 'http://www.charlieegan3.com'
+      |Built with rails, nokogiri, feedjira, slim, httpclient, random_username, gruff &amp; cloudinary
+    p.muted
+      |Built by by&nbsp;
+      =link_to 'Charlie', 'http://www.charlieegan3.com'

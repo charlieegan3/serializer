@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def index
     return not_found if request.env['HTTP_REFERER'] && request.env['HTTP_REFERER'].include?('simple-share-buttons.com')
+    return redirect_to welcome_path unless cookies.permanent[:welcomed]
 
     if params[:session]
       flash[:message] = 'Session synced!</a>' unless flash[:message]
@@ -19,6 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def welcome
+    cookies.permanent[:welcomed] = true
     @session = get_session
   end
 

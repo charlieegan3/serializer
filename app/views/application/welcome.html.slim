@@ -12,7 +12,8 @@ div.container
     |&nbsp;&amp;&nbsp;
     =link_to('http://producthunt.com', target: '_blank') do
       =image_tag("/product_hunt.jpg", height: '20', width: '20', class: 'inline icon')
-    |&nbsp;and lists them in a sequential feed.
+    |&nbsp;and lists them in&nbsp;
+    em sequential order.
 
   div.feed
     =link_to(root_path) do
@@ -35,7 +36,9 @@ div.container
     h1 About
     p
       em serializer
-      |&nbsp;is a side project of&nbsp;
-      =link_to 'mine', 'http://www.charlieegan3.com'
-      |. I wanted to linearly follow social news sites - I like marking things as read too.
-    p I follow the 'all' list but I made 'home' and 'custom' to let people choose different sources.
+      |&nbsp;is just a side project, I wanted a feed for social news sites and I enjoy marking things as read.
+    p I follow the 'all' list but I made 'home' and 'custom' to let others choose different sources.
+    br
+    p.muted
+      |Created by&nbsp;
+      =link_to 'charlieegan3', 'http://www.charlieegan3.com'

@@ -26,7 +26,7 @@ table.item-list
             =distance_of_time_in_words(Time.new, @session.completed_to) + ' ago'
     tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td
-        =link_to(item.url) do
+        =link_to(item.url, target: '_blank') do
           =image_tag("/#{item.source}.jpg", height: '20', width: '20', class: 'icon')
       td
         =link_to item.title, item.url, class: 'title-link'

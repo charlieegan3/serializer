@@ -280,10 +280,12 @@ span span.topped {
   }
 
   .menu {
-    right: 0px;
-    top: 0px;
     position: relative;
-    margin: 0px;
+  }
+
+  div.options {
+    margin-top: 5px;
+    margin-bottom: 0px;
   }
 
   .muted {

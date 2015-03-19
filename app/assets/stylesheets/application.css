@@ -290,6 +290,10 @@ span span.topped {
     margin: 0px;
   }
 
+  .muted {
+    font-size: 0.8em;
+  }
+
   .graph {
     position: relative;
     width: 100%;

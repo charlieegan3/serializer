@@ -133,11 +133,7 @@ span.muted a {
 }
 
 span span.topped {
-  background-color: black;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-bottom: 1px;
-  border-radius: 2px;
+  font-size: 13px;
   color: #FFD700;
 }
 

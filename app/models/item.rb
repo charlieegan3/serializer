@@ -16,11 +16,9 @@ class Item < ActiveRecord::Base
     where(source: sources).where('created_at >= ?', Time.zone.now - 1.days).size
   end
 
-  def self.eight_hour_count(sources)
-    where(source: sources).where('created_at >= ?', Time.zone.now - 8.hours).size
-  end
-
-  def self.hour_count(sources)
-    where(source: sources).where('created_at >= ?', Time.zone.now - 1.hours).size
+  def self.average_hour_count(sources)
+    where(source: sources).
+      where('created_at >= ?', Time.zone.now - 1.days).
+      size / 24
   end
 end

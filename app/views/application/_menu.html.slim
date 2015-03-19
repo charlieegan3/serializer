@@ -17,9 +17,6 @@
       span =link_to 'session', share_path, title: 'Link to copy and access your session on other devices'
       span =link_to 'clear', clear_session_path, title: 'Click for a fresh session'
   p.stats
-    strong day:&nbsp;
-    =Item.day_count(sources)
-    strong &nbsp;8hr:&nbsp;
-    =Item.eight_hour_count(sources)
-    strong &nbsp;1hr:&nbsp;
-    =Item.hour_count(sources)
+    |~
+    strong =Item.average_hour_count(sources)
+    |&nbsp;items per hour

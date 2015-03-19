@@ -16,11 +16,11 @@ div.container
     em sequential order.
 
   div.feed
-    =link_to(root_path) do
+    =link_to(root_path, class: 'swap home') do
       -['hacker_news', 'product_hunt', 'reddit'].each do |source|
         =image_tag("/#{source}.jpg", height: '20', width: '20', class: 'icon source-icon')
   div.feed
-    =link_to(all_path)
+    =link_to(all_path, class: 'swap all')
       -SOURCES.each do |source|
         =image_tag("/#{source}.jpg", height: '20', width: '20', class: 'icon source-icon')
   div.feed

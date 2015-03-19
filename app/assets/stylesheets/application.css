@@ -310,6 +310,13 @@ span span.topped {
   border-radius: 3px;
   border: 1px solid rgba(0,0,0,0.2);
   font-size: 1.2em;
+
+  -o-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -khtml-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .feed a:hover {
@@ -317,6 +324,28 @@ span span.topped {
   text-decoration: none;
   background-color: Orange;
   box-shadow: 0px 0px 5px Orange;
+}
+
+.feed .swap {
+  height: 35px;
+  padding-top: 18px;
+  padding-bottom: 0px;
+}
+
+.swap .icon {
+  margin: -3px 5px 10px 5px;
+}
+
+.feed .home:hover:before {
+   content: "default mix";
+}
+
+.feed .all:hover:before {
+   content: "all sources";
+}
+
+.feed .swap:hover img{
+  display: none;
 }
 
 .source-icon {
@@ -345,7 +374,7 @@ span span.topped {
 
 .share-path a {
   color: white;
-  background-color: Orange;
+  background-color: CornflowerBlue;
   padding: 5px 10px;
   border-radius: 3px;
   border: 1px solid rgba(0,0,0,0.2);
@@ -354,6 +383,16 @@ span span.topped {
   max-width: 250px;
   margin: 0 auto;
   text-align: center;
+  -o-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -khtml-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.share-path a:hover {
+  box-shadow: 0px 0px 5px CornflowerBlue;
 }
 
 footer {

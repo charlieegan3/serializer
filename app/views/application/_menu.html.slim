@@ -5,18 +5,19 @@
 .menu
   .logo
     =link_to 'serializer.io', root_path, class: 'menu-text'
-  .options
-    p
-      -[['index', 'home', root_path], ['custom', 'custom', custom_path], ['all', 'all', all_path]].each do |item|
-        -if params[:action] == item[0]
-          span
-            strong =link_to item[1], item[2]
-        -else
-          span =link_to item[1], item[2]
-    p
-      span =link_to 'session', share_path, title: 'Link to copy and access your session on other devices'
-      span =link_to 'clear', clear_session_path, title: 'Click for a fresh session'
-  p.stats
-    |~
-    strong =Item.average_hour_count(sources)
-    |&nbsp;items per hour
+  -unless params[:action] == 'welcome'
+    .options
+      p
+        -[['index', 'home', root_path], ['custom', 'custom', custom_path], ['all', 'all', all_path]].each do |item|
+          -if params[:action] == item[0]
+            span
+              strong =link_to item[1], item[2]
+          -else
+            span =link_to item[1], item[2]
+      p
+        span =link_to 'session', share_path, title: 'Link to copy and access your session on other devices'
+        span =link_to 'clear', clear_session_path, title: 'Click for a fresh session'
+    p.stats
+      |~
+      strong =Item.average_hour_count(sources)
+      |&nbsp;items per hour

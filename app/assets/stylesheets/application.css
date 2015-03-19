@@ -254,7 +254,7 @@ span span.topped {
 .source-selector {
   width: 50px;
   position: fixed;
-  top: 90px;
+  top: 100px;
   right: 0px;
   text-align: center;
   z-index: 10;

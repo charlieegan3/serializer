@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     render :index
   end
 
+  def welcome
+    @session = get_session
+  end
+
   def all
     @items = Item.all.order(created_at: 'DESC').limit(300)
     return render json: @items if params[:format] == 'json'

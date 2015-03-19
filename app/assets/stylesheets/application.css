@@ -486,4 +486,8 @@ footer a {
     margin-top: 20px;
     width: auto;
   }
+
+  .about {
+    margin-top: 50px;
+  }
 }

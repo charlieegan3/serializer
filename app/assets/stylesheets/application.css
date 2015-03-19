@@ -339,7 +339,7 @@ span span.topped {
   font-weight: bold;
 }
 
-.share-path {
+.about .muted {
   text-align: center;
 }
 
@@ -350,6 +350,10 @@ span span.topped {
   border-radius: 3px;
   border: 1px solid rgba(0,0,0,0.2);
   text-decoration: none;
+  display: block;
+  max-width: 250px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 footer {

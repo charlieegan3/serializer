@@ -32,8 +32,8 @@ table.item-list
         =link_to item.title, item.url, class: 'title-link'
         br
         span.muted
-          =distance_of_time_in_words(item.created_at, Time.new) + ' ago'
-          span =item.url.split('/')[2]
+          =time_ago(item.created_at)
+          span =print_url(item.url)
           -if item.comment_url.present?
             span =link_to 'comments', item.comment_url
           -if item.tweet_count.to_i > 0

@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def all
+    return redirect_to welcome_path unless cookies.permanent[:welcomed]
     @items = Item.all.order(created_at: 'DESC').limit(300)
     return render json: @items if params[:format] == 'json'
     @session = get_session
@@ -42,6 +43,7 @@ class ApplicationController < ActionController::Base
   end
 
   def custom
+    return redirect_to welcome_path unless cookies.permanent[:welcomed]
     @session = get_session
     @items = Item.matching(@session.sources)
     render :index

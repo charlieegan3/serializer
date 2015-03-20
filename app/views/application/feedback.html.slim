@@ -2,7 +2,8 @@ div.container
   =form_tag(feedback_path, method: 'post') do
     =text_area(:feedback, :comment, cols: 40, rows: 15, class: 'comment-box')
     br
-    =submit_tag('Send', class: 'submit')
+    div.submit-area
+      =submit_tag('Send', class: 'submit')
   p.tweet
     a.twitter-mention-button data-size=("large") href=("https://twitter.com/intent/tweet?screen_name=charlieegan3&text=serializer%20needs...")
       |Tweet to @charlieegan3

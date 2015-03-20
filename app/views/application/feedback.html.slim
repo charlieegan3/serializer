@@ -1,0 +1,11 @@
+div.container
+  =form_tag(feedback_path, method: 'post') do
+    =text_area(:feedback, :comment, cols: 40, rows: 15, class: 'comment-box')
+    br
+    =submit_tag('Send', class: 'submit')
+  p
+    a.twitter-mention-button data-size=("large") href=("https://twitter.com/intent/tweet?screen_name=charlieegan3&text=serializer.io%20needs...")
+      |Tweet to @charlieegan3
+  javascript:
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+

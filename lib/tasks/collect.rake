@@ -2,6 +2,7 @@ require 'open-uri'
 require_relative '../../config/environment'
 
 include Scraper
+include Notifier
 
 def collect_and_save(sources)
   items = []
@@ -17,7 +18,7 @@ def collect_and_save(sources)
     end
     print "\n"
   end
-  Notifier.send(errors) unless errors.empty?
+  send_errors(errors) unless errors.empty?
 
   items.shuffle.each do |item|
     existing = Item.find_by_url(item[:url])

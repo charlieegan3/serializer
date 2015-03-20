@@ -406,6 +406,49 @@ footer a {
   text-decoration: none;
 }
 
+/*feedback page*/
+.comment-box {
+  resize: none;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.comment-box:focus {
+  outline: none;
+  border: 1px solid YellowGreen;
+  box-shadow: 0 0 5px YellowGreen;
+}
+
+.submit {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  display: block;
+  background-color: YellowGreen;
+  margin: 10px auto;
+  max-width: 400px;
+  width: 100%;
+  padding: 10px 0px;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+
+  -o-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -khtml-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.submit:hover {
+  color: white;
+  text-decoration: none;
+  background-color: Orange;
+  box-shadow: 0px 0px 5px Orange;
+}
+
 @media (max-width: 600px) {
   html { overflow-x: hidden; }
 

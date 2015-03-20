@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'share_path' => 'sessions#share', as: :share
   get 'clear_path' => 'sessions#clear', as: :clear
 
+  match "feedback" => "application#feedback", via: [:get, :post], as: :feedback
+
   get '/:session' => 'application#index'
 
 

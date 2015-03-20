@@ -577,4 +577,28 @@ footer a {
   .about {
     margin-top: 50px;
   }
+
+  /*feedback page*/
+  .submit {
+    background: none;
+    color: black;
+  }
+
+  .comment-box {
+    width: 90%;
+    font-size:1em;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .submit-area {
+    background-color: YellowGreen;
+  }
+
+  .submit-area input {
+    color: white;
+    border-radius: 3px;
+  }
 }

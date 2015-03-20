@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  include Notifier
+
   def index
     return not_found if request.env['HTTP_REFERER'] && request.env['HTTP_REFERER'].include?('simple-share-buttons.com')
     return redirect_to welcome_path unless cookies.permanent[:welcomed]
@@ -22,6 +24,14 @@ class ApplicationController < ActionController::Base
   def welcome
     cookies.permanent[:welcomed] = true
     @session = get_session
+  end
+
+  def feedback
+    unless params[:feedback].blank?
+      send_feedback(params[:feedback][:comment], request.env['HTTP_USER_AGENT'])
+      flash[:message] = 'Feedback Sent!'
+      return redirect_to root_path
+    end
   end
 
   def all

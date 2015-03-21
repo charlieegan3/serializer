@@ -201,13 +201,13 @@ span span.topped {
   max-height: 20px;
   font-family: "VT323", monospace;
   font-size: 20px;
-  color: white;
   border: none;
 }
 
 .logo a {
   border: none;
   text-decoration: none;
+  color: white;
 }
 
 .logo a:visited {

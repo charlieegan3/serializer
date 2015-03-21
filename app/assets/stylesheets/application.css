@@ -255,10 +255,24 @@ span span.topped {
   border-bottom-left-radius: 3px;
 }
 
+.feedback {
+  font-size: 0.8em;
+  text-align: right;
+}
+
+.feedback a {
+  text-decoration: none;
+  color: white;
+  padding: 3px 5px;
+  margin-right: 5px;
+  background-color: CornflowerBlue;
+  border-radius: 3px;
+}
+
 .source-selector {
   width: 50px;
   position: fixed;
-  top: 100px;
+  top: 125px;
   right: 0px;
   text-align: center;
   z-index: 10;
@@ -578,6 +592,13 @@ footer a {
     margin: 0px;
     padding: 5px;
     background-color: transparent;
+  }
+
+  .feedback {
+    position: absolute;
+    top: 26px;
+    right: 3px;
+    font-size: 0.7em;
   }
 
   /*welcome page*/

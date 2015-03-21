@@ -1,4 +1,9 @@
 div.container
+  p
+    |Not sure what all this is about? Take another look at the&nbsp;
+    =link_to 'welcome page', welcome_path, class: 'welcome-link'
+    |&nbsp;first.
+
   =form_tag(feedback_path, method: 'post') do
     =text_area(:feedback, :comment, cols: 40, rows: 15, class: 'comment-box')
     br

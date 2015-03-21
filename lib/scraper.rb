@@ -150,8 +150,12 @@ module Scraper
 
   private
     def final_url(redirect_url)
-      open(redirect_url, allow_redirections: :all) do |resp|
-        resp.base_uri.to_s
+      begin
+        open(redirect_url, allow_redirections: :all) do |resp|
+          return resp.base_uri.to_s
+        end
+      rescue
+        return HTTPClient.new.get(redirect_url).header['Location'].first.to_s
       end
     end
 end

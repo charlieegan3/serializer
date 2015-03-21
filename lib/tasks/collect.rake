@@ -8,18 +8,16 @@ def collect_and_save(sources)
   items = []
   errors = []
 
-  # sources.each do |method|
-  #   print method.humanize.titlecase
-  #   begin
-  #     items += Scraper.instance_method((method + '_items').to_sym).bind(self).call
-  #   rescue Exception => e
-  #     print ' - Failed!'
-  #     errors << e
-  #   end
-  #   print "\n"
-  # end
-
-  items = Scraper.designer_news_items
+  sources.each do |method|
+    print method.humanize.titlecase
+    begin
+      items += Scraper.instance_method((method + '_items').to_sym).bind(self).call
+    rescue Exception => e
+      print ' - Failed!'
+      errors << e
+    end
+    print "\n"
+  end
 
   send_errors(errors) unless errors.empty?
 

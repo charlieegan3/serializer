@@ -61,7 +61,6 @@ module Scraper
     page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
     [].tap do |items|
       page.css('.Story').each do |story|
-        binding.pry
         link = story.at_css('a')
         link.at_css('.Domain').remove if link.at_css('.Domain')
         redirect_url = link['href'].gsub('https', 'http')
@@ -151,6 +150,8 @@ module Scraper
 
   private
     def final_url(redirect_url)
-      HTTPClient.new.get(redirect_url).header['Location'].first.to_s
+      open(redirect_url, allow_redirections: :all) do |resp|
+        resp.base_uri.to_s
+      end
     end
 end

@@ -194,6 +194,13 @@ span span.topped {
   width: 150px;
 }
 
+.graph p {
+  margin: 0px;
+  text-align: center;
+  font-size: 0.7em;
+  padding-bottom: 2px;
+}
+
 .logo {
   color: #F8F8F8;
   background-color: #454545;

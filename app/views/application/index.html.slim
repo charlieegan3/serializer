@@ -33,7 +33,8 @@ table.item-list
         br
         span.muted
           =time_ago(item.created_at)
-          span =print_url(item.url)
+          span.domain =print_url(item.url)
+          span.short-domain =print_url(item.url, 14)
           -if item.comment_url.present?
             span =link_to 'comments', item.comment_url
           -if item.tweet_count.to_i > 0

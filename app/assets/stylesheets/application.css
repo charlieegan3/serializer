@@ -137,6 +137,10 @@ span span.topped {
   color: #FFD700;
 }
 
+.short-domain {
+  display: none;
+}
+
 .unselected {
   opacity: 0.3;
 }
@@ -523,6 +527,14 @@ footer a {
 
   td.log {
     padding: 16px 0px 14px 0px;
+  }
+
+  .domain {
+    display: none;
+  }
+
+  .short-domain {
+    display: inline;
   }
 
   .source-selector {

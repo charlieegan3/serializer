@@ -27,7 +27,7 @@ table.item-list
     tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td
         =link_to(item.url, target: '_blank') do
-          =cl_image_tag(item.source, height: '20', width: '20', class: 'icon')
+          =cl_image_tag(item.source, height: '20', width: '20', crop: :fill, class: 'icon')
       td
         =link_to item.title, item.url, class: 'title-link'
         br
@@ -38,7 +38,7 @@ table.item-list
           -if item.comment_url.present?
             span =link_to 'comments', item.comment_url
           -if item.tweet_count.to_i > 0
-            span =image_tag('/twitter.png', height: '15', width: '15', class: 'twitter-icon')
+            span =cl_image_tag('twitter', height: '15', width: '15', class: 'twitter-icon')
             span =item.tweet_count
           -if item.topped
             span.topped title=('Reached the top spot!')

@@ -77,6 +77,22 @@ module Scraper
     end
   end
 
+  def slashdot_items
+    page = Nokogiri::HTML(open('http://technology.slashdot.org'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('h2.story a').each do |link|
+        url = 'http:' + link['href']
+        items << {
+          title: link.text.strip,
+          url: url,
+          comment_url: url,
+          redirect_url: url,
+          source: 'slashdot'
+        }
+      end
+    end
+  end
+
   def qudos_items
     page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
     [].tap do |items|

@@ -88,6 +88,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
+    open_uri_redirections (0.2.1)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -165,6 +166,7 @@ DEPENDENCIES
   gruff
   httpclient
   nokogiri
+  open_uri_redirections
   pg
   pry
   rails (= 4.2.0)

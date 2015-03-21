@@ -472,6 +472,16 @@ footer a {
   text-align: center;
 }
 
+.welcome-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.welcome-link:hover {
+  color: YellowGreen;
+}
+
 @media (max-width: 600px) {
   html { overflow-x: hidden; }
 

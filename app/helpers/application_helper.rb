@@ -8,7 +8,9 @@ module ApplicationHelper
       strip
   end
 
-  def print_url(url)
-    url.split('/')[2].gsub('www.', '')
+  def print_url(url, limit=100)
+    url = url.split('/')[2].gsub('www.', '')
+    return url[0..limit] + '...' if url.length > limit
+    url
   end
 end

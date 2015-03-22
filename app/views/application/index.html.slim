@@ -27,7 +27,7 @@ table.item-list
     tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td
         =link_to(item.url, target: '_blank') do
-          =cl_image_tag(item.source, height: '20', width: '20', class: 'icon')
+          =cl_image_tag(item.source, html_height: '20', html_width: '20', class: 'icon')
       td
         =link_to item.title, item.url, class: 'title-link'
         br

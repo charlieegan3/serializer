@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   include Notifier
 
   def index
-    return not_found if request.env['HTTP_REFERER'] && request.env['HTTP_REFERER'].include?('simple-share-buttons.com')
     return redirect_to welcome_path unless cookies.permanent[:welcomed]
 
     if params[:session]
@@ -53,9 +52,5 @@ class ApplicationController < ActionController::Base
     Session.find_or_create(param).tap do |session|
       cookies.permanent[:session] = session.identifier
     end
-  end
-
-  def not_found
-    raise ActionController::RoutingError.new('Not Found')
   end
 end

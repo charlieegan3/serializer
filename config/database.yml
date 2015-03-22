@@ -1,3 +1,9 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: development
+  pool: 5
+  timeout: 5000
 development:
   adapter: postgresql
   encoding: unicode

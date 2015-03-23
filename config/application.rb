@@ -26,5 +26,15 @@ module Serializer
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.middleware.use Rack::Deflater
+
+    config.generators do |g|
+      g.helper false
+      g.template_engine :slim
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl
+      g.model_specs true
+      g.controller_specs true
+      g.view_specs true
+    end
   end
 end

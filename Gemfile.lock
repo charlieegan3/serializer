@@ -50,6 +50,14 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    capybara (2.4.4)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     cloudinary (1.0.82)
       aws_cf_signer
       rest-client
@@ -61,11 +69,19 @@ GEM
     curb (0.8.6)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     feedjira (1.5.0)
       curb (~> 0.8)
       loofah (~> 2.0)
       sax-machine (~> 1.0)
+    ffi (1.9.6)
+    formatador (0.2.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     gmail (0.5.0)
@@ -75,12 +91,30 @@ GEM
       oauth (>= 0.3.6)
     gruff (0.5.1)
       rmagick
+    guard (2.10.4)
+      formatador (>= 0.2.4)
+      listen (~> 2.7)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      pry (>= 0.9.12)
+      thor (>= 0.18.1)
+    guard-compat (1.2.0)
+    guard-rspec (4.5.0)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     hike (1.2.3)
+    hitimes (1.2.2)
     httpclient (2.6.0.1)
     i18n (0.7.0)
     json (1.8.2)
+    listen (2.8.4)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
+    lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
@@ -88,6 +122,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
+    nenv (0.1.1)
     netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -137,11 +172,34 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     random_username (1.0.2)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     require_all (1.3.2)
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rmagick (2.13.4)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+    rspec-core (3.1.7)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.3)
+      rspec-support (~> 3.1.0)
+    rspec-rails (3.1.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+      rspec-support (~> 3.1.0)
+    rspec-support (3.1.2)
     ruby-progressbar (1.7.1)
     sass (3.4.13)
     sass-rails (5.0.1)
@@ -152,6 +210,8 @@ GEM
       tilt (~> 1.1)
     sax-machine (1.1.1)
     sexp_processor (4.4.5)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     slim (3.0.2)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -170,6 +230,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     web-console (2.1.1)
@@ -177,6 +239,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -184,10 +248,14 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   byebug
+  capybara
   cloudinary
+  factory_girl_rails
   feedjira
   gmail
   gruff
+  guard
+  guard-rspec
   httpclient
   nokogiri
   open_uri_redirections
@@ -196,7 +264,10 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails_best_practices
   random_username
+  rspec
+  rspec-rails
   sass-rails
+  shoulda-matchers (= 2.8.0)
   slim
   spring
   web-console (~> 2.0)

@@ -9,6 +9,13 @@ group :development, :test do
   gem 'pry'
   gem 'better_errors'
   gem 'rails_best_practices'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'shoulda-matchers', '2.8.0'
+  gem 'factory_girl_rails'
 end
 
 gem 'nokogiri'

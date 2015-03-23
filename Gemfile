@@ -8,6 +8,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
   gem 'better_errors'
+  gem 'rails_best_practices'
 end
 
 gem 'nokogiri'

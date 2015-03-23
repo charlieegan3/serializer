@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    awesome_print (1.6.1)
     aws_cf_signer (0.1.3)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -52,7 +53,10 @@ GEM
     cloudinary (1.0.82)
       aws_cf_signer
       rest-client
+    code_analyzer (0.4.5)
+      sexp_processor
     coderay (1.1.0)
+    colored (1.2)
     columnize (0.9.0)
     curb (0.8.6)
     debug_inspector (0.0.2)
@@ -116,6 +120,16 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
+    rails_best_practices (1.15.4)
+      activesupport
+      awesome_print
+      code_analyzer (>= 0.4.3)
+      colored
+      erubis
+      i18n
+      json
+      require_all
+      ruby-progressbar
     railties (4.2.0)
       actionpack (= 4.2.0)
       activesupport (= 4.2.0)
@@ -123,10 +137,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     random_username (1.0.2)
+    require_all (1.3.2)
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rmagick (2.13.4)
+    ruby-progressbar (1.7.1)
     sass (3.4.13)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -135,6 +151,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
     sax-machine (1.1.1)
+    sexp_processor (4.4.5)
     slim (3.0.2)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -177,6 +194,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.2.0)
+  rails_best_practices
   random_username
   sass-rails
   slim

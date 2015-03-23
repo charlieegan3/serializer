@@ -35,7 +35,7 @@ table.item-list
           =time_ago(item.created_at)
           span.domain =print_url(item.url)
           span.short-domain =print_url(item.url, 14)
-          -if item.comment_url.present?
+          -if item.comment_url?
             span =link_to 'comments', item.comment_url
           -if item.tweet_count.to_i > 0
             span =cl_image_tag('twitter', height: '15', width: '15', class: 'twitter-icon')

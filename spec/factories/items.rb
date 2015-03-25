@@ -1,7 +1,7 @@
 FactoryGirl.define do
   sequence(:url) { |n| "http://www.serializer.io/#{n}" }
   factory :item do
-    title 'serializer.io'
+    title 'Awesome News Site'
     url
     source 'hacker_news'
     topped true

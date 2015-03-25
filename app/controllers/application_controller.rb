@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include Notifier
 
   def index
+    return render json: Item.matching if params[:format] == 'json'
     return redirect_to welcome_path unless cookies.permanent[:welcomed]
 
     if params[:session]
@@ -16,7 +17,6 @@ class ApplicationController < ActionController::Base
     end
 
     @items = Item.matching
-    return render json: @items if params[:format] == 'json'
     render :index
   end
 

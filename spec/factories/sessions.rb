@@ -1,6 +1,7 @@
 FactoryGirl.define do
+  sequence(:identifier) { |n| "bigheart-#{n}" }
   factory :session do
-    identifier 'bigheart'
+    identifier
     completed_to { 1.days.ago }
     sources(SOURCES)
   end

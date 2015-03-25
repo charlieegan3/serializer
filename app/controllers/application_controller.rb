@@ -34,9 +34,9 @@ class ApplicationController < ActionController::Base
   end
 
   def all
+    return render json: @items if params[:format] == 'json'
     return redirect_to welcome_path unless cookies.permanent[:welcomed]
     @items = Item.all.order(created_at: 'DESC').limit(300)
-    return render json: @items if params[:format] == 'json'
     @session = get_session
     render :index
   end
@@ -48,9 +48,10 @@ class ApplicationController < ActionController::Base
     render :index
   end
 
-  def get_session(param = cookies.permanent[:session] || params[:session])
-    Session.find_or_create(param).tap do |session|
-      cookies.permanent[:session] = session.identifier
+  private
+    def get_session(param = cookies.permanent[:session] || params[:session])
+      Session.find_or_create(param).tap do |session|
+        cookies.permanent[:session] = session.identifier
+      end
     end
-  end
 end

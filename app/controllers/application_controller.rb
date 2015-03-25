@@ -48,10 +48,9 @@ class ApplicationController < ActionController::Base
     render :index
   end
 
-  private
-    def get_session(param = cookies.permanent[:session] || params[:session])
-      Session.find_or_create(param).tap do |session|
-        cookies.permanent[:session] = session.identifier
-      end
+  def get_session(param = cookies.permanent[:session] || params[:session])
+    Session.find_or_create(param).tap do |session|
+      cookies.permanent[:session] = session.identifier
     end
+  end
 end

@@ -14,6 +14,10 @@ class Item < ActiveRecord::Base
       order(created_at: 'DESC')
   end
 
+  def self.default
+    all.order(created_at: 'DESC').limit(300)
+  end
+
   def self.average_hour_count(sources)
     where(source: sources).
       where('created_at >= ?', Time.zone.now - 1.days).

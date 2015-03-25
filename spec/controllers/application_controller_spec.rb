@@ -56,6 +56,12 @@ RSpec.describe ApplicationController, :type => :controller do
       get :all
       expect(assigns(:items)).to eq(items)
     end
+
+    it 'should return a json item list' do
+      item_json = [create(:item)].to_json
+      get :all, format: 'json'
+      expect(response.body).to eq(item_json)
+    end
   end
 
   describe 'GET #custom' do

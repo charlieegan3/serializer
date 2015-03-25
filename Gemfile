@@ -16,6 +16,7 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', '2.8.0'
   gem 'factory_girl_rails'
+  # gem 'camcorder'
 end
 
 gem 'nokogiri'

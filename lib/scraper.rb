@@ -136,7 +136,7 @@ module Scraper
   end
 
   def arstechnica_items
-    feed = Feedjira::Feed.fetch_and_parse('http://feeds.arstechnica.com/arstechnica/index ')
+    feed = Feedjira::Feed.fetch_and_parse('http://feeds.arstechnica.com/arstechnica/index')
     [].tap do |items|
       feed.entries.each do |entry|
         redirect_url = entry.entry_id.gsub('https', 'http')

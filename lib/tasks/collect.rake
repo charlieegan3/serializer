@@ -14,7 +14,7 @@ def collect_and_save(sources)
       items += Scraper.instance_method((method + '_items').to_sym).bind(self).call
     rescue Exception => e
       print ' - Failed!'
-      errors << e
+      errors <<  e.message + "\n\n" + e.backtrace.join("\n")
     end
     print "\n"
   end

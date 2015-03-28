@@ -151,19 +151,6 @@ module Scraper
     end
   end
 
-  def github_items
-    feed = Feedjira::Feed.fetch_and_parse('http://github-trends.ryotarai.info/rss/github_trends_all_daily.rss')
-    [].tap do |items|
-      feed.entries.each do |entry|
-        items << {
-          title: entry.title.gsub(/\s+\(.*\)/, '') + ' - ' + entry.summary.gsub(/\s+/, ' ').gsub('()', '').strip,
-          url: entry.url,
-          source: 'github'
-        }
-      end
-    end
-  end
-
   private
     def final_url(redirect_url)
       begin

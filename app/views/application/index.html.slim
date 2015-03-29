@@ -44,5 +44,5 @@ table.item-list
             span.topped title=('Reached the top spot!')
               |&#9733;
 .graph
-  =image_tag(CloudinaryImage.find_by_identifier('graph').url)
+  =image_tag(CloudinaryImage.current_graph_url)
   p Post Volume Trend (30hr)

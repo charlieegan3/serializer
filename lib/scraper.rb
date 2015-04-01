@@ -35,11 +35,11 @@ module Scraper
   end
 
   def reddit_items
+    # 'http://www.reddit.com/r/dataisbeautiful/' removed on april fools
     [].tap do |items|
       [
         'http://www.reddit.com/r/programming/',
-        'http://www.reddit.com/r/Technology',
-        'http://www.reddit.com/r/dataisbeautiful/'
+        'http://www.reddit.com/r/Technology'
       ].each do |page|
         Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').take(10).each_with_index do |item, index|
           next if item.at_css('a.title').text.include?('PLEASE READ')

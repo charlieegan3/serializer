@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
   end
 
   def reading_time
-    self.word_count / 300
+    self.word_count.to_i / 300
   end
 
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])

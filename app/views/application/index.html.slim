@@ -30,6 +30,8 @@ table.item-list
           =cl_image_tag(item.source, html_height: '20', html_width: '20', class: 'icon')
       td
         =link_to item.title, item.url, class: 'title-link'
+        -if item.format
+          span.format-icon =item.format
         br
         span.muted
           =time_ago(item.created_at)

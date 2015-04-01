@@ -12,6 +12,11 @@ class Item < ActiveRecord::Base
     self.word_count.to_i / 300
   end
 
+  def format
+    return 'pdf' if self.url.match(/\.pdf$/)
+    return 'img' if self.url.match(/(\.png$|\.jpg$|\.gif$)/)
+  end
+
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
     where(source: sources).
       limit(150).

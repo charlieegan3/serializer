@@ -152,6 +152,18 @@ span span.topped {
   color: DarkGray;
 }
 
+.muted .fast {
+  color: SeaGreen;
+}
+
+.muted .medium {
+  color: SandyBrown;
+}
+
+.muted .slow {
+  color: Crimson;
+}
+
 .title-link {
   color: #454545;
   text-decoration: none;

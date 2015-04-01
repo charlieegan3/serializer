@@ -8,6 +8,10 @@ class Item < ActiveRecord::Base
     self.title = self.title[0..140] + '...' if self.title && self.title.length > 140
   end
 
+  def reading_time
+    self.word_count / 300
+  end
+
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
     where(source: sources).
       limit(150).

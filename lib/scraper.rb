@@ -9,7 +9,13 @@ module Scraper
           url = 'https://news.ycombinator.com/' + url
         end
         comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
-        items << {title: title, url: url, comment_url: comment_url ,source: 'hacker_news'}
+        items << {
+          title: title,
+          url: url,
+          comment_url: comment_url,
+          source: 'hacker_news',
+          word_count: word_count(url)
+        }
       end
       items.first.merge!({topped: true}) unless items.empty?
     end
@@ -27,7 +33,8 @@ module Scraper
           url: final_url(redirect_url),
           comment_url: 'http://www.producthunt.com' + item['data-href'],
           redirect_url: redirect_url,
-          source: 'product_hunt'
+          source: 'product_hunt',
+          word_count: 0
         }
       end
       items.first.merge!({topped: true}) unless items.empty?
@@ -50,7 +57,8 @@ module Scraper
             url: url,
             comment_url: item.at_css('a.comments')['href'],
             source: 'reddit',
-            topped: (index == 0)? true : false
+            topped: (index == 0)? true : false,
+            word_count: word_count(url)
           }
         end
       end
@@ -65,12 +73,14 @@ module Scraper
         link.at_css('.Domain').remove if link.at_css('.Domain')
         redirect_url = link['href'].gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
+        url = final_url(redirect_url).split('#').first
         items << {
           title: link.text.strip,
-          url: final_url(redirect_url).split('#').first,
+          url: url,
           comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
           redirect_url: redirect_url,
-          source: 'designer_news'
+          source: 'designer_news',
+          word_count: word_count(url)
         }
       end
       items.first.merge!({topped: true}) unless items.empty?
@@ -87,7 +97,8 @@ module Scraper
           url: url,
           comment_url: url,
           redirect_url: url,
-          source: 'slashdot'
+          source: 'slashdot',
+          word_count: word_count(url)
         }
       end
     end
@@ -103,7 +114,8 @@ module Scraper
           title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
           url: final_url(redirect_url),
           redirect_url: redirect_url,
-          source: 'qudos'
+          source: 'qudos',
+          word_count: 0
         }
       end
       items.first.merge!({topped: true}) unless items.empty?
@@ -120,7 +132,8 @@ module Scraper
           title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split(/,|\./).first,
           url: final_url(redirect_url),
           redirect_url: redirect_url,
-          source: 'beta_list'
+          source: 'beta_list',
+          word_count: 0
         }
       end
     end
@@ -130,7 +143,12 @@ module Scraper
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.macrumors.com/MacRumors-Front')
     [].tap do |items|
       feed.entries.each do |entry|
-        items << {title: entry.title, url: entry.url, source: 'macrumors'}
+        items << {
+          title: entry.title,
+          url: entry.url,
+          source: 'macrumors',
+          word_count: word_count(entry.url)
+        }
       end
     end
   end
@@ -141,11 +159,13 @@ module Scraper
       feed.entries.each do |entry|
         redirect_url = entry.entry_id.gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
+        url = final_url(redirect_url)
         items << {
           title: entry.title,
-          url: final_url(redirect_url),
+          url: url,
           redirect_url: redirect_url,
-          source: 'arstechnica'
+          source: 'arstechnica',
+          word_count: word_count(url)
         }
       end
     end
@@ -160,5 +180,9 @@ module Scraper
       rescue
         return HTTPClient.new.get(redirect_url).header['Location'].first.to_s
       end
+    end
+
+    def word_count(url)
+      count = open("http://cognitive-load.herokuapp.com/#{url}").read.to_i rescue 0
     end
 end

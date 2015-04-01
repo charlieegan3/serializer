@@ -8,6 +8,7 @@ module Scraper
         unless url.include?('http')
           url = 'https://news.ycombinator.com/' + url
         end
+        next if Item.find_by_url(url)
         comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
         items << {
           title: title,
@@ -52,6 +53,7 @@ module Scraper
           next if item.at_css('a.title').text.include?('PLEASE READ')
           url = item.at_css('a.title')['href']
           url = "http://www.reddit.com#{url}" unless url.include?('http://') || url.include?('https://')
+          next if Item.find_by_url(url)
           items << {
             title: item.at_css('a.title').text,
             url: url,
@@ -92,6 +94,7 @@ module Scraper
     [].tap do |items|
       page.css('h2.story a').each do |link|
         url = 'http:' + link['href']
+        next if Item.find_by_url(url)
         items << {
           title: link.text.strip,
           url: url,
@@ -143,6 +146,7 @@ module Scraper
     feed = Feedjira::Feed.fetch_and_parse('http://feeds.macrumors.com/MacRumors-Front')
     [].tap do |items|
       feed.entries.each do |entry|
+        next if Item.find_by_url(entry.url)
         items << {
           title: entry.title,
           url: entry.url,

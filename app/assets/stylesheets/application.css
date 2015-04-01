@@ -122,6 +122,15 @@ td.log span {
   opacity: 0.7;
 }
 
+.format-icon {
+  background-color: DarkGray;
+  border-radius: 3px;
+  margin-left: 4px;
+  color: white;
+  padding: 1px 5px;
+  font-size: 0.6em;
+}
+
 span.muted span {
   margin-left: 7px;
 }

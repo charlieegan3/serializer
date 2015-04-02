@@ -1,7 +1,9 @@
 -if params[:action] == 'all'
   -sources = SOURCES
--if params[:action] == 'index'
+-elsif params[:action] == 'index'
   -sources = ['hacker_news', 'reddit', 'product_hunt']
+-else
+  -sources = current_session.sources
 .menu
   .logo
     =link_to 'serializer.io', root_path, class: 'menu-text'
@@ -20,5 +22,10 @@
     p.stats
       strong =Item.average_hour_count(sources)
       |&nbsp;items per hour
-    p.feedback
+    p.extras
+      -if false #disable button temporarily
+        -if current_session.trello_token
+          =link_to 'readling list', 'http://trello.com', target: '_blank'
+        -else
+          =link_to 'readling list', trello_path
       =link_to 'feedback?', feedback_path

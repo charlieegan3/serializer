@@ -281,18 +281,22 @@ span span.topped {
   border-bottom-left-radius: 3px;
 }
 
-.feedback {
+.extras {
   font-size: 0.8em;
   text-align: right;
 }
 
-.feedback a {
+.extras a {
   text-decoration: none;
   color: white;
   padding: 3px 5px;
   margin-right: 5px;
-  background-color: CornflowerBlue;
+  background-color: SeaGreen;
   border-radius: 3px;
+}
+
+.extras a:first-child {
+  background-color: CornflowerBlue;
 }
 
 .source-selector {
@@ -477,6 +481,8 @@ footer a {
   color: white;
   border-radius: 3px;
   border: 1px solid rgba(0,0,0,0.2);
+  text-align: center;
+  text-decoration: none;
 
   -o-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
@@ -506,6 +512,33 @@ footer a {
 
 .welcome-link:hover {
   color: YellowGreen;
+}
+
+/* trello page */
+.token-field {
+  width: 100%;
+  padding: 5px 0px;
+  font-size: 1.3em;
+  text-align: center;
+  resize: none;
+  border-radius: 3px;
+  border: 1px solid LightGrey;
+  margin: 30px auto;
+  color: Grey;
+}
+
+.token-field:focus {
+  outline: none;
+  border: 1px solid YellowGreen;
+  box-shadow: 0 0 5px YellowGreen;
+}
+
+.home-link {
+  text-align: center;
+}
+
+.home-link a {
+  color: Grey;
 }
 
 @media (max-width: 600px) {
@@ -630,11 +663,17 @@ footer a {
     background-color: transparent;
   }
 
-  .feedback {
+  .extras {
     position: absolute;
     top: 26px;
     right: 3px;
     font-size: 0.7em;
+  }
+
+  .extras a:first-child {
+    display: block;
+    padding: 0px 5px;
+    margin-bottom: 5px;
   }
 
   /*welcome page*/
@@ -654,7 +693,6 @@ footer a {
   /*feedback page*/
   .submit {
     background: none;
-    color: black;
   }
 
   .comment-box {
@@ -673,5 +711,11 @@ footer a {
   .submit-area input {
     color: white;
     border-radius: 3px;
+  }
+
+  /* trello page */
+  .submit-link {
+    background-color: YellowGreen;
+    color: white;
   }
 }

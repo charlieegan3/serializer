@@ -1,4 +1,4 @@
-=render 'menu', sources: @session.sources
+=render 'menu', current_session: @session
 
 -if params[:action] == 'custom'
   =render 'source_selection', sources: @session.sources
@@ -45,6 +45,8 @@ table.item-list
             span.slow ="#{item.reading_time} min read"
           -if item.comment_url?
             span =link_to 'comments', item.comment_url
+          -if @session.trello_token && !@session.saved_items.include?(item.id)
+            span =link_to 'save', add_trello_story_path(id: item.id)
           -if item.tweet_count.to_i > 0
             span =cl_image_tag('twitter', height: '15', width: '15', class: 'twitter-icon')
             span =item.tweet_count

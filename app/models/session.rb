@@ -1,5 +1,6 @@
 class Session < ActiveRecord::Base
   serialize :sources, Array
+  serialize :saved_items, Array
   validates_uniqueness_of :identifier
   before_save do
     self.identifier = RandomUsername.username if self.identifier.blank?

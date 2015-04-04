@@ -48,4 +48,9 @@ RSpec.describe Item, :type => :model do
     duplicate = build(:item, title: 'Another News Story')
     expect { duplicate.save! }.not_to raise_error
   end
+
+  it 'should remove content types from titles' do
+    item = create(:item, title: 'title [pdf]')
+    expect(item.title).to eq('title')
+  end
 end

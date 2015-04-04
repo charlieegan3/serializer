@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :url
   validates_uniqueness_of :redirect_url
 
-  before_save :truncate_title, :prevent_duplicates
+  before_save :truncate_title, :prevent_duplicates, :remove_content_tag
   def truncate_title
     self.title = self.title[0..140] + '...' if self.title && self.title.length > 140
   end
@@ -13,6 +13,11 @@ class Item < ActiveRecord::Base
     Item.where('created_at >= ?', Time.zone.now - 1.days).each do |item|
       return false if Jaccard.coefficient(title_list, item.title_list) > 0.8
     end
+  end
+
+  def remove_content_tag
+    # if self.title for shoulda is annoying
+    self.title = self.title.gsub(/\s*\[[a-zA-Z]+\]$/, '') if self.title
   end
 
   def title_list

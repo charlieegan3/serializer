@@ -56,6 +56,6 @@ class SessionsController < ApplicationController
   private
     def location_path(referer, item)
       path = (referer)? referer : all_path
-      (path + "/#" + item.short_title).gsub(/\/+/, '/')
+      "#{path}/##{item.id}".gsub(/\/+/, '/')
     end
 end

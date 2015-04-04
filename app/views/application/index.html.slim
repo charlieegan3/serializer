@@ -29,7 +29,7 @@ table.item-list
         =link_to(item.url, target: '_blank') do
           =cl_image_tag(item.source, html_height: '20', html_width: '20', class: 'icon')
       td
-        =link_to item.title, item.url, class: 'title-link'
+        =link_to item.title, item.url, class: 'title-link', id: item.short_title
         -if item.format
           span.format-icon =item.format
         br

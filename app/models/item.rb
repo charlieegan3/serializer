@@ -17,6 +17,10 @@ class Item < ActiveRecord::Base
     return 'img' if self.url.match(/(\.png$|\.jpg$|\.gif$)/)
   end
 
+  def short_title
+    title.downcase.gsub(/\W|a|e|i|o|u|[0-9]/, '')[0..10]
+  end
+
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
     where(source: sources).
       limit(150).

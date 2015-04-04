@@ -38,7 +38,8 @@ class SessionsController < ApplicationController
       ].join("\n\n")
     )
     session.update_attribute(:saved_items, session.saved_items + [item.id])
-    redirect_to :back
+    return redirect_to request.env["HTTP_REFERER"] + "/##{item.short_title}" if request.env["HTTP_REFERER"]
+    return redirect_to all_path + "/##{item.short_title}"
   end
 
   def trello

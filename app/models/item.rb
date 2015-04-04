@@ -4,9 +4,19 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :url
   validates_uniqueness_of :redirect_url
 
-  before_save :truncate_title
+  before_save :truncate_title, :prevent_duplicates
   def truncate_title
     self.title = self.title[0..140] + '...' if self.title && self.title.length > 140
+  end
+
+  def prevent_duplicates
+    Item.where('created_at >= ?', Time.zone.now - 1.days).each do |item|
+      return false if Jaccard.coefficient(title_list, item.title_list) > 0.8
+    end
+  end
+
+  def title_list
+    title.gsub(/\W+/, ' ').downcase.strip.split(' ')
   end
 
   def reading_time

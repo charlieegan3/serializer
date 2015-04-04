@@ -145,7 +145,6 @@ span span.topped {
 }
 
 .domain, .short-domain {
-  margin-left: 5px;
   font-size: 0.8em;
   color: DarkGrey;
 }

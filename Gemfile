@@ -19,6 +19,10 @@ group :development, :test do
   # gem 'camcorder'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'nokogiri'
 gem 'feedjira'
 gem 'pg'
@@ -30,5 +34,4 @@ gem 'gmail'
 gem 'random_username'
 gem 'gruff'
 gem 'cloudinary'
-gem 'rails_12factor'
 gem 'ruby-trello'

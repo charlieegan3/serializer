@@ -38,8 +38,7 @@ class SessionsController < ApplicationController
       ].join("\n\n")
     )
     session.update_attribute(:saved_items, session.saved_items + [item.id])
-    return redirect_to request.env["HTTP_REFERER"] + "/##{item.short_title}" if request.env["HTTP_REFERER"]
-    return redirect_to all_path + "/##{item.short_title}"
+    return redirect_to location_path(request.env["HTTP_REFERER"], item)
   end
 
   def trello
@@ -53,4 +52,10 @@ class SessionsController < ApplicationController
     end
     @session = get_session
   end
+
+  private
+    def location_path(referer, item)
+      path = (referer)? referer : all_path
+      (path + "/#" + item.short_title).gsub(/\/+/, '/')
+    end
 end

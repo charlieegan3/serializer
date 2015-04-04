@@ -19,9 +19,7 @@ RSpec.describe Item, :type => :model do
   end
 
   it 'returns a limited all list as default' do
-    301.times do
-      create(:item, source: SOURCES.sample)
-    end
+    create_list(:item, 301, {source: SOURCES.sample})
     expect(Item.default.size).to eq(300)
   end
 

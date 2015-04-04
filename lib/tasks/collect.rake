@@ -33,7 +33,7 @@ end
 
 task :collect_active do
   item_count = Item.count
-  collect_and_save(['hacker_news', 'product_hunt', 'reddit', 'designer_news'])
+  collect_and_save(['hacker_news', 'product_hunt', 'reddit', 'designer_news', 'lobsters'])
   puts "Created #{Item.count - item_count} items"
 end
 

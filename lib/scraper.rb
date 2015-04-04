@@ -89,6 +89,25 @@ module Scraper
     end
   end
 
+  def lobsters_items
+    page = Nokogiri::HTML(open('https://lobste.rs'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('.details').each do |story|
+        url = story.at_css('.link a')['href']
+        url.prepend('https://lobste.rs') if url[0] == '/'
+        next if Item.find_by_url(url)
+        items << {
+          title: story.at_css('.link a').text,
+          url: url,
+          comment_url: (story.at_css('.comments_label a')['href'].prepend('https://lobste.rs') rescue nil),
+          source: 'lobsters',
+          word_count: word_count(url)
+        }
+      end
+      items.first.merge!({topped: true}) unless items.empty?
+    end
+  end
+
   def slashdot_items
     page = Nokogiri::HTML(open('http://technology.slashdot.org'), nil, 'UTF-8')
     [].tap do |items|

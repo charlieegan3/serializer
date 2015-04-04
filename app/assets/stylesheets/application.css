@@ -144,6 +144,12 @@ span span.topped {
   color: #FFD700;
 }
 
+.domain, .short-domain {
+  margin-left: 5px;
+  font-size: 0.8em;
+  color: DarkGrey;
+}
+
 .short-domain {
   display: none;
 }

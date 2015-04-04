@@ -32,4 +32,22 @@ RSpec.describe Item, :type => :model do
     end
     expect(Item.average_hour_count(SOURCES)).to eq(1)
   end
+
+  it 'should not save items if the story has already been covered' do
+    create(:item, title: 'the news story')
+    duplicate = build(:item, title: 'The News Story')
+    expect { duplicate.save! }.to raise_error(ActiveRecord::RecordNotSaved)
+  end
+
+  it 'should still save items if the story resurfaces' do
+    create(:item, title: 'the news story', created_at: Time.zone.now - 3.days)
+    duplicate = build(:item, title: 'the news story')
+    expect { duplicate.save! }.not_to raise_error
+  end
+
+  it 'should save items if they are sufficiently different' do
+    create(:item, title: 'the news story')
+    duplicate = build(:item, title: 'Another News Story')
+    expect { duplicate.save! }.not_to raise_error
+  end
 end

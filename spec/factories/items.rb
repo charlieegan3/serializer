@@ -1,12 +1,13 @@
 FactoryGirl.define do
   sequence(:url) { |n| "http://www.serializer.io/#{n}" }
+  sequence(:redirect_url) { |n| "http://www.cool_linkz.com/#{n}" }
   factory :item do
     title 'Awesome News Site'
     url
     source 'hacker_news'
     topped true
     comment_url 'http://www.serializer.io/comments'
-    redirect_url 'http://www.serializer.io/welcome'
+    redirect_url
     tweet_count 100
     word_count 500
     created_at Time.zone.now

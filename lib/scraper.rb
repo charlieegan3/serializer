@@ -46,14 +46,17 @@ module Scraper
   def reddit_items
     [].tap do |items|
       [
-        'http://www.reddit.com/r/programming/',
-        'http://www.reddit.com/r/dataisbeautiful/',
-        'http://www.reddit.com/r/Technology'
-      ].each do |page|
-        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').take(10).each_with_index do |item, index|
+        ['http://www.reddit.com/r/programming/', 15],
+        ['https://www.reddit.com/r/coding', 10],
+        ['http://www.reddit.com/r/ruby+javascript+haskell+cpp+c_programming+go_lang+csharp', 5],
+        ['http://www.reddit.com/r/dataisbeautiful/', 5],
+        ['http://www.reddit.com/r/Technology', 3],
+        ['http://www.reddit.com/r/science/', 3]
+      ].each do |page, count|
+        Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').take(count).each_with_index do |item, index|
           next if item.at_css('a.title').text.include?('PLEASE READ')
           url = item.at_css('a.title')['href']
-          url = "http://www.reddit.com#{url}" unless url.include?('http://') || url.include?('https://')
+          next unless url.match(/http(s|):/)
           next if Item.find_by_url(url)
           items << {
             title: item.at_css('a.title').text,

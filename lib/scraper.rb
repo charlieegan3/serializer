@@ -1,25 +1,31 @@
 module Scraper
   def hacker_news_items
-    page = Nokogiri::HTML(open('https://news.ycombinator.com/news'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('table')[2].css('tr').reject { |x| x.text.blank? || x.text == 'More' }.in_groups_of(2) do |link, details|
-        title = link.css('td:last-child a').first.text
-        url = link.css('td:last-child a').first['href']
-        unless url.include?('http')
-          url = 'https://news.ycombinator.com/' + url
+      [
+        ['https://news.ycombinator.com/news', 30],
+        ['https://news.ycombinator.com/show', 15]
+      ].each do |page, count|
+        Nokogiri::HTML(open(page), nil, 'UTF-8').css('table')[2].css('tr').
+        reject { |tr| tr.text.blank? || tr.text == 'More' || tr.text.include?('Please read the rules') }.
+        in_groups_of(2).to_a.take(count).each do |link, details|
+          title = link.css('td:last-child a').first.text
+          url = link.css('td:last-child a').first['href']
+          unless url.include?('http')
+            url = 'https://news.ycombinator.com/' + url
+          end
+          next if title.downcase.match(/yc.*hiring/) #yep, here I do what I want
+          next if Item.find_by_url(url)
+          comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
+          items << {
+            title: title,
+            url: url,
+            comment_url: comment_url,
+            source: 'hacker_news',
+            word_count: word_count(url)
+          }
         end
-        next if title.downcase.match(/yc.*hiring/) #yep, here I do what I want
-        next if Item.find_by_url(url)
-        comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
-        items << {
-          title: title,
-          url: url,
-          comment_url: comment_url,
-          source: 'hacker_news',
-          word_count: word_count(url)
-        }
+        items.first.merge!({topped: true}) unless items.empty?
       end
-      items.first.merge!({topped: true}) unless items.empty?
     end
   end
 

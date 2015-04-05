@@ -8,6 +8,7 @@ module Scraper
         unless url.include?('http')
           url = 'https://news.ycombinator.com/' + url
         end
+        next if title.downcase.match(/yc.*hiring/) #yep, here I do what I want
         next if Item.find_by_url(url)
         comment_url = 'https://news.ycombinator.com/' + details.css('a').last['href'] rescue ''
         items << {

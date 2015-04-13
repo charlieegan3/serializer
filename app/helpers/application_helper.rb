@@ -9,10 +9,14 @@ module ApplicationHelper
   end
 
   def print_url(url, limit=100)
-    url = url.split('/')[2].
-      gsub('www.', '').
-      gsub(/\?.*$/, '')
-    return url[0..limit] + '...' if url.length > limit
+    begin
+      url = url.split('/')[2].
+        gsub('www.', '').
+        gsub(/\?.*$/, '')
+      return url[0..limit] + '...' if url.length > limit
+    rescue
+      return url
+    end
     url
   end
 end

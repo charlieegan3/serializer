@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :url
   validates_uniqueness_of :url
+  validates_format_of :url, with: /http(s)*:\/\//, on: :create
 
   before_save :truncate_title, :prevent_duplicates, :remove_content_tag
   def truncate_title

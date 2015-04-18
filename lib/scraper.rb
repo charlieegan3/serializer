@@ -32,7 +32,7 @@ module Scraper
   def product_hunt_items
     page = Nokogiri::HTML(open('http://www.producthunt.com'), nil, 'UTF-8')
     [].tap do |items|
-      page.at_css('.posts-group').css('.post--content').each do |item|
+      page.at_css('.posts--group').css('.post--content').each do |item|
         link = item.at_css('.url')
         redirect_url = 'http://www.producthunt.com' + link.at_css('.title')['href'].gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)

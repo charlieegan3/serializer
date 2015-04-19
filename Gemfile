@@ -19,10 +19,6 @@ group :development, :test do
   # gem 'camcorder'
 end
 
-group :production do
-  gem 'rails_12factor'
-end
-
 gem 'nokogiri'
 gem 'feedjira'
 gem 'pg'

@@ -17,10 +17,7 @@ group :development, :test do
   gem 'shoulda-matchers', '2.8.0'
   gem 'factory_girl_rails'
   # gem 'camcorder'
-end
-
-group :production do
-  gem 'rails_12factor'
+  gem 'seed_dumper'
 end
 
 gem 'nokogiri'
@@ -36,3 +33,9 @@ gem 'gruff'
 gem 'cloudinary'
 gem 'ruby-trello'
 gem 'jaccard'
+gem 'rufus-scheduler'
+gem 'ruby-readability', :require => 'readability'
+
+group :production do
+  gem 'rails_12factor'
+end

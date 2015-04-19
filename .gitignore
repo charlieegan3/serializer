@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 .DS_Store
+set_config.sh

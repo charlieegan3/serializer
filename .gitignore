@@ -17,3 +17,4 @@
 /tmp
 .DS_Store
 set_config.sh
+config/local_env.yml

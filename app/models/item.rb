@@ -5,9 +5,11 @@ class Item < ActiveRecord::Base
   validates_format_of :url, with: /http(s)*:\/\//, on: :create
 
   before_save :truncate_title,
-              :prevent_duplicates,
               :remove_content_tag,
               :remove_utm_parameters
+
+  before_create :prevent_duplicates
+
   def truncate_title
     self.title = self.title[0..140] + '...' if self.title && self.title.length > 140
   end
@@ -24,7 +26,7 @@ class Item < ActiveRecord::Base
   end
 
   def remove_utm_parameters
-    self.url.gsub!(/(\?|&)utm[^&]*/,'?')
+    self.url = self.url.gsub(/(\?|&)utm[^&]*/,'?').gsub('?&', '?').gsub(/\?+/, '?')
   end
 
   def title_list

@@ -17,6 +17,7 @@ group :development, :test do
   gem 'shoulda-matchers', '2.8.0'
   gem 'factory_girl_rails'
   # gem 'camcorder'
+  gem 'seed_dumper'
 end
 
 gem 'nokogiri'

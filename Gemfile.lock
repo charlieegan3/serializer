@@ -218,6 +218,8 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
     sax-machine (1.1.1)
+    seed_dumper (0.1.3)
+      rails
     sexp_processor (4.4.5)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
@@ -279,6 +281,7 @@ DEPENDENCIES
   ruby-trello
   rufus-scheduler
   sass-rails
+  seed_dumper
   shoulda-matchers (= 2.8.0)
   slim
   spring

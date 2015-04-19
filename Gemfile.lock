@@ -214,6 +214,7 @@ GEM
       json
       oauth (~> 0.4.5)
       rest-client (~> 1.7.2)
+    rufus-scheduler (3.1.1)
     sass (3.4.13)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -282,6 +283,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby-trello
+  rufus-scheduler
   sass-rails
   shoulda-matchers (= 2.8.0)
   slim

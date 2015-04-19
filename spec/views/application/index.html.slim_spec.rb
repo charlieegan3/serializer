@@ -9,7 +9,7 @@ RSpec.describe "application/index", :type => :view do
   it 'displays items' do
     assign(:items, [create(:item)])
     render
-    expect(rendered).to include('Awesome News Site')
+    expect(rendered).to include('Article')
   end
 
   it 'hides twitter icon when 0 or nil count' do

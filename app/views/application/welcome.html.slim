@@ -5,24 +5,24 @@ div.container
     span.inline-logo serializer
     |&nbsp;collects links from&nbsp;
     =link_to('https://news.ycombinator.com', target: '_blank') do
-      =cl_image_tag('hacker_news', html_height: '20', html_width: '20', class: 'inline icon')
+      =cl_image_tag('hacker_news', cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'inline icon')
     |,&nbsp;
     =link_to('http://www.reddit.com/r/programming/', target: '_blank') do
-      =cl_image_tag('reddit', html_height: '20', html_width: '20', class: 'inline icon')
+      =cl_image_tag('reddit', cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'inline icon')
     |&nbsp;&amp;&nbsp;
     =link_to('http://producthunt.com', target: '_blank') do
-      =cl_image_tag('product_hunt', html_height: '20', html_width: '20', class: 'inline icon')
+      =cl_image_tag('product_hunt', cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'inline icon')
     |&nbsp;and lists them in&nbsp;
     em sequential order.
 
   div.feed
     =link_to(root_path, class: 'swap home') do
       -['hacker_news', 'product_hunt', 'reddit'].each do |source|
-        =cl_image_tag(source, html_height: '20', html_width: '20', class: 'icon source-icon')
+        =cl_image_tag(source,  cloud_name: ENV['CLOUD_NAME'],html_height: '20', html_width: '20', class: 'icon source-icon')
   div.feed
     =link_to(all_path, class: 'swap all')
       -SOURCES.each do |source|
-        =cl_image_tag(source, html_height: '20', html_width: '20', class: 'icon source-icon')
+        =cl_image_tag(source,  cloud_name: ENV['CLOUD_NAME'],html_height: '20', html_width: '20', class: 'icon source-icon')
   div.feed
     |...or choose your own:
     div =link_to 'custom', custom_path

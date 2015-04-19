@@ -27,7 +27,7 @@ table.item-list
     tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td
         =link_to(item.url, target: '_blank') do
-          =cl_image_tag(item.source, html_height: '20', html_width: '20', class: 'icon')
+          =cl_image_tag(item.source, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
       td
         =link_to item.title, item.url, class: 'title-link', id: item.id
         span.domain =" (#{print_url(item.url)})"
@@ -48,7 +48,7 @@ table.item-list
           -if @session.trello_token && @session.saved_items && !@session.saved_items.include?(item.id)
             span =link_to 'save', add_trello_story_path(id: item.id)
           -if item.tweet_count.to_i > 0
-            span =cl_image_tag('twitter', height: '15', width: '15', class: 'twitter-icon')
+            span =cl_image_tag('twitter', cloud_name: ENV['CLOUD_NAME'], height: '15', width: '15', class: 'twitter-icon')
             span =item.tweet_count
           -if item.topped
             span.topped title=('Reached the top spot!')

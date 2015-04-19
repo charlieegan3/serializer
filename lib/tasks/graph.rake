@@ -19,9 +19,14 @@ task :save_graph do
   g.hide_legend = true
   g.label_max_size = 0
   g.data :line, counts(times)
-  RAILS_ROOT = Rails.root unless defined? RAILS_ROOT
-  g.write(Rails.root.join("#{RAILS_ROOT}/tmp/graph.png"))
-  url = Cloudinary::Uploader.upload("#{RAILS_ROOT}/tmp/graph.png", public_id: 'graph')['url']
+  g.write(Rails.root.join("#{Rails.root}/tmp/graph.png"))
+
+  url = Cloudinary::Uploader.upload("#{Rails.root}/tmp/graph.png",
+                                    public_id: 'graph',
+                                    cloud_name: ENV['CLOUD_NAME'],
+                                    api_key: ENV['CLOUDINARY_KEY'],
+                                    api_secret: ENV['CLOUDINARY_SECRET']
+                                   )['url']
 
   image = CloudinaryImage.find_by_identifier('graph') || CloudinaryImage.new(identifier: 'graph')
   image.update_attribute(:url, url)

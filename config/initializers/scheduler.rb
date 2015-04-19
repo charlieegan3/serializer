@@ -15,7 +15,7 @@ scheduler.every '1h' do
 end
 
 scheduler.every '1h' do
-  # `rake save_graph`
+  `rake save_graph`
 end
 
 scheduler.every '1d' do

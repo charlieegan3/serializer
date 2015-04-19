@@ -34,3 +34,7 @@ gem 'cloudinary'
 gem 'ruby-trello'
 gem 'jaccard'
 gem 'rufus-scheduler'
+
+group :production do
+  gem 'rails_12factor'
+end

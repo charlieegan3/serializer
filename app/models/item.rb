@@ -4,7 +4,10 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :url
   validates_format_of :url, with: /http(s)*:\/\//, on: :create
 
-  before_save :truncate_title, :prevent_duplicates, :remove_content_tag
+  before_save :truncate_title,
+              :prevent_duplicates,
+              :remove_content_tag,
+              :remove_utm_parameters
   def truncate_title
     self.title = self.title[0..140] + '...' if self.title && self.title.length > 140
   end
@@ -18,6 +21,10 @@ class Item < ActiveRecord::Base
   def remove_content_tag
     # if self.title for shoulda is annoying
     self.title = self.title.gsub(/\s*\[[a-zA-Z]+\]$/, '') if self.title
+  end
+
+  def remove_utm_parameters
+    self.url.gsub!(/(\?|&)utm[^&]*/,'?')
   end
 
   def title_list

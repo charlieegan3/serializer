@@ -53,4 +53,9 @@ RSpec.describe Item, :type => :model do
     item = create(:item, title: 'title [pdf]')
     expect(item.title).to eq('title')
   end
+
+  it 'should remove utm params from urls' do
+    item = create(:item, url: 'https://www.site.com/path?utm_source=src&utm_campaign=cam&utm_medium=med&utm_term=ter&saved=1')
+    expect(item.url).to eq('https://www.site.com/path?saved=1')
+  end
 end

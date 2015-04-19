@@ -216,6 +216,13 @@ module Scraper
     end
 
     def word_count(url)
-      count = open("http://cognitive-load.herokuapp.com/#{url}").read.to_i rescue 0
+      return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
+      extractor = Extractor.new(open(url, :allow_redirections => :all).read, url)
+      begin
+        extractor.word_count.to_i
+      rescue
+        puts "Word Count Failed for: #{url}"
+        return 0
+      end
     end
 end

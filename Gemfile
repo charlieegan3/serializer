@@ -34,6 +34,7 @@ gem 'cloudinary'
 gem 'ruby-trello'
 gem 'jaccard'
 gem 'rufus-scheduler'
+gem 'ruby-readability', :require => 'readability'
 
 group :production do
   gem 'rails_12factor'

@@ -1,5 +1,5 @@
 div.container
-  =link_to '1. Get a Trello Token', "https://trello.com/1/authorize?key=#{TRELLO_KEY}&name=serializer&expiration=never&response_type=token&scope=read,write", class: 'submit submit-link', target: '_blank'
+  =link_to '1. Get a Trello Token', "https://trello.com/1/authorize?key=#{ENV['TRELLO_KEY']}&name=serializer&expiration=never&response_type=token&scope=read,write", class: 'submit submit-link', target: '_blank'
 
   =form_tag(trello_path, method: 'post') do
     p.token

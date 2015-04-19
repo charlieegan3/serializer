@@ -6,7 +6,7 @@ class TrelloClient
   include Trello
 
   def initialize(token, username=nil)
-    @key = TRELLO_KEY
+    @key = ENV['TRELLO_KEY']
     @token = token
     @username = username
     Trello.configure do |config|

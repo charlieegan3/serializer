@@ -4,7 +4,7 @@ module Scraper
   def hacker_news_items
     [].tap do |items|
       [
-        ['https://news.ycombinator.com/news', 30],
+        ['https://news.ycombinator.com/over?points=10', 30],
         ['https://news.ycombinator.com/show', 15]
       ].each do |page, count|
         Nokogiri::HTML(open(page), nil, 'UTF-8').css('table')[2].css('tr').

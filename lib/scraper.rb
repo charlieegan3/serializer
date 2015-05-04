@@ -108,9 +108,11 @@ module Scraper
       page.css('.details').each_with_index do |story, index|
         url = story.at_css('.link a')['href']
         url.prepend('https://lobste.rs') if url[0] == '/'
+        title = story.at_css('.link a').text
+        next if title.downcase.include?('working on this week')
         next if Item.find_by_url(url)
         items << {
-          title: story.at_css('.link a').text,
+          title: title,
           url: url,
           comment_url: (story.at_css('.comments_label a')['href'].prepend('https://lobste.rs') rescue nil),
           source: 'lobsters',

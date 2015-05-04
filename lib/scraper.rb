@@ -55,12 +55,10 @@ module Scraper
   def reddit_items
     [].tap do |items|
       [
-        ['http://www.reddit.com/r/programming/', 15],
-        ['https://www.reddit.com/r/coding', 10],
-        ['http://www.reddit.com/r/ruby+javascript+haskell+cpp+c_programming+go_lang+csharp', 5],
+        ['http://www.reddit.com/r/programming/', 10],
         ['http://www.reddit.com/r/dataisbeautiful/', 5],
-        ['http://www.reddit.com/r/Technology', 3],
-        ['http://www.reddit.com/r/science/', 3]
+        ['http://www.reddit.com/r/Technology', 1],
+        ['http://www.reddit.com/r/science/', 1]
       ].each do |page, count|
         Nokogiri::HTML(open(page), nil, 'UTF-8').css('.entry').take(count).each_with_index do |item, index|
           next if item.at_css('a.title').text.include?('PLEASE READ')

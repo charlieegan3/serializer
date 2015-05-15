@@ -38,16 +38,17 @@ table.item-list
         span.muted
           =time_ago(item.created_at)
           -if item.reading_time.between?(1,3)
-            span.fast ="#{item.reading_time} min read"
+            span.fast ="#{item.reading_time} min #{item.reading_kind}"
           -elsif item.reading_time.between?(4,10)
-            span.medium ="#{item.reading_time} min read"
+            span.medium ="#{item.reading_time} min #{item.reading_kind}"
           -elsif item.reading_time.between?(11,100)
-            span.slow ="#{item.reading_time} min read"
+            span.slow ="#{item.reading_time} min #{item.reading_kind}"
           -if item.comment_url?
             span =link_to 'comments', item.comment_url
           -if @session.trello_token && @session.saved_items && !@session.saved_items.include?(item.id)
             span =link_to 'save', add_trello_story_path(id: item.id)
-          span =link_to 'points', "http://pointsapp.co/?url=#{item.url}", target: '_blank'
+          -if item.reading_kind == 'read'
+            span =link_to 'points', "http://pointsapp.co/?url=#{item.url}", target: '_blank'
           -if item.tweet_count.to_i > 0
             span =cl_image_tag('twitter', cloud_name: ENV['CLOUD_NAME'], height: '15', width: '15', class: 'twitter-icon')
             span =item.tweet_count

@@ -42,6 +42,10 @@ class Item < ActiveRecord::Base
     return 'img' if self.url.match(/(\.png$|\.jpg$|\.gif$)/)
   end
 
+  def reading_kind
+    url.match(/youtube|youtu\.be/)? 'watch' : 'read'
+  end
+
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
     where(source: sources).
       limit(150).

@@ -207,6 +207,21 @@ module Scraper
     end
   end
 
+  def computerphile_items
+    page = Nokogiri::HTML(open('https://www.youtube.com/user/Computerphile/videos?flow=list&view=54'), nil, 'UTF-8')
+    [].tap do |items|
+      page.css('.yt-lockup-title').each do |video|
+        video_string = video.text.split(/(\s|-)+Computerphile(\s|-)+/)
+        items << {
+          title: video_string.first,
+          url: 'https://www.youtube.com' + video.at_css('a')['href'],
+          source: 'computerphile',
+          word_count: minute_duration(video_string.last.scan(/[0-9]+/))
+        }
+      end
+    end
+  end
+
   private
     def final_url(redirect_url)
       begin
@@ -231,5 +246,11 @@ module Scraper
         puts "\n > Word Count Failed for: #{url}"
         return 0
       end
+    end
+
+    def minute_duration(duration_array)
+      minutes = (duration_array.size > 1)? 1 : 0
+      minutes += duration_array.first.to_i
+      minutes *= 300 #translate minutes to equivalent word count
     end
 end

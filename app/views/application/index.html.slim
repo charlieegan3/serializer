@@ -48,10 +48,10 @@ table.item-list
             span =link_to 'comments', item.comment_url
           -if @session.trello_token && @session.saved_items && !@session.saved_items.include?(item.id)
             span =link_to 'save', add_trello_story_path(id: item.id)
-          -if item.reading_kind == 'read'
-            =link_to("http://pointsapp.co/?url=#{item.url}", target: '_blank') do
+          -if item.reading_kind == 'read' && item.reading_time > 0
+            =link_to("http://pointsapp.co/?url=#{item.url}", target: '_blank', class: 'points') do
               span
-                =cl_image_tag('points.png', cloud_name: ENV['CLOUD_NAME'], html_width: '10', class: 'points-icon')
+                =cl_image_tag('points.png', cloud_name: ENV['CLOUD_NAME'], html_width: '10')
                 |points
           -if item.tweet_count.to_i > 0
             span =cl_image_tag('twitter', cloud_name: ENV['CLOUD_NAME'], height: '15', width: '15', class: 'twitter-icon')

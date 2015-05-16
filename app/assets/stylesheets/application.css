@@ -121,10 +121,15 @@ td.log span {
   margin-right: 2px;
 }
 
-.points-icon {
+.points img {
   opacity: 0.75;
   margin-right: 2px;
   margin-bottom: -1px;
+}
+
+.points {
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .twitter-icon {

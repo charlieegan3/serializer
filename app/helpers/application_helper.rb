@@ -1,10 +1,11 @@
 module ApplicationHelper
   def time_ago(time)
-    (distance_of_time_in_words(time, Time.new) + ' ago').
+    (distance_of_time_in_words(time, Time.new)).
       gsub('about', '').
-      gsub('hours', 'hrs').
-      gsub('minutes', 'mins').
       gsub('less than a', '1').
+      gsub(/ minutes*/, 'm').
+      gsub(/ hours*/, 'h').
+      gsub(/ days*/, 'd').
       strip
   end
 

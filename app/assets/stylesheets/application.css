@@ -116,6 +116,11 @@ td.log span {
   border: 1px solid black;
 }
 
+.clock-icon {
+  opacity: 0.5;
+  margin-right: 2px;
+}
+
 .twitter-icon {
   margin-bottom: -3px;
   margin-right: -6px;

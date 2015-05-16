@@ -23,5 +23,11 @@
       ga('send', 'pageview');
 
     </script>
+    <script type="text/javascript">
+      function refreshPage() {
+        if(!document.hasFocus()) { location.reload(); }
+      }
+      setInterval(refreshPage, 120000);
+    </script>
   </body>
 </html>

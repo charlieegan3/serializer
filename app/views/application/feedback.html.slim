@@ -1,16 +1,38 @@
+=render 'menu', current_session: @session
+
 div.container
   p
-    |Not sure what all this is about? Take another look at the&nbsp;
-    =link_to 'welcome page', welcome_path, class: 'welcome-link'
-    |&nbsp;first.
-
-  =form_tag(feedback_path, method: 'post') do
-    =text_area(:feedback, :comment, cols: 40, rows: 15, class: 'comment-box')
+    'Not sure what all this is about? Take another look at the
+    =link_to 'welcome page', welcome_path, class: 'feedback-link'
+    '  first.
+  p
+    'I've had some great feedback from Product Hunters and I've put together a
+    =link_to '4 question form', 'https://charlie43.typeform.com/to/tZWtCn', target: '_blank', class: 'feedback-link'
+    ' . There's a space for longer comments at the end.
+  p.buttons
+    |comment?
     br
-    div.submit-area
-      =submit_tag('Send', class: 'submit')
-  p.tweet
     a.twitter-mention-button data-size=("large") href=("https://twitter.com/intent/tweet?screen_name=charlieegan3&text=serializer%20needs...")
       |Tweet to @charlieegan3
     javascript:
       window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    br
+    |problem?
+    br
+    a.github-button aria-label=("Issue charlieegan3/serializer on GitHub") data-count-api="/repos/charlieegan3/serializer#open_issues_count" data-count-aria-label=("# issues on GitHub") data-icon="octicon-issue-opened" data-style="mega" href="https://github.com/charlieegan3/serializer/issues"  Issue
+    br
+    |fix?
+    br
+    a.github-button aria-label=("Fork charlieegan3/serializer on GitHub") data-count-api="/repos/charlieegan3/serializer#forks_count" data-count-aria-label=("# forks on GitHub") data-count-href="/charlieegan3/serializer/network" data-icon="octicon-git-branch" data-style="mega" href="https://github.com/charlieegan3/serializer/fork"  Fork
+    br
+    |like?
+    br
+    a.github-button aria-label=("Star charlieegan3/serializer on GitHub") data-count-api="/repos/charlieegan3/serializer#stargazers_count" data-count-aria-label=("# stargazers on GitHub") data-count-href="/charlieegan3/serializer/stargazers" data-icon="octicon-star" data-style="mega" href="https://github.com/charlieegan3/serializer"  Star
+    script id="github-bjs" async="" defer="" src="https://buttons.github.io/buttons.js"
+    br
+    |&hearts;
+    br
+    a.twitter-share-button data-related="charlieegan3" data-size="large" data-url="http://serializer.io" href="https://twitter.com/share"  Tweet
+    javascript:
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+

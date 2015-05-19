@@ -29,11 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def feedback
-    unless params[:feedback].blank?
-      send_feedback(params[:feedback][:comment], request.env['HTTP_USER_AGENT'])
-      flash[:message] = 'Feedback Sent!'
-      return redirect_to root_path
-    end
+    @session = get_session
   end
 
   def all

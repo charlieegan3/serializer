@@ -7,7 +7,7 @@
 .menu
   .logo
     =link_to 'serializer.io', root_path, class: 'menu-text'
-  -unless params[:action] == 'welcome'
+  -unless ['welcome','feedback'].include?(params[:action])
     .options
       p
         -[['index', 'home', root_path], ['custom', 'custom', custom_path], ['all', 'all', all_path]].each do |item|

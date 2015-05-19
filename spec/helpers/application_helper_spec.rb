@@ -10,16 +10,12 @@ RSpec.describe ApplicationHelper, :type => :helper do
       expect(helper.time_ago(10.seconds.ago)).to_not include('less than')
     end
 
-    it 'shortens to "hrs"' do
-      expect(helper.time_ago(3.hours.ago)).to include('hrs')
+    it 'shortens to "h"' do
+      expect(helper.time_ago(3.hours.ago)).to include('h')
     end
 
-    it 'shortens to "mins"' do
-      expect(helper.time_ago(3.minutes.ago)).to include('mins')
-    end
-
-    it 'appends "ago"' do
-      expect(helper.time_ago(rand(1..10).hours.ago)).to include('ago')
+    it 'shortens to "m"' do
+      expect(helper.time_ago(3.minutes.ago)).to include('m')
     end
   end
 

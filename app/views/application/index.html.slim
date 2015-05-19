@@ -1,3 +1,4 @@
+=content_for :title, unread_count(@items, @session)
 =render 'menu', current_session: @session
 
 -if params[:action] == 'custom'

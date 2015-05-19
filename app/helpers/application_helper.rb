@@ -9,6 +9,15 @@ module ApplicationHelper
       strip
   end
 
+  def unread_count(items, session)
+    if session.completed_to
+      unread = items.reject { |x| x.created_at < session.completed_to }.size
+    else
+      unread = items.size
+    end
+    (unread > 0)? "#{unread} unread - serializer" : nil
+  end
+
   def print_url(url, limit=100)
     begin
       url = url.split('/')[2].

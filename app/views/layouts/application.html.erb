@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>serializer</title>
+    <title>
+      <%= content_for?(:title) ? content_for(:title) : 'serializer' %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Combines various non-linear news sources such as Hacker News and Reddit into a single sequential feed.">
     <%= favicon_link_tag('favicon.ico') %>

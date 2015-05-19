@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
     return redirect_to welcome_path unless cookies.permanent[:welcomed]
 
     if params[:session]
-      flash[:message] = 'Session synced!</a>' unless flash[:message]
+      message = 'Session Synced! Now choose:
+        <a href="/">default</a>, <a href="/all">all</a>
+        or <a href="/custom">custom</a>'
+      flash.now[:message] = message.html_safe unless flash[:message]
       @session = get_session(params[:session])
     else
       @session = get_session

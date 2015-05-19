@@ -337,7 +337,7 @@ span span.topped {
 
 /*welcome page*/
 .container {
-  margin: 100px auto 0px auto;
+  margin: 50px auto 0px auto;
   width: 100%;
   max-width: 800px;
   padding: 10px;
@@ -423,7 +423,7 @@ span span.topped {
 }
 
 .about {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .about h1 {

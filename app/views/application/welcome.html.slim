@@ -32,16 +32,14 @@ div.container
     p You can sync read status across devices by visiting your session's path on other devices. Your session path is:
     p.share-path =link_to root_path + @session.identifier, root_path + @session.identifier
     p Visiting that link will set a cookie linking that device to the same shared session. This link need only be visited <strong>once per device</strong>. No passwords needed.
-
-    h1 About
+    hr
     p
       em serializer
-      |&nbsp;is just a side project, I wanted a feed for social news sites and I enjoy marking things as read.
-    p
-      |I was inspired by a&nbsp;
+      'is a side project, I wanted a feed for social news sites and I enjoy marking things as read. I was inspired by a&nbsp;
       =link_to 'blog post', 'http://www.slashie.org/articles/shipping-side-projects/'
-      |&nbsp;(I assume shared on HN) to make this more than just a quick 'tool' for my personal use.
-    p I follow the 'all' list but I made 'home' and 'custom' to let others choose different sources.
+      '(I assume shared on HN) to make this more than just a quick 'tool' for my personal use. I follow the
+      =link_to '/all', all_path
+      '  list but I made 'home' and 'custom' to let others choose different sources.
     p.muted
       |All the code is on&nbsp;
       a href="https://github.com/charlieegan3/serializer" GitHub
@@ -54,4 +52,8 @@ div.container
       |Built with rails, nokogiri, feedjira, slim, httpclient, random_username, gruff &amp; cloudinary
     p.muted
       |Built by&nbsp;
-      =link_to 'Charlie', 'http://www.charlieegan3.com'
+      =link_to '@charlieegan3', 'http://www.charlieegan3.com'
+    p.muted
+      a.twitter-mention-button data-related="charlieegan3" data-size="large" href="https://twitter.com/intent/tweet?screen_name=charlieegan3"  Tweet to @charlieegan3
+      javascript:
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

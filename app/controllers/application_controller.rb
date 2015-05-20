@@ -47,6 +47,11 @@ class ApplicationController < ActionController::Base
     render :index
   end
 
+  def set_link_behavior
+    cookies.permanent[:link_target] = params[:choice].to_i
+    redirect_to :back
+  end
+
   def get_session(param = cookies.permanent[:session] || params[:session])
     Session.find_or_create(param).tap do |session|
       cookies.permanent[:session] = session.identifier

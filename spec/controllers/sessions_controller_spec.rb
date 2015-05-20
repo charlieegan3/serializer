@@ -6,7 +6,8 @@ RSpec.describe SessionsController, :type => :controller do
       get :clear_session
       expect(response.cookies['session']).to be_nil
       expect(response.cookies['welcomed']).to be_nil
-      expect(response.cookies.keys).to eq(['session', 'welcome'])
+      expect(response.cookies['link_target']).to be_nil
+      expect(response.cookies.keys).to eq(['session', 'welcome', 'link_target'])
     end
 
     it 'clear redirect_to welcome' do

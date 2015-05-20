@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'welcome' => 'application#welcome', as: :welcome
   get 'all' => 'application#all', as: :all
   get 'custom' => 'application#custom', as: :custom
+  get 'set_link_behavior' => 'application#set_link_behavior', as: :set_link_behavior
 
   get 'clear_session' => 'sessions#clear_session', as: :clear_session
   get 'add_source' => 'sessions#add_source', as: :add_source

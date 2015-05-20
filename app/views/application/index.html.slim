@@ -4,6 +4,8 @@
 -if params[:action] == 'custom'
   =render 'source_selection', sources: @session.sources
 
+-link_target = (cookies[:link_target] == '1')? '_blank' : '_self'
+
 -if !@items.empty? && @session && (!@session.completed_to || @items.first.created_at > @session.completed_to)
   =link_to(log_path(time: @items.first.created_at + 1), class: 'log-button') do
     span.tick &#10003;&nbsp;
@@ -27,10 +29,10 @@ table.item-list
             =distance_of_time_in_words(Time.new, @session.completed_to) + ' ago'
     tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
       td
-        =link_to(item.url, target: '_blank') do
+        =link_to(item.url, target: link_target) do
           =cl_image_tag(item.source, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
       td
-        =link_to item.title, item.url, class: 'title-link', id: item.id
+        =link_to item.title, item.url, class: 'title-link', id: item.id, target: link_target
         span.domain =" (#{print_url(item.url)})"
         span.short-domain =" (#{print_url(item.url, 20)})"
         -if item.format
@@ -46,7 +48,7 @@ table.item-list
           -elsif item.reading_time.between?(11,100)
             span.slow ="#{item.reading_time}m #{item.reading_kind}"
           -if item.comment_url?
-            span =link_to 'comments', item.comment_url
+            span =link_to 'comments', item.comment_url, target: link_target
           -if @session.trello_token && @session.saved_items && !@session.saved_items.include?(item.id)
             span =link_to 'save', add_trello_story_path(id: item.id)
           -if item.reading_kind == 'read' && item.reading_time > 0

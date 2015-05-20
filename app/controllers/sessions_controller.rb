@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   def clear_session
     cookies.permanent[:session] = nil
     cookies.permanent[:welcome] = nil
+    cookies.permanent[:link_target] = nil
     flash[:message] = 'All cookies cleared.'
     redirect_to welcome_path
   end
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
   def share
     session = get_session
     path = root_path + session.identifier
-    flash[:message] = "Visit <a href=\"#{path}\">this link</a> <strong>once</strong> on other devices to sync your read status &amp; settings"
+    flash[:message] = "Visit <a href=\"#{path}\">this link</a> <strong>once</strong> on other devices to sync your read status"
     redirect_to path
   end
 

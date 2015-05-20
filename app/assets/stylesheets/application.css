@@ -66,6 +66,10 @@ td:last-child {
   background-color: rgba(0,0,0,0.5);
 }
 
+.flash span {
+  opacity: 0.7;
+}
+
 .log-button {
   display: block;
   text-align: center;
@@ -597,6 +601,10 @@ footer a {
 
   .flash {
     padding: 15px 0px 15px 0px;
+  }
+
+  .flash span {
+    display: none;
   }
 
   .log-button {

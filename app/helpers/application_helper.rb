@@ -15,7 +15,7 @@ module ApplicationHelper
     else
       unread = items.size
     end
-    (unread > 0)? "#{unread} unread - serializer" : nil
+    (unread > 0)? "#{unread} new - serializer" : nil
   end
 
   def print_url(url, limit=100)

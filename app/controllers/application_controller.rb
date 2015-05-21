@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def index
     return render json: Item.matching if params[:format] == 'json'
 
-    if params[:session]
+    if Session.valid_session_parameter(params[:session])
       message = '<strong>Session Synced!</strong> Now choose:
         <a href="/">default</a>, <a href="/all">all</a>
         or <a href="/custom">custom</a>'

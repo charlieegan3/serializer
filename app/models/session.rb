@@ -13,7 +13,15 @@ class Session < ActiveRecord::Base
     if identifier.blank?
       create(identifier: self.generate_identifier)
     else
-      find_by_identifier(identifier) || create(identifier: self.generate_identifier)
+      find_by_identifier(identifier) || create(identifier: identifier)
+    end
+  end
+
+  def self.valid_session_parameter(param)
+    if param.present? && param.match(/^[a-z]+$/) && param.length < 100
+      true
+    else
+      false
     end
   end
 

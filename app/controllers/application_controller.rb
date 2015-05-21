@@ -7,15 +7,16 @@ class ApplicationController < ActionController::Base
 
   def index
     return render json: Item.matching if params[:format] == 'json'
-    return redirect_to welcome_path unless cookies.permanent[:welcomed]
 
     if params[:session]
       message = '<strong>Session Synced!</strong> Now choose:
         <a href="/">default</a>, <a href="/all">all</a>
         or <a href="/custom">custom</a>'
       flash.now[:message] = message.html_safe unless flash[:message]
+      cookies.permanent[:welcomed] = true
       @session = get_session(params[:session])
     else
+      return redirect_to welcome_path unless cookies.permanent[:welcomed]
       @session = get_session
     end
 

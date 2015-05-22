@@ -50,7 +50,11 @@ class ApplicationController < ActionController::Base
 
   def set_link_behavior
     cookies.permanent[:link_target] = params[:choice].to_i
-    redirect_to :back
+    if request.env["HTTP_REFERER"]
+      return redirect_to :back
+    else
+      return redirect_to root_path
+    end
   end
 
   def get_session(param = cookies.permanent[:session] || params[:session])

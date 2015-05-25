@@ -104,12 +104,12 @@ td.log span {
   background-color: rgba(154, 205, 50, 0.25);
 }
 
-.read .title-link:visited {
+.read .item-title a:visited {
   color: #454545;
   border-bottom: 1px solid black;
 }
 
-.read .title-link:visited:hover {
+.read .item-title a:visited:hover {
   color: black;
   border-bottom: 1px solid black;
 }
@@ -198,23 +198,30 @@ span span.topped {
   color: Crimson;
 }
 
-.title-link {
+.item-title {
+  font-size: 1em;
+  display: inline;
+  font-weight: normal;
+  margin: 0px;
+}
+
+.item-title a {
   color: #454545;
   text-decoration: none;
   border-bottom: 1px solid #454545;
 }
 
-.title-link:visited {
+.item-title a:visited {
   color: DarkGray;
   border-bottom: 1px solid DarkGray;
 }
 
-.title-link:hover {
+.item-title a:hover {
   color: black;
   border-bottom: 2px solid black;
 }
 
-.title-link:visited:hover {
+.item-title a a:visited:hover {
   color: DarkGray;
   border-bottom: 2px solid DarkGray;
 }

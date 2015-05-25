@@ -32,7 +32,8 @@ table.item-list
         =link_to(item.url, target: link_target) do
           =cl_image_tag(item.source, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
       td
-        =link_to item.title, item.url, class: 'title-link', id: item.id, target: link_target
+        h2.item-title
+          =link_to item.title, item.url, id: item.id, target: link_target
         span.domain =" (#{print_url(item.url)})"
         span.short-domain =" (#{print_url(item.url, 20)})"
         -if item.format

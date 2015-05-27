@@ -53,4 +53,24 @@ RSpec.describe Item, :type => :model do
     item = create(:item, url: 'https://www.site.com/path?utm_source=src&utm_campaign=cam&utm_medium=med&utm_term=ter&saved=1')
     expect(item.url).to eq('https://www.site.com/path?saved=1')
   end
+
+  it 'should remove ref= params from urls' do
+    item = create(:item, url: 'http://site.com/?ref=referrer')
+    expect(item.url).to eq('http://site.com/')
+  end
+
+  it 'should ignore url protocol' do
+    create(:item, url: 'https://www.site.com/')
+    expect{create(:item, url: 'http://www.site.com/')}.to raise_error(ActiveRecord::RecordNotSaved)
+  end
+
+  it 'should ignore surplus non word characters' do
+    create(:item, url: 'https://with-trailing.slash/')
+    expect{create(:item, url: 'http://with-trailing.slash')}.to raise_error(ActiveRecord::RecordNotSaved)
+  end
+
+  it 'should count bare domain as equal' do
+    create(:item, url: 'https://site.com')
+    expect{create(:item, url: 'http://www.site.com')}.to raise_error(ActiveRecord::RecordNotSaved)
+  end
 end

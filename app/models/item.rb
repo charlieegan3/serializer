@@ -2,11 +2,11 @@ class Item < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :url
   validates_uniqueness_of :url
-  validates_format_of :url, with: /http(s)*:\/\//, on: :create
+  validates_format_of :url, with: /http(s)?:\/\//, on: :create
 
   before_save :truncate_title,
               :remove_content_tag,
-              :remove_utm_parameters
+              :clean_url_parameters
 
   before_create :prevent_duplicates
 
@@ -15,8 +15,9 @@ class Item < ActiveRecord::Base
   end
 
   def prevent_duplicates
-    Item.where('created_at >= ?', Time.zone.now - 1.days).each do |item|
+    Item.where('created_at >= ?', Time.zone.now - 36.hours).each do |item|
       return false if Jaccard.coefficient(title_list, item.title_list) > 0.8
+      return false if validation_url == item.validation_url
     end
   end
 
@@ -25,8 +26,16 @@ class Item < ActiveRecord::Base
     self.title = self.title.gsub(/\s*\[[a-zA-Z]+\]$/, '') if self.title
   end
 
-  def remove_utm_parameters
-    self.url = self.url.gsub(/(\?|&)utm[^&]*/,'?').gsub('?&', '?').gsub(/\?+/, '?')
+  def clean_url_parameters
+    self.url = self.url
+      .gsub(/(\?|&)utm[^&]*/,'?')
+      .gsub('?&', '?')
+      .gsub(/\?+/, '?')
+      .gsub(/(\?)?ref=\w+/,'')
+  end
+
+  def validation_url
+    url.gsub(/http(s)?:\/\/(www\.)?/, '').gsub(/\W/, '')
   end
 
   def title_list

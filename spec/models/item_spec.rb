@@ -18,11 +18,6 @@ RSpec.describe Item, :type => :model do
     expect(Item.matching(SOURCES).size).to eq(SOURCES.size)
   end
 
-  it 'returns a limited all list as default' do
-    create_list(:item, 301, {source: SOURCES.sample})
-    expect(Item.default.size).to eq(300)
-  end
-
   it 'returns the days hour count' do
     24.times do
       create(:item, created_at: Time.zone.now - 1.days)

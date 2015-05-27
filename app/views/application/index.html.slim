@@ -13,9 +13,9 @@
 
 table.item-list
   -displayed_log = false
-  -overflow = 20
+  -overflow = 10
   -@items.each_with_index do |item, index|
-    -overflow -= 1 if displayed_log == true
+    -overflow -= 1 if displayed_log == true && index > 10
     -break if overflow == 0
     -if @session && @session.completed_to && displayed_log == false && item.created_at <= @session.completed_to
       -displayed_log = true
@@ -27,7 +27,7 @@ table.item-list
             span &#10003;&nbsp;
             |Read to here -&nbsp;
             =distance_of_time_in_words(Time.new, @session.completed_to) + ' ago'
-    tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 20)}")
+    tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 10)}")
       td
         =link_to(item.url, target: link_target) do
           =cl_image_tag(item.source, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')

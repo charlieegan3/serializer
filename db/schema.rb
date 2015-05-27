@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527091019) do
+ActiveRecord::Schema.define(version: 20150527215745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150527091019) do
     t.integer  "tweet_count"
     t.integer  "word_count"
   end
+
+  add_index "items", ["url"], name: "index_items_on_url", unique: true, using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.string   "identifier"

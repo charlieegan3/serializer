@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402195755) do
+ActiveRecord::Schema.define(version: 20150527091019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150402195755) do
     t.string   "trello_token"
     t.string   "trello_username"
     t.text     "saved_items"
+    t.integer  "read_count"
   end
 
 end

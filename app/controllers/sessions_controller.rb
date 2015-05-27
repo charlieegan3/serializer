@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def log
-    session = get_session
-    session.update_attribute(:completed_to, params[:time])
+    get_session.log(params[:time]) if params[:time]
     if request.env["HTTP_REFERER"]
       return redirect_to :back
     else

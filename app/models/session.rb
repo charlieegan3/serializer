@@ -4,6 +4,13 @@ class Session < ActiveRecord::Base
   validates_uniqueness_of :identifier
   validates_presence_of :identifier
 
+  def log(time)
+    update_attributes({
+      completed_to: (Time.now < time)? Time.now : time,
+      read_count: (read_count)? read_count + 1 : 1,
+    })
+  end
+
   def update_sources(source)
     sources.include?(source)? sources.delete(source) : sources << source
     save

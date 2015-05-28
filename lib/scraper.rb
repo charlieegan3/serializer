@@ -142,7 +142,7 @@ module Scraper
   def qudos_items
     page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('.entry').each_with_index do |item, index|
+      page.css('.entry').take(5).each_with_index do |item, index|
         redirect_url = "https://www.qudos.io#{item.at_css('.title')['href']}/l"
         next if Item.find_by_redirect_url(redirect_url)
         items << {
@@ -226,7 +226,7 @@ module Scraper
   def techcrunch_items
     page = Nokogiri::HTML(open('http://techcrunch.com/startups/'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('.river > .river-block').to_a.each do |block|
+      page.css('.river > .river-block').to_a.take(5).each do |block|
         next if Item.find_by_url(block['data-permalink'])
         items << {
           title: block['data-sharetitle'],

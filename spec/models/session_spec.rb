@@ -40,4 +40,10 @@ RSpec.describe Session, :type => :model do
       expect(Session.valid_session_parameter('abcABC123')).to eq(false)
     end
   end
+
+  describe 'generate_identifier' do
+    it 'should return a unique identifier' do
+      expect(Session.generate_identifier).to match(/[a-z]+/)
+    end
+  end
 end

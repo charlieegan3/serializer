@@ -18,10 +18,33 @@ RSpec.describe Session, :type => :model do
     expect(found_session).to eq(session)
   end
 
-  it 'should recreate a session a match it not found' do
-    session = Session.find_or_create('missing')
-    expect(session.identifier).to eq('missing')
+  describe 'log' do
+    it 'should update to a past time value' do
+      session, time = create(:session), 1.minutes.ago
+      session.log(time)
+      expect(session.completed_to).to eq(time)
+    end
+
+    it 'should limit to a past value' do
+      session, time = create(:session), Time.now + 1.minutes
+      session.log(time)
+      expect(session.completed_to).to be < Time.now
+    end
   end
+
+  describe 'find_or_create' do
+    it 'should recreate a session a match it not found' do
+      session = Session.find_or_create('missing')
+      expect(session.identifier).to eq('missing')
+    end
+
+    it 'should create a new session if identifier is nil' do
+      session = Session.find_or_create(nil)
+      expect(session).to_not be_nil
+      expect(session.identifier).to match(/[a-z]+/)
+    end
+  end
+
 
   describe 'valid_session_parameter' do
     it 'should accept a valid parameter' do

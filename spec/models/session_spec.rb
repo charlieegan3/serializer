@@ -4,11 +4,6 @@ RSpec.describe Session, :type => :model do
   it { should validate_uniqueness_of(:identifier) }
   it { should serialize(:sources) }
 
-  it 'should set an identifier' do
-    session = create(:session, identifier: '')
-    expect(session.identifier.length).to be > 0
-  end
-
   it 'should maintain a list of sources' do
     session = create(:session, sources: ['hacker_news'])
     session.update_sources('hacker_news')

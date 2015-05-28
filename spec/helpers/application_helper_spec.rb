@@ -19,6 +19,21 @@ RSpec.describe ApplicationHelper, :type => :helper do
     end
   end
 
+  describe 'unread_count' do
+    it 'counts all as unread with a session' do
+      items = [build(:item), build(:item)]
+      result = helper.unread_count(items, build(:session, completed_to: nil))
+      expect(result).to include('2')
+    end
+
+    it 'counts unread items based on the sessions completed_to' do
+      items = [build(:item, created_at: 10.days.ago), build(:item)]
+      session = build(:session, completed_to: 1.hour.ago)
+      result = helper.unread_count(items, session)
+      expect(result).to include('1')
+    end
+  end
+
   describe 'print_url' do
     it 'removes params' do
       url = 'http://www.google.com?some=junk-on-the-end'

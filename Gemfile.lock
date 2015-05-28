@@ -64,6 +64,8 @@ GEM
       rest-client
     code_analyzer (0.4.5)
       sexp_processor
+    codeclimate-test-reporter (0.4.7)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     colored (1.2)
     columnize (0.9.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   byebug
   capybara
   cloudinary
+  codeclimate-test-reporter
   factory_girl_rails
   feedjira
   gmail

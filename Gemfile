@@ -18,6 +18,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
   gem 'seed_dumper'
+  gem 'codeclimate-test-reporter'
 end
 
 gem 'nokogiri'

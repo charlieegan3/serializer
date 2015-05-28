@@ -40,6 +40,16 @@ RSpec.describe ApplicationController, :type => :controller do
       get :index, format: 'json'
       expect(response.body).to eq(item_json)
     end
+
+    it 'should sync the session when given a valid parameter' do
+      get :index, session: 'adjnoun'
+      expect(assigns(:session).identifier).to eq('adjnoun')
+    end
+
+    it 'should auto-welcome syncing users' do
+      get :index, session: 'adjnoun'
+      expect(response.cookies['welcomed']).to eq('true')
+    end
   end
 
   describe 'GET #all' do
@@ -93,12 +103,30 @@ RSpec.describe ApplicationController, :type => :controller do
       get :feedback
       should render_template :feedback
     end
+  end
 
-    # Don't know how to test this.
-    it 'send feedback and redirect with message' do
-      # Camcorder.intercept_constructor(Net::IMAP)
-      # get :feedback, feedback: {comment: 'hey'}
-      # should redirect_to root_path
+  describe 'set_link_behavior' do
+    it 'should set link_target cookie' do
+      get :set_link_behavior
+      expect(response.cookies['link_target']).to_not be_nil
+    end
+
+    it 'should set the link_target cookie to the choice' do
+      choice = ['0', '1'].sample
+      get :set_link_behavior, choice: choice
+      expect(response.cookies['link_target']).to eq(choice)
+    end
+
+    it 'should redirect_to root if referer is nil' do
+      request.env['HTTP_REFERER'] = custom_path
+      get :set_link_behavior
+      expect(response).to redirect_to(custom_path)
+    end
+
+    it 'should redirect_to root if referer is nil' do
+      request.env['HTTP_REFERER'] = nil
+      get :set_link_behavior
+      expect(response).to redirect_to(root_path)
     end
   end
 end

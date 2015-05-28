@@ -142,13 +142,14 @@ module Scraper
   def qudos_items
     page = Nokogiri::HTML(open('https://www.qudos.io'), nil, 'UTF-8')
     [].tap do |items|
-      page.css('.grid-90').each_with_index do |item, index|
-        redirect_url = 'https://www.qudos.io' + item.at_css('.title')['href'].gsub('https', 'http')
+      page.css('.entry').each_with_index do |item, index|
+        redirect_url = "https://www.qudos.io#{item.at_css('.title')['href']}/l"
         next if Item.find_by_redirect_url(redirect_url)
         items << {
-          title: item.at_css('.title').text + ' - ' + item.at_css('.description').text,
+          title: item.at_css('.title').text.strip + ' - ' + item.at_css('.description').text,
           url: final_url(redirect_url),
           redirect_url: redirect_url,
+          comment_url: redirect_url[0..-3],
           source: 'qudos',
           topped: (index == 0)? true : false,
           word_count: 0

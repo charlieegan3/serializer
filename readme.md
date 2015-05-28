@@ -1,24 +1,29 @@
 #serializer
 
-The code that runs [serializer.io](http://www.serializer.io). serializer collects links from Hacker news, Reddit & Product Hunt and lists them in **sequential** order, some might even say it serializes them...
+serializer collects links from Hacker news, Reddit & Product Hunt and lists them in **sequential** order, some might even say it serializes them. It now collects quite a few other sources as well.
+
+I deploy the app to [serializer.io](http://www.serializer.io) every few days. It's currently configured to work with [dokku-alt](https://github.com/dokku-alt/dokku-alt). [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) is used to run the collect tasks.
 
 ##Features
 * Read-to-Here Marker
-* Sessions for cross-device syncing (without user login)
-* Customizable source feeds for users who aren’t me (I follow [/all](http://www.serializer.io))
+* **Loginless** sessions for cross-device syncing
+* Customizable source feeds - I follow [/all](http://www.serializer.io/all)
 * Reading time estimates (based on 300wpm and a simple content extractor)
 * Tweet counts that are updated for recently added items
 * Basic duplicate link removal
+* Tab title unread marker & background refresh
 
-##Contributing
-Fork, PR etc. I'm keen to accept changes that make serializer better for you, just as long as they don't make it worse for me! If you'd like something to work on then take a look at the todo list below.
+##Feedback & Contributing
+I'm keen to accept changes that make serializer work better for you, pull requests welcome. If something's not right [open an issue](https://github.com/charlieegan3/serializer/issues/new). There's an anonymous feedback form [here](https://charlie43.typeform.com/to/tZWtCn).
 
-###Notes
-* The app is setup to be deployed to dokku, but it ought to be easy enough to spin up on Heroku since that's how I originally hosted it.
-* `rake collect_active` & `rake collect_feeds` can be used to populate news stories.
+####Notes
+* `rake collect_active` & `rake collect_feeds` can be used to populate items, collection doesn't run automatically in development.
+* Images and icons are hosted on [Cloudinary](https://cloudinary.com/users/register/free), it's super easy to get setup with a free account there.
+* If the app errors in collection it sends notifications using the [Gmail gem](https://github.com/gmailgem/gmail)
 
-##Todo
-* Trello OAuth, at the moment users need to copy and paste a token back into the form to link to Trello as a reading list.
-* Consider [Kukuruku(Programming)](http://kukuruku.co/hub/programming/) & [startupli.st](http://startupli.st/) as sources.
+######ENV
+* `NOTIFY_EMAIL` where errors emails should be sent
+* `GMAIL_ACCOUNT` & `GMAIL_PASSWORD` Gmail login for notification sender account
+* `CLOUD_NAME`, `CLOUDINARY_KEY` & `CLOUDINARY_SECRET` Cloudinary credentials
+* `TRELLO_KEY` Take a look around, you might find some hidden features.
 
-Please do open issues if you'd like to make a suggestion.

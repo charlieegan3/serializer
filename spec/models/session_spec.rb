@@ -22,4 +22,22 @@ RSpec.describe Session, :type => :model do
     session = Session.find_or_create('missing')
     expect(session.identifier).to eq('missing')
   end
+
+  describe 'valid_session_parameter' do
+    it 'should accept a valid parameter' do
+      expect(Session.valid_session_parameter('adjnoun')).to eq(true)
+    end
+
+    it 'should reject blanks' do
+      expect(Session.valid_session_parameter('')).to eq(false)
+    end
+
+    it 'should reject if too long' do
+      expect(Session.valid_session_parameter('a' * 101)).to eq(false)
+    end
+
+    it 'should reject if contains non lowercase letters' do
+      expect(Session.valid_session_parameter('abcABC123')).to eq(false)
+    end
+  end
 end

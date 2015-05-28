@@ -73,4 +73,38 @@ RSpec.describe Item, :type => :model do
     create(:item, url: 'https://site.com')
     expect{create(:item, url: 'http://www.site.com')}.to raise_error(ActiveRecord::RecordNotSaved)
   end
+
+  it 'should correctly calculate reading_time' do
+    item = build(:item, word_count: 300)
+    expect(item.reading_time).to be(1)
+  end
+
+  it 'should return a format for pdf urls' do
+    item = build(:item, url: 'http://site.com/x.pdf')
+    expect(item.format).to eq('pdf')
+  end
+
+  it 'should return a format for pdf urls' do
+    item = build(:item, url: 'http://site.com/x.pdf')
+    expect(item.format).to eq('pdf')
+  end
+
+  it 'should return a format for image urls' do
+    format = ['jpg', 'png', 'gif'].sample
+    item = build(:item, url: "http://site.com/x.#{format}")
+    expect(item.format).to eq('img')
+  end
+
+  it 'should assign a "watch" reading kind for videos' do
+    expect(build(:item, url: "http://youtube.com").reading_kind).to eq('watch')
+  end
+
+  it 'should return a sorted list as "default"' do
+    item_a, item_b, item_c = [
+      create(:item, created_at: 1.hours.ago),
+      create(:item, created_at: 3.hours.ago),
+      create(:item, created_at: 2.hours.ago),
+    ]
+    expect(Item.default).to eq([item_a, item_c, item_b])
+  end
 end

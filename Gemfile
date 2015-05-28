@@ -16,7 +16,7 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', '2.8.0'
   gem 'factory_girl_rails'
-  # gem 'camcorder'
+  gem 'simplecov', require: false
   gem 'seed_dumper'
 end
 

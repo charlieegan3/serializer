@@ -11,7 +11,11 @@ def collect_and_save(sources)
   sources.each do |method|
     print method.humanize.titlecase
     begin
-      items += Scraper.instance_method((method + '_items').to_sym).bind(self).call
+      items += Scraper
+                .instance_method((method + '_items').to_sym)
+                .bind(self)
+                .call
+                .reverse
     rescue Exception => e
       print ' - Failed!'
       errors <<  e.message + "\n\n" + e.backtrace.join("\n")
@@ -21,7 +25,7 @@ def collect_and_save(sources)
 
   send_errors(errors) unless errors.empty?
 
-  items.shuffle.each do |item|
+  items.each do |item|
     existing = Item.find_by_url(item[:url])
     if existing
       existing.update_attributes(item) if item[:topped] == true

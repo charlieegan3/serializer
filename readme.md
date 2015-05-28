@@ -1,5 +1,9 @@
 #serializer
 
+[![Build Status](https://travis-ci.org/charlieegan3/serializer.svg?branch=master)](https://travis-ci.org/charlieegan3/serializer)
+[![Code Climate](https://codeclimate.com/github/charlieegan3/serializer/badges/gpa.svg)](https://codeclimate.com/github/charlieegan3/serializer)
+[![Test Coverage](https://codeclimate.com/github/charlieegan3/serializer/badges/coverage.svg)](https://codeclimate.com/github/charlieegan3/serializer/coverage)
+
 serializer collects links from Hacker news, Reddit & Product Hunt and lists them in **sequential** order, some might even say it serializes them. It now collects quite a few other sources as well.
 
 I deploy the app to [serializer.io](http://www.serializer.io) every few days. It's currently configured to work with [dokku-alt](https://github.com/dokku-alt/dokku-alt). [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) is used to run the collect tasks.

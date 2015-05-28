@@ -20,18 +20,35 @@ RSpec.describe SessionsController, :type => :controller do
   describe 'GET #log' do
     it 'should redirect_to referrer' do
       request.cookies[:session] = create(:session).identifier
-      request.env["HTTP_REFERER"] = root_path
+      request.env["HTTP_REFERER"] = all_path
+      expect(get :log, time: Time.now).to redirect_to(all_path)
+    end
+
+    it 'should redirect_to root when nil referrer' do
+      request.cookies[:session] = create(:session).identifier
+      request.env["HTTP_REFERER"] = nil
       expect(get :log, time: Time.now).to redirect_to(root_path)
     end
   end
 
   describe 'GET #add_source' do
     before(:each) do
-      request.env["HTTP_REFERER"] = root_path
+      request.env["HTTP_REFERER"] = all_path
     end
 
     it 'should redirect back if source is invalid' do
       get :add_source, source: 'invalid'
+      should redirect_to all_path
+    end
+
+    it 'should redirect back when source has been toggled' do
+      get :add_source, source: 'hacker_news'
+      should redirect_to all_path
+    end
+
+    it 'should redirect to root when referrer is nil' do
+      request.env["HTTP_REFERER"] = nil
+      get :add_source, source: 'hacker_news'
       should redirect_to root_path
     end
   end

@@ -6,13 +6,13 @@ class Session < ActiveRecord::Base
 
   def log(time)
     update_attributes({
-      completed_to: (Time.now < time)? Time.now : time,
-      read_count: (read_count)? read_count + 1 : 1,
+      completed_to: (Time.now < time) ? Time.now : time,
+      read_count: (read_count) ? read_count + 1 : 1,
     })
   end
 
   def update_sources(source)
-    sources.include?(source)? sources.delete(source) : sources << source
+    sources.include?(source) ? sources.delete(source) : sources << source
     save
   end
 

@@ -8,8 +8,8 @@ module Scraper
         ['https://news.ycombinator.com/show', 15]
       ].each do |page, count|
         Nokogiri::HTML(open(page), nil, 'UTF-8').css('table')[2].css('tr').
-        reject { |tr| tr.text.blank? || tr.text == 'More' || tr.text.include?('Please read the rules') }.
-        in_groups_of(2).to_a.take(count).each_with_index do |pair, index|
+        reject { |tr| tr.text.blank? || tr.text == 'More' || tr.text.include?('Please read the rules') }
+          .in_groups_of(2).to_a.take(count).each_with_index do |pair, index|
           link, details = pair
           title = link.css('td:last-child a').first.text
           url = link.css('td:last-child a').first['href']
@@ -24,7 +24,7 @@ module Scraper
             url: url,
             comment_url: comment_url,
             source: 'hacker_news',
-            topped: (index == 0)? true : false,
+            topped: (index == 0) ? true : false,
             word_count: word_count(url)
           }
         end
@@ -45,7 +45,7 @@ module Scraper
           comment_url: 'http://www.producthunt.com' + item['data-href'],
           redirect_url: redirect_url,
           source: 'product_hunt',
-          topped: (index == 0)? true : false,
+          topped: (index == 0) ? true : false,
           word_count: 0
         }
       end
@@ -70,7 +70,7 @@ module Scraper
             url: url,
             comment_url: item.at_css('a.comments')['href'],
             source: 'reddit',
-            topped: (index == 0)? true : false,
+            topped: (index == 0) ? true : false,
             word_count: word_count(url)
           }
         end
@@ -93,7 +93,7 @@ module Scraper
           comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
           redirect_url: redirect_url,
           source: 'designer_news',
-          topped: (index == 0)? true : false,
+          topped: (index == 0) ? true : false,
           word_count: word_count(url),
         }
       end
@@ -114,7 +114,7 @@ module Scraper
           url: url,
           comment_url: (story.at_css('.comments_label a')['href'].prepend('https://lobste.rs') rescue nil),
           source: 'lobsters',
-          topped: (index == 0)? true : false,
+          topped: (index == 0) ? true : false,
           word_count: word_count(url)
         }
       end
@@ -151,7 +151,7 @@ module Scraper
           redirect_url: redirect_url,
           comment_url: redirect_url[0..-3],
           source: 'qudos',
-          topped: (index == 0)? true : false,
+          topped: (index == 0) ? true : false,
           word_count: 0
         }
       end

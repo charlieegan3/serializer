@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
       title: item.title,
       description: [
         item.url,
-        ((item.comment_url?)? "Comments:\n#{item.comment_url}" : ''),
+        ((item.comment_url?) ? "Comments:\n#{item.comment_url}" : ''),
         "via #{item.source.humanize.capitalize}",
         "Saved: #{Time.zone.now} - Posted: #{item.created_at}"
       ].join("\n\n")
@@ -63,7 +63,7 @@ class SessionsController < ApplicationController
 
   private
     def location_path(referer, item)
-      path = (referer)? referer : all_path
+      path = (referer) ? referer : all_path
       path = path[0..path.index('#')-1] if path.include?('#')
       "#{path}/##{item.id}".gsub(/\/+/, '/').gsub(/http:\//, 'http://')
     end

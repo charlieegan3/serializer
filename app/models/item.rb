@@ -56,9 +56,9 @@ class Item < ActiveRecord::Base
   end
 
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
-    where(source: sources).
-      limit(150).
-      order(created_at: 'DESC')
+    where(source: sources)
+      .limit(150)
+      .order(created_at: 'DESC')
   end
 
   def self.default
@@ -66,8 +66,8 @@ class Item < ActiveRecord::Base
   end
 
   def self.average_hour_count(sources)
-    where(source: sources).
-      where('created_at >= ?', Time.zone.now - 1.days).
-      size / 24
+    where(source: sources)
+      .where('created_at >= ?', Time.zone.now - 1.days)
+      .size / 24
   end
 end

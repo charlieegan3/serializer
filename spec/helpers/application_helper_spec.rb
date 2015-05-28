@@ -49,5 +49,11 @@ RSpec.describe ApplicationHelper, :type => :helper do
       url = 'http://www.google.com'
       expect(helper.print_url(url, 5)).to eq('google...')
     end
+
+    it 'returns the url for an invalid url' do
+      # I know this isn't ideal but it'll have to do
+      url = 'http:/google.com'
+      expect(helper.print_url(url, 5)).to eq(url)
+    end
   end
 end

@@ -39,6 +39,10 @@ RSpec.describe Session, :type => :model do
     it 'should reject if contains non lowercase letters' do
       expect(Session.valid_session_parameter('abcABC123')).to eq(false)
     end
+
+    it 'should return false for a nil parameter' do
+      expect(Session.valid_session_parameter(nil)).to eq(false)
+    end
   end
 
   describe 'generate_identifier' do

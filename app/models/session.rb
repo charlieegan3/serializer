@@ -25,7 +25,7 @@ class Session < ActiveRecord::Base
   end
 
   def self.valid_session_parameter(param)
-    if param.match(/^[a-z]+$/) && param.length < 100
+    if param.present? && param.match(/^[a-z]{,100}$/)
       true
     else
       false

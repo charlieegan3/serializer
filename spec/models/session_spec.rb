@@ -55,6 +55,10 @@ RSpec.describe Session, :type => :model do
       expect(Session.valid_session_parameter('')).to eq(false)
     end
 
+    it 'should reject nil parameters' do
+      expect(Session.valid_session_parameter(nil)).to eq(false)
+    end
+
     it 'should reject if too long' do
       expect(Session.valid_session_parameter('a' * 101)).to eq(false)
     end

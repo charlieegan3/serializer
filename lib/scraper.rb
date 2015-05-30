@@ -239,35 +239,32 @@ module Scraper
     end
   end
 
-  private
-    def final_url(redirect_url)
-      begin
-        open(redirect_url, allow_redirections: :all) do |resp|
-          return resp.base_uri.to_s
-        end
-      rescue
-        return HTTPClient.new.get(redirect_url).header['Location'].first.to_s
+  def final_url(redirect_url)
+    begin
+      open(redirect_url, allow_redirections: :all) do |resp|
+        return resp.base_uri.to_s
       end
+    rescue
+      return HTTPClient.new.get(redirect_url).header['Location'].first.to_s
     end
+  end
 
-    def word_count(url)
-      print '.'
-      return 0 if url.match(/combinator|reddit\.com|layervault|lobste\.rs/)
-      return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
-      begin
-        status = Timeout::timeout(2) {
-          extractor = Extractor.new(open(url, :allow_redirections => :all).read, url)
-          extractor.word_count.to_i
-        }
-      rescue
-        puts "\n > Word Count Failed for: #{url}"
-        return 0
-      end
+  def word_count(url)
+    return 0 if url.match(/combinator|reddit\.com|layervault|lobste\.rs/)
+    return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
+    begin
+      status = Timeout::timeout(2) {
+        extractor = Extractor.new(open(url, :allow_redirections => :all).read, url)
+        extractor.word_count.to_i
+      }
+    rescue
+      return 0
     end
+  end
 
-    def minute_duration(duration_array)
-      minutes = (duration_array.size > 1)? 1 : 0
-      minutes += duration_array.first.to_i
-      minutes *= 300 #translate minutes to equivalent word count
-    end
+  def minute_duration(duration_array)
+    minutes = (duration_array.size > 1)? 1 : 0
+    minutes += duration_array.first.to_i
+    minutes *= 300 #translate minutes to equivalent word count
+  end
 end

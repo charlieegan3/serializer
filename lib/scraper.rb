@@ -165,7 +165,7 @@ module Scraper
         redirect_url = (entry.id + '/visit').gsub('https', 'http')
         next if Item.find_by_redirect_url(redirect_url)
         items << {
-          title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split(/,|\./).first,
+          title: entry.title + ' - ' + Nokogiri::HTML(entry.content).text.split('. ').first,
           url: final_url(redirect_url),
           redirect_url: redirect_url,
           source: 'beta_list',

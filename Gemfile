@@ -19,6 +19,8 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'seed_dumper'
   gem 'codeclimate-test-reporter'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'nokogiri'

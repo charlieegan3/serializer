@@ -12,6 +12,7 @@ module Scraper
   end
 
   def word_count(url)
+    print '/'
     return 0 if url.match(/combinator|reddit\.com|layervault|lobste\.rs/)
     return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
     begin

@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe RedditScraper do
+RSpec.describe Reddit do
   before(:all) do
-    @rs = RedditScraper.new
+    @rs = Reddit::RedditScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(RedditScraper).to receive(:word_count)
+    allow_any_instance_of(Reddit::RedditScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('reddit') do
-      items = @rs.items
+      items = Reddit.items
       expect(items).to_not be_nil
       keys = [:title, :url, :word_count, :comment_url, :source, :topped]
       expect(items.sample.keys - keys).to be_empty

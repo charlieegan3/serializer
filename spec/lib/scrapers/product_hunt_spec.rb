@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe ProductHuntScraper do
+RSpec.describe ProductHunt do
   before(:all) do
-    @phs = ProductHuntScraper.new
+    @phs = ProductHunt::ProductHuntScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(ProductHuntScraper).to receive(:word_count)
+    allow_any_instance_of(ProductHunt::ProductHuntScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('product_hunt') do
       items = @phs.items

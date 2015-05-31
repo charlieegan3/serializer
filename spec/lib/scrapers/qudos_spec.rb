@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe QudosScraper do
+RSpec.describe Qudos do
   before(:all) do
-    @qs = QudosScraper.new
+    @qs = Qudos::QudosScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(QudosScraper).to receive(:word_count)
+    allow_any_instance_of(Qudos::QudosScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('qudos') do
       items = @qs.items

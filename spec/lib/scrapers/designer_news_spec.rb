@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe DesignerNewsScraper do
+RSpec.describe DesignerNews do
   before(:all) do
-    @dns = DesignerNewsScraper.new
+    @dns = DesignerNews::DesignerNewsScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(DesignerNewsScraper).to receive(:word_count)
+    allow_any_instance_of(DesignerNews::DesignerNewsScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('designer_news') do
       items = @dns.items

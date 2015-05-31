@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe ComputerphileScraper do
+RSpec.describe Computerphile do
   before(:all) do
-    @cs = ComputerphileScraper.new
+    @cs = Computerphile::ComputerphileScraper.new
   end
 
   it 'should return items' do

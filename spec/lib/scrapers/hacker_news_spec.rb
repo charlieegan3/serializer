@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe HackerNewsScraper do
+RSpec.describe HackerNews do
   before(:all) do
-    @hns = HackerNewsScraper.new
+    @hns = HackerNews::HackerNewsScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(HackerNewsScraper).to receive(:word_count)
+    allow_any_instance_of(HackerNews::HackerNewsScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('hacker_news') do
-      items = @hns.items
+      items = HackerNews.items
       expect(items).to_not be_nil
       keys = [:title, :url, :word_count, :comment_url, :source, :topped]
       expect(items.sample.keys - keys).to be_empty
-      expect(items.select { |i| i[:topped] }.size).to eq(2)
+      expect(items.select { |i| i[:topped] }.size).to eq(1)
     end
   end
 

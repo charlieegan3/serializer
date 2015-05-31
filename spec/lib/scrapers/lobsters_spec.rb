@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe LobstersScraper do
+RSpec.describe Lobsters do
   before(:all) do
-    @ls = LobstersScraper.new
+    @ls = Lobsters::LobstersScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(LobstersScraper).to receive(:word_count)
+    allow_any_instance_of(Lobsters::LobstersScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('lobsters') do
       items = @ls.items

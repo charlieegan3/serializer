@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe MacRumorsScraper do
+RSpec.describe MacRumors do
   before(:all) do
-    @mrs = MacRumorsScraper.new
+    @mrs = MacRumors::MacRumorsScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(MacRumorsScraper).to receive(:word_count)
+    allow_any_instance_of(MacRumors::MacRumorsScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('macrumors') do
       items = @mrs.items

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe BetaListScraper do
+RSpec.describe BetaList do
   before(:all) do
-    @bls = BetaListScraper.new
+    @bls = BetaList::BetaListScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(BetaListScraper).to receive(:word_count)
+    allow_any_instance_of(BetaList::BetaListScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('beta_list') do
       items = @bls.items

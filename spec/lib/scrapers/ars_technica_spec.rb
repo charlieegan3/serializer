@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe ArsTechnicaScraper do
+RSpec.describe ArsTechnica do
   before(:all) do
-    @ats = ArsTechnicaScraper.new
+    @ats = ArsTechnica::ArsTechnicaScraper.new
   end
 
   it 'should return items' do
-    allow_any_instance_of(ArsTechnicaScraper).to receive(:word_count)
+    allow_any_instance_of(ArsTechnica::ArsTechnicaScraper).to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('ars_technica') do
       items = @ats.items

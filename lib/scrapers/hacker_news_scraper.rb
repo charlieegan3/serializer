@@ -9,9 +9,9 @@ class HackerNewsScraper
 
   def items
     [].tap do |items|
-      @pages.each_with_index do |page, index|
-        rows(page[:url], page[:count]).each do |link, details|
-          (item = row_item(link, details, index)) ? items << item : next
+      @pages.each do |page|
+        rows(page[:url], page[:count]).each_with_index do |row, index|
+          (item = row_item(row[0], row[1], index)) ? items << item : next
         end
       end
     end

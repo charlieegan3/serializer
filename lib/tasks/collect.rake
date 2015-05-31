@@ -6,24 +6,14 @@ include Notifier
 
 def collect_and_save(sources)
   items = []
-  errors = []
-
-  sources.each do |method|
-    print method.humanize.titlecase
+  sources.each do |source|
+    puts source.class
     begin
-      items += Scraper
-                .instance_method((method + '_items').to_sym)
-                .bind(self)
-                .call
-                .reverse
-    rescue Exception => e
-      print ' - Failed!'
-      errors <<  e.message + "\n\n" + e.backtrace.join("\n")
+      items += source.send(:items)
+    rescue
+      puts("send error")
     end
-    print "\n"
   end
-
-  send_errors(errors) unless errors.empty?
 
   items.each do |item|
     existing = Item.find_by_url(item[:url])
@@ -37,13 +27,23 @@ end
 
 task :collect_active do
   item_count = Item.count
-  collect_and_save(['hacker_news', 'product_hunt', 'reddit', 'designer_news', 'lobsters'])
+  collect_and_save([HackerNewsScraper.new,
+                    ProductHuntScraper.new,
+                    RedditScraper.new,
+                    DesignerNewsScraper.new,
+                    LobstersScraper.new])
   puts "Created #{Item.count - item_count} items"
 end
 
 task :collect_feeds do
   item_count = Item.count
-  collect_and_save(['betalist', 'macrumors', 'qudos', 'arstechnica', 'slashdot', 'computerphile', 'techcrunch'])
+
+  collect_and_save([BetaListScraper.new,
+                    MacRumorsScraper.new,
+                    QudosScraper.new,
+                    SlashdotScraper.new,
+                    ComputerphileScraper.new,
+                    TechcrunchScraper.new])
   puts "Created #{Item.count - item_count} items"
 end
 

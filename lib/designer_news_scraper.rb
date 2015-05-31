@@ -1,25 +1,3 @@
-def designer_news_items
-  page = Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
-  [].tap do |items|
-    page.css('.Story').each_with_index do |story, index|
-      link = story.at_css('a')
-      link.at_css('.Domain').remove if link.at_css('.Domain')
-      redirect_url = link['href'].gsub('https', 'http')
-      next if Item.find_by_redirect_url(redirect_url)
-      url = final_url(redirect_url).split('#').first
-      items << {
-        title: link.text.strip,
-        url: url,
-        comment_url: 'https://news.layervault.com' + story.css('.PointCount > a').first['href'],
-        redirect_url: redirect_url,
-        source: 'designer_news',
-        topped: (index == 0) ? true : false,
-        word_count: word_count(url),
-      }
-    end
-  end
-end
-
 class DesignerNewsScraper
   include Scraper
 

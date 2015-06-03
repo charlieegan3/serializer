@@ -1,6 +1,12 @@
 module DesignerNews
   def self.items
-    DesignerNewsScraper.new.items
+    begin
+      DesignerNewsScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class DesignerNewsScraper

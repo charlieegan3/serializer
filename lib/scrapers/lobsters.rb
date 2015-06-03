@@ -1,6 +1,12 @@
 module Lobsters
   def self.items
-    LobstersScraper.new.items
+    begin
+      LobstersScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class LobstersScraper

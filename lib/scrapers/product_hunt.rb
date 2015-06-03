@@ -1,6 +1,12 @@
 module ProductHunt
   def self.items
-    ProductHuntScraper.new.items
+    begin
+      ProductHuntScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class ProductHuntScraper

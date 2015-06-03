@@ -3,7 +3,13 @@ module HackerNews
   @default_count = 30
 
   def self.items(page = @default_page, count = @default_count)
-    HackerNewsScraper.new.items(page, count)
+    begin
+      HackerNewsScraper.new.items(page, count)
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class HackerNewsScraper

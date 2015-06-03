@@ -1,6 +1,12 @@
 module BetaList
   def self.items
-    BetaListScraper.new.items
+    begin
+      BetaListScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class BetaListScraper

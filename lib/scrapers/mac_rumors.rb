@@ -1,6 +1,12 @@
 module MacRumors
   def self.items
-    MacRumorsScraper.new.items
+    begin
+      MacRumorsScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class MacRumorsScraper

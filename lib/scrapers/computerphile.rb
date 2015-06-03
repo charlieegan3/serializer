@@ -1,6 +1,12 @@
 module Computerphile
   def self.items
-    ComputerphileScraper.new.items
+    begin
+      ComputerphileScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class ComputerphileScraper

@@ -1,6 +1,12 @@
 module Slashdot
   def self.items
-    SlashdotScraper.new.items
+    begin
+      SlashdotScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class SlashdotScraper

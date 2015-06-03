@@ -1,6 +1,12 @@
 module Techcrunch
   def self.items
-    TechcrunchScraper.new.items
+    begin
+      TechcrunchScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class TechcrunchScraper

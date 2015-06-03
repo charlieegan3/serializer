@@ -1,6 +1,12 @@
 module Qudos
   def self.items
-    QudosScraper.new.items
+    begin
+      QudosScraper.new.items
+    rescue => e
+      puts e
+      Airbrake.notify_or_ignore(e)
+      return []
+    end
   end
 
   class QudosScraper

@@ -23,11 +23,14 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development, :test do
+  gem 'pry'
+end
+
 group :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'pry'
   gem 'better_errors'
   gem 'rails_best_practices'
   gem 'seed_dumper'

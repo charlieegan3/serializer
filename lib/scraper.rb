@@ -21,6 +21,7 @@ module Scraper
         extractor.word_count.to_i
       }
     rescue
+      print '*'
       return 0
     end
   end

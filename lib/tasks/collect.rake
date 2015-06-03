@@ -1,20 +1,7 @@
 require 'open-uri'
 require_relative '../../config/environment'
 
-include Scraper
-include Notifier
-
-def collect_and_save(sources)
-  items = []
-  sources.each do |source|
-    puts source.class
-    begin
-      items += source.send(:items)
-    rescue
-      puts("send error")
-    end
-  end
-
+def save_items(items)
   items.each do |item|
     existing = Item.find_by_url(item[:url])
     if existing
@@ -27,24 +14,30 @@ end
 
 task :collect_active do
   item_count = Item.count
-  collect_and_save([HackerNewsScraper.new,
-                    ProductHuntScraper.new,
-                    RedditScraper.new,
-                    DesignerNewsScraper.new,
-                    LobstersScraper.new])
-  puts "Created #{Item.count - item_count} items"
+  items = HackerNews.items('https://news.ycombinator.com/over?points=10', 30)
+  items += HackerNews.items('https://news.ycombinator.com/show', 10)
+  # items += Reddit.items('http://www.reddit.com/r/programming/', 10)
+  # items += Reddit.items('http://www.reddit.com/r/dataisbeautiful/', 5)
+  # items += Reddit.items('http://www.reddit.com/r/Technology', 1)
+  # items += Reddit.items('http://www.reddit.com/r/science/', 1)
+  # items += ProductHunt.items
+  # items += DesignerNews.items
+  # items += Lobsters.items
+  save_items(items.flatten)
+  puts "\nCreated #{Item.count - item_count} items"
 end
 
 task :collect_feeds do
   item_count = Item.count
-
-  collect_and_save([BetaListScraper.new,
-                    MacRumorsScraper.new,
-                    QudosScraper.new,
-                    SlashdotScraper.new,
-                    ComputerphileScraper.new,
-                    TechcrunchScraper.new])
-  puts "Created #{Item.count - item_count} items"
+  items = ArsTechnica.items
+  items += BetaList.items
+  items += Computerphile.items
+  items += MacRumors.items
+  items += Qudos.items
+  items += Slashdot.items
+  items += Techcrunch.items
+  save_items(items.flatten)
+  puts "\nCreated #{Item.count - item_count} items"
 end
 
 task :set_tweet_counts do

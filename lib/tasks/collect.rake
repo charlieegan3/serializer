@@ -1,30 +1,7 @@
 require 'open-uri'
 require_relative '../../config/environment'
 
-include Scraper
-include Notifier
-
-def collect_and_save(sources)
-  items = []
-  errors = []
-
-  sources.each do |method|
-    print method.humanize.titlecase
-    begin
-      items += Scraper
-                .instance_method((method + '_items').to_sym)
-                .bind(self)
-                .call
-                .reverse
-    rescue Exception => e
-      print ' - Failed!'
-      errors <<  e.message + "\n\n" + e.backtrace.join("\n")
-    end
-    print "\n"
-  end
-
-  send_errors(errors) unless errors.empty?
-
+def save_items(items)
   items.each do |item|
     existing = Item.find_by_url(item[:url])
     if existing
@@ -37,14 +14,30 @@ end
 
 task :collect_active do
   item_count = Item.count
-  collect_and_save(['hacker_news', 'product_hunt', 'reddit', 'designer_news', 'lobsters'])
-  puts "Created #{Item.count - item_count} items"
+  items = HackerNews.items('https://news.ycombinator.com/over?points=10', 30)
+  items += HackerNews.items('https://news.ycombinator.com/show', 10)
+  # items += Reddit.items('http://www.reddit.com/r/programming/', 10)
+  # items += Reddit.items('http://www.reddit.com/r/dataisbeautiful/', 5)
+  # items += Reddit.items('http://www.reddit.com/r/Technology', 1)
+  # items += Reddit.items('http://www.reddit.com/r/science/', 1)
+  # items += ProductHunt.items
+  # items += DesignerNews.items
+  # items += Lobsters.items
+  save_items(items.flatten)
+  puts "\nCreated #{Item.count - item_count} items"
 end
 
 task :collect_feeds do
   item_count = Item.count
-  collect_and_save(['betalist', 'macrumors', 'qudos', 'arstechnica', 'slashdot', 'computerphile', 'techcrunch'])
-  puts "Created #{Item.count - item_count} items"
+  items = ArsTechnica.items
+  items += BetaList.items
+  items += Computerphile.items
+  items += MacRumors.items
+  items += Qudos.items
+  items += Slashdot.items
+  items += Techcrunch.items
+  save_items(items.flatten)
+  puts "\nCreated #{Item.count - item_count} items"
 end
 
 task :set_tweet_counts do

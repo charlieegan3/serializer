@@ -12,7 +12,21 @@ module Utilities
   end
 
   def word_count(url)
-    # TODO
-    return 0
+    print '/'
+    return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
+    begin
+      return Timeout::timeout(2) {
+        Nokogiri::HTML(open(url, allow_redirections: :all, read_timeout: 2), nil, 'UTF-8')
+          .css('p')
+          .text
+          .gsub(/\s+/, ' ')
+          .split(' ')
+          .size
+      }
+    rescue => e
+      puts "#{e}\n#{url}"
+      Airbrake.notify_or_ignore(e, parameters: { url: url })
+      return 0
+    end
   end
 end

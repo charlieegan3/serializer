@@ -43,7 +43,7 @@ class Item < ActiveRecord::Base
   end
 
   def reading_time
-    self.word_count.to_i / 300
+    (word_count.to_f / 300).ceil
   end
 
   def format

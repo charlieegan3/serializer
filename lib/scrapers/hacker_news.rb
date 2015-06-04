@@ -69,7 +69,7 @@ module HackerNews
     end
 
     def reject_item?(item)
-      (item[:title].downcase.include?('hiring') ||
+      (item[:title].downcase.match(/hir(ed|ing)/) ||
         Item.find_by_url(item[:url])) ? true : false
     end
   end

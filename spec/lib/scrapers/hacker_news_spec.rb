@@ -25,7 +25,9 @@ RSpec.describe HackerNews do
     end
 
     it 'should reject hiring posts' do
-      new_item = { title: 'People do not care that serializer hiring' }
+      new_item = { title: 'People do not care that serializer is hiring' }
+      expect(@hns.send(:reject_item?, new_item)).to be true
+      new_item = { title: 'serializer has not hired someone' }
       expect(@hns.send(:reject_item?, new_item)).to be true
     end
   end

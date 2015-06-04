@@ -23,7 +23,7 @@ module Reddit
     end
 
     def row_item(row, index)
-      false if reject_item?(item = { url: row.at_css('a.title')['href'] })
+      return false if reject_item?(item = { url: row.at_css('a.title')['href'] })
       item.merge!({
         title: row.at_css('a.title').text,
         comment_url: row.at_css('a.comments')['href'],

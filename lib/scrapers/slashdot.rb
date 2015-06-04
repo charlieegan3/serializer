@@ -18,12 +18,12 @@ module Slashdot
     def items
       [].tap do |items|
         links.each do |link|
-          items << {
+          next if reject_item?(item = { url: url(link) })
+          items << item.merge({
             title: link.text.strip,
-            url: url(link),
             source: 'slashdot',
             word_count: word_count(url(link))
-          }
+          })
         end
       end
     end
@@ -37,6 +37,10 @@ module Slashdot
 
     def url(link)
       link['href'].prepend('http:')
+    end
+
+    def reject_item?(item)
+      Item.find_by_url(item[:url]).present?
     end
   end
 end

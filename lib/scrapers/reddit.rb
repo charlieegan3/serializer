@@ -13,7 +13,7 @@ module Reddit
   end
 
   class RedditScraper
-    include Scraper
+    include Utilities
     def items(page, count)
       [].tap do |items|
         rows(page, count).each_with_index do |row, index|

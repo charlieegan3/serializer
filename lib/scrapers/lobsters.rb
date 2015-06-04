@@ -10,7 +10,7 @@ module Lobsters
   end
 
   class LobstersScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'https://lobste.rs'
     end

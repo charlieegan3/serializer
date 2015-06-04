@@ -10,7 +10,7 @@ module Qudos
   end
 
   class QudosScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'https://www.qudos.io'
     end

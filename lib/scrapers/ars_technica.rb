@@ -10,7 +10,7 @@ module ArsTechnica
   end
 
   class ArsTechnicaScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'http://feeds.arstechnica.com/arstechnica/index'
     end

@@ -10,7 +10,7 @@ module Computerphile
   end
 
   class ComputerphileScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'https://www.youtube.com/user/Computerphile/videos?flow=list&view=54'
     end

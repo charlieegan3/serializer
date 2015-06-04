@@ -10,7 +10,7 @@ module MacRumors
   end
 
   class MacRumorsScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'http://feeds.macrumors.com/MacRumors-Front'
     end

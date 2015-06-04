@@ -10,7 +10,7 @@ module ProductHunt
   end
 
   class ProductHuntScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'http://www.producthunt.com'
     end

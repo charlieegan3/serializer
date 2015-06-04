@@ -10,8 +10,7 @@ module DesignerNews
   end
 
   class DesignerNewsScraper
-    include Scraper
-
+    include Utilities
     def initialize
       @url = 'https://news.layervault.com'
     end

@@ -10,7 +10,7 @@ module Techcrunch
   end
 
   class TechcrunchScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'http://techcrunch.com/startups/'
     end

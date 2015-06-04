@@ -10,7 +10,7 @@ module Slashdot
   end
 
   class SlashdotScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'http://technology.slashdot.org'
     end

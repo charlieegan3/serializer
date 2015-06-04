@@ -10,7 +10,7 @@ module BetaList
   end
 
   class BetaListScraper
-    include Scraper
+    include Utilities
     def initialize
       @url = 'http://feeds.feedburner.com/betalist?format=xml'
     end

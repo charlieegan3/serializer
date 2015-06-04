@@ -7,7 +7,11 @@ def save_items(items)
     if existing
       existing.update_attributes(item) if item[:topped] == true
     else
-      Item.create(item)
+      begin
+        Item.create!(item)
+      rescue => e
+        Airbrake.notify_or_ignore(e) unless e.message == 'ItemTooSimilar'
+      end
     end
   end
 end

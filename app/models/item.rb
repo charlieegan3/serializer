@@ -16,8 +16,8 @@ class Item < ActiveRecord::Base
 
   def prevent_duplicates
     Item.where('created_at >= ?', Time.zone.now - 36.hours).each do |item|
-      return false if Jaccard.coefficient(title_list, item.title_list) > 0.8
-      return false if validation_url == item.validation_url
+      raise 'ItemTooSimilar' if Jaccard.coefficient(title_list, item.title_list) > 0.8
+      raise 'ItemTooSimilar' if validation_url == item.validation_url
     end
   end
 

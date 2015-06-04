@@ -26,12 +26,6 @@ RSpec.describe Item, :type => :model do
     expect(Item.average_hour_count(SOURCES)).to eq(1)
   end
 
-  it 'should not save items if the story has already been covered' do
-    create(:item, title: 'the news story')
-    duplicate = build(:item, title: 'The News Story')
-    expect { duplicate.save! }.to raise_error(ActiveRecord::RecordNotSaved)
-  end
-
   it 'should still save items if the story resurfaces' do
     create(:item, title: 'the news story', created_at: Time.zone.now - 3.days)
     duplicate = build(:item, title: 'the news story')
@@ -59,19 +53,25 @@ RSpec.describe Item, :type => :model do
     expect(item.url).to eq('http://site.com/')
   end
 
+  it 'should not save items if the story has already been covered' do
+    create(:item, title: 'the news story')
+    duplicate = build(:item, title: 'The News Story')
+    expect { duplicate.save! }.to raise_error('ItemTooSimilar')
+  end
+
   it 'should ignore url protocol' do
     create(:item, url: 'https://www.site.com/')
-    expect{create(:item, url: 'http://www.site.com/')}.to raise_error(ActiveRecord::RecordNotSaved)
+    expect{create(:item, url: 'http://www.site.com/')}.to raise_error('ItemTooSimilar')
   end
 
   it 'should ignore surplus non word characters' do
     create(:item, url: 'https://with-trailing.slash/')
-    expect{create(:item, url: 'http://with-trailing.slash')}.to raise_error(ActiveRecord::RecordNotSaved)
+    expect{create(:item, url: 'http://with-trailing.slash')}.to raise_error('ItemTooSimilar')
   end
 
   it 'should count bare domain as equal' do
     create(:item, url: 'https://site.com')
-    expect{create(:item, url: 'http://www.site.com')}.to raise_error(ActiveRecord::RecordNotSaved)
+    expect{create(:item, url: 'http://www.site.com')}.to raise_error('ItemTooSimilar')
   end
 
   it 'should correctly calculate reading_time' do

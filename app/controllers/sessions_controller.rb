@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
   def log
     get_session.log(params[:time]) if params[:time]
-    if request.env["HTTP_REFERER"]
+    if request.env['HTTP_REFERER']
       return redirect_to :back
     else
       return redirect_to root_path
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def add_source
     return redirect_to :back unless SOURCES.include?(params[:source])
     get_session.update_sources(params[:source])
-    if request.env["HTTP_REFERER"]
+    if request.env['HTTP_REFERER']
       return redirect_to :back
     else
       return redirect_to root_path
@@ -29,7 +29,9 @@ class SessionsController < ApplicationController
   def share
     session = get_session
     path = root_path + session.identifier
-    flash[:message] = "Visit <a href=\"#{path}\">this link</a> <strong>once</strong> on other devices to sync your read status"
+    flash[:message] = "Visit <a href=\"#{path}\">this link</a>
+                      <strong>once</strong> on other devices to
+                      sync your read status"
     redirect_to path
   end
 
@@ -45,7 +47,7 @@ class SessionsController < ApplicationController
       get_session.update_attribute(:trello_token, params[:token])
       tc = TrelloClient.new(params[:token])
       get_session.update_attribute(:trello_username, tc.fetch_username)
-      tc.add_item({title: 'Welcome to serializer on Trello!'})
+      tc.add_item(title: 'Welcome to serializer on Trello!')
     elsif params[:token]
       flash[:message] = 'Please check that token.'
     end
@@ -53,9 +55,10 @@ class SessionsController < ApplicationController
   end
 
   private
-    def location_path(referer, item)
-      path = (referer) ? referer : all_path
-      path = path[0..path.index('#')-1] if path.include?('#')
-      "#{path}/##{item.id}".gsub(/\/+/, '/').gsub(/http:\//, 'http://')
-    end
+
+  def location_path(referer, item)
+    path = (referer) ? referer : all_path
+    path = path[0..path.index('#') - 1] if path.include?('#')
+    "#{path}/##{item.id}".gsub(/\/+/, '/').gsub(/http:\//, 'http://')
+  end
 end

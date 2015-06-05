@@ -17,11 +17,13 @@ RSpec.describe Lobsters do
   end
 
   it 'should reject items with an invalid title' do
-    expect(@ls.send(:reject_item?, { title: 'working on this week' })).to be true
+    expect(@ls.send(:reject_item?, title: 'working on this week'))
+      .to be true
   end
 
   it 'should reject items with an invalid title' do
-    expect(@ls.send(:reject_item?, { title: 'working on this week' })).to be true
+    expect(@ls.send(:reject_item?, title: 'working on this week'))
+      .to be true
   end
 
   it 'should reject duplicate items' do

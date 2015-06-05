@@ -11,7 +11,9 @@ RSpec.describe Qudos do
     VCR.use_cassette('qudos') do
       items = @qs.items
       expect(items).to_not be_nil
-      keys = [:title, :url, :word_count, :comment_url, :source, :topped, :redirect_url]
+      keys = [
+        :title, :url, :word_count, :comment_url, :source, :topped, :redirect_url
+      ]
       expect(items.sample.keys - keys).to be_empty
     end
   end

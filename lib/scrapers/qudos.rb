@@ -18,7 +18,7 @@ module Qudos
     def items
       [].tap do |items|
         entries.each_with_index do |entry, index|
-          next if (reject_item?(item = { redirect_url: redirect_url(entry) }))
+          next if reject_item?(item = { redirect_url: redirect_url(entry) })
           items << complete_item(item, entry, index)
         end
       end
@@ -27,7 +27,7 @@ module Qudos
     private
 
     def entries
-      page = Nokogiri::HTML(open(@url), nil, 'UTF-8')
+      Nokogiri::HTML(open(@url), nil, 'UTF-8')
         .css('.entry')
     end
 
@@ -48,14 +48,12 @@ module Qudos
     end
 
     def complete_item(item, entry, index)
-      item.merge({
-        title: title(entry),
-        url: final_url(item[:redirect_url]),
-        comment_url: item[:redirect_url][0..-3],
-        source: 'qudos',
-        topped: (index == 0) ? true : false,
-        word_count: 0
-      })
+      item.merge(title: title(entry),
+                 url: final_url(item[:redirect_url]),
+                 comment_url: item[:redirect_url][0..-3],
+                 source: 'qudos',
+                 topped: (index == 0) ? true : false,
+                 word_count: 0)
     end
   end
 end

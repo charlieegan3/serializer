@@ -45,8 +45,14 @@ task :collect_feeds do
 end
 
 task :set_tweet_counts do
-  Item.where("created_at > ?", 30.minutes.ago).each do |item|
-    count = JSON.parse(open("http://urls.api.twitter.com/1/urls/count.json?url=#{item.url}").read)['count'] rescue next
+  Item.where('created_at > ?', 30.minutes.ago).each do |item|
+    count = JSON
+            .parse(
+              open(
+                "http://urls.api.twitter.com/1/urls/count.json?url=#{item.url}"
+              )
+              .read
+            )['count'] rescue next
     item.update_attribute(:tweet_count, count.to_i)
     puts "#{item.title[0..19].ljust(20)} - #{item.tweet_count}"
   end

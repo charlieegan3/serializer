@@ -53,13 +53,11 @@ module DesignerNews
     end
 
     def complete_item(item, story, index)
-      item = item.merge({
-        title: title(story),
-        url: final_url(item[:redirect_url]),
-        comment_url: comment_url(story),
-        source: 'designer_news',
-        topped: (index == 0) ? true : false,
-      })
+      item = item.merge(title: title(story),
+                        url: final_url(item[:redirect_url]),
+                        comment_url: comment_url(story),
+                        source: 'designer_news',
+                        topped: (index == 0) ? true : false)
       item.merge(word_count: word_count(item[:url]))
     end
   end

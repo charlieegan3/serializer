@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Session, :type => :model do
+RSpec.describe Session, type: :model do
   it { should validate_uniqueness_of(:identifier) }
   it { should serialize(:sources) }
 
@@ -56,7 +56,6 @@ RSpec.describe Session, :type => :model do
       expect(session.identifier).to match(/[a-z]+/)
     end
   end
-
 
   describe 'valid_session_parameter' do
     it 'should accept a valid parameter' do

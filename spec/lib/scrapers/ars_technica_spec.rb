@@ -6,12 +6,15 @@ RSpec.describe ArsTechnica do
   end
 
   it 'should return items' do
-    allow_any_instance_of(ArsTechnica::ArsTechnicaScraper).to receive(:word_count)
+    allow_any_instance_of(ArsTechnica::ArsTechnicaScraper)
+      .to receive(:word_count)
       .and_return(0)
     VCR.use_cassette('ars_technica') do
       items = @ats.items
       expect(items).to_not be_nil
-      keys = [:title, :url, :word_count, :comment_url, :source, :topped, :redirect_url]
+      keys = [
+        :title, :url, :word_count, :comment_url, :source, :topped, :redirect_url
+      ]
       expect(items.sample.keys - keys).to be_empty
     end
   end

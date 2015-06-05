@@ -23,14 +23,13 @@ module Reddit
     end
 
     def row_item(row, index)
-      return false if reject_item?(item = { url: row.at_css('a.title')['href'] })
-      item.merge!({
-        title: row.at_css('a.title').text,
-        comment_url: row.at_css('a.comments')['href'],
-        source: 'reddit',
-        topped: (index == 0) ? true : false,
-        word_count: word_count(item[:url])
-      })
+      item = { url: row.at_css('a.title')['href'] }
+      return false if reject_item?(item)
+      item.merge!(title: row.at_css('a.title').text,
+                  comment_url: row.at_css('a.comments')['href'],
+                  source: 'reddit',
+                  topped: (index == 0) ? true : false,
+                  word_count: word_count(item[:url]))
     end
 
     private

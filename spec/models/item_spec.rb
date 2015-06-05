@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Item, :type => :model do
+RSpec.describe Item, type: :model do
   it { should validate_uniqueness_of(:url) }
   it { should validate_presence_of(:url) }
   it { should validate_presence_of(:title) }
@@ -11,8 +11,8 @@ RSpec.describe Item, :type => :model do
   end
 
   it 'returns matching items' do
-    for i in 0...SOURCES.size
-      create(:item, source: SOURCES[i])
+    SOURCES.each do |s|
+      create(:item, source: s)
     end
     expect(Item.matching.size).to eq(3)
     expect(Item.matching(SOURCES).size).to eq(SOURCES.size)
@@ -61,17 +61,20 @@ RSpec.describe Item, :type => :model do
 
   it 'should ignore url protocol' do
     create(:item, url: 'https://www.site.com/')
-    expect{create(:item, url: 'http://www.site.com/')}.to raise_error('ItemTooSimilar')
+    expect { create(:item, url: 'http://www.site.com/') }
+      .to raise_error('ItemTooSimilar')
   end
 
   it 'should ignore surplus non word characters' do
     create(:item, url: 'https://with-trailing.slash/')
-    expect{create(:item, url: 'http://with-trailing.slash')}.to raise_error('ItemTooSimilar')
+    expect { create(:item, url: 'http://with-trailing.slash') }
+      .to raise_error('ItemTooSimilar')
   end
 
   it 'should count bare domain as equal' do
     create(:item, url: 'https://site.com')
-    expect{create(:item, url: 'http://www.site.com')}.to raise_error('ItemTooSimilar')
+    expect { create(:item, url: 'http://www.site.com') }
+      .to raise_error('ItemTooSimilar')
   end
 
   it 'should correctly calculate reading_time' do
@@ -90,26 +93,29 @@ RSpec.describe Item, :type => :model do
   end
 
   it 'should return a format for image urls' do
-    format = ['jpg', 'png', 'gif'].sample
+    format = %w(jpg png gif).sample
     item = build(:item, url: "http://site.com/x.#{format}")
     expect(item.format).to eq('img')
   end
 
   it 'should assign a "watch" reading kind for videos' do
-    expect(build(:item, url: "http://youtube.com").reading_kind).to eq('watch')
+    expect(build(:item, url: 'http://youtube.com').reading_kind).to eq('watch')
   end
 
   it 'should return a sorted list as "default"' do
     item_a, item_b, item_c = [
       create(:item, created_at: 1.hours.ago),
       create(:item, created_at: 3.hours.ago),
-      create(:item, created_at: 2.hours.ago),
+      create(:item, created_at: 2.hours.ago)
     ]
     expect(Item.default).to eq([item_a, item_c, item_b])
   end
 
   it 'should build a trello item' do
-    item = build(:item, title: '123abc', url: 'http://www.abc.com/', source: '123')
+    item = build(:item,
+                 title: '123abc',
+                 url: 'http://www.abc.com/',
+                 source: '123')
     expect(item.trello_hash[:title]).to eq(item.title)
     expect(item.trello_hash[:description]).to include(item.url)
     expect(item.trello_hash[:description]).to include(item.created_at.to_s)

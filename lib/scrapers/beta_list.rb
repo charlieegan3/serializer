@@ -19,12 +19,10 @@ module BetaList
       [].tap do |items|
         entries.each do |entry|
           next if reject_item?(item = { redirect_url: redirect_url(entry) })
-          items << item.merge({
-            title: title(entry),
-            url: final_url(item[:redirect_url]),
-            source: 'beta_list',
-            word_count: 0
-          })
+          items << item.merge(title: title(entry),
+                              url: final_url(item[:redirect_url]),
+                              source: 'beta_list',
+                              word_count: 0)
         end
       end
     end

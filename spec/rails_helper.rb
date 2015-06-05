@@ -1,11 +1,11 @@
 require 'simplecov'
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 SimpleCov.start
 CodeClimate::TestReporter.start
 
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'vcr'
@@ -22,7 +22,7 @@ RSpec.configure do |config|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.ignore_hosts 'codeclimate.com'
 end

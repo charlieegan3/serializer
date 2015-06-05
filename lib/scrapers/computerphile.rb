@@ -18,7 +18,6 @@ module Computerphile
     def items
       [].tap do |items|
         videos.each do |video|
-          video_string = video.text.split(/(\s|-)+Computerphile(\s|-)+/)
           items << {
             title: parse_text(video).first,
             url: url(video),
@@ -47,9 +46,9 @@ module Computerphile
 
     def minute_duration(duration_string)
       duration_array = duration_string.scan(/[0-9]+/)
-      minutes = (duration_array.size > 1)? 1 : 0
+      minutes = (duration_array.size > 1) ? 1 : 0
       minutes += duration_array.first.to_i
-      minutes *= 300 #translate minutes to equivalent word count
+      minutes *= 300 # translate minutes to equivalent word count
     end
   end
 

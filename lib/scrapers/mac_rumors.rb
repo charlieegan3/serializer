@@ -19,11 +19,9 @@ module MacRumors
       [].tap do |items|
         entries.each do |entry|
           next if reject_item?(item = { url: entry.url })
-          items << item.merge({
-            title: entry.title,
-            source: 'macrumors',
-            word_count: word_count(item[:url])
-          })
+          items << item.merge(title: entry.title,
+                              source: 'macrumors',
+                              word_count: word_count(item[:url]))
         end
       end
     end

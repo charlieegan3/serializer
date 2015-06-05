@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    return render json: Item.matching if params[:format] == 'json'
+    @items = Item.matching
+    return render json: @items if params[:format] == 'json'
 
     if Session.valid_session_parameter(params[:session])
       message = '<strong>Session Synced!</strong> Now choose:
@@ -18,7 +19,6 @@ class ApplicationController < ActionController::Base
       @session = get_session
     end
 
-    @items = Item.matching
     render :index
   end
 
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
 
   def set_link_behavior
     cookies.permanent[:link_target] = params[:choice].to_i
-    if request.env["HTTP_REFERER"]
+    if request.env['HTTP_REFERER']
       return redirect_to :back
     else
       return redirect_to root_path

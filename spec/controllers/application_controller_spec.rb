@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationController, :type => :controller do
+RSpec.describe ApplicationController, type: :controller do
   describe 'GET #index' do
     it 'should redirect to welcome for new users' do
       get :index
@@ -15,24 +15,19 @@ RSpec.describe ApplicationController, :type => :controller do
     end
 
     it 'should create a new session' do
-      expect {
-        request.cookies[:welcomed] = true
-        get :index
-      }.to change { Session.count }.by(1)
+      request.cookies[:welcomed] = true
+      expect { get :index }.to change { Session.count }.by(1)
     end
 
     it 'should use an old session' do
       request.cookies[:session] = create(:session).identifier
-      expect {
-        get :index
-      }.to_not change { Session.count }
+      expect { get :index }.to_not change { Session.count }
     end
 
     it 'should retrieve a session' do
       create(:session, identifier: 'some_session')
-      expect {
-        get :index, session: 'some_session'
-      }.to_not change { Session.count }
+      expect { get :index, session: 'some_session' }
+        .to_not change { Session.count }
     end
 
     it 'should return a json item list' do
@@ -59,12 +54,12 @@ RSpec.describe ApplicationController, :type => :controller do
     end
 
     it 'should return items from all sources' do
-      items = [].tap do |items|
+      source_items = [].tap do |items|
         3.times { items << create(:item, source: SOURCES.sample) }
       end
       request.cookies[:welcomed] = true
       get :all
-      expect(assigns(:items)).to eq(items)
+      expect(assigns(:items)).to eq(source_items)
     end
 
     it 'should return a json item list' do
@@ -112,7 +107,7 @@ RSpec.describe ApplicationController, :type => :controller do
     end
 
     it 'should set the link_target cookie to the choice' do
-      choice = ['0', '1'].sample
+      choice = %w(0 1).sample
       get :set_link_behavior, choice: choice
       expect(response.cookies['link_target']).to eq(choice)
     end

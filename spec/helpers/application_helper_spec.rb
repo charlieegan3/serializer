@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationHelper, :type => :helper do
+RSpec.describe ApplicationHelper, type: :helper do
   describe 'time_ago' do
     it 'removes "about"' do
       expect(helper.time_ago((1.5).hours.ago)).to_not include('about')

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "application/index", :type => :view do
+RSpec.describe 'application/index', type: :view do
   before(:each) do
     assign(:session, create(:session))
     create(:cloudinary_image)

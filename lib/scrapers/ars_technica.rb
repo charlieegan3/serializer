@@ -20,14 +20,11 @@ module ArsTechnica
         entries.each do |entry|
           next if reject_item?(item = { redirect_url: redirect_url(entry) })
           item[:url] = final_url(item[:redirect_url])
-          items << item.merge({
-            title: entry.title,
-            source: 'arstechnica',
-            word_count: word_count(item[:url])
-          })
+          items << item.merge(title: entry.title,
+                              source: 'arstechnica',
+                              word_count: word_count(item[:url]))
         end
       end
-
     end
 
     private
@@ -44,5 +41,4 @@ module ArsTechnica
       Item.find_by_redirect_url(item[:redirect_url]).present?
     end
   end
-
 end

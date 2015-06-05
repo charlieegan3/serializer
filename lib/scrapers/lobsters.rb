@@ -48,19 +48,14 @@ module Lobsters
     def comment_url(story)
       if (a = story.at_css('.comments_label a')).present?
         a['href'].prepend('https://lobste.rs')
-      else
-        nil
       end
     end
 
     def complete_item(item, story, index)
-      item.merge({
-        comment_url: comment_url(story),
-        source: 'lobsters',
-        topped: (index == 0) ? true : false,
-        word_count: word_count(item[:url]),
-      })
+      item.merge(comment_url: comment_url(story),
+                 source: 'lobsters',
+                 topped: (index == 0) ? true : false,
+                 word_count: word_count(item[:url]))
     end
   end
-
 end

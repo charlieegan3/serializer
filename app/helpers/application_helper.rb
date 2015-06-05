@@ -18,15 +18,12 @@ module ApplicationHelper
     (unread > 0) ? "#{unread} new - serializer" : nil
   end
 
-  def print_url(url, limit=100)
+  def print_url(url, limit = 100)
     begin
-      url = url.split('/')[2]
-        .gsub('www.', '')
-        .gsub(/\?.*$/, '')
-      return url[0..limit] + '...' if url.length > limit
+      url = url.split('/')[2].gsub(/www\.|\?.*$/, '')
+      return (url.length > limit) ? url[0..limit] + '...' : url
     rescue
       return url
     end
-    url
   end
 end

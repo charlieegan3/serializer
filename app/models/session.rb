@@ -5,10 +5,10 @@ class Session < ActiveRecord::Base
   validates_presence_of :identifier
 
   def log(time)
-    update_attributes({
+    update_attributes(
       completed_to: (Time.now < time) ? Time.now : time,
-      read_count: (read_count) ? read_count + 1 : 1,
-    })
+      read_count: (read_count) ? read_count + 1 : 1
+    )
   end
 
   def update_sources(source)
@@ -28,7 +28,7 @@ class Session < ActiveRecord::Base
 
   def self.find_or_create(identifier)
     if identifier.blank?
-      create(identifier: self.generate_identifier)
+      create(identifier: generate_identifier)
     else
       find_by_identifier(identifier) || create(identifier: identifier)
     end

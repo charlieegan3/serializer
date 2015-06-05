@@ -19,11 +19,9 @@ module Slashdot
       [].tap do |items|
         links.each do |link|
           next if reject_item?(item = { url: url(link) })
-          items << item.merge({
-            title: link.text.strip,
-            source: 'slashdot',
-            word_count: word_count(url(link))
-          })
+          items << item.merge(title: link.text.strip,
+                              source: 'slashdot',
+                              word_count: word_count(url(link)))
         end
       end
     end

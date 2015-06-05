@@ -41,15 +41,13 @@ module ProductHunt
     end
 
     def complete_item(item, post, index)
-      item.merge({
-        title: title(post),
-        url: final_url(item[:redirect_url]),
-        redirect_url: item[:redirect_url],
-        comment_url: comment_url(post),
-        source: 'product_hunt',
-        topped: (index == 0) ? true : false,
-        word_count: 0
-      })
+      item.merge(title: title(post),
+                 url: final_url(item[:redirect_url]),
+                 redirect_url: item[:redirect_url],
+                 comment_url: comment_url(post),
+                 source: 'product_hunt',
+                 topped: (index == 0) ? true : false,
+                 word_count: 0)
     end
 
     def title(post)

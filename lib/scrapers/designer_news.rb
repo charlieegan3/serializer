@@ -18,7 +18,8 @@ module DesignerNews
     def items
       [].tap do |items|
         stories.each_with_index do |story, index|
-          next if reject_item?(item = { redirect_url: redirect_url(story) })
+          item = { redirect_url: redirect_url(story) }
+          next if reject_item?(item, story.text)
           items << complete_item(item, story, index)
         end
       end
@@ -36,8 +37,9 @@ module DesignerNews
       story.at_css('a')['href'].gsub('https', 'http')
     end
 
-    def reject_item?(item)
-      Item.find_by_redirect_url(item[:redirect_url]).present?
+    def reject_item?(item, text)
+      Item.find_by_redirect_url(item[:redirect_url]).present? ||
+        !text.include?('comments')
     end
 
     def url(item)

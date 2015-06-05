@@ -32,6 +32,18 @@ RSpec.describe Session, :type => :model do
     end
   end
 
+  describe 'can_save_item' do
+    it 'should be false for an incomplete session' do
+      session = build(:session)
+      expect(session.can_save_item?(build(:item))).to be false
+    end
+
+    it 'should ensure items can be saved' do
+      session = build(:session, trello_token: 'abc', saved_items: [])
+      expect(session.can_save_item?(build(:item))).to be true
+    end
+  end
+
   describe 'find_or_create' do
     it 'should recreate a session a match it not found' do
       session = Session.find_or_create('missing')

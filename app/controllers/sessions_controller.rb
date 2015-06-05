@@ -36,16 +36,7 @@ class SessionsController < ApplicationController
   def add_trello_story
     item = Item.find(params[:id])
     session = get_session
-    TrelloClient.new(session.trello_token, session.trello_username).add_item(
-      title: item.title,
-      description: [
-        item.url,
-        ((item.comment_url?) ? "Comments:\n#{item.comment_url}" : ''),
-        "via #{item.source.humanize.capitalize}",
-        "Saved: #{Time.zone.now} - Posted: #{item.created_at}"
-      ].join("\n\n")
-    )
-    session.update_attribute(:saved_items, session.saved_items + [item.id])
+    session.add_trello_item(item)
     redirect_to location_path(request.referer, item)
   end
 

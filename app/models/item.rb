@@ -55,6 +55,18 @@ class Item < ActiveRecord::Base
     url.match(/youtube|youtu\.be/)? 'watch' : 'read'
   end
 
+  def trello_hash
+    {
+      title: title,
+      description: [
+        url,
+        ((comment_url?) ? "Comments:\n#{comment_url}" : ''),
+        "via #{source.humanize.capitalize}",
+        "Saved: #{Time.zone.now} - Posted: #{created_at}"
+      ].join("\n\n")
+    }
+  end
+
   def self.matching(sources = ['hacker_news', 'reddit', 'product_hunt'])
     where(source: sources)
       .limit(150)

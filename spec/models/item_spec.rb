@@ -107,4 +107,11 @@ RSpec.describe Item, :type => :model do
     ]
     expect(Item.default).to eq([item_a, item_c, item_b])
   end
+
+  it 'should build a trello item' do
+    item = build(:item, title: '123abc', url: 'http://www.abc.com/', source: '123')
+    expect(item.trello_hash[:title]).to eq(item.title)
+    expect(item.trello_hash[:description]).to include(item.url)
+    expect(item.trello_hash[:description]).to include(item.created_at.to_s)
+  end
 end

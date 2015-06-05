@@ -50,7 +50,7 @@ table.item-list
             span.slow ="#{item.reading_time}m #{item.reading_kind}"
           -if item.comment_url?
             span =link_to 'comments', item.comment_url, target: link_target
-          -if @session.trello_token && @session.saved_items && !@session.saved_items.include?(item.id)
+          -if @session.can_save_item?(item)
             span =link_to 'save', add_trello_story_path(id: item.id)
           -if item.reading_kind == 'read' && item.reading_time > 0
             =link_to("http://pointsapp.co/?url=#{item.url}", target: '_blank', class: 'points') do

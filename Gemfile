@@ -2,22 +2,28 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 
+gem 'pg'
+
+# collection
+gem 'rufus-scheduler'
 gem 'nokogiri'
 gem 'feedjira'
-gem 'pg'
-gem 'slim'
-gem 'sass-rails'
 gem 'httpclient'
 gem 'open_uri_redirections'
-gem 'gmail'
-gem 'random_username'
-gem 'gruff'
-gem 'cloudinary'
-gem 'ruby-trello'
 gem 'jaccard'
-gem 'rufus-scheduler'
-gem 'ruby-readability', :require => 'readability'
+
+# external
+gem 'cloudinary'
 gem 'airbrake'
+gem 'gruff'
+
+# views
+gem 'sass-rails'
+gem 'slim'
+
+# sessions
+gem 'random_username'
+gem 'ruby-trello'
 
 group :production do
   gem 'rails_12factor'

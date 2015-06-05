@@ -93,11 +93,6 @@ GEM
     formatador (0.2.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
-    gmail (0.5.0)
-      gmail_xoauth (>= 0.3.0)
-      mail (>= 2.2.1)
-    gmail_xoauth (0.4.1)
-      oauth (>= 0.3.6)
     gruff (0.5.1)
       rmagick
     guard (2.10.4)
@@ -112,7 +107,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    guess_html_encoding (0.0.11)
     hike (1.2.3)
     hitimes (1.2.2)
     httpclient (2.6.0.1)
@@ -217,9 +211,6 @@ GEM
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
     ruby-progressbar (1.7.1)
-    ruby-readability (0.7.0)
-      guess_html_encoding (>= 0.0.4)
-      nokogiri (>= 1.6.0)
     ruby-trello (1.1.3)
       activemodel (>= 3.2.0)
       addressable (~> 2.3)
@@ -292,7 +283,6 @@ DEPENDENCIES
   codeclimate-test-reporter
   factory_girl_rails
   feedjira
-  gmail
   gruff
   guard
   guard-rspec
@@ -308,7 +298,6 @@ DEPENDENCIES
   random_username
   rspec
   rspec-rails
-  ruby-readability
   ruby-trello
   rufus-scheduler
   sass-rails

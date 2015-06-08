@@ -1,0 +1,9 @@
+/* TEAM */
+  Maker: Charlie Egan
+  Contact: me [at] charlieegan3.com
+  Twitter: @charlieegan3
+  From: Scotland, UK
+
+/* SITE */
+  Language: English
+  IDE: Sublime Text

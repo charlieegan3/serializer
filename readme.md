@@ -22,12 +22,19 @@ I'm keen to accept changes that make serializer work better for you, pull reques
 
 ####Notes
 * `rake collect_active` & `rake collect_feeds` can be used to populate items, collection doesn't run automatically in development.
-* Images and icons are hosted on [Cloudinary](https://cloudinary.com/users/register/free), it's super easy to get setup with a free account there.
-* If the app errors in collection it sends notifications using the [Gmail gem](https://github.com/gmailgem/gmail)
+* Images and icons are hosted on [Cloudinary](https://cloudinary.com/users/register/free), it's easy to get setup with a free account there.
+* If the app runs into issues it sends notifications using airbrake.
 
 ######ENV
-* `NOTIFY_EMAIL` where errors emails should be sent
-* `GMAIL_ACCOUNT` & `GMAIL_PASSWORD` Gmail login for notification sender account
-* `CLOUD_NAME`, `CLOUDINARY_KEY` & `CLOUDINARY_SECRET` Cloudinary credentials
-* `TRELLO_KEY` Take a look around, you might find some hidden features.
+To have everything up and running you'll need most of these set.
+
+* `CLOUD_NAME`
+* `CLOUDINARY_SECRET`
+* `CLOUDINARY_KEY`
+* `AIRBRAKE_KEY`
+* `SECRET_KEY_BASE`
+* `SECRET_TOKEN`
+* `CODECLIMATE_REPO_TOKEN`
+* `TRELLO_KEY`
+
 

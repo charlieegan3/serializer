@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+   <msapplication>
+     <tile>
+        <square70x70logo src="http://res.cloudinary.com/charlieegan3/image/upload/v1432241390/apple-touch-icon-72x72.png"/>
+        <square150x150logo src="http://res.cloudinary.com/charlieegan3/image/upload/v1432241390/apple-touch-icon-152x152.png"/>
+        <TileColor>#8a8a8a</TileColor>
+        <TileImage src="http://res.cloudinary.com/charlieegan3/image/upload/v1432241390/mstile-144x144.png" />
+     </tile>
+   </msapplication>
+</browserconfig>

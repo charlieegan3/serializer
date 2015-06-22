@@ -22,4 +22,8 @@ if Rails.env.production?
   scheduler.every '1d' do
     `rake clean_inactive_sessions`
   end
+
+  scheduler.every '1d' do
+    `rake monitor_source_collections`
+  end
 end

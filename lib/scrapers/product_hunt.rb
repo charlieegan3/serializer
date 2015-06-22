@@ -18,7 +18,7 @@ module ProductHunt
     def items
       [].tap do |items|
         posts.each_with_index do |post, index|
-          next if reject_item?(item = { redirect_url: redirect_url(post) })
+          next if reject_item?(item = { redirect_url: post[:redirect_url] })
           items << complete_item(item, post, index)
         end
       end
@@ -27,35 +27,29 @@ module ProductHunt
     private
 
     def posts
-      Nokogiri::HTML(open(@url), nil, 'UTF-8')
-        .at_css('.posts--group')
-        .css('.post--content')
+      json = Nokogiri::HTML(open(@url), nil, 'UTF-8')
+        .at_css('.day [data-react-class=CompactPosts]')['data-react-props']
+      JSON.parse(json)['posts'].map do |p|
+        {
+          title: p['name'],
+          redirect_url: @url + p['url'],
+          url: @url + p['shortened_url'],
+          tagline: p['tagline']
+        }
+      end
     end
 
     def reject_item?(item)
       Item.find_by_redirect_url(item[:redirect_url]).present?
     end
 
-    def redirect_url(post)
-      @url + post.at_css('.title')['href']
-    end
-
     def complete_item(item, post, index)
-      item.merge(title: title(post),
-                 url: final_url(item[:redirect_url]),
-                 redirect_url: item[:redirect_url],
-                 comment_url: comment_url(post),
+      item.merge(title: "#{post[:title]} - #{post[:tagline]}",
+                 url: final_url(post[:url]),
+                 comment_url: item[:redirect_url],
                  source: 'product_hunt',
                  topped: (index == 0) ? true : false,
                  word_count: 0)
-    end
-
-    def title(post)
-      post.at_css('.title').text + ' - ' + post.at_css('.post-tagline').text
-    end
-
-    def comment_url(post)
-      @url + post['data-href']
     end
   end
 

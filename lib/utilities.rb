@@ -25,7 +25,6 @@ module Utilities
       }
     rescue => e
       puts "#{e}\n#{url}"
-      Airbrake.notify_or_ignore(e, parameters: { url: url })
       return 0
     end
   end

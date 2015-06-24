@@ -27,15 +27,16 @@ module ProductHunt
     private
 
     def posts
-      json = Nokogiri::HTML(open(@url), nil, 'UTF-8')
-        .at_css('.day [data-react-class=CompactPosts]')['data-react-props']
-      JSON.parse(json)['posts'].map do |p|
-        {
-          title: p['name'],
-          redirect_url: @url + p['url'],
-          url: @url + p['shortened_url'],
-          tagline: p['tagline']
-        }
+      Nokogiri::HTML(open(@url), nil, 'UTF-8')
+        .at_css('.posts--group')
+        .css('.post-item').map do |p|
+          title = p.at_css('.post-item--text--name')
+          {
+            title: title.text,
+            redirect_url: @url + title['href'],
+            comment_url: @url + p.at_css('.post-item--comments')['href'],
+            tagline: p.at_css('.post-item--text--tagline').text
+          }
       end
     end
 
@@ -45,8 +46,7 @@ module ProductHunt
 
     def complete_item(item, post, index)
       item.merge(title: "#{post[:title]} - #{post[:tagline]}",
-                 url: final_url(post[:url]),
-                 comment_url: item[:redirect_url],
+                 url: final_url(post[:redirect_url]),
                  source: 'product_hunt',
                  topped: (index == 0) ? true : false,
                  word_count: 0)

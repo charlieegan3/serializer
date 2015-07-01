@@ -3,4 +3,5 @@ Airbrake.configure do |config|
   config.development_environments = []
   config.ignore << 'Timeout::Error'
   config.ignore << 'OpenURI::HTTPError'
+  config.ignore << 'PG::UniqueViolation'
 end

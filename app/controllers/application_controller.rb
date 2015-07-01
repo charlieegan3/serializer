@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def index
     @items = Item.matching
     return render json: @items if params[:format] == 'json'
+    return render xml: @items if params[:format] == 'xml'
 
     if Session.valid_session_parameter(params[:session])
       message = '<strong>Session Synced!</strong> Now choose:

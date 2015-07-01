@@ -12,7 +12,7 @@ task :monitor_source_collections do
     'qudos' => 8.days.ago,
     'designer_news' => 2.days.ago,
     'arstechnica' => 2.days.ago,
-    'computerphile' => 2.days.ago,
+    'computerphile' => 7.days.ago,
     'techcrunch' => 2.days.ago,
   }.each do |source, warning_time|
     if Item.where(source: source)

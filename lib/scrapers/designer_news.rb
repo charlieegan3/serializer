@@ -12,7 +12,7 @@ module DesignerNews
   class DesignerNewsScraper
     include Utilities
     def initialize
-      @url = 'https://news.layervault.com'
+      @url = 'https://www.designernews.co'
     end
 
     def items
@@ -29,11 +29,11 @@ module DesignerNews
 
     def stories
       Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
-        .css('.Story')
+        .css('.story-details')
     end
 
     def redirect_url(story)
-      story.at_css('.Domain').remove if story.at_css('.Domain')
+      story.at_css('.story-domain').remove if story.at_css('.story-domain')
       story.at_css('a')['href'].gsub('https', 'http')
     end
 
@@ -51,7 +51,7 @@ module DesignerNews
     end
 
     def comment_url(story)
-      @url + story.css('.PointCount > a').first['href']
+      @url + story.at_css('.comment-count')['href']
     end
 
     def complete_item(item, story, index)

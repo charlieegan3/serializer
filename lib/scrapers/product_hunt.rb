@@ -33,8 +33,8 @@ module ProductHunt
           title = p.at_css('.post-item--text--name')
           {
             title: title.text,
-            redirect_url: @url + title['href'],
-            comment_url: @url + p.at_css('.post-item--comments')['href'],
+            url: @url + p.at_css('.post-item--text a')['href'],
+            redirect_url: @url + p.at_css('.post-item--action.v-icon a')['href'],
             tagline: p.at_css('.post-item--text--tagline').text
           }
       end
@@ -47,6 +47,7 @@ module ProductHunt
     def complete_item(item, post, index)
       item.merge(title: "#{post[:title]} - #{post[:tagline]}",
                  url: final_url(post[:redirect_url]),
+                 comment_url: post[:url],
                  source: 'product_hunt',
                  topped: (index == 0) ? true : false,
                  word_count: 0)

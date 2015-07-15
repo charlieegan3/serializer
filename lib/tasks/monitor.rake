@@ -21,7 +21,6 @@ task :monitor_source_collections do
       .last
       .created_at < warning_time
       Airbrake.notify_or_ignore('Notification', parameters: { source: source })
-      raise
     end
   end
 end

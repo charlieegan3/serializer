@@ -19,6 +19,7 @@ gem 'gruff'
 
 # views
 gem 'sass-rails'
+gem 'uglifier'
 gem 'slim'
 
 # sessions

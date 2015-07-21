@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
     item = Item.find(params[:id])
     session = get_session
     session.add_trello_item(item)
-    redirect_to location_path(request.referer, item)
+    render text: 'saved'
   end
 
   def trello

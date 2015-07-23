@@ -51,23 +51,23 @@ td:last-child {
   font-size: 12px;
   border-bottom: 1px solid white;
   background-color: CornflowerBlue;
-}
 
-.flash a {
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.2);
-  padding: 2px 4px 2px 4px;
-  border-radius: 2px;
-  color: white;
-  text-decoration: none;
-}
+  a {
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.2);
+    padding: 2px 4px 2px 4px;
+    border-radius: 2px;
+    color: white;
+    text-decoration: none;
 
-.flash a:hover {
-  background-color: rgba(0,0,0,0.5);
-}
+    &:hover {
+      background-color: rgba(0,0,0,0.5);
+    }
+  }
 
-.flash span {
-  opacity: 0.7;
+  span {
+    opacity: 0.7;
+  }
 }
 
 .log-button {
@@ -81,10 +81,10 @@ td:last-child {
   color: white;
   text-decoration: none;
   font-size: 12px;
-}
 
-.log-button span.tick {
-  font-size: 1.1em;
+  span.tick {
+    font-size: 1.1em;
+  }
 }
 
 td.log {
@@ -94,24 +94,26 @@ td.log {
   background-color: YellowGreen;
   padding: 5px 0px 5px 0px;
   height: 20px;
-}
 
-td.log span {
-  font-size: 1.2em;
+  span {
+    font-size: 1.2em;
+  }
 }
 
 .read {
   background-color: rgba(154, 205, 50, 0.25);
-}
 
-.read .item-title a:visited {
-  color: #454545;
-  border-bottom: 1px solid black;
-}
+  .item-title {
+    a:visited {
+      color: #454545;
+      border-bottom: 1px solid black;
+    }
 
-.read .item-title a:visited:hover {
-  color: black;
-  border-bottom: 1px solid black;
+    a:visited:hover {
+      color: black;
+      border-bottom: 1px solid black;
+    }
+  }
 }
 
 .icon {
@@ -125,15 +127,15 @@ td.log span {
   margin-right: 2px;
 }
 
-.points img {
-  opacity: 0.75;
-  margin-right: 2px;
-  margin-bottom: -1px;
-}
-
 .points {
   text-decoration: none;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  img {
+    opacity: 0.75;
+    margin-right: 2px;
+    margin-bottom: -1px;
+  }
 }
 
 .twitter-icon {
@@ -151,17 +153,19 @@ td.log span {
   font-size: 0.6em;
 }
 
-span.muted span {
-  margin-left: 7px;
-}
+span.muted {
+  span {
+    margin-left: 7px;
 
-span.muted a {
-  color: Gray;
-}
+    &.topped {
+      font-size: 13px;
+      color: #FFD700;
+    }
+  }
 
-span span.topped {
-  font-size: 13px;
-  color: #FFD700;
+  a {
+    color: Gray;
+  }
 }
 
 .domain, .short-domain {
@@ -180,22 +184,14 @@ span span.topped {
 .muted {
   color: Gray;
   font-size: 0.85em;
-}
 
-.muted span {
-  color: DarkGray;
-}
+  span {
+    color: DarkGray;
+  }
 
-.muted .fast {
-  color: SeaGreen;
-}
-
-.muted .medium {
-  color: SandyBrown;
-}
-
-.muted .slow {
-  color: Crimson;
+  .fast { color: SeaGreen; }
+  .medium { color: SandyBrown; }
+  .slow { color: Crimson; }
 }
 
 .item-title {
@@ -203,27 +199,27 @@ span span.topped {
   display: inline;
   font-weight: normal;
   margin: 0px;
-}
 
-.item-title a {
-  color: #454545;
-  text-decoration: none;
-  border-bottom: 1px solid #454545;
-}
+  a {
+    color: #454545;
+    text-decoration: none;
+    border-bottom: 1px solid #454545;
 
-.item-title a:visited {
-  color: DarkGray;
-  border-bottom: 1px solid DarkGray;
-}
+    &:visited {
+      color: DarkGray;
+      border-bottom: 1px solid DarkGray;
+    }
 
-.item-title a:hover {
-  color: black;
-  border-bottom: 2px solid black;
-}
+    &:hover {
+      color: black;
+      border-bottom: 2px solid black;
+    }
 
-.item-title a a:visited:hover {
-  color: DarkGray;
-  border-bottom: 2px solid DarkGray;
+    &:visited:hover {
+      color: DarkGray;
+      border-bottom: 2px solid DarkGray;
+    }
+  }
 }
 
 .menu {
@@ -238,18 +234,18 @@ span span.topped {
   position: fixed;
   right: 0px;
   bottom: 0px;
-}
 
-.graph img {
-  height: 70px;
-  width: 150px;
-}
+  img {
+    height: 70px;
+    width: 150px;
+  }
 
-.graph p {
-  margin: 0px;
-  text-align: center;
-  font-size: 0.7em;
-  padding-bottom: 2px;
+  p {
+    margin: 0px;
+    text-align: center;
+    font-size: 0.7em;
+    padding-bottom: 2px;
+  }
 }
 
 .logo {
@@ -260,16 +256,16 @@ span span.topped {
   font-family: "VT323", monospace;
   font-size: 20px;
   border: none;
-}
 
-.logo a {
-  border: none;
-  text-decoration: none;
-  color: white;
-}
+  a {
+    border: none;
+    text-decoration: none;
+    color: white;
 
-.logo a:visited {
-  color: white;
+    &:visited {
+      color: white;
+    }
+  }
 }
 
 .options {
@@ -278,30 +274,30 @@ span span.topped {
   font-size: 12px;
   font-family: monospace;
   border-left: 1px solid LightGrey;
-}
 
-.options p {
-  text-align: right;
-  margin: 0px 0px 4px 0px;
-}
+  p {
+    text-align: right;
+    margin: 0px 0px 4px 0px;
 
-.options p:last-child a {
-  color: DarkGray;
-}
+    &:last-child a {
+      color: DarkGray;
+    }
+  }
 
-.options span {
-  margin-right: 5px;
-  margin-left: 5px;
-}
+  span {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
 
-.options a {
-  color: black;
-  text-decoration: none;
-  border-bottom: 1px solid LightGrey;
-}
+  a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid LightGrey;
 
-.options a:visited {
-  color: black;
+    &:visited {
+      color: black;
+    }
+  }
 }
 
 .stats {
@@ -316,19 +312,19 @@ span span.topped {
 .extras {
   font-size: 0.8em;
   text-align: right;
-}
 
-.extras a {
-  text-decoration: none;
-  color: white;
-  padding: 3px 5px;
-  margin-right: 5px;
-  background-color: SeaGreen;
-  border-radius: 3px;
-}
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 3px 5px;
+    margin-right: 5px;
+    background-color: SeaGreen;
+    border-radius: 3px;
 
-.extras a:first-child {
-  background-color: CornflowerBlue;
+    &:first-child {
+      background-color: CornflowerBlue;
+    }
+  }
 }
 
 .source-selector {
@@ -338,12 +334,12 @@ span span.topped {
   right: 0px;
   text-align: center;
   z-index: 10;
-}
 
-.source-selector img {
-  border-radius: 20px;
-  border: 2px solid #454545;
-  box-shadow: 0px 0px 10px DarkGray;
+  img {
+    border-radius: 20px;
+    border: 2px solid #454545;
+    box-shadow: 0px 0px 10px DarkGray;
+  }
 }
 
 /*welcome page*/
@@ -353,11 +349,11 @@ span span.topped {
   max-width: 800px;
   padding: 10px;
   border-radius: 3px;
-}
 
-.container h1 {
-  margin-top: 20px;
-  font-size: 1.1em;
+  h1 {
+    margin-top: 20px;
+    font-size: 1.1em;
+  }
 }
 
 .lead {
@@ -377,55 +373,55 @@ span span.topped {
 .feed {
   text-align: center;
   font-size: 0.8em;
-}
 
-.feed a {
-  display: block;
-  margin: 10px auto;
-  max-width: 400px;
-  padding: 10px 0px;
-  color: white;
-  text-decoration: none;
-  background-color: YellowGreen;
-  border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.2);
-  font-size: 1.2em;
+  a {
+    display: block;
+    margin: 10px auto;
+    max-width: 400px;
+    padding: 10px 0px;
+    color: white;
+    text-decoration: none;
+    background-color: YellowGreen;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 1.2em;
 
-  -o-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -khtml-transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
+    -o-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -khtml-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
 
-.feed a:hover {
-  color: white;
-  text-decoration: none;
-  background-color: Orange;
-  box-shadow: 0px 0px 5px Orange;
-}
+    &:hover {
+      color: white;
+      text-decoration: none;
+      background-color: Orange;
+      box-shadow: 0px 0px 5px Orange;
+    }
+  }
 
-.feed .swap {
-  height: 35px;
-  padding-top: 18px;
-  padding-bottom: 0px;
-}
+  .swap {
+    height: 35px;
+    padding-top: 18px;
+    padding-bottom: 0px;
 
-.swap .icon {
-  margin: -3px 5px 10px 5px;
-}
+    .icon {
+      margin: -3px 5px 10px 5px;
+    }
+  }
 
-.feed .home:hover:before {
-   content: "default mix";
-}
+  .home:hover:before {
+     content: "default mix";
+  }
 
-.feed .all:hover:before {
-   content: "all sources";
-}
+  .all:hover:before {
+     content: "all sources";
+  }
 
-.feed .swap:hover img{
-  display: none;
+  .swap:hover img{
+    display: none;
+  }
 }
 
 .source-icon {
@@ -435,21 +431,21 @@ span span.topped {
 
 .about {
   margin-top: 50px;
-}
 
-.about h1 {
-  margin-top: 30px;
-  margin-bottom: 0px;
-}
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
 
-.about a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-.about .muted {
-  text-align: center;
+  .muted {
+    text-align: center;
+  }
 }
 
 .share-path a {
@@ -477,13 +473,13 @@ span span.topped {
 
 footer {
   text-align: center;
-}
 
-footer a {
-  font-size: 0.8em;
-  padding: 3px;
-  color: Grey;
-  text-decoration: none;
+  a {
+    font-size: 0.8em;
+    padding: 3px;
+    color: Grey;
+    text-decoration: none;
+  }
 }
 
 /*feedback page*/
@@ -524,13 +520,13 @@ footer a {
   -webkit-transition: all 0.2s linear;
   -ms-transition: all 0.2s linear;
   transition: all 0.2s linear;
-}
 
-.submit:hover {
-  color: white;
-  text-decoration: none;
-  background-color: Orange;
-  box-shadow: 0px 0px 5px Orange;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    background-color: Orange;
+    box-shadow: 0px 0px 5px Orange;
+  }
 }
 
 .token-field {
@@ -543,20 +539,20 @@ footer a {
   border: 1px solid LightGrey;
   margin: 30px auto;
   color: Grey;
-}
 
-.token-field:focus {
-  outline: none;
-  border: 1px solid YellowGreen;
-  box-shadow: 0 0 5px YellowGreen;
+  &:focus {
+    outline: none;
+    border: 1px solid YellowGreen;
+    box-shadow: 0 0 5px YellowGreen;
+  }
 }
 
 .home-link {
   text-align: center;
-}
 
-.home-link a {
-  color: Grey;
+  a {
+    color: Grey;
+  }
 }
 
 @media (max-width: 600px) {
@@ -590,28 +586,28 @@ footer a {
     position: relative;
     width: 100%;
     text-align: center;
-  }
 
-  .graph img {
-    height: 70px;
+    img {
+      height: 70px;
+    }
   }
 
   .logo {
     float: none;
     position: relative;
     border-radius: 0px;
-  }
 
-  .logo a.menu-text {
-    color: white;
+    a.menu-text {
+      color: white;
+    }
   }
 
   .flash {
     padding: 15px 0px 15px 0px;
-  }
 
-  .flash span {
-    display: none;
+    span {
+      display: none;
+    }
   }
 
   .log-button {
@@ -620,14 +616,14 @@ footer a {
     margin-top: 5px;
     text-align: center;
     padding: 15px 0px 15px 0px;
-  }
 
-  .log-button span.message {
-    display: none;
-  }
+    span.message {
+      display: none;
+    }
 
-  .log-button span.tick {
-    font-size: 25px;
+    span.tick {
+      font-size: 25px;
+    }
   }
 
   td.log {
@@ -648,11 +644,11 @@ footer a {
     position: relative;
     margin-top: 5px;
     top: 0px;
-  }
 
-  .source-selector a {
-    margin-right: 5px;
-    margin-left: 5px;
+    a {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
   }
 
   .options {
@@ -665,15 +661,15 @@ footer a {
     margin-top: 10px;
     margin-bottom: 10px;
     border-left: none;
-  }
 
-  .options p {
-    text-align: center;
-  }
+    p {
+      text-align: center;
+    }
 
-  .options span {
-    margin-right: 5%;
-    margin-left: 5%;
+    span {
+      margin-right: 5%;
+      margin-left: 5%;
+    }
   }
 
   .stats {
@@ -691,12 +687,12 @@ footer a {
     top: 26px;
     right: 3px;
     font-size: 0.7em;
-  }
 
-  .extras a:first-child {
-    display: block;
-    padding: 0px 5px;
-    margin-bottom: 5px;
+    a:first-child {
+      display: block;
+      padding: 0px 5px;
+      margin-bottom: 5px;
+    }
   }
 
   /*welcome page*/

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'custom' => 'application#custom', as: :custom
   get 'set_link_behavior' => 'application#set_link_behavior', as: :set_link_behavior
 
+  get 'session' => 'sessions#show'
   get 'clear_session' => 'sessions#clear_session', as: :clear_session
   get 'add_source' => 'sessions#add_source', as: :add_source
   get 'log' => 'sessions#log', as: :log

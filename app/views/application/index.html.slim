@@ -1,68 +1,11 @@
-=content_for :title, unread_count(@items, @session)
 =render 'menu', current_session: @session
 
 -if params[:action] == 'custom'
   =render 'source_selection', sources: @session.sources
 
--link_target = (cookies[:link_target] == '1')? '_blank' : '_self'
+table#item-table
+  tbody
 
--if !@items.empty? && @session && (!@session.completed_to || @items.first.created_at > @session.completed_to)
-  =link_to(log_path(time: @items.first.created_at + 1), class: 'log-button') do
-    span.tick &#10003;&nbsp;
-    span.message Mark all as read
-
-table.item-list
-  -displayed_log = false
-  -overflow = 10
-  -@items.each_with_index do |item, index|
-    -overflow -= 1 if displayed_log == true && index > 10
-    -break if overflow == 0
-    -if @session && @session.completed_to && displayed_log == false && item.created_at <= @session.completed_to
-      -displayed_log = true
-      tr
-        td.log colspan=(2)
-          -if index == 0
-            |&#10003; All up-to-date
-          -else
-            span &#10003;&nbsp;
-            |Read to here -&nbsp;
-            =distance_of_time_in_words(Time.new, @session.completed_to) + ' ago'
-    tr class=('read' if displayed_log) style=("opacity: #{(overflow.to_f / 10)}")
-      td
-        =link_to(item.url, target: link_target) do
-          =cl_image_tag(item.source, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
-      td
-        h2.item-title
-          =link_to item.title, item.url, id: item.id, target: link_target
-        span.domain =" (#{print_url(item.url)})"
-        span.short-domain =" (#{print_url(item.url, 20)})"
-        -if item.format
-          span.format-icon =item.format
-        br
-        span.muted
-          =cl_image_tag('clock.png', cloud_name: ENV['CLOUD_NAME'], html_width: '10', class: 'clock-icon')
-          =time_ago(item.created_at)
-          -if item.reading_time.between?(1,3)
-            span.fast ="#{item.reading_time}m #{item.reading_kind}"
-          -elsif item.reading_time.between?(4,10)
-            span.medium ="#{item.reading_time}m #{item.reading_kind}"
-          -elsif item.reading_time.between?(11,100)
-            span.slow ="#{item.reading_time}m #{item.reading_kind}"
-          -if item.comment_url?
-            span =link_to 'comments', item.comment_url, target: link_target
-          -if @session.can_save_item?(item)
-            span =link_to 'save', '#/', class: 'save-button', data: item.id
-          -if item.reading_kind == 'read' && item.reading_time > 0
-            =link_to("http://pointsapp.co/?url=#{item.url}", target: '_blank', class: 'points') do
-              span
-                =cl_image_tag('points.png', cloud_name: ENV['CLOUD_NAME'], html_width: '10')
-                |points
-          -if item.tweet_count.to_i > 0
-            span =cl_image_tag('twitter', cloud_name: ENV['CLOUD_NAME'], height: '15', width: '15', class: 'twitter-icon')
-            span =item.tweet_count
-          -if item.topped
-            span.topped title=('Reached the top spot!')
-              |&#9733;
 .graph
   =image_tag(CloudinaryImage.current_graph_url)
   p Post Volume Trend (30hr)

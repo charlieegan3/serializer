@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+  def show
+    session = get_session
+    render json: { session: session, items: Item.matching(session) }
+  end
+
   def clear_session
     cookies.permanent[:session] = nil
     cookies.permanent[:welcome] = nil

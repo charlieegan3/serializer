@@ -4,10 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    @items = Item.matching
-    return render json: @items if params[:format] == 'json'
-    return render xml: @items if params[:format] == 'xml'
-
     if Session.valid_session_parameter(params[:session])
       message = '<strong>Session Synced!</strong> Now choose:
         <a href="/">default</a>, <a href="/all">all</a>
@@ -19,8 +15,6 @@ class ApplicationController < ActionController::Base
       return redirect_to welcome_path unless cookies.permanent[:welcomed]
       @session = get_session
     end
-
-    render :index
   end
 
   def welcome

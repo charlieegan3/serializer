@@ -7,10 +7,11 @@ function readToRow(session) {
   ]);
 }
 
-function markButton(session) {
-  return createElementWithAttributes('A', {
-    'class': 'log-button',
-    'href': '/log?time=' + session.timestamp
+function markButton(data) {
+  var button = createElementWithAttributes('A', {
+    'id': 'log-button',
+    'href': '#/',
+    'data': new Date(data.items.unread[0].created_at) + 1
   }, [
     createElementWithAttributes('SPAN', { 'class': 'tick' }, [
       document.createTextNode('✓ ')
@@ -19,37 +20,46 @@ function markButton(session) {
       document.createTextNode('Mark all as read')
     ])
   ]);
+
+  button.onclick = function () {
+    updateSession(button, data.session);
+  }
+
+  return button;
 }
 
-DOMReady(function () {
+function drawItemList(data, thing) {
   var itemTable = document.getElementById('item-table');
   if (!itemTable) { return; }
   tbody = itemTable.children[0];
+  tbody.innerHTML = '';
 
+  unread = data.items.unread;
+  read = data.items.read;
+
+  if (unread.length > 0) {
+    itemTable.parentNode.insertBefore(
+      markButton(data),
+      itemTable
+    );
+  }
+  for (var index = 0; index < unread.length; ++index) {
+    tbody.appendChild(itemRow(unread[index]));
+  }
+
+  tbody.appendChild(readToRow(data.session));
+
+  for (var index = 0; index < read.length; ++index) {
+    tbody.appendChild(itemRow(read[index], 'read'));
+  }
+}
+
+DOMReady(function () {
   var request = new XMLHttpRequest();
   request.open('GET', '/session', true);
   request.onload = function() {
     if (request.status === 200) {
-      var data = JSON.parse(request.responseText);
-
-      unread = data.items.unread;
-      read = data.items.read;
-
-      if (unread.length > 0) {
-        itemTable.parentNode.insertBefore(
-          markButton(data.session),
-          itemTable
-        );
-      }
-      for (var index = 0; index < unread.length; ++index) {
-        tbody.appendChild(itemRow(unread[index]));
-      }
-
-      tbody.appendChild(readToRow(data.session));
-
-      for (var index = 0; index < read.length; ++index) {
-        tbody.appendChild(itemRow(read[index], 'read'));
-      }
+      drawItemList(JSON.parse(request.responseText), true);
     };
   };
   request.onerror = function() {

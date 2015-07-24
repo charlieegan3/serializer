@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
     render json: {
       session: session.attributes.merge(
         completed_to_human: session.completed_to_human,
-        timestamp: Time.now
       ),
       items: Item.matching(session)
     }
@@ -19,12 +18,14 @@ class SessionsController < ApplicationController
   end
 
   def log
-    get_session.log(params[:time]) if params[:time]
-    if request.env['HTTP_REFERER']
-      return redirect_to :back
-    else
-      return redirect_to root_path
-    end
+    session = get_session
+    session.log(params[:time]) if params[:time]
+    render json: {
+      session: session.attributes.merge(
+        completed_to_human: session.completed_to_human,
+      ),
+      items: Item.matching(session)
+    }
   end
 
   def add_source

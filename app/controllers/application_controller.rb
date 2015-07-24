@@ -26,21 +26,6 @@ class ApplicationController < ActionController::Base
     @session = get_session
   end
 
-  def all
-    return render json: Item.default if params[:format] == 'json'
-    return redirect_to welcome_path unless cookies.permanent[:welcomed]
-    @items = Item.default
-    @session = get_session
-    render :index
-  end
-
-  def custom
-    return redirect_to welcome_path unless cookies.permanent[:welcomed]
-    @session = get_session
-    @items = Item.matching(@session.sources)
-    render :index
-  end
-
   def set_link_behavior
     cookies.permanent[:link_target] = params[:choice].to_i
     if request.env['HTTP_REFERER']

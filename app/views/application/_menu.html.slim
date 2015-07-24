@@ -1,31 +1,3 @@
--if params[:action] == 'all'
-  -sources = SOURCES
--elsif params[:action] == 'index'
-  -sources = ['hacker_news', 'reddit', 'product_hunt']
--else
-  -sources = current_session.sources
 .menu
   .logo
     =link_to 'serializer.io', root_path, class: 'menu-text'
-  -unless ['welcome','feedback'].include?(params[:action])
-    .options
-      p
-        -[['index', 'home', root_path], ['custom', 'custom', custom_path], ['all', 'all', all_path]].each do |item|
-          -if params[:action] == item[0]
-            span
-              strong =link_to item[1], item[2]
-          -else
-            span =link_to item[1], item[2]
-      p
-        span =link_to 'session', share_path, title: 'Link to copy and access your session on other devices'
-        span =link_to 'clear', clear_session_path, title: 'Click for a fresh session'
-    p.stats
-      strong =Item.average_hour_count(sources)
-      |&nbsp;items per hour
-    p.extras
-      -if false #disable button temporarily
-        -if current_session.trello_token
-          =link_to 'readling list', 'http://trello.com', target: '_blank'
-        -else
-          =link_to 'readling list', trello_path
-      =link_to 'feedback?', feedback_path

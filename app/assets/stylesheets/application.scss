@@ -222,18 +222,10 @@ span.muted {
   }
 }
 
-.menu {
-  right: 0px;
-  top: 0px;
-  position: fixed;
-  margin: 0px;
-  z-index: 1;
-}
-
-.graph {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
+footer {
+  margin: 10px 0px;
+  width: 100%;
+  text-align: center;
 
   img {
     height: 70px;
@@ -266,47 +258,6 @@ span.muted {
       color: white;
     }
   }
-}
-
-.options {
-  background-color: #FCFCFC;
-  padding: 5px;
-  font-size: 12px;
-  font-family: monospace;
-  border-left: 1px solid LightGrey;
-
-  p {
-    text-align: right;
-    margin: 0px 0px 4px 0px;
-
-    &:last-child a {
-      color: DarkGray;
-    }
-  }
-
-  span {
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-
-  a {
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid LightGrey;
-
-    &:visited {
-      color: black;
-    }
-  }
-}
-
-.stats {
-  font-size: 0.7em;
-  text-align: center;
-  margin: 0px;
-  padding: 3px;
-  background-color: LightGrey;
-  border-bottom-left-radius: 3px;
 }
 
 .extras {
@@ -573,33 +524,8 @@ footer {
     position: relative;
   }
 
-  div.options {
-    margin-top: 5px;
-    margin-bottom: 0px;
-  }
-
   .muted {
     font-size: 0.8em;
-  }
-
-  .graph {
-    position: relative;
-    width: 100%;
-    text-align: center;
-
-    img {
-      height: 70px;
-    }
-  }
-
-  .logo {
-    float: none;
-    position: relative;
-    border-radius: 0px;
-
-    a.menu-text {
-      color: white;
-    }
   }
 
   .flash {
@@ -649,37 +575,6 @@ footer {
       margin-right: 5px;
       margin-left: 5px;
     }
-  }
-
-  .options {
-    font-size: 15px;
-    text-align: center;
-    float: none;
-    position: relative;
-    top: 0px;
-    right: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-left: none;
-
-    p {
-      text-align: center;
-    }
-
-    span {
-      margin-right: 5%;
-      margin-left: 5%;
-    }
-  }
-
-  .stats {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    color: white;
-    margin: 0px;
-    padding: 5px;
-    background-color: transparent;
   }
 
   .extras {

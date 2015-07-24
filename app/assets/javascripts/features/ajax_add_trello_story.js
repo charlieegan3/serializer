@@ -1,5 +1,3 @@
-var DOMReady = function(a,b,c){b=document,c='addEventListener';b[c]?b[c]('DOMContentLoaded',a):window.attachEvent('onload',a)}
-
 DOMReady(function () {
   var saveButtons = document.getElementsByClassName('save-button');
   for(var i = 0; i < saveButtons.length; i++) {
@@ -11,15 +9,11 @@ DOMReady(function () {
       var request = new XMLHttpRequest();
       request.open('GET', url, true);
       request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
+        if (request.status === 200) {
           el.parentNode.removeChild(e.target);
-        } else {
-          el.style.display = 'inline';
-        }
+        } else { el.style.display = 'inline'; }
       };
-      request.onerror = function() {
-        el.style.display = 'inline';
-      };
+      request.onerror = function() { el.style.display = 'inline'; };
       request.send();
     }
   }

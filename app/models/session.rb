@@ -26,6 +26,11 @@ class Session < ActiveRecord::Base
     update_attribute(:saved_items, saved_items + [item.id])
   end
 
+  def completed_to_human
+    ApplicationController.helpers
+      .distance_of_time_in_words(completed_to, Time.new)
+  end
+
   def self.find_or_create(identifier)
     if identifier.blank?
       create(identifier: generate_identifier)

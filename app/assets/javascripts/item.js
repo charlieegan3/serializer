@@ -1,5 +1,3 @@
-var DOMReady = function(a,b,c){b=document,c='addEventListener';b[c]?b[c]('DOMContentLoaded',a):window.attachEvent('onload',a)}
-
 function itemIcon(item) {
   return createElementWithAttributes('TD', {}, [
     createElementWithAttributes('A', { 'href': item.url }, [
@@ -86,35 +84,6 @@ function itemSummary(item) {
   ])
 }
 
-function itemRow(item) {
-  return createElementWithAttributes('TR', {}, [itemIcon(item), itemSummary(item)]);
+function itemRow(item, rowClass) {
+  return createElementWithAttributes('TR', { 'class': rowClass }, [itemIcon(item), itemSummary(item)]);
 }
-
-DOMReady(function () {
-  var itemTable = document.getElementById('item-table');
-  if (!itemTable) { return; }
-  tbody = itemTable.children[0];
-
-  var request = new XMLHttpRequest();
-  request.open('GET', '/session', true);
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      var data = JSON.parse(request.responseText);
-
-      unread = data.items.unread;
-      read = data.items.read;
-      for (var index = 0; index < unread.length; ++index) {
-        tbody.appendChild(itemRow(unread[index]));
-      }
-      for (var index = 0; index < read.length; ++index) {
-        tbody.appendChild(itemRow(read[index]));
-      }
-    } else {
-
-    };
-    request.onerror = function() {
-
-    };
-  };
-  request.send();
-});

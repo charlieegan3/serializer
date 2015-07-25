@@ -1,8 +1,13 @@
-function readToRow(session) {
+function readToRow(session, unreadCount) {
+  if (unreadCount == 0) {
+    var message = 'All Marked as Read - ';
+  } else {
+    var message = 'Read to Here - ';
+  }
   return createElementWithAttributes('TR', {}, [
     createElementWithAttributes('TD', { 'class': 'log', 'colspan': 2 }, [
       createElementWithAttributes('SPAN', {}, [document.createTextNode('✓ ')]),
-      document.createTextNode('Read to here - ' + session.completed_to_human + ' ago')
+      document.createTextNode(message + session.completed_to_human + ' ago')
     ])
   ]);
 }
@@ -47,7 +52,7 @@ function drawItemList(data, thing) {
     tbody.appendChild(itemRow(unread[index]));
   }
 
-  tbody.appendChild(readToRow(data.session));
+  tbody.appendChild(readToRow(data.session, data.items.unread.length));
 
   for (var index = 0; index < read.length; ++index) {
     tbody.appendChild(itemRow(read[index], 'read'));

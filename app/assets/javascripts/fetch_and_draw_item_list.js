@@ -11,7 +11,7 @@ function markButton(data) {
   var button = createElementWithAttributes('A', {
     'id': 'log-button',
     'href': '#/',
-    'data': new Date(data.items.unread[0].created_at) + 1
+    'data': data.items.unread[0].created_at
   }, [
     createElementWithAttributes('SPAN', { 'class': 'tick' }, [
       document.createTextNode('✓ ')

@@ -83,10 +83,10 @@ class Item < ActiveRecord::Base
 
   def self.matching(session, sources = %w(hacker_news reddit product_hunt))
     items = where(source: sources).order(created_at: 'DESC')
-    completed_to = session.completed_to || 1.month.ago
-    unread = items.where(created_at: completed_to..Time.now)
+    completed_to = session.completed_to + 1 || 1.month.ago
+    unread = items.where('created_at > ?', completed_to)
                .order(created_at: 'DESC')
-    read = items.where(created_at: 1.month.ago..completed_to)
+    read = items.where('created_at <= ?', completed_to)
              .order(created_at: 'DESC').limit(150)
 
     { unread: collection_to_hash(unread), read: collection_to_hash(read) }

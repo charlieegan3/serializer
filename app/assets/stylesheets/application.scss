@@ -21,6 +21,10 @@ body {
   margin: 0px;
 }
 
+p {
+  margin: 0px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -40,6 +44,10 @@ td:first-child {
 
 td:last-child {
   padding-right: 7px;
+}
+
+.hidden {
+  display: none;
 }
 
 .flash {
@@ -236,24 +244,50 @@ footer {
   }
 }
 
-.logo {
-  color: #F8F8F8;
+.menu {
+  width: 100%;
+  padding: 5px 0px;
   background-color: #454545;
-  padding: 5px 10px 5px 10px;
-  max-height: 20px;
-  font-family: "VT323", monospace;
-  font-size: 20px;
-  border: none;
+  color: #F8F8F8;
 
-  a {
-    border: none;
-    text-decoration: none;
-    color: white;
+  .logo {
+    font-family: "VT323", monospace;
+    font-size: 20px;
+    margin-left: 5px;
 
-    &:visited {
+    a {
+      text-decoration: none;
       color: white;
+
+      &:visited {
+        color: white;
+      }
     }
   }
+
+  #settings-toggle {
+    float: right;
+    margin-top: -2px;
+
+    a {
+      text-decoration: none;
+      color: #F8F8F8;
+      font-size: 20px;
+      padding: 3px 10px 4px 10px;
+      background-color: #2E2E2E;
+
+      &:visited {
+        color: #F8F8F8;
+      }
+    }
+  }
+}
+
+#settings-panel {
+  padding: 5px;
+  color: #F8F8F8;
+  background-color: #2E2E2E;
+  border-bottom: 1px solid black;
 }
 
 .extras {
@@ -504,10 +538,6 @@ footer {
   table {
     margin-top: 0px;
     width: auto;
-  }
-
-  .menu {
-    position: relative;
   }
 
   .muted {

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def welcome
+  def about
     cookies.permanent[:welcomed] = true
     @session = get_session
   end

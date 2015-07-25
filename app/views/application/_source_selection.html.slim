@@ -1,7 +1,0 @@
-.source-selector
-  -SOURCES.each do |source|
-    =link_to(add_source_path(source: source)) do
-      -if sources.include?(source)
-        =cl_image_tag(source, cloud_name: ENV['CLOUD_NAME'], html_height: '30', html_width: '30', class: 'icon')
-      -else
-        =cl_image_tag(source, cloud_name: ENV['CLOUD_NAME'], html_height: '30', html_width: '30', class: 'icon unselected')

@@ -177,10 +177,6 @@ span.muted {
   display: none;
 }
 
-.unselected {
-  opacity: 0.3;
-}
-
 .muted {
   color: Gray;
   font-size: 0.85em;
@@ -349,16 +345,6 @@ footer {
       text-decoration: none;
       background-color: Orange;
       box-shadow: 0px 0px 5px Orange;
-    }
-  }
-
-  .swap {
-    height: 35px;
-    padding-top: 18px;
-    padding-bottom: 0px;
-
-    .icon {
-      margin: -3px 5px 10px 5px;
     }
   }
 
@@ -563,18 +549,6 @@ footer {
   .short-domain {
     display: inline;
     white-space: pre;
-  }
-
-  .source-selector {
-    width: 100%;
-    position: relative;
-    margin-top: 5px;
-    top: 0px;
-
-    a {
-      margin-right: 5px;
-      margin-left: 5px;
-    }
   }
 
   .extras {

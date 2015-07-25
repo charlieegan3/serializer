@@ -6,25 +6,20 @@ div.container
     |&nbsp;collects links from&nbsp;
     =link_to('https://news.ycombinator.com', target: '_blank') do
       =cl_image_tag('hacker_news', cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'inline icon')
-    |,&nbsp;
+    |&nbsp;
     =link_to('http://www.reddit.com/r/programming/', target: '_blank') do
       =cl_image_tag('reddit', cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'inline icon')
-    |&nbsp;&amp;&nbsp;
+    |&nbsp;
     =link_to('http://producthunt.com', target: '_blank') do
       =cl_image_tag('product_hunt', cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'inline icon')
-    |&nbsp;and lists them in&nbsp;
+    |&nbsp;&amp; more and lists them in&nbsp;
     em sequential order.
-
-  div.feed
-    =link_to(root_path, class: 'swap home') do
-      -['hacker_news', 'product_hunt', 'reddit'].each do |source|
-        =cl_image_tag(source,  cloud_name: ENV['CLOUD_NAME'],html_height: '20', html_width: '20', class: 'icon source-icon')
 
   div.about
     h1 Syncing & Cookies
     p You can sync read status across devices by visiting your session's path on other devices. Your session path is:
     p.share-path =link_to root_path + @session.identifier, root_path + @session.identifier
-    p Visiting that link will set a cookie linking that device to the same shared session. This link need only be visited <strong>once per device</strong>. No passwords needed.
+    p Visiting that link will set a cookie linking that device to the same shared session. This link need only be visited <strong>once per device</strong>. No passwords required.
     hr
     p
       em serializer

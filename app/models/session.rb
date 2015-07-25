@@ -3,6 +3,11 @@ class Session < ActiveRecord::Base
   serialize :saved_items, Array
   validates_uniqueness_of :identifier
   validates_presence_of :identifier
+  before_save :default_values
+
+  def default_values
+    self.completed_to ||= Time.at(0)
+  end
 
   def log(time)
     update_attributes(
@@ -27,6 +32,7 @@ class Session < ActiveRecord::Base
   end
 
   def completed_to_human
+    return nil unless completed_to
     ApplicationController.helpers
       .distance_of_time_in_words(completed_to, Time.new)
   end

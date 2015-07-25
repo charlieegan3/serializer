@@ -19,13 +19,6 @@ div.container
     =link_to(root_path, class: 'swap home') do
       -['hacker_news', 'product_hunt', 'reddit'].each do |source|
         =cl_image_tag(source,  cloud_name: ENV['CLOUD_NAME'],html_height: '20', html_width: '20', class: 'icon source-icon')
-  div.feed
-    =link_to(all_path, class: 'swap all')
-      -SOURCES.each do |source|
-        =cl_image_tag(source,  cloud_name: ENV['CLOUD_NAME'],html_height: '20', html_width: '20', class: 'icon source-icon')
-  div.feed
-    |...or choose your own:
-    div =link_to 'custom', custom_path
 
   div.about
     h1 Syncing & Cookies
@@ -37,9 +30,7 @@ div.container
       em serializer
       '  is a side project, I wanted a feed for social news sites and I enjoy marking things as read. I was inspired by a
       =link_to 'blog post', 'http://www.slashie.org/articles/shipping-side-projects/'
-      '  to make this more than just a quick 'tool' for my personal use. I follow the
-      =link_to '/all', all_path
-      '  list but I made 'home' and 'custom' to let others choose different sources.
+      '  to make this more than just a quick 'tool' for my personal use.
     p.muted
       |Checkout the code on&nbsp;
       a href="https://github.com/charlieegan3/serializer" GitHub

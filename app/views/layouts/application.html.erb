@@ -35,16 +35,6 @@
     <% if flash[:message] %>
       <p class="flash"><%= flash[:message].html_safe %></p>
     <% end %>
-    <% if ['index', 'all', 'custom'].include?(params[:action]) && cookies[:link_target].blank? %>
-      <p class="flash">
-        Open my links in:
-        <%= link_to 'This Tab', set_link_behavior_path(choice: 0) %>
-        <span> (like HN &amp; reddit)</span>
-        <strong>or</strong>
-        <%= link_to 'a New Tab', set_link_behavior_path(choice: 1) %>
-        <span> (like Product Hunt)</span>
-      </p>
-    <% end %>
     <%= yield %>
     <style type="text/css">@import url(http://fonts.googleapis.com/css?family=VT323);</style>
     <%= javascript_include_tag 'application' %>

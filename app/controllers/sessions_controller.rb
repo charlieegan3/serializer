@@ -9,14 +9,6 @@ class SessionsController < ApplicationController
     }
   end
 
-  def clear_session
-    cookies.permanent[:session] = nil
-    cookies.permanent[:welcome] = nil
-    cookies.permanent[:link_target] = nil
-    flash[:message] = 'All cookies cleared.'
-    redirect_to welcome_path
-  end
-
   def log
     session = get_session
     session.log(params[:time]) if params[:time]
@@ -38,15 +30,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def share
-    session = get_session
-    path = root_path + session.identifier
-    flash[:message] = "Visit <a href=\"#{path}\">this link</a>
-                      <strong>once</strong> on other devices to
-                      sync your read status"
-    redirect_to path
-  end
-
   def add_trello_story
     item = Item.find(params[:id])
     session = get_session
@@ -64,13 +47,5 @@ class SessionsController < ApplicationController
       flash[:message] = 'Please check that token.'
     end
     @session = get_session
-  end
-
-  private
-
-  def location_path(referer, item)
-    path = (referer) ? referer : all_path
-    path = path[0..path.index('#') - 1] if path.include?('#')
-    "#{path}/##{item.id}".gsub(/\/+/, '/').gsub(/http:\//, 'http://')
   end
 end

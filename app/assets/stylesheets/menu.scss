@@ -1,0 +1,38 @@
+.menu {
+  width: 100%;
+  padding: 5px 0px;
+  background-color: #454545;
+  color: #F8F8F8;
+
+  .logo {
+    font-family: "VT323", monospace;
+    font-size: 20px;
+    margin-left: 5px;
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:visited {
+        color: white;
+      }
+    }
+  }
+
+  #settings-toggle {
+    float: right;
+    margin-top: -2px;
+
+    a {
+      text-decoration: none;
+      color: #F8F8F8;
+      font-size: 20px;
+      padding: 3px 10px 4px 10px;
+      background-color: #2E2E2E;
+
+      &:visited {
+        color: #F8F8F8;
+      }
+    }
+  }
+}

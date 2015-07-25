@@ -1,0 +1,16 @@
+#log-button {
+  display: block;
+  text-align: center;
+  top: 0px;
+  width: 100%;
+  padding: 6px 0px 4px 0px;
+  height: 20px;
+  background-color: Orange;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+
+  span.tick {
+    font-size: 1.1em;
+  }
+}

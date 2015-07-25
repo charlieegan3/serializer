@@ -1,0 +1,128 @@
+.container {
+  margin: 50px auto 0px auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+  border-radius: 3px;
+
+  h1 {
+    margin-top: 20px;
+    font-size: 1.1em;
+  }
+}
+
+.lead {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.inline-logo {
+  font-family: "VT323", monospace;
+  font-size: 1.4em;
+}
+
+.inline {
+  margin-bottom: -5px;
+}
+
+.feed {
+  text-align: center;
+  font-size: 0.8em;
+
+  a {
+    display: block;
+    margin: 10px auto;
+    max-width: 400px;
+    padding: 10px 0px;
+    color: white;
+    text-decoration: none;
+    background-color: YellowGreen;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 1.2em;
+
+    -o-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -khtml-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+      background-color: Orange;
+      box-shadow: 0px 0px 5px Orange;
+    }
+  }
+
+  .home:hover:before {
+     content: "default mix";
+  }
+
+  .all:hover:before {
+     content: "all sources";
+  }
+
+  .swap:hover img{
+    display: none;
+  }
+}
+
+.source-icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.about {
+  margin-top: 50px;
+
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .muted {
+    text-align: center;
+  }
+}
+
+.share-path a {
+  color: white;
+  background-color: CornflowerBlue;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+  text-decoration: none;
+  display: block;
+  max-width: 250px;
+  margin: 0 auto;
+  text-align: center;
+  -o-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -khtml-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.share-path a:hover {
+  box-shadow: 0px 0px 5px CornflowerBlue;
+}
+
+footer {
+  text-align: center;
+
+  a {
+    font-size: 0.8em;
+    padding: 3px;
+    color: Grey;
+    text-decoration: none;
+  }
+}

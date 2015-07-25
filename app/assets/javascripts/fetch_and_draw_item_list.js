@@ -5,7 +5,7 @@ function readToRow(session, unreadCount) {
     var message = 'Read to Here - ';
   }
   return createElementWithAttributes('TR', {}, [
-    createElementWithAttributes('TD', { 'class': 'log', 'colspan': 2 }, [
+    createElementWithAttributes('TD', { 'class': 'read-marker', 'colspan': 2 }, [
       createElementWithAttributes('SPAN', {}, [document.createTextNode('✓ ')]),
       document.createTextNode(message + session.completed_to_human + ' ago')
     ])

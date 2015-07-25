@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'session' => 'sessions#show'
   get 'add_source' => 'sessions#add_source', as: :add_source
   get 'log' => 'sessions#log', as: :log
-  get '/:session' => 'application#index'
+  get '/:session' => 'sessions#sync'
 end

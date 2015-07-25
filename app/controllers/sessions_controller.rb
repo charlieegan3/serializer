@@ -9,6 +9,18 @@ class SessionsController < ApplicationController
     }
   end
 
+  def sync
+    if Session.valid_session_parameter(params[:session])
+      message = '<strong>Session Synced!</strong>'
+      flash[:message] = message.html_safe
+      cookies.permanent[:welcomed] = true
+      @session = get_session(params[:session])
+    else
+      @session = get_session
+    end
+    redirect_to root_path
+  end
+
   def log
     session = get_session
     session.log(params[:time]) if params[:time]

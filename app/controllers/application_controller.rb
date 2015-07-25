@@ -4,21 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    if Session.valid_session_parameter(params[:session])
-      message = '<strong>Session Synced!</strong> Now choose:
-        <a href="/">default</a>, <a href="/all">all</a>
-        or <a href="/custom">custom</a>'
-      flash.now[:message] = message.html_safe unless flash[:message]
-      cookies.permanent[:welcomed] = true
-      @session = get_session(params[:session])
-    else
-      return redirect_to welcome_path unless cookies.permanent[:welcomed]
-      @session = get_session
-    end
+    @session = get_session
   end
 
   def about
-    cookies.permanent[:welcomed] = true
     @session = get_session
   end
 

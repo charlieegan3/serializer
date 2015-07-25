@@ -57,7 +57,9 @@ function drawItemList(data, thing) {
     tbody.appendChild(itemRow(unread[index]));
   }
 
-  tbody.appendChild(readToRow(data.session, data.items.unread.length));
+  if (read.length > 0) {
+    tbody.appendChild(readToRow(data.session, data.items.unread.length));
+  }
 
   for (var index = 0; index < read.length; ++index) {
     tbody.appendChild(itemRow(read[index], 'read'));

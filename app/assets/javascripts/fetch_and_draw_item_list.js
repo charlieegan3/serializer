@@ -39,6 +39,11 @@ function drawItemList(data, thing) {
   tbody = itemTable.children[0];
   tbody.innerHTML = '';
 
+  var logButton = document.getElementById('log-button');
+  if (logButton) {
+    logButton.parentNode.removeChild(logButton);
+  }
+
   unread = data.items.unread;
   read = data.items.read;
 

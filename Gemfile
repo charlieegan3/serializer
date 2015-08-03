@@ -37,7 +37,6 @@ end
 group :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
   gem 'better_errors'
   gem 'rails_best_practices'
   gem 'seed_dumper'

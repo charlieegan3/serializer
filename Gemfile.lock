@@ -242,7 +242,6 @@ GEM
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
-    spring (1.3.3)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -309,7 +308,6 @@ DEPENDENCIES
   shoulda-matchers (= 2.8.0)
   simplecov
   slim
-  spring
   uglifier
   vcr
   web-console (~> 2.0)

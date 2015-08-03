@@ -3,4 +3,17 @@
   color: #F8F8F8;
   background-color: #2E2E2E;
   border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.source-toggle {
+  margin: 0 3px;
+  opacity: 0.4;
+
+  &.enabled {
+    opacity: 1;
+    img {
+      border: 1px solid LightGrey;
+    }
+  }
 }

@@ -33,13 +33,9 @@ class SessionsController < ApplicationController
   end
 
   def add_source
-    return redirect_to :back unless SOURCES.include?(params[:source])
-    get_session.update_sources(params[:source])
-    if request.env['HTTP_REFERER']
-      return redirect_to :back
-    else
-      return redirect_to root_path
-    end
+    session = get_session
+    session.update_sources(JSON.parse(request.body.read)['source'])
+    render json: session
   end
 
   def add_trello_story

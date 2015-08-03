@@ -33,7 +33,7 @@ function markButton(data) {
   return button;
 }
 
-function drawItemList(data, thing) {
+function drawItemList(data) {
   var itemTable = document.getElementById('item-table');
   if (!itemTable) { return; }
   tbody = itemTable.children[0];
@@ -67,15 +67,7 @@ function drawItemList(data, thing) {
 }
 
 DOMReady(function () {
-  var request = new XMLHttpRequest();
-  request.open('GET', '/session', true);
-  request.onload = function() {
-    if (request.status === 200) {
-      drawItemList(JSON.parse(request.responseText), true);
-    };
-  };
-  request.onerror = function() {
-
-  };
-  request.send();
+  getSession(function(result) {
+    drawItemList(result);
+  });
 });

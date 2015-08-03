@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
 
   def index
     @session = get_session
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     @session = get_session
   end
 
-  def get_session(param = cookies.permanent[:session] || params[:session])
+  def get_session(param = cookies[:session] || params[:session] || request.cookies['session'])
     Session.find_or_create(param).tap do |session|
       cookies.permanent[:session] = session.identifier
     end

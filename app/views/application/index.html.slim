@@ -1,5 +1,8 @@
-#settings-panel.hidden
+#settings-panel
   p Settings Panel Content
+  -SOURCES.each do |s|
+    =link_to('/#/', class: 'source-toggle', data: s) do
+      =cl_image_tag(s, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
 
 =render 'menu', current_session: @session
 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   match 'trello' => 'sessions#trello', via: [:get, :post], as: :trello
 
   get 'session' => 'sessions#show'
-  get 'add_source' => 'sessions#add_source', as: :add_source
+  post 'add_source' => 'sessions#add_source'
   get 'log' => 'sessions#log', as: :log
   get '/:session' => 'sessions#sync'
 end

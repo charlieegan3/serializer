@@ -4,6 +4,8 @@ RSpec.describe Item, type: :model do
   it { should validate_uniqueness_of(:url) }
   it { should validate_presence_of(:url) }
   it { should validate_presence_of(:title) }
+  it { should allow_value('This is a good title').for(:title) }
+  it { should_not allow_value('99').for(:title) }
 
   it 'should truncate titles longer than 140chrs' do
     item = create(:item, title: 'news ' * 100)

@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :url
   validates_uniqueness_of :url
   validates_format_of :url, with: %r{http(s)?://}, on: :create
+  validates_format_of :title, with: /\w{4,}/, on: :create
 
   before_save :truncate_title,
               :remove_content_tag,

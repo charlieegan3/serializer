@@ -34,7 +34,8 @@ module DesignerNews
 
     def redirect_url(story)
       story.at_css('.story-domain').remove if story.at_css('.story-domain')
-      story.at_css('a')['href'].gsub('https', 'http')
+      url = story.at_css('a')['href'].gsub('https', 'http')
+      url[0] == '/' ? url.prepend(@url) : url
     end
 
     def reject_item?(item, text)

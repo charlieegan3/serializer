@@ -24,7 +24,7 @@ module Utilities
           .size
       }
     rescue => e
-      puts "#{e}\n#{url}"
+      puts "X"
       return 0
     end
   end

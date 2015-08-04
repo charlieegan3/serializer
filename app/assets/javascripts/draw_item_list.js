@@ -48,10 +48,13 @@ function drawItemList(data) {
   read = data.items.read;
 
   if (unread.length > 0) {
+    document.title = "serializer - " + unread.length.toString();
     itemTable.parentNode.insertBefore(
       markButton(data),
       itemTable
     );
+  } else {
+    document.title = "serializer";
   }
   for (var index = 0; index < unread.length; ++index) {
     tbody.appendChild(itemRow(unread[index]));

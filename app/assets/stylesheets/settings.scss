@@ -9,6 +9,37 @@
     margin-top: 5px;
     font-size: 0.85em;
   }
+
+  .session-button {
+    color: white;
+    padding: 2px 5px;
+    margin: 0 2px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.2);
+    text-decoration: none;
+    max-width: 150px;
+    text-align: center;
+    -o-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -khtml-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+
+    &.path {
+      background-color: CornflowerBlue;
+      &:hover {
+        box-shadow: 0px 0px 5px CornflowerBlue;
+      }
+    }
+
+    &.clear {
+      background-color: OrangeRed;
+      &:hover {
+        box-shadow: 0px 0px 5px OrangeRed;
+      }
+    }
+  }
 }
 
 .source-toggle {

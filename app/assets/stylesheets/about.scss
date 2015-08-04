@@ -93,16 +93,15 @@
   }
 }
 
-.share-path a {
+.share-path {
   color: white;
   background-color: CornflowerBlue;
-  padding: 5px 10px;
+  padding: 2px 5px;
+  margin-top: 10px;
   border-radius: 3px;
   border: 1px solid rgba(0,0,0,0.2);
   text-decoration: none;
-  display: block;
-  max-width: 250px;
-  margin: 0 auto;
+  max-width: 150px;
   text-align: center;
   -o-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
@@ -112,7 +111,7 @@
   transition: all 0.2s linear;
 }
 
-.share-path a:hover {
+.share-path:hover {
   box-shadow: 0px 0px 5px CornflowerBlue;
 }
 

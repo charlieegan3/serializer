@@ -1,13 +1,16 @@
 #settings-panel
-  p Settings Panel Content
+  p Currently selected sources:
   -SOURCES.each do |s|
-    =link_to('/#/', class: 'source-toggle', data: s) do
+    =link_to('/#/', class: 'source-toggle', title: 'Toggle Source',  data: s) do
       =cl_image_tag(s, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
+  p Session sync url:
+  p =link_to 'serializer.io/' + @session.identifier, root_path + @session.identifier, class: 'share-path'
 
-=render 'menu', current_session: @session
-
--if params[:action] == 'custom'
-  =render 'source_selection', sources: @session.sources
+.menu
+  span.logo
+    =link_to 'serializer.io', root_path
+  span#settings-toggle
+    =link_to '⚙', '#/'
 
 table#item-table
   tbody

@@ -68,12 +68,7 @@ function drawItemList(data) {
     tbody.appendChild(itemRow(read[index], 'read'));
   }
 
-  if (data.session.trello_token === null) {
-    saveButtons = document.getElementsByClassName('save-button');
-    while(saveButtons[0]) {
-      saveButtons[0].parentNode.parentNode.removeChild(saveButtons[0].parentNode);
-    }
-  }
+  setTrelloSaveButtons(data.session);
 }
 
 DOMReady(function () {

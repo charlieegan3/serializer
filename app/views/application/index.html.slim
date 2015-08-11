@@ -1,9 +1,9 @@
 #settings-panel.hidden
-  p Currently selected sources:
+  p Selected sources (click to toggle)
   -SOURCES.each do |s|
     =link_to('/#/', class: 'source-toggle', title: 'Toggle Source',  data: s) do
       =cl_image_tag(s, cloud_name: ENV['CLOUD_NAME'], html_height: '20', html_width: '20', class: 'icon')
-  p Sync or clear session:
+  p Sync session with unique link  or clear
   p
     =link_to 'serializer.io/' + @session.identifier, root_path + @session.identifier, class: 'session-button path'
     =link_to 'Clear Session', '/#/', class: 'session-button clear', id: 'clear-session'

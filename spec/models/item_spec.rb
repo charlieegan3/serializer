@@ -13,11 +13,9 @@ RSpec.describe Item, type: :model do
   end
 
   it 'returns matching items' do
-    SOURCES.each do |s|
-      create(:item, source: s)
-    end
-    expect(Item.matching.size).to eq(3)
-    expect(Item.matching(SOURCES).size).to eq(SOURCES.size)
+    SOURCES.map { |s| create(:item, source: s) }
+    session = build(:session, sources: ['hacker_news', 'macrumors'])
+    expect(Item.matching(session).size).to eq(2)
   end
 
   it 'returns the days hour count' do

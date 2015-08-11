@@ -4,14 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def index
-    @session = get_session
-  end
-
-  def about
-    @session = get_session
-  end
-
-  def feedback
+     render json: Item.default if params[:format] == 'json'
     @session = get_session
   end
 

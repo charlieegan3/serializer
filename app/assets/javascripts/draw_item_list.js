@@ -45,7 +45,7 @@ function drawItemList(data) {
   }
 
   unread = data.items.unread;
-  read = data.items.read;
+  read = data.items.read.slice(0, 25);
 
   if (unread.length > 0) {
     document.title = "serializer - " + unread.length.toString();

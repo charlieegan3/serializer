@@ -9,14 +9,14 @@
     margin-top: 5px;
     font-size: 0.85em;
 
-    &:last-child {
-      margin-top: 15px;
+    &.buttons {
+      margin-top: 10px;
     }
   }
 
   a {
     color: white;
-    margin: 0 6px;
+    margin: 0 5px;
     text-decoration: none;
   }
 

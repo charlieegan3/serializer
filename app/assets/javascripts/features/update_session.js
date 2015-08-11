@@ -1,5 +1,5 @@
 function updateSession(e, session) {
-  e.style.display = 'hidden';
+  e.style.visibility = 'hidden';
   var url = '/log?time=' + e.attributes.data.value;
 
   var request = new XMLHttpRequest();

@@ -8,6 +8,16 @@
   p {
     margin-top: 5px;
     font-size: 0.85em;
+
+    &:last-child {
+      margin-top: 15px;
+    }
+  }
+
+  a {
+    color: white;
+    margin: 0 6px;
+    text-decoration: none;
   }
 
   .session-button {

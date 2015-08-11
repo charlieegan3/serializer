@@ -7,6 +7,9 @@
   p
     =link_to 'serializer.io/' + @session.identifier, root_path + @session.identifier, class: 'session-button path'
     =link_to 'Clear Session', '/#/', class: 'session-button clear', id: 'clear-session'
+  p
+    =link_to '@charlieegan3', 'http://charlieegan3.com'
+    =link_to 'feedback form', feedback_path
 
 .menu
   span.logo
@@ -20,6 +23,3 @@ table#item-table
 footer
   =image_tag(CloudinaryImage.current_graph_url)
   p Post Volume Trend (30hr)
-  =link_to 'feedback', feedback_path
-  ||
-  =link_to '@charlieegan3', 'http://charlieegan3.com'

@@ -1,13 +1,13 @@
 function readToRow(session, unreadCount) {
   if (unreadCount == 0) {
-    var message = 'All Marked as Read - ';
+    var message = 'All Marked as Read';
   } else {
-    var message = 'Read to Here - ';
+    var message = 'Read to Here - ' + session.completed_to_human + ' ago';
   }
   return createElementWithAttributes('TR', {}, [
     createElementWithAttributes('TD', { 'class': 'read-marker', 'colspan': 2 }, [
       createElementWithAttributes('SPAN', {}, [document.createTextNode('✓ ')]),
-      document.createTextNode(message + session.completed_to_human + ' ago')
+      document.createTextNode(message)
     ])
   ]);
 }

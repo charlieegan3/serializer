@@ -10,3 +10,9 @@ td.read-marker {
     font-size: 1.2em;
   }
 }
+
+@media (max-device-width : 600px) {
+  td.read-marker {
+    padding: 8px 0px 10px 0px;
+  }
+}

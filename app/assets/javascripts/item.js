@@ -55,6 +55,10 @@ function itemDetails(item) {
     ]),
   ]);
 
+  if (item.comment_url === null) {
+    details.removeChild(details.childNodes[2])
+  }
+
   if (item.tweet_count && item.tweet_count > 0) {
     details.appendChild(
       createElementWithAttributes('SPAN', {}, [

@@ -9,4 +9,4 @@ function refreshPage() {
   request.send();
 }
 
-setInterval(refreshPage, 30000);
+setInterval(refreshPage, 60000);

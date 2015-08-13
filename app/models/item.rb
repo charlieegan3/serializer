@@ -86,7 +86,7 @@ class Item < ActiveRecord::Base
     items = where(source: sources).order(created_at: 'DESC')
     completed_to = session.completed_to + 1 || 1.month.ago
     unread = items.where('created_at > ?', completed_to)
-               .order(created_at: 'DESC')
+               .order(created_at: 'DESC').limit(300)
     read = items.where('created_at <= ?', completed_to)
              .order(created_at: 'DESC').limit(150)
 

@@ -3,9 +3,6 @@ rvm:
 - 2.1.0
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
-branches:
-  only:
-    - master
 addons:
   code_climate:
     repo_token: 47f64b6df0587c3466d6e852f74d84ec1107edd9d13a0f3f5045b27d117dc638

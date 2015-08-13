@@ -35,7 +35,7 @@ module Reddit
     private
 
     def rows(page, count)
-      Nokogiri::HTML(open(page), nil, 'UTF-8')
+      thing = Nokogiri::HTML(open(page, allow_redirections: :all), nil, 'UTF-8')
         .css('.entry')
         .take(count)
         .reject { |r| r.text.match(/stickied post|PLEASE READ/) }

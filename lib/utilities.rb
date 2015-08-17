@@ -24,7 +24,7 @@ module Utilities
           .size
       }
     rescue => e
-      puts "X"
+      print 'X'
       return 0
     end
   end

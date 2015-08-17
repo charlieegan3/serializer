@@ -84,7 +84,7 @@ class Item < ActiveRecord::Base
   def self.matching(session)
     sources = session.sources.empty? ? SOURCES : session.sources
     items = where(source: sources).order(created_at: 'DESC')
-    completed_to = session.completed_to + 1 || 1.month.ago
+    completed_to = (session.completed_to || 1.month.ago) + 1
     unread = items.where('created_at > ?', completed_to)
                .order(created_at: 'DESC').limit(300)
     read = items.where('created_at <= ?', completed_to)

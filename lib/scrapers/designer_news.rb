@@ -28,7 +28,7 @@ module DesignerNews
     private
 
     def stories
-      Nokogiri::HTML(open('https://news.layervault.com'), nil, 'UTF-8')
+      Nokogiri::HTML(open(@url), nil, 'UTF-8')
         .css('.story-details')
     end
 

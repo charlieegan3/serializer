@@ -28,7 +28,7 @@ module Lobsters
 
     def stories
       Nokogiri::HTML(open('https://lobste.rs'), nil, 'UTF-8')
-        .css('.details')
+        .css('.story')
     end
 
     def title(story)
@@ -48,6 +48,8 @@ module Lobsters
     def comment_url(story)
       if (a = story.at_css('.comments_label a')).present?
         a['href'].prepend('https://lobste.rs')
+      else
+        story['data-shortid'].prepend('https://lobste.rs/s/')
       end
     end
 

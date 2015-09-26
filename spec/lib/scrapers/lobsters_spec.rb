@@ -13,6 +13,7 @@ RSpec.describe Lobsters do
       expect(items).to_not be_nil
       keys = [:title, :url, :word_count, :comment_url, :source, :topped]
       expect(items.sample.keys - keys).to be_empty
+      expect(items.collect { |i| i[:comment_url] }).to_not include(nil)
     end
   end
 

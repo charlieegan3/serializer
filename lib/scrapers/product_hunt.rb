@@ -3,7 +3,6 @@ module ProductHunt
     begin
       ProductHuntScraper.new.items
     rescue => e
-      puts e
       Airbrake.notify_or_ignore(e)
       return []
     end

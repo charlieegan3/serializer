@@ -6,7 +6,6 @@ module HackerNews
     begin
       HackerNewsScraper.new.items(page, count)
     rescue => e
-      puts e
       Airbrake.notify_or_ignore(e)
       return []
     end

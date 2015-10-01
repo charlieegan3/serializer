@@ -28,7 +28,6 @@ task :collect_active do
   items += DesignerNews.items
   items += Lobsters.items
   save_items(items.flatten)
-  puts "\nCreated #{Item.count - item_count} items"
 end
 
 task :collect_feeds do
@@ -41,7 +40,6 @@ task :collect_feeds do
   items += Slashdot.items
   items += Techcrunch.items
   save_items(items.flatten)
-  puts "\nCreated #{Item.count - item_count} items"
 end
 
 task :set_tweet_counts do
@@ -54,6 +52,5 @@ task :set_tweet_counts do
               .read
             )['count'] rescue next
     item.update_attribute(:tweet_count, count.to_i)
-    puts "#{item.title[0..19].ljust(20)} - #{item.tweet_count}"
   end
 end

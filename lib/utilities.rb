@@ -12,7 +12,6 @@ module Utilities
   end
 
   def word_count(url)
-    print '/'
     return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
     begin
       return Timeout::timeout(2) {
@@ -24,7 +23,6 @@ module Utilities
           .size
       }
     rescue => e
-      print 'X'
       return 0
     end
   end

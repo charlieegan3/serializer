@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'application#index'
   get 'about' => 'application#about'
-  get 'feedback' => 'application#feedback', as: :feedback
 
   get 'add_trello_story/:id' => 'sessions#add_trello_story', as: :add_trello_story
   match 'trello' => 'sessions#trello', via: [:get, :post], as: :trello

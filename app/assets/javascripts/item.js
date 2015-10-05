@@ -10,8 +10,12 @@ function itemIcon(item) {
 }
 
 function itemTitle(item) {
+  var linkOpening = getCookie("links-open-in-new-tab");
+  var target = "_self"
+  if (linkOpening == 1) { target = "_blank" }
+
   return createElementWithAttributes('H2', { 'class': 'item-title' }, [
-    createElementWithAttributes('A', { 'href': item.url }, [
+    createElementWithAttributes('A', { 'href': item.url, 'target': target }, [
       document.createTextNode(item.title)
     ])
   ]);
@@ -30,13 +34,17 @@ function itemShortDomain(item) {
 }
 
 function itemDetails(item) {
+  var linkOpening = getCookie("links-open-in-new-tab");
+  var target = "_self"
+  if (linkOpening == 1) { target = "_blank" }
+
   var details = createElementWithAttributes('SPAN', { 'class': 'muted' }, [
     createElementWithAttributes('IMG', { 'class': 'clock-icon', 'src': 'http://res.cloudinary.com/charlieegan3/image/upload/clock.png', 'width': 10 }),
 
     document.createTextNode(item.age),
 
     createElementWithAttributes('SPAN', {}, [
-      createElementWithAttributes('A', { 'href': item.comment_url }, [
+      createElementWithAttributes('A', { 'href': item.comment_url, 'target': target }, [
         document.createTextNode('comments')
       ])
     ]),

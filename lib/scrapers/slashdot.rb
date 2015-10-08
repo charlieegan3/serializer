@@ -29,7 +29,7 @@ module Slashdot
 
     def links
       Nokogiri::HTML(open(@url), nil, 'UTF-8')
-        .css('h2.story a')
+        .css('h2.story span.story-title > a')
     end
 
     def url(link)

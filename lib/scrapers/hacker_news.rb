@@ -51,8 +51,8 @@ module HackerNews
     end
 
     def comment_url(details)
-      if details.css('a')
-        details.css('a').last['href'].prepend('https://news.ycombinator.com/')
+      if comment_anchor = details.css('a').last
+        comment_anchor['href'].prepend('https://news.ycombinator.com/')
       else
         ''
       end

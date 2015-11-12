@@ -1,6 +1,6 @@
 module HackerNews
-  @default_page = 'https://news.ycombinator.com/over?points=10'
-  @default_count = 30
+  @default_page = 'https://news.ycombinator.com/'
+  @default_count = 25
 
   def self.items(page = @default_page, count = @default_count)
     begin

@@ -12,6 +12,7 @@ module ProductHunt
     include Utilities
     def initialize
       @url = 'https://www.producthunt.com/tech'
+      @base_url = 'https://www.producthunt.com'
     end
 
     def items
@@ -32,8 +33,8 @@ module ProductHunt
           title = p.at_css('.post-item--text--name')
           {
             title: title.text,
-            url: @url + p.at_css('.post-item--text a')['href'],
-            redirect_url: @url + p.at_css('.post-item--action.v-icon a')['href'],
+            url: @base_url + p.at_css('.post-item--text a')['href'],
+            redirect_url: @base_url + p.at_css('.post-item--action.v-icon a')['href'],
             tagline: p.at_css('.post-item--text--tagline').text
           }
       end

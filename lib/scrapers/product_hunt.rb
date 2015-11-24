@@ -11,7 +11,7 @@ module ProductHunt
   class ProductHuntScraper
     include Utilities
     def initialize
-      @url = 'https://www.producthunt.com'
+      @url = 'https://www.producthunt.com/tech'
     end
 
     def items

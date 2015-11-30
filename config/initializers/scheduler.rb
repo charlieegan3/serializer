@@ -7,10 +7,6 @@ if Rails.env.production?
     `rake collect_active`
   end
 
-  scheduler.every '10m' do
-    `rake set_tweet_counts`
-  end
-
   scheduler.every '1h' do
     `rake collect_feeds`
   end

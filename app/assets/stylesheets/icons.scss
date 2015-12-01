@@ -2,6 +2,10 @@
   margin-top: 5px;
   border-radius: 3px;
   border: 1px solid black;
+
+  &.unposted {
+    box-shadow: -3px 0px 0px YellowGreen;
+  }
 }
 
 .clock-icon {

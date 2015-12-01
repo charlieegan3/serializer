@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527215745) do
+ActiveRecord::Schema.define(version: 20151130225344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,29 @@ ActiveRecord::Schema.define(version: 20150527215745) do
     t.string   "redirect_url"
     t.integer  "tweet_count"
     t.integer  "word_count"
+    t.boolean  "hn_status"
   end
 
   add_index "items", ["url"], name: "index_items_on_url", unique: true, using: :btree
+
+  create_table "reading_list_items", force: :cascade do |t|
+    t.integer  "reading_list_id"
+    t.integer  "item_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "reading_list_items", ["item_id"], name: "index_reading_list_items_on_item_id", using: :btree
+  add_index "reading_list_items", ["reading_list_id"], name: "index_reading_list_items_on_reading_list_id", using: :btree
+
+  create_table "reading_lists", force: :cascade do |t|
+    t.integer  "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "position"
+  end
+
+  add_index "reading_lists", ["session_id"], name: "index_reading_lists_on_session_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.string   "identifier"
@@ -50,4 +70,7 @@ ActiveRecord::Schema.define(version: 20150527215745) do
     t.integer  "read_count"
   end
 
+  add_foreign_key "reading_list_items", "items"
+  add_foreign_key "reading_list_items", "reading_lists"
+  add_foreign_key "reading_lists", "sessions"
 end

@@ -1,9 +1,8 @@
 function itemIcon(item) {
   var iconClass = 'icon';
-  var iconUrl = item.url;
+  var iconUrl = 'https://hn.algolia.com/?dateRange=pastYear&type=story&query=' + item.title + ' ' + shortURL(item.url);
   if (item.hn_status === true) {
     iconClass += ' unposted';
-    iconUrl = 'https://hn.algolia.com/?dateRange=pastYear&type=story&query=' + item.title + ' ' + shortURL(item.url);
   }
   return createElementWithAttributes('TD', {}, [
     createElementWithAttributes('A', { 'href': iconUrl }, [

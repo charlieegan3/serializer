@@ -22,7 +22,7 @@ module Utilities
           .split(' ')
           .size
       }
-    rescue => e
+    rescue
       return 0
     end
   end

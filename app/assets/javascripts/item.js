@@ -79,16 +79,6 @@ function itemDetails(item) {
     details.insertBefore(
       createElementWithAttributes('SPAN', { 'class': readingTimeClass(item.word_count) }, [document.createTextNode(readingTime(item.word_count))]),
       details.children[1]);
-
-    details.appendChild(
-      createElementWithAttributes('A', { 'class': 'points', 'href': 'http://pointsapp.co/?url=' + item.url }, [
-        createElementWithAttributes('SPAN', {}, [
-          createElementWithAttributes('IMG', { 'src': 'http://res.cloudinary.com/charlieegan3/image/upload/points.png', 'width': 10 }),
-          document.createTextNode('points')
-        ])
-      ]),
-      details.children[1]
-    );
   }
 
   return details;

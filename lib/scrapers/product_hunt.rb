@@ -29,13 +29,12 @@ module ProductHunt
     def posts
       Nokogiri::HTML(open(@url), nil, 'UTF-8')
         .at_css('.posts--group')
-        .css('.post-item').map do |p|
-          title = p.at_css('.post-item--text--name')
+        .css('li').map do |p|
           {
-            title: title.text,
-            url: @base_url + p.at_css('.post-item--text a')['href'],
-            redirect_url: @base_url + p.at_css('.post-item--action.v-icon a')['href'],
-            tagline: p.at_css('.post-item--text--tagline').text
+            title: p.css('a')[1].text,
+            url: @base_url + p.css('a')[1]['href'],
+            redirect_url: @base_url + p.at_css('a[target="_blank"]')['href'],
+            tagline: p.css('span')[2].text,
           }
       end
     end

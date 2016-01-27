@@ -27,16 +27,21 @@ module ProductHunt
     private
 
     def posts
-      Nokogiri::HTML(open(@url), nil, 'UTF-8')
-        .at_css('.posts--group')
-        .css('li').map do |p|
+      JSON.parse(
+        Nokogiri::HTML(open(@url), nil, 'UTF-8')
+          .css('div[data-react-class="App"]').last['data-react-props']
+      )["component_data"]["post_groups"]
+        .map {|g| g["posts"]}
+        .flatten
+        .take(30)
+        .map do |p|
           {
-            title: p.css('a')[1].text,
-            url: @base_url + p.css('a')[1]['href'],
-            redirect_url: @base_url + p.at_css('a[target="_blank"]')['href'],
-            tagline: p.css('span')[2].text,
+            title: p["name"],
+            url: @base_url + p["url"],
+            redirect_url: @base_url + p["shortened_url"],
+            tagline: p["tagline"]
           }
-      end
+        end
     end
 
     def reject_item?(item)

@@ -7,7 +7,7 @@ body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 14px;
   background-color: #FCFCFC;
-  margin: 0px;
+  margin: 30px 0px 0px 0px;
 }
 
 p {
@@ -16,7 +16,12 @@ p {
 
 table {
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   border-collapse: collapse;
+  tr {
+    background-color: #FFF5E3;
+  }
 }
 
 .hidden {

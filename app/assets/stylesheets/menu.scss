@@ -1,8 +1,11 @@
 .menu {
   width: 100%;
-  background-color: #454545;
+  background-color: #5E5E5E;
   color: #F8F8F8;
   height: 30px;
+  position: fixed;
+  z-index: 100;
+  top: 0px;
 
   .logo {
     font-family: "VT323", monospace;
@@ -18,6 +21,12 @@
         color: white;
       }
     }
+  }
+
+  #menu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #454545;
   }
 
   #settings-toggle {

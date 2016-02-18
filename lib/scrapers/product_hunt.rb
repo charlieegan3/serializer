@@ -27,21 +27,18 @@ module ProductHunt
     private
 
     def posts
-      JSON.parse(
-        Nokogiri::HTML(open(@url), nil, 'UTF-8')
-          .css('div[data-react-class="App"]').last['data-react-props']
-      )["component_data"]["post_groups"]
-        .map {|g| g["posts"]}
-        .flatten
+      data_url = 'https://feed-home.producthunt.com/posts/currentUser?page=0'
+      JSON.parse(open(data_url).read)['posts']
         .take(30)
-        .map do |p|
-          {
-            title: p["name"],
-            url: p["url"],
-            redirect_url: @base_url + p["shortened_url"],
-            tagline: p["tagline"]
-          }
-        end
+        .select { |p| p['category']['slug'] == 'tech' }
+        .map do |post|
+        {
+          title: post['name'],
+          tagline: post['tagline'],
+          url: @base_url + post['url'],
+          redirect_url: @base_url + post["shortened_url"],
+        }
+      end
     end
 
     def reject_item?(item)
@@ -57,5 +54,4 @@ module ProductHunt
                  word_count: 0)
     end
   end
-
 end

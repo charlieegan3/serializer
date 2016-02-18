@@ -37,7 +37,7 @@ module ProductHunt
         .map do |p|
           {
             title: p["name"],
-            url: @base_url + p["url"],
+            url: p["url"],
             redirect_url: @base_url + p["shortened_url"],
             tagline: p["tagline"]
           }

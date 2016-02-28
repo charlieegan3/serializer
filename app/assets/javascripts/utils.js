@@ -19,18 +19,26 @@ function createElementWithAttributes(type, attributes, children) {
 
 function shortURL(url) {
   try {
-    url = url.toLowerCase().replace(/^https?/i, '').replace(/www\./, '').replace(/^\W+/, '');
+    displayURL = url.toLowerCase()
+      .replace(/^https?/i, '')
+      .replace(/www\./, '')
+      .replace(/^\W+/, '');
 
-    if (url.indexOf('/') != -1) {
-      url = url.split('/')[0]
+    if (displayURL.indexOf('/') != -1) {
+      displayURL = displayURL.split('/')[0]
     } else {
-      url = url.substring(0, 100)
+      displayURL = displayURL.substring(0, 100)
     }
 
-    return url.replace(/[^\w\.]/, '');
+    displayURL = displayURL.replace(/[^\w\.]/, '');
   }
   catch(err) {
-    return url;
+    displayURL = url;
+  }
+  if (displayURL.length > 30) {
+    return displayURL.substring(0, 27).concat("...")
+  } else {
+    return displayURL
   }
 }
 

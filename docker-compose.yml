@@ -1,0 +1,24 @@
+web:
+  container_name: serializer_web
+  build: ./
+  dockerfile: Dockerfile-dev
+  ports:
+   - "3000:3000"
+  links:
+    - db:postgres
+  volumes:
+    - ".:/app"
+  environment:
+    POSTGRES_USER: "${POSTGRES_USER}"
+    POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+
+db:
+  container_name: serializer_postgres
+  image: postgres:9.4.5
+  ports:
+    - "5432:5432"
+  volumes:
+    - serializer_postgres:/var/lib/postgresql/data
+  environment:
+    POSTGRES_USER: "${POSTGRES_USER}"
+    POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"

@@ -6,7 +6,6 @@ SOURCES = [
   'slashdot',
   'beta_list',
   'macrumors',
-  'qudos',
   'designer_news',
   'arstechnica',
   'computerphile',

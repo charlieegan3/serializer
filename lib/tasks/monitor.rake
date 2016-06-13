@@ -9,7 +9,6 @@ task :monitor_source_collections do
     'slashdot' => 2.days.ago,
     'beta_list' => 2.days.ago,
     'macrumors' => 2.days.ago,
-    'qudos' => 8.days.ago,
     'designer_news' => 2.days.ago,
     'arstechnica' => 2.days.ago,
     'computerphile' => 7.days.ago,

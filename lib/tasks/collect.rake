@@ -36,7 +36,6 @@ task :collect_feeds do
   items += BetaList.items
   items += Computerphile.items
   items += MacRumors.items
-  items += Qudos.items
   items += Slashdot.items
   items += Techcrunch.items
   save_items(items.flatten)

@@ -11,7 +11,7 @@ module Slashdot
   class SlashdotScraper
     include Utilities
     def initialize
-      @url = 'http://technology.slashdot.org'
+      @url = 'https://technology.slashdot.org'
     end
 
     def items

@@ -27,8 +27,8 @@ module DesignerNews
     private
 
     def stories
-      Nokogiri::HTML(open(@url), nil, 'UTF-8')
-        .css('.story-details')
+      s = Nokogiri::HTML(open(@url), nil, 'UTF-8')
+        .css('.story-list-item')
     end
 
     def redirect_url(story)
@@ -51,7 +51,7 @@ module DesignerNews
     end
 
     def comment_url(story)
-      @url + story.at_css('.comment-count')['href']
+      @url + story.at_css('.list-story-comment-count')['href']
     end
 
     def complete_item(item, story, index)

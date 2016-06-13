@@ -1,5 +1,5 @@
 module Reddit
-  @default_page = 'http://www.reddit.com/r/programming/'
+  @default_page = 'https://www.reddit.com/r/programming/'
   @default_count = 10
 
   def self.items(page = @default_page, count = @default_count)
@@ -34,7 +34,7 @@ module Reddit
     private
 
     def rows(page, count)
-      thing = Nokogiri::HTML(open(page, allow_redirections: :all), nil, 'UTF-8')
+      Nokogiri::HTML(open(page, 'User-Agent' => 'Chrome'), nil, 'UTF-8')
         .css('.entry')
         .take(count)
         .reject { |r| r.text.match(/stickied post|PLEASE READ/) }

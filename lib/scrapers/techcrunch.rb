@@ -34,6 +34,7 @@ module Techcrunch
     end
 
     def reject_item?(item)
+      return true unless item[:url]
       Item.find_by_url(item[:url]).present?
     end
   end

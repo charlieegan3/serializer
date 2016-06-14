@@ -11,6 +11,7 @@ gem 'feedjira'
 gem 'httpclient'
 gem 'open_uri_redirections'
 gem 'jaccard'
+gem 'certified'
 
 # external
 gem 'cloudinary'

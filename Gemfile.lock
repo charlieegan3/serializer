@@ -62,6 +62,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    certified (1.0.0)
     cloudinary (1.0.82)
       aws_cf_signer
       rest-client
@@ -282,6 +283,7 @@ DEPENDENCIES
   better_errors
   byebug
   capybara
+  certified
   cloudinary
   codeclimate-test-reporter
   factory_girl_rails
@@ -312,3 +314,6 @@ DEPENDENCIES
   vcr
   web-console (~> 2.0)
   webmock
+
+BUNDLED WITH
+   1.12.5

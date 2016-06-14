@@ -1,22 +1,17 @@
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: serializer_production
-  pool: 5
-  timeout: 5000
-development:
-  database: app_development
+default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
   timeout: 5000
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
-  # please see the update below about using hostnames to
-  # access linked services via docker-compose
   host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] %>
   port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] %>
+
+development:
+  <<: *default
+  database: app_development
+
 test:
-  adapter: postgresql
-  database: travis_ci_test
-  username: postgres
+  <<: *default
+  database: app_test

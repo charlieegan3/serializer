@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.3.1"
+
 gem 'rails', '4.2.0'
 
 gem 'pg'
@@ -11,7 +13,6 @@ gem 'feedjira'
 gem 'httpclient'
 gem 'open_uri_redirections'
 gem 'jaccard'
-gem 'certified'
 
 # external
 gem 'cloudinary'

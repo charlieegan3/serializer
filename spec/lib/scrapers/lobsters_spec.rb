@@ -28,8 +28,8 @@ RSpec.describe Lobsters do
   end
 
   it 'should reject duplicate items' do
-    create(:item, url: 'http://serializer.io/')
-    new_item = { title: 'serializer', url: 'http://serializer.io/' }
+    create(:item, url: 'http://serializer.charlieegan3.com/')
+    new_item = { title: 'serializer', url: 'http://serializer.charlieegan3.com/' }
     expect(@ls.send(:reject_item?, new_item)).to be true
   end
 end

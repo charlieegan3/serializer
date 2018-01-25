@@ -18,8 +18,8 @@ RSpec.describe Reddit do
 
   describe 'reject_item?' do
     it 'should reject duplicate items' do
-      create(:item, url: 'http://www.serializer.io/')
-      new_item = { title: 'serializer', url: 'http://www.serializer.io/' }
+      create(:item, url: 'http://www.serializer.charlieegan3.com/')
+      new_item = { title: 'serializer', url: 'http://www.serializer.charlieegan3.com/' }
       expect(@rs.send(:reject_item?, new_item)).to be true
     end
 

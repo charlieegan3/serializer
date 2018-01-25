@@ -19,10 +19,10 @@ RSpec.describe BetaList do
   end
 
   it 'should reject duplicate items' do
-    create(:item, redirect_url: 'http://www.serializer.io/')
+    create(:item, redirect_url: 'http://www.serializer.charlieegan3.com/')
     new_item = {
       title: 'serializer',
-      redirect_url: 'http://www.serializer.io/'
+      redirect_url: 'http://www.serializer.charlieegan3.com/'
     }
     expect(@bls.send(:reject_item?, new_item)).to be true
   end

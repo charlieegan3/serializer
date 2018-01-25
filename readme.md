@@ -6,7 +6,7 @@
 
 serializer collects links from Hacker news, Reddit & Product Hunt and lists them in **sequential** order, some might even say it *serializes* them. It also collects a few other sources, not all of which are voting based, e.g. Ars Technica.
 
-I deploy the app to [serializer.io](http://www.serializer.io) when there are changes to deploy. It's currently configured to work with [dokku-alt](https://github.com/dokku-alt/dokku-alt). [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) is used to run the collection tasks.
+I deploy the app to [serializer.charlieegan3.com](http://www.serializer.charlieegan3.com) when there are changes to deploy. It's currently configured to work with [dokku-alt](https://github.com/dokku-alt/dokku-alt). [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) is used to run the collection tasks.
 
 ## Features
 * Read-to-Here Marker

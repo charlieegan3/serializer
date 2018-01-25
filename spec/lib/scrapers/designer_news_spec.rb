@@ -20,8 +20,8 @@ RSpec.describe DesignerNews do
   end
 
   it 'should reject duplicate items' do
-    create(:item, redirect_url: 'http://serializer.io/')
-    new_item = { title: 'serializer', redirect_url: 'http://serializer.io/' }
+    create(:item, redirect_url: 'http://serializer.charlieegan3.com/')
+    new_item = { title: 'serializer', redirect_url: 'http://serializer.charlieegan3.com/' }
     expect(@dns.send(:reject_item?, new_item, 'some text')).to be true
   end
 end

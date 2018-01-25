@@ -20,7 +20,7 @@ RSpec.describe ProductHunt do
   end
 
   it 'should reject items on the redirect_url' do
-    redirect_url = 'http://serializer.io'
+    redirect_url = 'http://serializer.charlieegan3.com'
     create(:item, redirect_url: redirect_url)
     expect(@phs.send(:reject_item?, redirect_url: redirect_url)).to be true
   end

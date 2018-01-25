@@ -17,8 +17,8 @@ RSpec.describe MacRumors do
   end
 
   it 'should reject duplicate items' do
-    create(:item, url: 'http://www.serializer.io/')
-    new_item = { url: 'http://www.serializer.io/' }
+    create(:item, url: 'http://www.serializer.charlieegan3.com/')
+    new_item = { url: 'http://www.serializer.charlieegan3.com/' }
     expect(@mrs.send(:reject_item?, new_item)).to be true
   end
 end

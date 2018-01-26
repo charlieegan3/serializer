@@ -24,7 +24,6 @@ task :collect_active do
   items += Reddit.items('https://www.reddit.com/r/dataisbeautiful/', 5)
   items += Reddit.items('https://www.reddit.com/r/Technology', 1)
   items += Reddit.items('https://www.reddit.com/r/science/', 1)
-  items += ProductHunt.items
   items += DesignerNews.items
   items += Lobsters.items
   save_items(items.flatten)

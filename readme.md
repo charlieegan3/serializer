@@ -30,5 +30,4 @@ To have everything up and running you'll need most of these set.
 * `AIRBRAKE_KEY`
 * `SECRET_KEY_BASE`
 * `SECRET_TOKEN`
-* `CODECLIMATE_REPO_TOKEN`
 * `TRELLO_KEY`

@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.5'
 
 gem 'pg'
 
 # collection
 gem 'rufus-scheduler'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.8.1'
 gem 'feedjira'
 gem 'httpclient'
 gem 'open_uri_redirections'
@@ -38,7 +38,7 @@ end
 
 group :development do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.1'
   gem 'better_errors'
   gem 'rails_best_practices'
   gem 'seed_dumper'
@@ -54,6 +54,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'vcr'
   gem 'webmock'
-  gem 'codeclimate-test-reporter'
   gem 'simplecov', require: false
 end

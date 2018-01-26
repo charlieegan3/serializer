@@ -3,7 +3,7 @@ require 'timeout'
 module Utilities
   def final_url(redirect_url)
     begin
-      return Timeout::timeout(2) {
+      return Timeout.timeout(2) {
         open(redirect_url, allow_redirections: :all) do |resp|
           return resp.base_uri.to_s
         end

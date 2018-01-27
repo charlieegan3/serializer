@@ -8,7 +8,7 @@ function itemIcon(item) {
     createElementWithAttributes('A', { 'href': iconUrl }, [
       createElementWithAttributes('IMG', {
         'class': iconClass, 'width': 20, 'height': 20,
-        'src': 'http://res.cloudinary.com/charlieegan3/image/upload/' + item.source
+        'src': 'https://res.cloudinary.com/charlieegan3/image/upload/' + item.source
       }, [])
     ])
   ]);
@@ -44,7 +44,7 @@ function itemDetails(item) {
   if (linkOpening == 1) { target = "_blank" }
 
   var details = createElementWithAttributes('SPAN', { 'class': 'muted' }, [
-    createElementWithAttributes('IMG', { 'class': 'clock-icon', 'src': 'http://res.cloudinary.com/charlieegan3/image/upload/clock.png', 'width': 10 }),
+    createElementWithAttributes('IMG', { 'class': 'clock-icon', 'src': 'https://res.cloudinary.com/charlieegan3/image/upload/clock.png', 'width': 10 }),
 
     document.createTextNode(item.age),
 

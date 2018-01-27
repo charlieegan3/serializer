@@ -33,7 +33,7 @@ task :save_graph do
                                     cloud_name: ENV['CLOUD_NAME'],
                                     api_key: ENV['CLOUDINARY_KEY'],
                                     api_secret: ENV['CLOUDINARY_SECRET']
-                                   )['url']
+                                   )['secure_url']
 
   image = CloudinaryImage.find_by_identifier('graph') || CloudinaryImage.new(identifier: 'graph')
   image.update_attribute(:url, url)

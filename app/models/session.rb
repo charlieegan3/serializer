@@ -21,16 +21,6 @@ class Session < ActiveRecord::Base
     save
   end
 
-  def can_save_item?(item)
-    trello_token.present? && saved_items && !saved_items.include?(item.id)
-  end
-
-  def add_trello_item(item)
-    TrelloClient.new(trello_token, trello_username)
-      .add_item(item.trello_hash)
-    update_attribute(:saved_items, saved_items + [item.id])
-  end
-
   def completed_to_human
     return nil unless completed_to
     ApplicationController.helpers

@@ -26,7 +26,6 @@ gem 'slim'
 
 # sessions
 gem 'random_username'
-gem 'ruby-trello'
 
 group :production do
   gem 'rails_12factor'

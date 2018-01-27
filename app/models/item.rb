@@ -69,18 +69,6 @@ class Item < ActiveRecord::Base
     url.match(/youtube|youtu\.be/) ? 'watch' : 'read'
   end
 
-  def trello_hash
-    {
-      title: title,
-      description: [
-        url,
-        ((comment_url?) ? "Comments:\n#{comment_url}" : ''),
-        "via #{source.humanize.capitalize}",
-        "Saved: #{Time.zone.now} - Posted: #{created_at}"
-      ].join("\n\n")
-    }
-  end
-
   def self.matching(session)
     sources = session.sources.empty? ? SOURCES : session.sources
     items = where(source: sources).order(created_at: 'DESC')

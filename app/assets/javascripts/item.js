@@ -53,12 +53,6 @@ function itemDetails(item) {
         document.createTextNode('comments')
       ])
     ]),
-
-    createElementWithAttributes('SPAN', {}, [
-      createElementWithAttributes('A', { 'href': '#/', 'class': 'save-button', 'data': item.id }, [
-        document.createTextNode('save')
-      ])
-    ])
   ]);
 
   if (item.comment_url === null) {

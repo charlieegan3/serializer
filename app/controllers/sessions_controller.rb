@@ -37,23 +37,4 @@ class SessionsController < ApplicationController
     session.update_sources(JSON.parse(request.body.read)['source'])
     render json: session
   end
-
-  def add_trello_story
-    item = Item.find(params[:id])
-    session = get_session
-    session.add_trello_item(item)
-    render text: 'saved'
-  end
-
-  def trello
-    if params[:token] && params[:token].length == 64
-      get_session.update_attribute(:trello_token, params[:token])
-      tc = TrelloClient.new(params[:token])
-      get_session.update_attribute(:trello_username, tc.fetch_username)
-      tc.add_item(title: 'Welcome to serializer on Trello!')
-    elsif params[:token]
-      flash[:message] = 'Please check that token.'
-    end
-    @session = get_session
-  end
 end

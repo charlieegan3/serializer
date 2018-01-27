@@ -30,4 +30,3 @@ To have everything up and running you'll need most of these set.
 * `AIRBRAKE_KEY`
 * `SECRET_KEY_BASE`
 * `SECRET_TOKEN`
-* `TRELLO_KEY`

@@ -67,8 +67,6 @@ function drawItemList(data) {
   for (var index = 0; index < read.length; ++index) {
     tbody.appendChild(itemRow(read[index], 'read'));
   }
-
-  setTrelloSaveButtons(data.session);
 }
 
 DOMReady(function () {

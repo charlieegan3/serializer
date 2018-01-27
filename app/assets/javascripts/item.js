@@ -49,7 +49,7 @@ function itemDetails(item) {
     document.createTextNode(item.age),
 
     createElementWithAttributes('SPAN', {}, [
-      createElementWithAttributes('A', { 'href': item.comment_url, 'target': target }, [
+      createElementWithAttributes('A', { 'class': 'comments-link', 'href': item.comment_url, 'target': target }, [
         document.createTextNode('comments')
       ])
     ]),

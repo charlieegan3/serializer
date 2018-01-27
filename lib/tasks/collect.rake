@@ -20,23 +20,6 @@ task :collect_active do
   item_count = Item.count
   items = HackerNews.items('https://news.ycombinator.com/', 25)
   items += HackerNews.items('https://news.ycombinator.com/show', 5)
-  items += Reddit.items('https://www.reddit.com/r/programming/', 10)
-  items += Reddit.items('https://www.reddit.com/r/dataisbeautiful/', 5)
-  items += Reddit.items('https://www.reddit.com/r/Technology', 1)
-  items += Reddit.items('https://www.reddit.com/r/science/', 1)
-  items += DesignerNews.items
-  items += Lobsters.items
-  save_items(items.flatten)
-end
-
-task :collect_feeds do
-  item_count = Item.count
-  items = ArsTechnica.items
-  items += BetaList.items
-  items += Computerphile.items
-  items += MacRumors.items
-  items += Slashdot.items
-  items += Techcrunch.items
   save_items(items.flatten)
 end
 

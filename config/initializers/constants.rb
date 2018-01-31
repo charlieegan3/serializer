@@ -1,1 +1,5 @@
-SOURCES = ['hacker_news']
+SOURCES = [
+  'hacker_news',
+  'reddit',
+  'lobsters'
+]

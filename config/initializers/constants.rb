@@ -1,5 +1,1 @@
-SOURCES = [
-  'hacker_news',
-  'reddit',
-  'lobsters'
-]
+SOURCES = %w(hacker_news reddit lobsters macrumors product_hunt techcrunch arstechnica)

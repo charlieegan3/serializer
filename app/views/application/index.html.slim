@@ -1,4 +1,8 @@
 #settings-panel.hidden
+  p Selected sources (click to toggle)
+  -SOURCES.each do |s|
+    =link_to('/#/', class: 'source-toggle', title: 'Toggle Source',  data: s) do
+      =cl_image_tag(s, cloud_name: ENV.fetch('CLOUD_NAME', 'test'), html_height: '20', html_width: '20', class: 'icon')
   p Sync session with unique link
   p
     =link_to 'serializer.charlieegan3.com/' + @session.identifier, root_path + @session.identifier, class: 'session-button default'

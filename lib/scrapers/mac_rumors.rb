@@ -3,7 +3,7 @@ module MacRumors
     begin
       MacRumorsScraper.new.items
     rescue => e
-      Airbrake.notify_or_ignore(e)
+      Airbrake.notify(e)
       return []
     end
   end

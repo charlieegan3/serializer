@@ -6,7 +6,7 @@ module Reddit
     begin
       RedditScraper.new.items(page, count)
     rescue => e
-      Airbrake.notify_or_ignore(e)
+      Airbrake.notify(e)
       return []
     end
   end

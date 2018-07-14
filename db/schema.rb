@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,41 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127220843) do
+ActiveRecord::Schema.define(version: 2018_01_27_220843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cloudinary_images", force: :cascade do |t|
-    t.string   "identifier"
-    t.string   "url"
+  create_table "cloudinary_images", id: :serial, force: :cascade do |t|
+    t.string "identifier"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string   "url"
-    t.string   "title"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "source"
-    t.boolean  "topped"
-    t.string   "comment_url"
-    t.string   "redirect_url"
-    t.integer  "tweet_count"
-    t.integer  "word_count"
-    t.boolean  "hn_status"
+  create_table "items", id: :serial, force: :cascade do |t|
+    t.string "url"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "source"
+    t.boolean "topped"
+    t.string "comment_url"
+    t.string "redirect_url"
+    t.integer "tweet_count"
+    t.integer "word_count"
+    t.boolean "hn_status"
+    t.index ["url"], name: "index_items_on_url", unique: true
   end
 
-  add_index "items", ["url"], name: "index_items_on_url", unique: true, using: :btree
-
-  create_table "sessions", force: :cascade do |t|
-    t.string   "identifier"
-    t.string   "sources"
+  create_table "sessions", id: :serial, force: :cascade do |t|
+    t.string "identifier"
+    t.string "sources"
     t.datetime "completed_to"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "read_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "read_count"
   end
 
 end

@@ -15,3 +15,7 @@ development:
 test:
   <<: *default
   database: app_test
+
+production:
+  <<: *default
+  database: app_production

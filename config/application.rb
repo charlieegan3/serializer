@@ -34,6 +34,9 @@ module Serializer
 
     config.middleware.use Rack::Deflater
 
+    config.eager_load = true
+    config.eager_load_paths << Rails.root.join('lib')
+
     config.generators do |g|
       g.helper false
       g.template_engine :slim

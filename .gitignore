@@ -19,7 +19,6 @@
 set_config.sh
 config/local_env.yml
 coverage
-spec/fixtures/vcr_cassettes
 
 # local config and secrets
 local_env.sh

@@ -31,6 +31,7 @@ class Item < ActiveRecord::Base
   end
 
   def clean_url_parameters
+    return if url.nil?
     self.url = self.url.gsub(/(\?|&)utm[^&]*/, '?')
       .gsub('?&', '?')
       .gsub(/\?+/, '?')

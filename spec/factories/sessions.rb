@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:identifier) { |n| "bigheart-#{n}" }
   factory :session do
     identifier

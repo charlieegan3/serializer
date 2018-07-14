@@ -14,7 +14,7 @@ RSpec.describe ApplicationController, type: :controller do
 
     it 'should retrieve a session' do
       create(:session, identifier: 'some_session')
-      expect { get :index, session: 'some_session' }
+      expect { get :index, params: { session: 'some_session' } }
         .to_not change { Session.count }
     end
 
@@ -25,7 +25,7 @@ RSpec.describe ApplicationController, type: :controller do
     end
 
     it 'should sync the session when given a valid parameter' do
-      get :index, session: 'adjnoun'
+      get :index, params: { session: 'adjnoun' }
       expect(assigns(:session).identifier).to eq('adjnoun')
     end
   end

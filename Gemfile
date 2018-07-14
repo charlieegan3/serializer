@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
+ruby "2.4.1"
 
-gem 'rails', '~> 4.2.5'
+gem 'rails'
+
+gem 'therubyracer'
 
 gem 'pg'
 
@@ -35,23 +37,16 @@ group :development, :test do
   gem 'pry'
 end
 
-group :development do
-  gem 'byebug'
-  gem 'web-console', '~> 2.1'
-  gem 'better_errors'
-  gem 'rails_best_practices'
-  gem 'seed_dumper'
-end
-
 group :test do
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'rspec'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'shoulda-matchers', '2.8.0'
-  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
   gem 'vcr'
   gem 'webmock'
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end

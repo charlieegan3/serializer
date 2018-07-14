@@ -39,6 +39,7 @@ To have everything up and running you'll need most of these set.
 * `CLOUD_NAME`
 * `CLOUDINARY_SECRET`
 * `CLOUDINARY_KEY`
-* `AIRBRAKE_KEY`
+* `AIRBRAKE_ID`
+* `AIRBRAKE_PROJECT`
 * `SECRET_KEY_BASE`
 * `SECRET_TOKEN`

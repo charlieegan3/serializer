@@ -1,0 +1,607 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://lobste.rs/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 14 Jul 2018 20:48:42 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Etag:
+      - W/"45c419766a5f90d6c1c930efe4906c03"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - lobster_trap=VnQrRTFXTTdSTHA3NDZFZzczRTdwL3FVdzQ2a1BwMDJ5VWtqK0tFYWlFK3RvU2tNN2N2bzhoMXRKdVliczBSa3l1cVBqTGpFMFg5MHFSeHlzTXJ6VTY2OE9ielAvMG5hcncrek1BRGhQWTNyWTNBcy9pRjdUQUM5QkhpWjNyc3ZpUlR4c09UZGVtRzBYbjRKcWVDbzFnPT0tLVNrY0lBQ1VFSzdzMm1YSkRqWGxsR2c9PQ%3D%3D--45e5acc9111d4bdcac49e111b21c8d81916f4265;
+        path=/; expires=Tue, 14 Aug 2018 20:48:42 -0000; HttpOnly; secure
+      X-Request-Id:
+      - 7b40222a-5b5c-4d78-a292-e45e6971f7f6
+      X-Runtime:
+      - '0.124058'
+    body:
+      encoding: ASCII-8BIT
+      string: "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta http-equiv=\"content-type\"
+        content=\"text/html; charset=utf-8\" />\n  <meta http-equiv=\"X-UA-Compatible\"
+        content=\"IE=edge,chrome=1\" />\n  <link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/apple-touch-icon.png\" />\n  <link rel=\"apple-touch-icon\" sizes=\"114x114\"
+        href=\"/apple-touch-icon.png\" />\n  <link rel=\"apple-touch-icon\" sizes=\"72x72\"
+        href=\"/apple-touch-icon-144.png\" />\n  <link rel=\"apple-touch-icon\" sizes=\"144x144\"
+        href=\"/apple-touch-icon-144.png\" />\n  <meta name=\"viewport\" content=\"width=device-width,
+        initial-scale=1\" />\n  <meta name=\"referrer\" content=\"always\" />\n  <meta
+        name=\"theme-color\" content=\"#AC130D\" />\n  <link rel=\"shortcut icon\"
+        href=\"/favicon.ico\" />\n  <title>Lobsters</title>\n  <link rel=\"stylesheet\"
+        media=\"all\" href=\"/assets/application-ca798e5de5955449576777af91a35e6112a27eae149fb4daa5637d7125f0f925.css\"
+        />\n  <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\"
+        content=\"djKTO8FPpXVNE40FVn2kChg/xSLdDBTYTFPAEyEw33RgQx0KoRabJc4DDCNLpT0aOfnR3JbK1ytK4k3qMbAMkQ==\"
+        />\n    <link rel=\"alternate\" type=\"application/rss+xml\"\n      title=\"RSS
+        2.0\" href=\"/rss\" />\n    <link rel=\"alternate\" type=\"application/rss+xml\"\n
+        \     title=\"Comments - RSS 2.0\"\n      href=\"/comments.rss\" />\n</head>\n<body>\n
+        \ <div id=\"wrapper\">\n    <div id=\"header\">\n      <div id=\"headerleft\">\n
+        \       <a id=\"l_holder\" style=\"background-color: #ff0000;\"\n          href=\"/\"
+        title=\"Lobsters (Current traffic: 100)\"></a>\n\n\n        <span class=\"headerlinks\">\n
+        \           <a href=\"/\" class=\"cur_url\">Lobsters</a>\n            <a href=\"/recent\"
+        class=\"\">Recent</a>\n            <a href=\"/comments\" class=\"\">Comments</a>\n
+        \           <a href=\"/search\" class=\"\">Search</a>\n        </span>\n      </div>\n\n
+        \     <div id=\"headerright\">\n        <span class=\"headerlinks\">\n            <a
+        href=\"/login\" class=\"\">Login</a>\n        </span>\n      </div>\n\n      <div
+        class=\"clear\"></div>\n    </div>\n\n    <div id=\"inside\">\n\n      \n<ol
+        class=\"stories list \">\n  <li id=\"story_y93t3w\" data-shortid=\"y93t3w\"\nclass=\"story
+        \n\n\n\n\n\n\n\">\n<div class=\"story_liner\">\n  <div class=\"voters\">\n
+        \     <a class=\"upvoter\" href=\"/login\"></a>\n    <div class=\"score\">5</div>\n
+        \ </div>\n  <div class=\"details\">\n    <span class=\"link\">\n        <a
+        href=\"http://sevag.xyz/post/xar/\">Packaging Python code with XAR</a>\n    </span>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/python\"\n            class=\"tag
+        tag_python\"\n            title=\"Python programming\">python</a>\n      </span>\n
+        \       <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:sevag.xyz\">sevag.xyz</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/sevagh\"><img srcset=\"/avatars/sevagh-16.png
+        1x, /avatars/sevagh-32.png 2x\" class=\"avatar\" alt=\"sevagh avatar\" src=\"/avatars/sevagh-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          authored by\n        <a href=\"/u/sevagh\"
+        class=\"user_is_author\">sevagh</a>\n\n        <span title=\"2018-07-14 12:35:38
+        -0500\" class=\"\">3 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fsevag.xyz%2Fpost%2Fxar%2F\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/y93t3w/packaging_python_code_with_xar\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/y93t3w/packaging_python_code_with_xar\">0</a>\n</div>\n</li>\n<li
+        id=\"story_wr8ak3\" data-shortid=\"wr8ak3\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">7</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://www.openstreetmap.org/user/jbelien/diary/44356\">Why
+        use OpenStreetMap instead of Google Maps?</a>\n    </span>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/practices\"\n            class=\"tag tag_practices\"\n
+        \           title=\"Development and business practices\">practices</a>\n      </span>\n
+        \       <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:openstreetmap.org\">openstreetmap.org</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/pizzaiolo\"><img srcset=\"/avatars/pizzaiolo-16.png
+        1x, /avatars/pizzaiolo-32.png 2x\" class=\"avatar\" alt=\"pizzaiolo avatar\"
+        src=\"/avatars/pizzaiolo-16.png\" width=\"16\" height=\"16\" /></a>\n          via\n
+        \       <a href=\"/u/pizzaiolo\" class=\"\">pizzaiolo</a>\n\n        <span
+        title=\"2018-07-14 12:38:36 -0500\" class=\"\">3 hours ago</span>\n\n          |\n
+        \         <a href=\"https://archive.is/https%3A%2F%2Fwww.openstreetmap.org%2Fuser%2Fjbelien%2Fdiary%2F44356\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/wr8ak3/why_use_openstreetmap_instead_google\">\n
+        \             1\n                comment\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/wr8ak3/why_use_openstreetmap_instead_google\">1</a>\n</div>\n</li>\n<li
+        id=\"story_ghbrnt\" data-shortid=\"ghbrnt\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">9</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://ac1235.github.io/apl.html\">APL
+        At Its Core</a>\n    </span>\n      <span class=\"tags\">\n          <a href=\"/t/apl\"\n
+        \           class=\"tag tag_apl\"\n            title=\"Array Programming Languages
+        such as APL, J, and K\">apl</a>\n      </span>\n        <a class=\"domain\"
+        href=\"/search?order=newest&amp;q=domain:ac1235.github.io\">ac1235.github.io</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/calvin\"><img srcset=\"/avatars/calvin-16.png
+        1x, /avatars/calvin-32.png 2x\" class=\"avatar\" alt=\"calvin avatar\" src=\"/avatars/calvin-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/calvin\"
+        class=\"\">calvin</a>\n\n        <span title=\"2018-07-14 06:51:58 -0500\"
+        class=\"\">8 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fac1235.github.io%2Fapl.html\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/ghbrnt/apl_at_its_core\">\n
+        \             2\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/ghbrnt/apl_at_its_core\">2</a>\n</div>\n</li>\n<li
+        id=\"story_1iijqv\" data-shortid=\"1iijqv\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">4</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://github.com/knrt10/static-contact-validatedForm\">static-contact-validatedForm</a>\n
+        \   </span>\n      <a class=\"description_present\" title=\"You can use this
+        in your static websites in the contact form and get notified in your email
+        address without any spam emails.\" href=\"/s/1iijqv/static_contact_validatedform\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/javascript\"\n            class=\"tag
+        tag_javascript\"\n            title=\"Javascript programming\">javascript</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:github.com\">github.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/knrt10\"><img srcset=\"/avatars/knrt10-16.png
+        1x, /avatars/knrt10-32.png 2x\" class=\"avatar\" alt=\"knrt10 avatar\" src=\"/avatars/knrt10-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          authored by\n        <a href=\"/u/knrt10\"
+        class=\"user_is_author\">knrt10</a>\n\n        <span title=\"2018-07-14 09:06:04
+        -0500\" class=\"\">6 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fgithub.com%2Fknrt10%2Fstatic-contact-validatedForm\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/1iijqv/static_contact_validatedform\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/1iijqv/static_contact_validatedform\">0</a>\n</div>\n</li>\n<li
+        id=\"story_lw1d6v\" data-shortid=\"lw1d6v\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">9</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"http://www.daemonology.net/blog/2018-07-14-port-OS-to-EC2.html\">How
+        to port your OS to EC2</a>\n    </span>\n      <span class=\"tags\">\n          <a
+        href=\"/t/virtualization\"\n            class=\"tag tag_virtualization\"\n
+        \           title=\"Virtualization\">virtualization</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:daemonology.net\">daemonology.net</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/pushcx\"><img srcset=\"/avatars/pushcx-16.png
+        1x, /avatars/pushcx-32.png 2x\" class=\"avatar\" alt=\"pushcx avatar\" src=\"/avatars/pushcx-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/pushcx\"
+        class=\"\">pushcx</a>\n\n        <span title=\"2018-07-14 07:03:28 -0500\"
+        class=\"\">8 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fwww.daemonology.net%2Fblog%2F2018-07-14-port-OS-to-EC2.html\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/lw1d6v/how_port_your_os_ec2\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/lw1d6v/how_port_your_os_ec2\">0</a>\n</div>\n</li>\n<li id=\"story_0f1dko\"
+        data-shortid=\"0f1dko\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div class=\"story_liner\">\n
+        \ <div class=\"voters\">\n      <a class=\"upvoter\" href=\"/login\"></a>\n
+        \   <div class=\"score\">3</div>\n  </div>\n  <div class=\"details\">\n    <span
+        class=\"link\">\n        <a href=\"https://www.youtube.com/watch?v=DmT80OseAGs\">A
+        Sudoku Solver in APL</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"Also: Not Conway&#39;s Life.\" href=\"/s/0f1dko/sudoku_solver_apl\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/video\"\n            class=\"tag
+        tag_video tag_is_media\"\n            title=\"Link to a video\">video</a>\n
+        \         <a href=\"/t/apl\"\n            class=\"tag tag_apl\"\n            title=\"Array
+        Programming Languages such as APL, J, and K\">apl</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:youtube.com\">youtube.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/geocar\"><img srcset=\"/avatars/geocar-16.png
+        1x, /avatars/geocar-32.png 2x\" class=\"avatar\" alt=\"geocar avatar\" src=\"/avatars/geocar-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/geocar\"
+        class=\"\">geocar</a>\n\n        <span title=\"2018-07-14 14:21:18 -0500\"
+        class=\"\">1 hour ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDmT80OseAGs\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/0f1dko/sudoku_solver_apl\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/0f1dko/sudoku_solver_apl\">0</a>\n</div>\n</li>\n<li id=\"story_sle0o4\"
+        data-shortid=\"sle0o4\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div class=\"story_liner\">\n
+        \ <div class=\"voters\">\n      <a class=\"upvoter\" href=\"/login\"></a>\n
+        \   <div class=\"score\">23</div>\n  </div>\n  <div class=\"details\">\n    <span
+        class=\"link\">\n        <a href=\"https://medium.com/@mdrahony/are-pgp-key-servers-breaking-the-law-under-the-gdpr-a81ddd709d3e\">Are
+        PGP Key-servers Breaking the Law under the GDPR?</a>\n    </span>\n      <span
+        class=\"tags\">\n          <a href=\"/t/crypto\"\n            class=\"tag
+        tag_crypto\"\n            title=\"Cryptography\">crypto</a>\n      </span>\n
+        \       <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:medium.com\">medium.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/yakamo\"><img srcset=\"/avatars/yakamo-16.png
+        1x, /avatars/yakamo-32.png 2x\" class=\"avatar\" alt=\"yakamo avatar\" src=\"/avatars/yakamo-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          authored by\n        <a href=\"/u/yakamo\"
+        class=\"new_user\">yakamo</a>\n\n        <span title=\"2018-07-13 07:24:31
+        -0500\" class=\"\">32 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fmedium.com%2F%40mdrahony%2Fare-pgp-key-servers-breaking-the-law-under-the-gdpr-a81ddd709d3e\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/sle0o4/are_pgp_key_servers_breaking_law_under\">\n
+        \             29\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/sle0o4/are_pgp_key_servers_breaking_law_under\">29</a>\n</div>\n</li>\n<li
+        id=\"story_jgkkwh\" data-shortid=\"jgkkwh\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">31</div>\n  </div>\n  <div
+        class=\"details\">\n    <span class=\"link\">\n        <a href=\"https://m.signalvnoise.com/the-open-plan-office-is-a-terrible-horrible-no-good-very-bad-idea-42bd9cd294e3\">The
+        open-plan office is a terrible, horrible, no good, very bad idea</a>\n    </span>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/practices\"\n            class=\"tag
+        tag_practices\"\n            title=\"Development and business practices\">practices</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:m.signalvnoise.com\">m.signalvnoise.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/Yogthos\"><img srcset=\"/avatars/Yogthos-16.png
+        1x, /avatars/Yogthos-32.png 2x\" class=\"avatar\" alt=\"Yogthos avatar\" src=\"/avatars/Yogthos-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/Yogthos\"
+        class=\"\">Yogthos</a>\n\n        <span title=\"2018-07-13 09:02:35 -0500\"
+        class=\"\">30 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fm.signalvnoise.com%2Fthe-open-plan-office-is-a-terrible-horrible-no-good-very-bad-idea-42bd9cd294e3\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/jgkkwh/open_plan_office_is_terrible_horrible_no\">\n
+        \             22\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/jgkkwh/open_plan_office_is_terrible_horrible_no\">22</a>\n</div>\n</li>\n<li
+        id=\"story_sj10xo\" data-shortid=\"sj10xo\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">2</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://feierabendprojekte.wordpress.com/2018/07/13/speccing-functions/\">Speccing
+        Functions - experience report</a>\n    </span>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/clojure\"\n            class=\"tag tag_clojure\"\n
+        \           title=\"Clojure programming\">clojure</a>\n          <a href=\"/t/programming\"\n
+        \           class=\"tag tag_programming\"\n            title=\"Use when every
+        tag or no specific tag applies\">programming</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:feierabendprojekte.wordpress.com\"><wbr>feierabendprojekte.wordpress.c<wbr>om</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/Yogthos\"><img srcset=\"/avatars/Yogthos-16.png
+        1x, /avatars/Yogthos-32.png 2x\" class=\"avatar\" alt=\"Yogthos avatar\" src=\"/avatars/Yogthos-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/Yogthos\"
+        class=\"\">Yogthos</a>\n\n        <span title=\"2018-07-14 14:14:02 -0500\"
+        class=\"\">1 hour ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Ffeierabendprojekte.wordpress.com%2F2018%2F07%2F13%2Fspeccing-functions%2F\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/sj10xo/speccing_functions_experience_report\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/sj10xo/speccing_functions_experience_report\">0</a>\n</div>\n</li>\n<li
+        id=\"story_rjn2um\" data-shortid=\"rjn2um\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">6</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"http://fare.tunes.org/LispM.html\">A
+        few things I know about LISP Machines</a>\n    </span>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/historical\"\n            class=\"tag tag_historical\"\n
+        \           title=\"Tech history\">historical</a>\n          <a href=\"/t/lisp\"\n
+        \           class=\"tag tag_lisp\"\n            title=\"Lisp and Scheme programming\">lisp</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:fare.tunes.org\">fare.tunes.org</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/zge\"><img srcset=\"/avatars/zge-16.png
+        1x, /avatars/zge-32.png 2x\" class=\"avatar\" alt=\"zge avatar\" src=\"/avatars/zge-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/zge\"
+        class=\"\">zge</a>\n\n        <span title=\"2018-07-14 06:07:40 -0500\" class=\"\">9
+        hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Ffare.tunes.org%2FLispM.html\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/rjn2um/few_things_i_know_about_lisp_machines\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/rjn2um/few_things_i_know_about_lisp_machines\">0</a>\n</div>\n</li>\n<li
+        id=\"story_8quwvv\" data-shortid=\"8quwvv\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">2</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://github.com/pgniewek/learn_gbitx\">Plan9
+        fcall GBIT macro demo</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"A response to this thread https://bsd.network/@mathuin/100362908125358435\"
+        href=\"/s/8quwvv/plan9_fcall_gbit_macro_demo\">&#x2636;</a>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/show\"\n            class=\"tag tag_show tag_is_media\"\n
+        \           title=\"Show Lobsters / Projects\">show</a>\n          <a href=\"/t/c\"\n
+        \           class=\"tag tag_c\"\n            title=\"C programming\">c</a>\n
+        \         <a href=\"/t/osdev\"\n            class=\"tag tag_osdev\"\n            title=\"Operating
+        system design and development when no specific OS tag exists\">osdev</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:github.com\">github.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/superpat\"><img srcset=\"/avatars/superpat-16.png
+        1x, /avatars/superpat-32.png 2x\" class=\"avatar\" alt=\"superpat avatar\"
+        src=\"/avatars/superpat-16.png\" width=\"16\" height=\"16\" /></a>\n          via\n
+        \       <a href=\"/u/superpat\" class=\"\">superpat</a>\n\n        <span title=\"2018-07-14
+        13:54:23 -0500\" class=\"\">1 hour ago</span>\n\n          |\n          <a
+        href=\"https://archive.is/https%3A%2F%2Fgithub.com%2Fpgniewek%2Flearn_gbitx\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/8quwvv/plan9_fcall_gbit_macro_demo\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/8quwvv/plan9_fcall_gbit_macro_demo\">0</a>\n</div>\n</li>\n<li
+        id=\"story_zosxdr\" data-shortid=\"zosxdr\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">7</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://bernsteinbear.com/blog/jumbosmash-a-technical-retrospective/\">JumboSmash:
+        a technical retrospective</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"A couple friends and I created an app for our senior class. We learned
+        a little bit about scalability in the process.\" href=\"/s/zosxdr/jumbosmash_technical_retrospective\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/api\"\n            class=\"tag
+        tag_api\"\n            title=\"API development/implementation\">api</a>\n
+        \         <a href=\"/t/databases\"\n            class=\"tag tag_databases\"\n
+        \           title=\"Databases (SQL, NoSQL)\">databases</a>\n          <a href=\"/t/programming\"\n
+        \           class=\"tag tag_programming\"\n            title=\"Use when every
+        tag or no specific tag applies\">programming</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:bernsteinbear.com\">bernsteinbear.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/tekknolagi\"><img srcset=\"/avatars/tekknolagi-16.png
+        1x, /avatars/tekknolagi-32.png 2x\" class=\"avatar\" alt=\"tekknolagi avatar\"
+        src=\"/avatars/tekknolagi-16.png\" width=\"16\" height=\"16\" /></a>\n          authored
+        by\n        <a href=\"/u/tekknolagi\" class=\"user_is_author\">tekknolagi</a>\n\n
+        \       <span title=\"2018-07-13 17:32:25 -0500\" class=\"\">22 hours ago</span>\n\n
+        \         |\n          <a href=\"https://archive.is/https%3A%2F%2Fbernsteinbear.com%2Fblog%2Fjumbosmash-a-technical-retrospective%2F\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/zosxdr/jumbosmash_technical_retrospective\">\n
+        \             6\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/zosxdr/jumbosmash_technical_retrospective\">6</a>\n</div>\n</li>\n<li
+        id=\"story_8aep2k\" data-shortid=\"8aep2k\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">4</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"http://pm.inf.ethz.ch/publications/getpdf.php?bibname=Own&amp;id=EilersMueller18.pdf\">Nagini:
+        A Static Verifier for Python</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"The tool is available at https://github.com/marcoeilers/nagini\" href=\"/s/8aep2k/nagini_static_verifier_for_python\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/pdf\"\n            class=\"tag
+        tag_pdf tag_is_media\"\n            title=\"Link to a PDF document\">pdf</a>\n
+        \         <a href=\"/t/formalmethods\"\n            class=\"tag tag_formalmethods\"\n
+        \           title=\"Formal methods\">formalmethods</a>\n          <a href=\"/t/python\"\n
+        \           class=\"tag tag_python\"\n            title=\"Python programming\">python</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:pm.inf.ethz.ch\">pm.inf.ethz.ch</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/ceh\"><img srcset=\"/avatars/ceh-16.png
+        1x, /avatars/ceh-32.png 2x\" class=\"avatar\" alt=\"ceh avatar\" src=\"/avatars/ceh-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/ceh\"
+        class=\"new_user\">ceh</a>\n\n        <span title=\"2018-07-14 04:03:37 -0500\"
+        class=\"\">11 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fpm.inf.ethz.ch%2Fpublications%2Fgetpdf.php%3Fbibname%3DOwn%26id%3DEilersMueller18.pdf\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/8aep2k/nagini_static_verifier_for_python\">\n
+        \             1\n                comment\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/8aep2k/nagini_static_verifier_for_python\">1</a>\n</div>\n</li>\n<li
+        id=\"story_opvxrt\" data-shortid=\"opvxrt\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">5</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"http://www0.cs.ucl.ac.uk/staff/b.cook/CAV18_invited.pdf\">Formal
+        reasoning about the security of AWS</a>\n    </span>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/pdf\"\n            class=\"tag tag_pdf tag_is_media\"\n
+        \           title=\"Link to a PDF document\">pdf</a>\n          <a href=\"/t/formalmethods\"\n
+        \           class=\"tag tag_formalmethods\"\n            title=\"Formal methods\">formalmethods</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:cs.ucl.ac.uk\">cs.ucl.ac.uk</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/ceh\"><img srcset=\"/avatars/ceh-16.png
+        1x, /avatars/ceh-32.png 2x\" class=\"avatar\" alt=\"ceh avatar\" src=\"/avatars/ceh-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/ceh\"
+        class=\"new_user\">ceh</a>\n\n        <span title=\"2018-07-14 03:50:18 -0500\"
+        class=\"\">11 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fwww0.cs.ucl.ac.uk%2Fstaff%2Fb.cook%2FCAV18_invited.pdf\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/opvxrt/formal_reasoning_about_security_aws\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/opvxrt/formal_reasoning_about_security_aws\">0</a>\n</div>\n</li>\n<li
+        id=\"story_oi83rn\" data-shortid=\"oi83rn\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">1</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://yarchive.net/comp/linux/everything_is_file.html\">The
+        everything-is-a-file principle (2002)</a>\n    </span>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/api\"\n            class=\"tag tag_api\"\n            title=\"API
+        development/implementation\">api</a>\n          <a href=\"/t/linux\"\n            class=\"tag
+        tag_linux\"\n            title=\"Linux\">linux</a>\n          <a href=\"/t/networking\"\n
+        \           class=\"tag tag_networking\"\n            title=\"Networking\">networking</a>\n
+        \         <a href=\"/t/unix\"\n            class=\"tag tag_unix\"\n            title=\"*nix\">unix</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:yarchive.net\">yarchive.net</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/majke\"><img srcset=\"/avatars/majke-16.png
+        1x, /avatars/majke-32.png 2x\" class=\"avatar\" alt=\"majke avatar\" src=\"/avatars/majke-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/majke\"
+        class=\"\">majke</a>\n\n        <span title=\"2018-07-14 14:18:58 -0500\"
+        class=\"\">1 hour ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fyarchive.net%2Fcomp%2Flinux%2Feverything_is_file.html\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/oi83rn/everything_is_file_principle_2002\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/oi83rn/everything_is_file_principle_2002\">0</a>\n</div>\n</li>\n<li
+        id=\"story_hjskkf\" data-shortid=\"hjskkf\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">3</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"http://www.righto.com/2015/10/repairing-50-year-old-mainframe-inside.html\">Fixing
+        the core memory in a vintage IBM 1401 mainframe (2015)</a>\n    </span>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/debugging\"\n            class=\"tag
+        tag_debugging\"\n            title=\"Debugging techniques\">debugging</a>\n
+        \         <a href=\"/t/education\"\n            class=\"tag tag_education\"\n
+        \           title=\"Education\">education</a>\n          <a href=\"/t/hardware\"\n
+        \           class=\"tag tag_hardware\"\n            title=\"Hardware\">hardware</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:righto.com\">righto.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/cbdev\"><img srcset=\"/avatars/cbdev-16.png
+        1x, /avatars/cbdev-32.png 2x\" class=\"avatar\" alt=\"cbdev avatar\" src=\"/avatars/cbdev-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/cbdev\"
+        class=\"\">cbdev</a>\n\n        <span title=\"2018-07-14 07:13:47 -0500\"
+        class=\"\">8 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fwww.righto.com%2F2015%2F10%2Frepairing-50-year-old-mainframe-inside.html\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/hjskkf/fixing_core_memory_vintage_ibm_1401\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/hjskkf/fixing_core_memory_vintage_ibm_1401\">0</a>\n</div>\n</li>\n<li
+        id=\"story_tfaxz8\" data-shortid=\"tfaxz8\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">18</div>\n  </div>\n  <div
+        class=\"details\">\n    <span class=\"link\">\n        <a href=\"https://www.troyhunt.com/heres-why-your-static-website-needs-https/\">Here&#39;s
+        Why Your Static Website Needs HTTPS</a>\n    </span>\n      <span class=\"tags\">\n
+        \         <a href=\"/t/video\"\n            class=\"tag tag_video tag_is_media\"\n
+        \           title=\"Link to a video\">video</a>\n          <a href=\"/t/security\"\n
+        \           class=\"tag tag_security\"\n            title=\"Netsec, appsec,
+        and infosec\">security</a>\n          <a href=\"/t/web\"\n            class=\"tag
+        tag_web\"\n            title=\"Web development and news\">web</a>\n      </span>\n
+        \       <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:troyhunt.com\">troyhunt.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/pushcx\"><img srcset=\"/avatars/pushcx-16.png
+        1x, /avatars/pushcx-32.png 2x\" class=\"avatar\" alt=\"pushcx avatar\" src=\"/avatars/pushcx-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/pushcx\"
+        class=\"\">pushcx</a>\n\n        <span title=\"2018-07-13 09:44:45 -0500\"
+        class=\"\">30 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fwww.troyhunt.com%2Fheres-why-your-static-website-needs-https%2F\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/tfaxz8/here_s_why_your_static_website_needs_https\">\n
+        \             6\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/tfaxz8/here_s_why_your_static_website_needs_https\">6</a>\n</div>\n</li>\n<li
+        id=\"story_kc2ibp\" data-shortid=\"kc2ibp\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">3</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://eli.thegreenplace.net/2018/basics-of-futexes/\">Basics
+        of Futexes</a>\n    </span>\n      <span class=\"tags\">\n          <a href=\"/t/linux\"\n
+        \           class=\"tag tag_linux\"\n            title=\"Linux\">linux</a>\n
+        \         <a href=\"/t/programming\"\n            class=\"tag tag_programming\"\n
+        \           title=\"Use when every tag or no specific tag applies\">programming</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:eli.thegreenplace.net\">eli.thegreenplace.net</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/calvin\"><img srcset=\"/avatars/calvin-16.png
+        1x, /avatars/calvin-32.png 2x\" class=\"avatar\" alt=\"calvin avatar\" src=\"/avatars/calvin-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/calvin\"
+        class=\"\">calvin</a>\n\n        <span title=\"2018-07-14 06:59:27 -0500\"
+        class=\"\">8 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Feli.thegreenplace.net%2F2018%2Fbasics-of-futexes%2F\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/kc2ibp/basics_futexes\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/kc2ibp/basics_futexes\">0</a>\n</div>\n</li>\n<li id=\"story_dcysdi\"
+        data-shortid=\"dcysdi\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div class=\"story_liner\">\n
+        \ <div class=\"voters\">\n      <a class=\"upvoter\" href=\"/login\"></a>\n
+        \   <div class=\"score\">1</div>\n  </div>\n  <div class=\"details\">\n    <span
+        class=\"link\">\n        <a href=\"http://www.carolemieux.com/perffuzz-issta2018.pdf\">PerfFuzz:
+        Automatically Generating Pathological Inputs</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"The tool is available at https://github.com/carolemieux/perffuzz\"
+        href=\"/s/dcysdi/perffuzz_automatically_generating\">&#x2636;</a>\n      <span
+        class=\"tags\">\n          <a href=\"/t/pdf\"\n            class=\"tag tag_pdf
+        tag_is_media\"\n            title=\"Link to a PDF document\">pdf</a>\n          <a
+        href=\"/t/testing\"\n            class=\"tag tag_testing\"\n            title=\"Software
+        testing\">testing</a>\n      </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:carolemieux.com\">carolemieux.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/ceh\"><img srcset=\"/avatars/ceh-16.png
+        1x, /avatars/ceh-32.png 2x\" class=\"avatar\" alt=\"ceh avatar\" src=\"/avatars/ceh-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/ceh\"
+        class=\"new_user\">ceh</a>\n\n        <span title=\"2018-07-14 13:14:03 -0500\"
+        class=\"\">2 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fwww.carolemieux.com%2Fperffuzz-issta2018.pdf\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/dcysdi/perffuzz_automatically_generating\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/dcysdi/perffuzz_automatically_generating\">0</a>\n</div>\n</li>\n<li
+        id=\"story_dq7vxg\" data-shortid=\"dq7vxg\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">2</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://www.usenix.org/system/files/conference/fast18/fast18-sun.pdf\">Spiffy:
+        Enabling File-System Aware Storage Applications</a>\n    </span>\n      <a
+        class=\"description_present\" title=\"Abstract: &quot;Many file system applications
+        such as defragmentation tools, file system checkers or data recovery tools,
+        operate at the storage layer. Today, developers of these storage applications
+        require detailed knowledge of the file system format, which takes a significant
+        amount of time to learn, often by trial and error, due to insufficient documentation
+        or specification of the format. Furthermore, these applications perform ad-hoc
+        processing of the file-system metadata, leading to bugs an...\" href=\"/s/dq7vxg/spiffy_enabling_file_system_aware\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/pdf\"\n            class=\"tag
+        tag_pdf tag_is_media\"\n            title=\"Link to a PDF document\">pdf</a>\n
+        \         <a href=\"/t/c\"\n            class=\"tag tag_c\"\n            title=\"C
+        programming\">c</a>\n          <a href=\"/t/compsci\"\n            class=\"tag
+        tag_compsci\"\n            title=\"Other computer science/programming\">compsci</a>\n
+        \         <a href=\"/t/programming\"\n            class=\"tag tag_programming\"\n
+        \           title=\"Use when every tag or no specific tag applies\">programming</a>\n
+        \     </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:usenix.org\">usenix.org</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/nickpsecurity\"><img srcset=\"/avatars/nickpsecurity-16.png
+        1x, /avatars/nickpsecurity-32.png 2x\" class=\"avatar\" alt=\"nickpsecurity
+        avatar\" src=\"/avatars/nickpsecurity-16.png\" width=\"16\" height=\"16\"
+        /></a>\n          via\n        <a href=\"/u/nickpsecurity\" class=\"\">nickpsecurity</a>\n\n
+        \       <span title=\"2018-07-14 09:18:33 -0500\" class=\"\">6 hours ago</span>\n\n
+        \         |\n          <a href=\"https://archive.is/https%3A%2F%2Fwww.usenix.org%2Fsystem%2Ffiles%2Fconference%2Ffast18%2Ffast18-sun.pdf\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/dq7vxg/spiffy_enabling_file_system_aware\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/dq7vxg/spiffy_enabling_file_system_aware\">0</a>\n</div>\n</li>\n<li
+        id=\"story_dgm4ut\" data-shortid=\"dgm4ut\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">4</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://blog.netbsd.org/tnf/entry/report_from_pkgsrccon_2018\">Report
+        from pkgsrcCon 2018</a>\n    </span>\n      <span class=\"tags\">\n          <a
+        href=\"/t/event\"\n            class=\"tag tag_event\"\n            title=\"Events,
+        conferences, and meetups\">event</a>\n          <a href=\"/t/netbsd\"\n            class=\"tag
+        tag_netbsd\"\n            title=\"NetBSD\">netbsd</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:blog.netbsd.org\">blog.netbsd.org</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/wiedi\"><img srcset=\"/avatars/wiedi-16.png
+        1x, /avatars/wiedi-32.png 2x\" class=\"avatar\" alt=\"wiedi avatar\" src=\"/avatars/wiedi-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/wiedi\"
+        class=\"\">wiedi</a>\n\n        <span title=\"2018-07-14 04:20:58 -0500\"
+        class=\"\">11 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fblog.netbsd.org%2Ftnf%2Fentry%2Freport_from_pkgsrccon_2018\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/dgm4ut/report_from_pkgsrccon_2018\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/dgm4ut/report_from_pkgsrccon_2018\">0</a>\n</div>\n</li>\n<li
+        id=\"story_o1ldoi\" data-shortid=\"o1ldoi\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">1</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"http://homepages.inf.ed.ac.uk/hleather/publications/2018_deepfuzzing_issta.pdf\">Compiler
+        Fuzzing through Deep Learning</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"See https://github.com/ChrisCummins/phd/tree/master/deeplearning/deepsmith
+        for a source code implementation.\" href=\"/s/o1ldoi/compiler_fuzzing_through_deep_learning\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/pdf\"\n            class=\"tag
+        tag_pdf tag_is_media\"\n            title=\"Link to a PDF document\">pdf</a>\n
+        \         <a href=\"/t/testing\"\n            class=\"tag tag_testing\"\n
+        \           title=\"Software testing\">testing</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:homepages.inf.ed.ac.uk\">homepages.inf.ed.ac.uk</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/ceh\"><img srcset=\"/avatars/ceh-16.png
+        1x, /avatars/ceh-32.png 2x\" class=\"avatar\" alt=\"ceh avatar\" src=\"/avatars/ceh-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/ceh\"
+        class=\"new_user\">ceh</a>\n\n        <span title=\"2018-07-14 13:03:01 -0500\"
+        class=\"\">2 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fhomepages.inf.ed.ac.uk%2Fhleather%2Fpublications%2F2018_deepfuzzing_issta.pdf\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/o1ldoi/compiler_fuzzing_through_deep_learning\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/o1ldoi/compiler_fuzzing_through_deep_learning\">0</a>\n</div>\n</li>\n<li
+        id=\"story_skiclo\" data-shortid=\"skiclo\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">11</div>\n  </div>\n  <div
+        class=\"details\">\n    <span class=\"link\">\n        <a href=\"http://words.steveklabnik.com/webassembly-is-more-than-just-the-web\">WebAssembly
+        is more than the web</a>\n    </span>\n      <a class=\"description_present\"
+        title=\"I had a really hard time with tagging this. I chose &quot;web&quot;
+        because it is in the title. Twice. Yet, this isn&#39;t about the web at all.\"
+        href=\"/s/skiclo/webassembly_is_more_than_web\">&#x2636;</a>\n      <span
+        class=\"tags\">\n          <a href=\"/t/web\"\n            class=\"tag tag_web\"\n
+        \           title=\"Web development and news\">web</a>\n      </span>\n        <a
+        class=\"domain\" href=\"/search?order=newest&amp;q=domain:words.steveklabnik.com\">words.steveklabnik.com</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/qznc\"><img srcset=\"/avatars/qznc-16.png
+        1x, /avatars/qznc-32.png 2x\" class=\"avatar\" alt=\"qznc avatar\" src=\"/avatars/qznc-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/qznc\"
+        class=\"\">qznc</a>\n\n        <span title=\"2018-07-13 16:15:41 -0500\" class=\"\">23
+        hours ago</span>\n\n          |\n          <a href=\"https://archive.is/http%3A%2F%2Fwords.steveklabnik.com%2Fwebassembly-is-more-than-just-the-web\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/skiclo/webassembly_is_more_than_web\">\n
+        \             5\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/skiclo/webassembly_is_more_than_web\">5</a>\n</div>\n</li>\n<li
+        id=\"story_ylwsl7\" data-shortid=\"ylwsl7\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">1</div>\n  </div>\n  <div class=\"details\">\n
+        \   <span class=\"link\">\n        <a href=\"https://arxiv.org/abs/1806.03283\">Badger:
+        Complexity Analysis with Fuzzing and Symbolic Execution</a>\n    </span>\n
+        \     <a class=\"description_present\" title=\"The tool is available at https://github.com/isstac/badger\"
+        href=\"/s/ylwsl7/badger_complexity_analysis_with_fuzzing\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/testing\"\n            class=\"tag
+        tag_testing\"\n            title=\"Software testing\">testing</a>\n      </span>\n
+        \       <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:arxiv.org\">arxiv.org</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/ceh\"><img srcset=\"/avatars/ceh-16.png
+        1x, /avatars/ceh-32.png 2x\" class=\"avatar\" alt=\"ceh avatar\" src=\"/avatars/ceh-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/ceh\"
+        class=\"new_user\">ceh</a>\n\n        <span title=\"2018-07-14 12:42:26 -0500\"
+        class=\"\">3 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Farxiv.org%2Fabs%2F1806.03283\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/ylwsl7/badger_complexity_analysis_with_fuzzing\">\n
+        \             no comments\n            </a>\n          </span>\n\n    </div>\n
+        \ </div>\n</div>\n<div class=\"mobile_comments zero\"\nstyle=\"display: none;\">\n
+        \ <a href=\"/s/ylwsl7/badger_complexity_analysis_with_fuzzing\">0</a>\n</div>\n</li>\n<li
+        id=\"story_hbpsyj\" data-shortid=\"hbpsyj\"\nclass=\"story \n\n\n\n\n\n\n\">\n<div
+        class=\"story_liner\">\n  <div class=\"voters\">\n      <a class=\"upvoter\"
+        href=\"/login\"></a>\n    <div class=\"score\">13</div>\n  </div>\n  <div
+        class=\"details\">\n    <span class=\"link\">\n        <a href=\"https://mitpress.mit.edu/books/engineering-safer-world\">Engineering
+        a Safer World</a>\n    </span>\n      <a class=\"description_present\" title=\"Book
+        is in &quot;Open Access&quot;; you can download it for free under &quot;Open
+        Access Title&quot; in the left column.\" href=\"/s/hbpsyj/engineering_safer_world\">&#x2636;</a>\n
+        \     <span class=\"tags\">\n          <a href=\"/t/pdf\"\n            class=\"tag
+        tag_pdf tag_is_media\"\n            title=\"Link to a PDF document\">pdf</a>\n
+        \         <a href=\"/t/book\"\n            class=\"tag tag_book\"\n            title=\"Books\">book</a>\n
+        \         <a href=\"/t/practices\"\n            class=\"tag tag_practices\"\n
+        \           title=\"Development and business practices\">practices</a>\n          <a
+        href=\"/t/testing\"\n            class=\"tag tag_testing\"\n            title=\"Software
+        testing\">testing</a>\n      </span>\n        <a class=\"domain\" href=\"/search?order=newest&amp;q=domain:mitpress.mit.edu\">mitpress.mit.edu</a>\n\n\n\n
+        \   <div class=\"byline\">\n        <a href=\"/u/hwayne\"><img srcset=\"/avatars/hwayne-16.png
+        1x, /avatars/hwayne-32.png 2x\" class=\"avatar\" alt=\"hwayne avatar\" src=\"/avatars/hwayne-16.png\"
+        width=\"16\" height=\"16\" /></a>\n          via\n        <a href=\"/u/hwayne\"
+        class=\"\">hwayne</a>\n\n        <span title=\"2018-07-13 13:29:06 -0500\"
+        class=\"\">26 hours ago</span>\n\n          |\n          <a href=\"https://archive.is/https%3A%2F%2Fmitpress.mit.edu%2Fbooks%2Fengineering-safer-world\"
+        rel=\"nofollow\"\n            target=\"_blank\">cached</a>\n          <span
+        class=\"comments_label\">\n            |\n            <a href=\"/s/hbpsyj/engineering_safer_world\">\n
+        \             2\n                comments\n            </a>\n          </span>\n\n
+        \   </div>\n  </div>\n</div>\n<div class=\"mobile_comments \"\nstyle=\"display:
+        none;\">\n  <a href=\"/s/hbpsyj/engineering_safer_world\">2</a>\n</div>\n</li>\n\n</ol>\n\n<div
+        class=\"morelink\">\n\n    <a href=\"/page/2\">Page 2 &gt;&gt;</a>\n</div>\n\n\n
+        \     <div id=\"footer\">\n          <a href=\"/moderations\">Moderation Log</a>\n
+        \ <a href=\"/hats\">Hats</a>\n<a href=\"https://github.com/lobsters/lobsters/wiki\">Wiki</a>\n<a
+        href=\"/privacy\">Privacy</a>\n<a href=\"/about\">About</a>\n\n      </div>\n
+        \     <div class=\"clear\"></div>\n    </div>\n  </div>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Sat, 14 Jul 2018 20:48:42 GMT
+recorded_with: VCR 4.0.0

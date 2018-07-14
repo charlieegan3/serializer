@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:url) { |n| "http://www.serializer.charlieegan3.com/#{n}" }
   sequence(:redirect_url) { |n| "http://www.cool_linkz.com/#{n}" }
   sequence(:title) { |n| "Article #{n}" }

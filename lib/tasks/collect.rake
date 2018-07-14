@@ -24,7 +24,6 @@ task :collect_active do
   items += Reddit.items('https://www.reddit.com/r/dataisbeautiful/', 5)
   items += Reddit.items('https://www.reddit.com/r/Technology', 1)
   items += Reddit.items('https://www.reddit.com/r/science/', 1)
-  items += ProductHunt.items
   items += Lobsters.items
   save_items(items.flatten)
 end
@@ -33,6 +32,5 @@ task :collect_feeds do
   item_count = Item.count
   items = ArsTechnica.items
   items += MacRumors.items
-  items += Techcrunch.items
   save_items(items.flatten)
 end

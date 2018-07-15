@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: serializer
+  namespace: serializer
   labels:
     app: serializer
   annotations:

@@ -4,6 +4,7 @@ metadata:
   labels:
     app: serializer
   name: serializer
+  namespace: serializer
 spec:
   ports:
   - port: 80

@@ -1,11 +1,25 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: serializer-budget
+  labels:
+    app: serializer
+  namespace: serializer
+spec:
+  selector:
+    matchLabels:
+      app: serializer
+  maxUnavailable: 1
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: serializer
   labels:
     app: serializer
+  namespace: serializer
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: serializer
@@ -40,3 +54,8 @@ spec:
             name: serializer-config
         ports:
         - containerPort: 3000
+        resources:
+          limits:
+            cpu: "100m"
+          requests:
+            cpu: "100m"

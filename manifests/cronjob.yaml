@@ -1,8 +1,10 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
+  namespace: serializer
   name: serializer-items-active
 spec:
+  successfulJobsHistoryLimit: 1
   schedule: "*/10 * * * *"
   jobTemplate:
     spec:
@@ -20,8 +22,10 @@ spec:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
+  namespace: serializer
   name: serializer-items-feed
 spec:
+  successfulJobsHistoryLimit: 1
   schedule: "0 * * * *"
   jobTemplate:
     spec:
@@ -39,8 +43,10 @@ spec:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
+  namespace: serializer
   name: serializer-clean-save-graph
 spec:
+  successfulJobsHistoryLimit: 1
   schedule: "15 * * * *"
   jobTemplate:
     spec:
@@ -58,8 +64,10 @@ spec:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
+  namespace: serializer
   name: serializer-clean-old-data
 spec:
+  successfulJobsHistoryLimit: 1
   schedule: "45 * * * *"
   jobTemplate:
     spec:

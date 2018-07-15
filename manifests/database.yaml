@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: serializer
   # This service is meant to be used by clients of the database. It exposes a ClusterIP that will
   # automatically load balance connections to the different database pods.
   name: cockroachdb-public
@@ -23,6 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: serializer
   # This service only exists to create DNS entries for each pod in the stateful
   # set such that they can resolve each other's IP addresses. It does not
   # create a load-balanced ClusterIP and should not be used directly by clients
@@ -59,6 +61,7 @@ spec:
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
+  namespace: serializer
   name: cockroachdb-budget
   labels:
     app: cockroachdb
@@ -71,10 +74,11 @@ spec:
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
+  namespace: serializer
   name: cockroachdb
 spec:
   serviceName: "cockroachdb"
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -96,6 +100,11 @@ spec:
       - name: cockroachdb
         image: cockroachdb/cockroach:v2.0.3
         imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "100m"
+          requests:
+            cpu: "100m"
         ports:
         - containerPort: 26257
           name: grpc

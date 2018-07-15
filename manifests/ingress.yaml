@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: serializer
+  labels:
+    app: serializer
+  annotations:
+    certmanager.k8s.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+  - hosts:
+    - serializer.cluster.charlieegan3.com
+    secretName: serializer-tls
+  rules:
+  - host: serializer.cluster.charlieegan3.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: serializer
+          servicePort: 80

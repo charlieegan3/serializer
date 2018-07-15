@@ -1,0 +1,75 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: serializer-items-active
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: serializer-items-active
+            image: charlieegan3/serializer:32fe8fbe522b5f9341ca34bb19e83993
+            command: ["bundle", "exec", "rake", "collect_active"]
+            envFrom:
+            - configMapRef:
+                name: serializer-config
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: serializer-items-feed
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: serializer-items-active
+            image: charlieegan3/serializer:32fe8fbe522b5f9341ca34bb19e83993
+            command: ["bundle", "exec", "rake", "collect_feeds"]
+            envFrom:
+            - configMapRef:
+                name: serializer-config
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: serializer-clean-save-graph
+spec:
+  schedule: "15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: serializer-items-active
+            image: charlieegan3/serializer:32fe8fbe522b5f9341ca34bb19e83993
+            command: ["bundle", "exec", "rake", "save_graph"]
+            envFrom:
+            - configMapRef:
+                name: serializer-config
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: serializer-clean-old-data
+spec:
+  schedule: "45 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: serializer-items-active
+            image: charlieegan3/serializer:32fe8fbe522b5f9341ca34bb19e83993
+            command: ["bundle", "exec", "rake", "clean_old_data"]
+            envFrom:
+            - configMapRef:
+                name: serializer-config

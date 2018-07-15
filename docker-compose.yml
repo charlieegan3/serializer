@@ -1,7 +1,6 @@
 web:
   container_name: serializer_web
   build: ./
-  dockerfile: Dockerfile-dev
   ports:
    - "3000:3000"
   links:

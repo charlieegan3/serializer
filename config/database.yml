@@ -1,12 +1,8 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  timeout: 5000
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] %>
-  port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] %>
+  adapter: cockroachdb
+  port: 26257
+  host: cockroachdb
+  user: root
 
 development:
   <<: *default

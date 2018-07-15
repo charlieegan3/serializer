@@ -33,6 +33,9 @@ GEM
       activemodel (= 5.2.0)
       activesupport (= 5.2.0)
       arel (>= 9.0)
+    activerecord-cockroachdb-adapter (0.2.3)
+      activerecord (~> 5.2)
+      pg (>= 0.20, < 0.22)
     activestorage (5.2.0)
       actionpack (= 5.2.0)
       activerecord (= 5.2.0)
@@ -149,7 +152,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     open_uri_redirections (0.2.1)
-    pg (1.0.0)
+    pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -286,6 +289,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-cockroachdb-adapter
   airbrake
   capybara
   cloudinary
@@ -298,7 +302,6 @@ DEPENDENCIES
   jaccard
   nokogiri (~> 1.8.1)
   open_uri_redirections
-  pg
   pry
   rails
   rails-controller-testing

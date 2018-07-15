@@ -5,20 +5,16 @@ web:
   ports:
    - "3000:3000"
   links:
-    - db:postgres
+    - db:cockroachdb
   volumes:
     - ".:/app"
-  environment:
-    POSTGRES_USER: serializer
-    POSTGRES_PASSWORD: serializer
 
 db:
-  container_name: serializer_postgres
-  image: postgres:9.4.5
+  container_name: serializer_database
+  image: cockroachdb/cockroach:v2.0.3
+  command: "start --insecure"
   ports:
-    - "5432:5432"
+    - "26257:26257"
+    - "8080:8080"
   volumes:
-    - serializer_postgres:/var/lib/postgresql/data
-  environment:
-    POSTGRES_USER: serializer
-    POSTGRES_PASSWORD: serializer
+    - "serializer_cockroach:/cockroach/cockroach-data"

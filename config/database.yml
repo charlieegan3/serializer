@@ -1,8 +1,10 @@
 default: &default
-  adapter: cockroachdb
-  port: 26257
-  host: cockroachdb
-  user: root
+  adapter: <%= ENV.fetch("DATABASE_ADAPTER", "postgresql") %>
+  port: <%= ENV.fetch("DATABASE_PORT", "5432") %>
+  host: <%= ENV.fetch("DATABASE_HOST", "localhost") %>
+  user: <%= ENV.fetch("DATABASE_USER", "root") %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD", "password") %>
+  encoding: <%= ENV.fetch("DATABASE_ENCODING", "unicode") %>
 
 development:
   <<: *default

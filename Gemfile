@@ -7,6 +7,7 @@ gem 'rails'
 gem 'therubyracer'
 
 gem 'activerecord-cockroachdb-adapter'
+gem 'pg'
 
 # collection
 gem 'rufus-scheduler'

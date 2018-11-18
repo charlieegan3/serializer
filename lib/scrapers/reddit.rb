@@ -41,7 +41,9 @@ module Reddit
     end
 
     def reject_item?(item)
-      !item[:url].match(/http(s|):/) || Item.find_by_url(item[:url]).present?
+      !item[:url].match(/http(s|):/) || 
+      item[:url].include?('alb.reddit.com')|| 
+      Item.find_by_url(item[:url]).present?
     end
   end
 end

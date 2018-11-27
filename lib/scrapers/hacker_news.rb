@@ -26,6 +26,7 @@ module HackerNews
     def row_item(link, details, index)
       item = { title: link_title(link), url: link_url(link) }
       return false if reject_item?(item)
+      puts item[:url]
       item.merge!(source: 'hacker_news',
                   topped: (index == 0) ? true : false,
                   comment_url: comment_url(details),

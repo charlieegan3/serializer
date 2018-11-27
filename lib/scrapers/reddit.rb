@@ -24,7 +24,7 @@ module Reddit
     def row_item(row, index)
       item = { url: row["data"]["url"] }
       return false if reject_item?(item)
-      puts row["data"]["title"]
+      puts row["data"]["url"]
       item.merge!(title: row["data"]["title"],
                   comment_url: "https://reddit.com" + row["data"]["permalink"],
                   source: 'reddit',
@@ -38,6 +38,7 @@ module Reddit
       JSON.parse(open(page + ".json", 'User-Agent' => 'Chrome').read)
         .dig("data", "children")
         .reject { |r| r["data"]["title"].match(/stickied post|PLEASE READ/) }
+        .reject { |r| r["data"]["stickied"] }
         .take(count)
     end
 

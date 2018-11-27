@@ -3,7 +3,7 @@ module Lobsters
     begin
       LobstersScraper.new.items
     rescue => e
-      Airbrake.notify(e)
+      puts e.message
       return []
     end
   end

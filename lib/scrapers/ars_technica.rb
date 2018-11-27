@@ -3,7 +3,7 @@ module ArsTechnica
     begin
       ArsTechnicaScraper.new.items
     rescue => e
-      Airbrake.notify(e)
+      puts e.message
       return []
     end
   end

@@ -1,5 +1,5 @@
 module Reddit
-  @default_page = 'https://www.reddit.com/r/programming/'
+  @default_page = 'https://www.reddit.com/r/programming'
   @default_count = 10
 
   def self.items(page = @default_page, count = @default_count)
@@ -22,10 +22,11 @@ module Reddit
     end
 
     def row_item(row, index)
-      item = { url: row.at_css('a.title')['href'] }
+      item = { url: row["data"]["url"] }
       return false if reject_item?(item)
-      item.merge!(title: row.at_css('a.title').text,
-                  comment_url: row.at_css('a.comments')['href'],
+      puts row["data"]["title"]
+      item.merge!(title: row["data"]["title"],
+                  comment_url: "https://reddit.com" + row["data"]["permalink"],
                   source: 'reddit',
                   topped: (index == 0) ? true : false,
                   word_count: word_count(item[:url]))
@@ -34,10 +35,10 @@ module Reddit
     private
 
     def rows(page, count)
-      Nokogiri::HTML(open(page, 'User-Agent' => 'Chrome'), nil, 'UTF-8')
-        .css('.entry')
+      JSON.parse(open(page + ".json", 'User-Agent' => 'Chrome').read)
+        .dig("data", "children")
+        .reject { |r| r["data"]["title"].match(/stickied post|PLEASE READ/) }
         .take(count)
-        .reject { |r| r.text.match(/stickied post|PLEASE READ/) }
     end
 
     def reject_item?(item)

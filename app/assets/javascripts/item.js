@@ -8,7 +8,7 @@ function itemIcon(item) {
     createElementWithAttributes('A', { 'href': iconUrl }, [
       createElementWithAttributes('IMG', {
         'class': iconClass, 'width': 20, 'height': 20,
-        'src': 'https://res.cloudinary.com/charlieegan3/image/upload/' + item.source
+        'src': "/images/" + item.source + '.jpg'
       }, [])
     ])
   ]);

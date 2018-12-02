@@ -7,7 +7,7 @@ RUN gem install bundler
 RUN bundle install
 
 COPY . /app
-RUN rm tmp || true
+RUN rm -rf tmp || true
 
 RUN DATABASE_URL=none bundle exec rails assets:precompile
 

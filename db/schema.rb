@@ -10,37 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_27_220843) do
+ActiveRecord::Schema.define(version: 2018_12_02_113734) do
 
-  create_table "cloudinary_images", id: :bigint, default: -> { "unique_rowid()" }, force: :cascade do |t|
-    t.text "identifier"
-    t.text "url"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "items", id: :serial, force: :cascade do |t|
+    t.string "url"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "items", id: :bigint, default: -> { "unique_rowid()" }, force: :cascade do |t|
-    t.text "url"
-    t.text "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "source"
+    t.string "source"
     t.boolean "topped"
-    t.text "comment_url"
-    t.text "redirect_url"
-    t.bigint "tweet_count"
-    t.bigint "word_count"
+    t.string "comment_url"
+    t.string "redirect_url"
+    t.integer "tweet_count"
+    t.integer "word_count"
     t.boolean "hn_status"
     t.index ["url"], name: "index_items_on_url", unique: true
   end
 
-  create_table "sessions", id: :bigint, default: -> { "unique_rowid()" }, force: :cascade do |t|
-    t.text "identifier"
-    t.text "sources"
+  create_table "sessions", id: :serial, force: :cascade do |t|
+    t.string "identifier"
+    t.string "sources"
     t.datetime "completed_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "read_count"
+    t.integer "read_count"
   end
 
 end

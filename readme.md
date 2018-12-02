@@ -30,15 +30,11 @@ anonymous feedback form [here](https://charlie43.typeform.com/to/tZWtCn).
 #### Notes
 * `rake collect_active` & `rake collect_feeds` can be used to populate items,
   collection doesn't run automatically in development.
-* Images and icons are hosted on [Cloudinary](https://cloudinary.com/users/register/free).
 * If the app runs into issues it sends notifications via Airbrake.
 
 #### ENV Variables
 To have everything up and running you'll need most of these set.
 
-* `CLOUD_NAME`
-* `CLOUDINARY_SECRET`
-* `CLOUDINARY_KEY`
 * `AIRBRAKE_ID`
 * `AIRBRAKE_PROJECT`
 * `SECRET_KEY_BASE`

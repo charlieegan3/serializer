@@ -3,7 +3,6 @@ source "https://rubygems.org"
 ruby "2.4.1"
 
 gem "airbrake"
-gem "cloudinary"
 gem "feedjira"
 gem "gruff"
 gem "httpclient"

@@ -10,7 +10,7 @@ def save_items(items)
       begin
         Item.create!(item)
       rescue => e
-        Airbrake.notify(e) unless e.message == 'ItemTooSimilar'
+        puts e unless e.message == 'ItemTooSimilar'
       end
     end
   end

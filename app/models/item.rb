@@ -12,6 +12,7 @@ class Item < ActiveRecord::Base
   before_create :prevent_duplicates
 
   def truncate_title
+    self.title = self.title.split(" ").map { |w| w.length > 30 ? w[0..25] + "..." : w }.join(" ")
     return unless self.title && self.title.length > 140
     self.title = self.title[0..140] + '...'
   end

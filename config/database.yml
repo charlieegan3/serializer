@@ -12,3 +12,4 @@ test:
 
 production:
   url: <%= ENV.fetch("DATABASE_URL", "") %>
+  pool: <%= ENV["DB_POOL"] || 2 %>

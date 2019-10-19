@@ -17,6 +17,7 @@ gem "sass-rails"
 gem "slim"
 gem "therubyracer"
 gem "uglifier"
+gem "dotenv-rails"
 
 group :production do
   gem "rails_12factor"

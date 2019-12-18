@@ -147,7 +147,7 @@ GEM
     public_suffix (3.0.2)
     quantile (0.2.1)
     raabro (1.1.6)
-    rack (2.0.5)
+    rack (2.0.8)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)

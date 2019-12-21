@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
-Dotenv.load(".env", "/etc/rails/env")
+Dotenv.load(".env", "/etc/rails/env", "/vault/secrets/env")
 
 module Serializer
   class Application < Rails::Application

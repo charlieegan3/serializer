@@ -1,0 +1,39 @@
+---
+kind: pipeline
+name: amd64
+
+platform:
+  arch: amd64
+
+steps:
+- name: set-tags
+  image: busybox
+  commands:
+  - echo -n "$DRONE_COMMIT" > .tags
+- name: deploy
+  image: plugins/docker
+  settings:
+    repo: charlieegan3/serializer
+    username: charlieegan3
+    password:
+      from_secret: DOCKER_PASSWORD
+
+---
+kind: pipeline
+name: arm
+
+platform:
+  arch: arm
+
+steps:
+- name: set-tags
+  image: busybox
+  commands:
+  - echo -n "$DRONE_COMMIT" > .tags
+- name: deploy
+  image: plugins/docker
+  settings:
+    repo: charlieegan3/serializer
+    username: charlieegan3
+    password:
+      from_secret: DOCKER_PASSWORD

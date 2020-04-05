@@ -288,6 +288,7 @@ DEPENDENCIES
   rails
   rails-controller-testing
   rails_12factor
+  rake (= 12.3.1)
   random_username
   rspec
   rspec-rails
@@ -305,4 +306,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.2
+   1.17.3

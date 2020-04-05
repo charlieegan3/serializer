@@ -2,8 +2,9 @@ FROM ruby:2.4.1
 
 WORKDIR /app
 
+RUN gem install bundler -v 1.17.3
+RUN gem install rake -v 12.3.1
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler
 RUN bundle install
 
 COPY . /app

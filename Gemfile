@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.4.1"
 
-gem 'rake', '12.3.1'
+gem 'rake', '12.3.3'
 
 gem "feedjira"
 gem "gruff"

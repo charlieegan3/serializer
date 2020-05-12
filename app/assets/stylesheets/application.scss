@@ -27,3 +27,16 @@ table {
 .hidden {
   display: none;
 }
+
+a.coffee {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+
+  img {
+    max-width: 150px;
+    width: 30vw;
+    min-width: 90px;
+  }
+}

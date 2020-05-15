@@ -26,7 +26,7 @@ module Lobsters
     private
 
     def stories
-      Nokogiri::HTML(open(@url), nil, 'UTF-8')
+      Nokogiri::HTML(URI.open(@url), nil, 'UTF-8')
         .css('.story')
     end
 

@@ -4,7 +4,7 @@ module Utilities
   def final_url(redirect_url)
     begin
       return Timeout.timeout(2) {
-        open(redirect_url, allow_redirections: :all) do |resp|
+        URI.open(redirect_url, allow_redirections: :all) do |resp|
           return resp.base_uri.to_s
         end
       }
@@ -17,7 +17,7 @@ module Utilities
     begin
       return 0 if url.match(/\.(jpg|gif|png|pdf)$/)
       return Timeout.timeout(2) {
-        Nokogiri::HTML(open(url, allow_redirections: :all, read_timeout: 2), nil, 'UTF-8')
+        Nokogiri::HTML(URI.open(url, allow_redirections: :all, read_timeout: 2), nil, 'UTF-8')
           .css('p')
           .text
           .gsub(/\s+/, ' ')

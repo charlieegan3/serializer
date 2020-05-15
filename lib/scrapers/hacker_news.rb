@@ -34,7 +34,7 @@ module HackerNews
     end
 
     def rows(url, count)
-      Nokogiri::HTML(open(url).read, nil, 'UTF-8')
+      Nokogiri::HTML(URI.open(url).read, nil, 'UTF-8')
         .css('table')[2].css('tr')
         .reject { |tr| non_item_row?(tr) }
         .in_groups_of(2)

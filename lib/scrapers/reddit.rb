@@ -35,7 +35,7 @@ module Reddit
     private
 
     def rows(page, count)
-      JSON.parse(open(page + ".json", 'User-Agent' => 'Chrome').read)
+      JSON.parse(URI.open(page + ".json", 'User-Agent' => 'Chrome').read)
         .dig("data", "children")
         .reject { |r| r["data"]["title"].match(/stickied post|PLEASE READ/) }
         .reject { |r| r["data"]["stickied"] }

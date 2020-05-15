@@ -1,14 +1,13 @@
 source "https://rubygems.org"
 
-ruby "2.4.1"
+ruby "2.7.1"
 
-gem 'rake', '12.3.3'
-
+gem "dotenv-rails"
 gem "feedjira"
 gem "gruff"
 gem "httpclient"
 gem "jaccard"
-gem "nokogiri", "~> 1.10.8"
+gem "nokogiri"
 gem "open_uri_redirections"
 gem "pg"
 gem "prometheus-client"
@@ -19,7 +18,8 @@ gem "sass-rails"
 gem "slim"
 gem "therubyracer"
 gem "uglifier"
-gem "dotenv-rails"
+gem 'rake'
+gem 'bootsnap'
 
 group :production do
   gem "rails_12factor"

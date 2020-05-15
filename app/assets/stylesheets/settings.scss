@@ -20,7 +20,7 @@
     text-decoration: none;
   }
 
-  .actions {
+  .mtop {
     margin-top: 12px;
   }
 
@@ -44,6 +44,13 @@
       background-color: CornflowerBlue;
       &:hover {
         box-shadow: 0px 0px 5px CornflowerBlue;
+      }
+    }
+
+    &.green {
+      background-color: YellowGreen;
+      &:hover {
+        box-shadow: 0px 0px 5px YellowGreen;
       }
     }
 

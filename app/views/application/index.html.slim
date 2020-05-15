@@ -1,23 +1,23 @@
-#settings-panel.hidden
-  p Selected sources (click to toggle)
-  -SOURCES.each do |s|
-    =link_to('/#/', class: 'source-toggle', title: 'Toggle Source',  data: s) do
-      =image_tag(s + ".jpg", height: '20', width: '20', class: 'icon')
-  p Sync session with unique link
-  p
-    =link_to 'serializer.ioi/' + @session.identifier, root_path + @session.identifier, class: 'session-button default'
-  p.actions
-    =link_to 'Open Links in New Tab', '/#/', class: 'session-button default', id: 'set-link-opening'
-    =link_to 'Clear Session', '/#/', class: 'session-button clear', id: 'clear-session'
-  p
-    =link_to 'charlieegan3.com', 'https://charlieegan3.com'
-
 .menu
   div#menu-container
     span.logo
       =link_to 'serializer', root_path
     span#settings-toggle
       =link_to 'menu', '#/'
+  #settings-panel.hidden
+    p Selected sources (click to toggle)
+    -SOURCES.each do |s|
+      =link_to('/#/', class: 'source-toggle', title: 'Toggle Source',  data: s) do
+        =image_tag(s + ".jpg", height: '20', width: '20', class: 'icon')
+    p Sync session with unique link
+    p
+      =link_to 'serializer.io/' + @session.identifier, root_path + @session.identifier, class: 'session-button default'
+    p.mtop
+      =link_to 'Open Links in New Tab', '/#/', class: 'session-button green', id: 'set-link-opening'
+      =link_to 'Clear Session', '/#/', class: 'session-button clear', id: 'clear-session'
+    p.mtop
+      | Made by
+      =link_to 'charlieegan3.com', 'https://charlieegan3.com', target: '_blank'
 
 table#item-table
   tbody

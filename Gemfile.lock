@@ -159,7 +159,7 @@ GEM
     public_suffix (3.0.2)
     quantile (0.2.1)
     raabro (1.1.6)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3)

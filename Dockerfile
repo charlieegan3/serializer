@@ -10,13 +10,14 @@ WORKDIR /app
 ADD Gemfile* ./
 RUN bundle install
 
-ENV RAILS_ENV production
-ENV SECRET_KEY_BASE 1
-ENV DATABASE_URL postgres://postgres:postgres@db:5432
-
-RUN rails assets:precompile
-
 COPY . .
+
+RUN RAILS_ENV=production \
+     SECRET_KEY_BASE=1 \
+     DATABASE_URL="postgres://db" \
+     bundle exec rails assets:precompile
+
+ENV RAILS_ENV=production
 
 ENTRYPOINT ["bundle", "exec"]
 

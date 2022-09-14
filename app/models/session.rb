@@ -10,7 +10,7 @@ class Session < ActiveRecord::Base
   end
 
   def log(time)
-    update_attributes(
+    update(
       completed_to: (Time.now < time) ? Time.now : time,
       read_count: (read_count) ? read_count + 1 : 1
     )

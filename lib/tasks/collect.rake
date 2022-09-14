@@ -5,7 +5,7 @@ def save_items(items)
   items.each do |item|
     existing = Item.find_by_url(item[:url])
     if existing
-      existing.update_attributes(item) if item[:topped] == true
+      existing.update(item) if item[:topped] == true
     else
       begin
         Item.create!(item)

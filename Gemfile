@@ -15,10 +15,9 @@ gem "random_username"
 gem "rufus-scheduler"
 gem "sass-rails"
 gem "slim"
-gem "therubyracer"
 gem "uglifier"
-gem 'rake'
-gem 'bootsnap'
+gem "rake"
+gem "bootsnap"
 
 group :production do
   gem "rails_12factor"

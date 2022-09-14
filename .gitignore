@@ -23,4 +23,4 @@ coverage
 # local config and secrets
 local_env.sh
 
-public/images/graph.png
+public/assets

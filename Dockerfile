@@ -1,4 +1,4 @@
-FROM ruby:2.7.1
+FROM ruby:3.4.7
 
 RUN apt-get update && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
 
@@ -7,10 +7,12 @@ RUN bundle config set without 'development test'
 
 WORKDIR /app
 
-ADD Gemfile* ./
+ADD Gemfile* .ruby-version ./
 RUN bundle install
 
 COPY . .
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 RUN RAILS_ENV=production \
      SECRET_KEY_BASE=1 \
@@ -19,6 +21,6 @@ RUN RAILS_ENV=production \
 
 ENV RAILS_ENV=production
 
-ENTRYPOINT ["bundle", "exec"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
-CMD ["rails", "server"]
+CMD ["bundle", "exec", "rails", "server"]

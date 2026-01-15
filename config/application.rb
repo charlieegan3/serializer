@@ -24,9 +24,10 @@ module Serializer
 
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
-      YAML.load(File.open(env_file)).each do |key, value|
+
+      YAML.load_file(env_file).each do |key, value|
         ENV[key.to_s] = value
-      end if File.exists?(env_file)
+      end if File.exist?(env_file)
     end
 
     config.autoload_paths += %W(#{config.root}/lib)
@@ -41,7 +42,7 @@ module Serializer
       g.helper false
       g.template_engine :slim
       g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_girl
+      g.fixture_replacement :factory_bot
       g.model_specs true
       g.controller_specs true
       g.view_specs true

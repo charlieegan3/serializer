@@ -1,12 +1,13 @@
 class Session < ActiveRecord::Base
-  serialize :sources, Array
-  serialize :saved_items, Array
+  serialize :sources
+  serialize :saved_items
   validates_uniqueness_of :identifier
   validates_presence_of :identifier
   before_save :default_values
 
   def default_values
     self.completed_to ||= Time.at(0)
+    self.sources ||= []
   end
 
   def log(time)

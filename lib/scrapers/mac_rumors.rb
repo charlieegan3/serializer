@@ -11,7 +11,7 @@ module MacRumors
   class MacRumorsScraper
     include Utilities
     def initialize
-      @url = 'http://feeds.macrumors.com/MacRumors-Front'
+      @url = 'https://feeds.macrumors.com/MacRumors-Front'
     end
 
     def items
@@ -28,7 +28,7 @@ module MacRumors
     private
 
     def entries
-      Feedjira::Feed.fetch_and_parse(@url).entries
+      Feedjira.parse(URI.open(@url).read).entries
     end
 
     def reject_item?(item)

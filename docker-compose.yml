@@ -1,0 +1,45 @@
+services:
+  web:
+    build: .
+    image: serializer
+    environment:
+      RAILS_ENV: production
+      # generate with e.g. `rails secret`
+      SECRET_KEY_BASE: 17413db147670825bf1f0f01f70c823aa40d58557f3d65ad3f069e05eb115bcabf623819e0794a6f5a79835c3692803787412e3572c90b880f314340f186e8ba
+      DATABASE_ADAPTER: postgresql
+      DATABASE_ENCODING: unicode
+      # ActiveRecord dev database name is app_development from database.yml
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # DATABASE_URL not used in development (database.yml uses name); kept for consistency
+      DATABASE_URL: postgres://postgres:postgres@db:5432/serializer
+      RAILS_LOG_TO_STDOUT: 1
+      RAILS_SERVE_STATIC_FILES: 1
+      ENABLE_SCHEDULER: 1
+      COLLECT_INTERVAL: 1m
+      # SKIP_DB_MIGRATE: 1
+    command: bundle exec rails server -b 0.0.0.0 -p 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 2s
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: serializer
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

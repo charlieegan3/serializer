@@ -31,7 +31,7 @@ module ArsTechnica
     private
 
     def entries
-      Feedjira::Feed.fetch_and_parse(@url).entries
+      Feedjira.parse(URI.open(@url).read).entries
     end
 
     def redirect_url(entry)
